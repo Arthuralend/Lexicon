@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Lexicon MSI (WiX Toolset v5: `dotnet tool install -g wix`, plus its UI and Util extensions:
+  `wix extension add -g WixToolset.UI.wixext/5.0.2` and the same for WixToolset.Util.wixext).
+  Built by package.ps1:
+
+    wix build lexicon.wxs -arch x64 -ext WixToolset.UI.wixext -ext WixToolset.Util.wixext
+      -d Version=1.2.3 -d BinDir=... -d IconPath=... -d LicenseRtf=... -o out.msi
+
+  Per-machine install into Program Files with a Start Menu shortcut. The installer shows the
+  standard WiX dialogs: welcome + license, progress, and a finish page.
+
+  UpgradeCode and the component GUIDs below belong to Lexicon alone (new ones, not WordCraft's). Never copy them from (or
+  into) another app: Windows Installer treats every package sharing an UpgradeCode as one
+  product, so a shared code makes one app's installer refuse to install ("a newer version is
+  already installed") or silently uninstall the other.
+-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  <Package
+      Name="Lexicon"
+      Manufacturer="Lexicon contributors"
+      Version="$(var.Version)"
+      UpgradeCode="3E52BC43-4AA9-4BB8-BC17-D11E09949056"
+      Scope="perMachine"
+      Compressed="yes"
+      Language="1033">
+    <SummaryInformation Description="Lexicon word processor" Manufacturer="Lexicon contributors" />
+    <!-- Same-version upgrades let successive pre-releases of one X.Y.Z replace each other
+         (MSI versions are numeric, so 1.2.3-rc.1 and 1.2.3-rc.2 are both 1.2.3). -->
+    <MajorUpgrade AllowSameVersionUpgrades="yes"
+        DowngradeErrorMessage="A newer version of Lexicon is already installed." />
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+
+    <Icon Id="LexiconIcon.ico" SourceFile="$(var.IconPath)" />
+    <Property Id="ARPPRODUCTICON" Value="LexiconIcon.ico" />
+    <Property Id="ARPURLINFOABOUT" Value="https://github.com/Arthuralend/Lexicon" />
+    <Property Id="ARPURLUPDATEINFO" Value="https://github.com/Arthuralend/Lexicon" />
+    <Property Id="ARPHELPLINK" Value="https://github.com/Arthuralend/Lexicon/issues" />
+
+    <!-- Installer UI (#198): WixUI_Minimal is welcome + license, progress, then a finish page so
+         people can see the install worked. Its dialogs and bitmaps are WiX's own
+         (WixToolset.UI.wixext); package.ps1 builds the license RTF from LICENSE-MIT and
+         LICENSE-APACHE. The finish page offers to launch Lexicon (ticked by default) through
+         WixShellExec (WixToolset.Util.wixext); silent installs (/qn) never show it. -->
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.LicenseRtf)" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Lexicon" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
+    <Property Id="WixShellExecTarget" Value="[#LexiconExe]" />
+    <CustomAction Id="LaunchLexicon" BinaryRef="Wix4UtilCA_$(sys.BUILDARCHSHORT)" DllEntry="WixShellExec"
+        Impersonate="yes" Return="ignore" />
+    <UI>
+      <ui:WixUI Id="WixUI_Minimal" />
+      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchLexicon"
+          Condition="WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 AND NOT Installed" />
+    </UI>
+
+    <StandardDirectory Id="ProgramFiles6432Folder">
+      <Directory Id="INSTALLFOLDER" Name="Lexicon" />
+    </StandardDirectory>
+    <StandardDirectory Id="ProgramMenuFolder" />
+
+    <Feature Id="Main" Title="Lexicon" Level="1">
+      <ComponentGroupRef Id="LexiconFiles" />
+    </Feature>
+  </Package>
+
+  <Fragment>
+    <ComponentGroup Id="LexiconFiles" Directory="INSTALLFOLDER">
+      <Component Id="LexiconApp" Guid="1529CDF3-420E-476C-BE94-8D39629D0439">
+        <File Id="LexiconExe" Source="$(var.BinDir)\Lexicon.exe" KeyPath="yes">
+          <Shortcut Id="StartMenuShortcut" Directory="ProgramMenuFolder" Name="Lexicon"
+              Description="Lexicon word processor" WorkingDirectory="INSTALLFOLDER" Advertise="yes"
+              Icon="LexiconIcon.ico" IconIndex="0" />
+        </File>
+
+        <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\Lexicon.exe" Value="[#LexiconExe]" Type="string" />
+      </Component>
+
+      <!-- File associations (#295). Each document type gets a Lexicon ProgId (name, icon, open
+           command) and is listed under the extension's OpenWithProgids, so Lexicon shows in
+           Explorer's "Open with". The Word, RTF and ODT types are also Lexicon's Capabilities
+           (RegisteredApplications), so it appears in Settings › Default apps, where the user
+           makes it the default (File › Options › General opens that page). Nothing here sets an
+           extension's default: the installer never takes over .docx from another app. Markdown and
+           plain text are only "Open with" candidates. Removed again on uninstall. -->
+      <Component Id="LexiconFileTypes" Guid="4ABF98C2-4A8C-4447-8428-A9CC49B68C49">
+        <RegistryValue Root="HKLM" Key="Software\RegisteredApplications" Name="Lexicon" Value="Software\Lexicon\Capabilities" Type="string" KeyPath="yes" />
+        <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities" Name="ApplicationName" Value="Lexicon" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities" Name="ApplicationDescription" Value="Write and design documents; open and save Word files." Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities" Name="ApplicationIcon" Value="&quot;[#LexiconExe]&quot;,0" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe" Name="FriendlyAppName" Value="Lexicon" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
+
+        <ProgId Id="Lexicon.Document" Description="Word Document" Icon="LexiconExe" IconIndex="0" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.Document\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\.docx\OpenWithProgids" Name="Lexicon.Document" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".docx" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities\FileAssociations" Name=".docx" Value="Lexicon.Document" Type="string" />
+
+        <ProgId Id="Lexicon.DocumentMacroEnabled" Description="Word Macro-Enabled Document" Icon="LexiconExe" IconIndex="0" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.DocumentMacroEnabled\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\.docm\OpenWithProgids" Name="Lexicon.DocumentMacroEnabled" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".docm" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities\FileAssociations" Name=".docm" Value="Lexicon.DocumentMacroEnabled" Type="string" />
+
+        <ProgId Id="Lexicon.Template" Description="Word Template" Icon="LexiconExe" IconIndex="0" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.Template\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\.dotx\OpenWithProgids" Name="Lexicon.Template" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".dotx" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities\FileAssociations" Name=".dotx" Value="Lexicon.Template" Type="string" />
+
+        <ProgId Id="Lexicon.TemplateMacroEnabled" Description="Word Macro-Enabled Template" Icon="LexiconExe" IconIndex="0" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.TemplateMacroEnabled\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\.dotm\OpenWithProgids" Name="Lexicon.TemplateMacroEnabled" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".dotm" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities\FileAssociations" Name=".dotm" Value="Lexicon.TemplateMacroEnabled" Type="string" />
+
+        <ProgId Id="Lexicon.LegacyDocument" Description="Legacy Word Document" Icon="LexiconExe" IconIndex="0" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.LegacyDocument\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\.doc\OpenWithProgids" Name="Lexicon.LegacyDocument" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".doc" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities\FileAssociations" Name=".doc" Value="Lexicon.LegacyDocument" Type="string" />
+
+        <ProgId Id="Lexicon.LegacyTemplate" Description="Legacy Word Template" Icon="LexiconExe" IconIndex="0" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.LegacyTemplate\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\.dot\OpenWithProgids" Name="Lexicon.LegacyTemplate" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".dot" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities\FileAssociations" Name=".dot" Value="Lexicon.LegacyTemplate" Type="string" />
+
+        <ProgId Id="Lexicon.RichText" Description="Rich Text Document" Icon="LexiconExe" IconIndex="0" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.RichText\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\.rtf\OpenWithProgids" Name="Lexicon.RichText" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".rtf" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities\FileAssociations" Name=".rtf" Value="Lexicon.RichText" Type="string" />
+
+        <ProgId Id="Lexicon.OpenDocumentText" Description="OpenDocument Text" Icon="LexiconExe" IconIndex="0" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.OpenDocumentText\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\.odt\OpenWithProgids" Name="Lexicon.OpenDocumentText" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".odt" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities\FileAssociations" Name=".odt" Value="Lexicon.OpenDocumentText" Type="string" />
+
+        <ProgId Id="Lexicon.Markdown" Description="Markdown Document" Icon="LexiconExe" IconIndex="0" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.Markdown\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\.md\OpenWithProgids" Name="Lexicon.Markdown" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".md" Value="" Type="string" />
+
+        <ProgId Id="Lexicon.PlainText" Description="Text Document" Icon="LexiconExe" IconIndex="0" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.PlainText\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\.txt\OpenWithProgids" Name="Lexicon.PlainText" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".txt" Value="" Type="string" />
+      </Component>
+
+    </ComponentGroup>
+  </Fragment>
+</Wix>

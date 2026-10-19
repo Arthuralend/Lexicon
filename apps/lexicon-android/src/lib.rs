@@ -15,7 +15,7 @@
 //!   without running exit code.
 //!
 //! Build: `cargo ndk -t arm64-v8a -o android/app/src/main/jniLibs build --release -p lexicon-android`,
-//! then `gradle assembleDebug` in `android/` (see `.github/workflows/android.yml`).
+//! then `gradle assembleDebug` in `android/` (see `.github/workflows/build.yml`).
 #![cfg(target_os = "android")]
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic, clippy::unimplemented, clippy::todo, clippy::unreachable)]
 

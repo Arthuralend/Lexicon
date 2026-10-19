@@ -1,0 +1,158 @@
+# Builds Lexicon for Android (APK), Windows (MSI installer + portable zip) and macOS (DMG).
+# Every run uploads them as artifacts. A branch push also publishes them on the "latest"
+# release, at stable links:
+#   https://github.com/<owner>/<repo>/releases/download/latest/Lexicon.apk
+#   https://github.com/<owner>/<repo>/releases/download/latest/Lexicon-Windows.msi
+#   https://github.com/<owner>/<repo>/releases/download/latest/Lexicon-Windows-portable.zip
+#   https://github.com/<owner>/<repo>/releases/download/latest/Lexicon-macOS.dmg
+# A v* tag publishes a versioned release instead.
+name: Build
+
+on:
+  push:
+    branches: [main, "claude/**"]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      name: ${{ steps.v.outputs.name }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: v
+        run: |
+          base=$(sed -n 's/^version = "\(.*\)"/\1/p' Cargo.toml | head -1)
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then name="${GITHUB_REF#refs/tags/v}"; else name="$base-${GITHUB_SHA::7}"; fi
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+
+  android:
+    needs: version
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.11.1"
+      - name: Rust for Android
+        run: |
+          rustup toolchain install stable --profile minimal
+          rustup target add aarch64-linux-android
+          cargo install cargo-ndk --locked
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: android-arm64
+      - name: Build liblexicon.so
+        run: |
+          export ANDROID_NDK_HOME="$ANDROID_NDK_LATEST_HOME"
+          cargo ndk -t arm64-v8a --platform 26 -o android/app/src/main/jniLibs build --release -p lexicon-android
+      - name: Build APK
+        working-directory: android
+        env:
+          LEXICON_VERSION_NAME: ${{ needs.version.outputs.name }}
+          LEXICON_VERSION_CODE: ${{ github.run_number }}
+        run: gradle --no-daemon assembleRelease
+      - run: |
+          mkdir -p out
+          cp android/app/build/outputs/apk/release/app-release.apk "out/Lexicon-${{ needs.version.outputs.name }}.apk"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lexicon-android
+          path: out/*
+
+  windows:
+    needs: version
+    runs-on: windows-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rust
+        run: rustup toolchain install stable --profile minimal
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: windows-x64
+      - name: WiX
+        run: |
+          dotnet tool install --global wix --version 5.0.2
+          wix extension add -g WixToolset.UI.wixext/5.0.2
+          wix extension add -g WixToolset.Util.wixext/5.0.2
+      - name: Package
+        shell: pwsh
+        env:
+          WORDCRAFT_VERSION: ${{ needs.version.outputs.name }}
+          DIST: ${{ github.workspace }}\out
+        run: pwsh packaging/windows/package.ps1 -Arch x64
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lexicon-windows
+          path: out/*
+
+  macos:
+    needs: version
+    runs-on: macos-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rust
+        run: |
+          rustup toolchain install stable --profile minimal
+          rustup target add aarch64-apple-darwin x86_64-apple-darwin
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: macos-universal
+      - name: Package
+        env:
+          WORDCRAFT_VERSION: ${{ needs.version.outputs.name }}
+          DIST: ${{ github.workspace }}/out
+        run: bash packaging/macos/package.sh --arch universal
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lexicon-macos
+          path: out/*
+
+  publish:
+    needs: [version, android, windows, macos]
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: dl
+          merge-multiple: true
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NAME: ${{ needs.version.outputs.name }}
+        run: |
+          ls -la dl
+          mkdir -p rel
+          cp dl/Lexicon-*.apk rel/Lexicon.apk
+          cp dl/Lexicon-*-windows-x64.msi rel/Lexicon-Windows.msi
+          cp dl/Lexicon-*-windows-x64-portable.zip rel/Lexicon-Windows-portable.zip
+          cp dl/Lexicon-*-macos-universal.dmg rel/Lexicon-macOS.dmg
+          notes="Lexicon $NAME.
+          - Android 8.0+ (arm64): Lexicon.apk
+          - Windows 10/11 (x64): Lexicon-Windows.msi (installer) or Lexicon-Windows-portable.zip (no install)
+          - macOS 11+ (Apple silicon and Intel): Lexicon-macOS.dmg
+          The builds are not signed by Apple or Microsoft: Windows SmartScreen and macOS Gatekeeper warn on first launch (see README)."
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            gh release create "$GITHUB_REF_NAME" rel/* --title "Lexicon $GITHUB_REF_NAME" --notes "$notes"
+          else
+            gh release delete latest --yes --cleanup-tag || true
+            gh release create latest rel/* --target "$GITHUB_SHA" --prerelease --title "Lexicon — последняя сборка ($NAME)" --notes "$notes"
+          fi

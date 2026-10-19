@@ -16,10 +16,10 @@ fn main() {
     res.set_icon("../../assets/app-icon/wordcraft.ico")
         .set("ProductName", "Lexicon")
         .set("FileDescription", "Lexicon word processor")
-        .set("CompanyName", "Learning Machines LLC")
+        .set("CompanyName", "Lexicon contributors")
         .set("LegalCopyright", "Copyright (c) the Lexicon authors. MIT OR Apache-2.0.")
-        .set("OriginalFilename", "wordcraft.exe")
-        .set("InternalName", "wordcraft");
+        .set("OriginalFilename", "Lexicon.exe")
+        .set("InternalName", "Lexicon");
     if let Err(e) = res.compile() {
         if std::env::var_os("WORDCRAFT_REQUIRE_WINRES").is_some() {
             eprintln!("embedding Windows resources failed: {e}");

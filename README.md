@@ -48,7 +48,29 @@ Lexicon основан на [WordCraft](https://github.com/storytold/wordcraft) 
 Требования: Android 8.0 или новее, 64-битный процессор ARM (arm64-v8a) — это почти все
 современные телефоны.
 
-Чтобы выпустить новую версию с APK на странице Releases, поставьте тег: `git tag v0.8.0 && git push origin v0.8.0`.
+## Установка на Windows
+
+1. Скачайте установщик: **https://github.com/Arthuralend/Lexicon/releases/download/latest/Lexicon-Windows.msi**
+   (или версию без установки: **https://github.com/Arthuralend/Lexicon/releases/download/latest/Lexicon-Windows-portable.zip**).
+2. Запустите `Lexicon-Windows.msi`. Если Windows покажет «Система Windows защитила ваш компьютер»,
+   нажмите «Подробнее» → «Выполнить в любом случае»: установщик не подписан платным сертификатом.
+3. Lexicon появится в меню «Пуск». Для документов Word его можно выбрать в
+   «Файл › Параметры › Общие › Сделать Lexicon приложением по умолчанию».
+
+Требования: Windows 10 или 11, 64-разрядная.
+
+## Установка на macOS
+
+1. Скачайте **https://github.com/Arthuralend/Lexicon/releases/download/latest/Lexicon-macOS.dmg**,
+   откройте его и перетащите Lexicon в «Программы».
+2. Приложение не заверено Apple, поэтому при первом запуске macOS его не откроет. Откройте
+   «Системные настройки › Конфиденциальность и безопасность» и нажмите «Всё равно открыть» рядом
+   с сообщением о Lexicon. Если macOS пишет, что приложение «повреждено», выполните в Терминале:
+   `xattr -dr com.apple.quarantine /Applications/Lexicon.app`
+
+Требования: macOS 11 (Big Sur) или новее, Apple Silicon или Intel.
+
+Чтобы выпустить версию с номером на странице Releases, поставьте тег: `git tag v0.8.0 && git push origin v0.8.0`.
 
 ## Сборка
 
@@ -72,7 +94,8 @@ cd apps/wordcraft-web && trunk serve
 | Rust-оболочка (запуск, папки, настройки) | [`apps/lexicon-android/src/lib.rs`](apps/lexicon-android/src/lib.rs) |
 | Экранная клавиатура (IME → события egui) | [`apps/lexicon-android/src/keyboard.rs`](apps/lexicon-android/src/keyboard.rs), [`LexiconActivity.java`](android/app/src/main/java/io/github/arthuralend/lexicon/LexiconActivity.java) |
 | Gradle-проект, манифест, иконка | [`android/`](android/) |
-| Сборка APK в CI | [`.github/workflows/android.yml`](.github/workflows/android.yml) |
+| Сборка APK, MSI и DMG в CI | [`.github/workflows/build.yml`](.github/workflows/build.yml) |
+| Упаковка для Windows и macOS | [`packaging/windows/`](packaging/windows/), [`packaging/macos/`](packaging/macos/) |
 | Русский словарь и проверка двух языков | [`crates/proof/src/ru/mod.rs`](crates/proof/src/ru/mod.rs), `by_script` в [`crates/proof/src/lib.rs`](crates/proof/src/lib.rs) |
 
 APK подписывается ключом `android/app/lexicon.keystore`, который лежит в репозитории, чтобы
