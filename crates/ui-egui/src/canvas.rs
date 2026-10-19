@@ -3021,9 +3021,16 @@ fn dims_body(app: &WordApp, layout: &DocLayout) -> bool {
 
 /// The spelling suggestions and synonyms the context menu offers for the selection or the word
 /// at the caret.
-fn context_suggestions(app: &mut WordApp) {
+pub(crate) fn context_suggestions(app: &mut WordApp) {
     app.canvas.context_issue = app.session.run("review.suggestions", &json!({})).ok().filter(|v| !v.is_null());
     app.canvas.context_synonyms = app.session.run("review.thesaurus", &json!({})).ok().and_then(|v| v.get("synonyms").cloned());
+    // Armenian or Georgian suggestions need fonts the interface faces lack.
+    if app.canvas.context_issue.as_ref().is_some_and(|v| crate::needs_script_fonts(&v.to_string())) {
+        app.want_script_fonts = true;
+        if let Some(ctx) = &app.ctx {
+            ctx.request_repaint();
+        }
+    }
 }
 
 /// Caret position on screen.

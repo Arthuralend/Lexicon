@@ -1,6 +1,8 @@
 [workspace]
 resolver = "3"
 members = ["crates/*", "apps/*", "xtask"]
+# Lexicon's patched winit (vendor/winit: mouse buttons, hover and wheel on Android).
+exclude = ["vendor"]
 default-members = ["crates/*", "apps/wordcraft", "apps/wordcraft-cli", "xtask"]
 
 [workspace.package]
@@ -103,4 +105,6 @@ debug = 0
 
 # Required by craft-pdf: the backend rejects writers that failed during unwinding.
 [patch.crates-io]
+# Lexicon: winit 0.30.13 with Android mouse support (see vendor/winit/LEXICON.md).
+winit = { path = "vendor/winit" }
 krilla = { git = "https://github.com/storytold/craft-libs", rev = "c3487320b2d1de657b860b3c8abb44e1f2b32bd8" }

@@ -204,6 +204,79 @@ impl Keyboard {
     }
 }
 
+/// Show the pointer shape egui asks for (`LexiconActivity.setCursor`): Lexicon's own arrow by
+/// default, Android's I-beam over text, hand over links, and so on.
+pub fn set_cursor(app: &AndroidApp, icon: egui::CursorIcon) {
+    use egui::CursorIcon as C;
+    let kind: jint = match icon {
+        C::Default => 0,
+        C::Text | C::VerticalText => 1,
+        C::PointingHand => 2,
+        C::ResizeHorizontal | C::ResizeEast | C::ResizeWest | C::ResizeColumn => 3,
+        C::ResizeVertical | C::ResizeNorth | C::ResizeSouth | C::ResizeRow => 4,
+        C::ResizeNeSw | C::ResizeNorthEast | C::ResizeSouthWest => 5,
+        C::ResizeNwSe | C::ResizeNorthWest | C::ResizeSouthEast => 6,
+        C::Grab => 7,
+        C::Grabbing => 8,
+        C::Move | C::AllScroll => 9,
+        C::Crosshair | C::Cell => 10,
+        C::Wait | C::Progress => 11,
+        C::NotAllowed | C::NoDrop => 12,
+        C::ContextMenu => 13,
+        C::Copy => 14,
+        C::Alias => 15,
+        C::Help => 16,
+        C::ZoomIn => 17,
+        C::ZoomOut => 18,
+        C::None => 19,
+    };
+    if let Err(e) = with_activity(app, |env, activity| env.call_method(activity, "setCursor", "(I)V", &[JValue::Int(kind)]).map(|_| ())) {
+        log::warn!("cursor: {e}");
+    }
+}
+
+/// Put text on the system clipboard (Copy, Cut): egui's own clipboard isn't there on Android.
+pub fn set_clipboard(app: &AndroidApp, text: &str) {
+    let result = with_activity(app, |env, activity| {
+        let s = env.new_string(text)?;
+        env.call_method(activity, "setClipboardText", "(Ljava/lang/String;)V", &[JValue::Object(&s)]).map(|_| ())
+    });
+    if let Err(e) = result {
+        log::warn!("clipboard: {e}");
+    }
+}
+
+/// The text on the system clipboard (Paste), if any.
+pub fn clipboard(app: &AndroidApp) -> Option<String> {
+    let mut out = None;
+    let result = with_activity(app, |env, activity| {
+        let v = env.call_method(activity, "getClipboardText", "()Ljava/lang/String;", &[])?.l()?;
+        if !v.is_null() {
+            out = env.get_string(&JString::from(v)).ok().map(String::from);
+        }
+        Ok(())
+    });
+    if let Err(e) = result {
+        log::warn!("clipboard: {e}");
+    }
+    out.filter(|s| !s.is_empty())
+}
+
+/// Ctrl+V (or Shift+Insert) from a hardware keyboard: egui-winit reads its own clipboard, which
+/// Android lacks, so add the paste with the system clipboard's text.
+pub fn add_paste(app: &AndroidApp, events: &mut Vec<egui::Event>) {
+    let wants_paste = events.iter().any(|e| {
+        matches!(e, egui::Event::Key { key: egui::Key::V, pressed: true, modifiers, .. } if modifiers.command || modifiers.ctrl)
+            || matches!(e, egui::Event::Key { key: egui::Key::Insert, pressed: true, modifiers, .. } if modifiers.shift)
+    });
+    if wants_paste
+        && !events.iter().any(|e| matches!(e, egui::Event::Paste(_)))
+        && let Some(text) = clipboard(app)
+    {
+        events.push(egui::Event::Paste(text));
+    }
+}
+
 /// Run `f` with a JNI environment and the activity.
 fn with_activity(app: &AndroidApp, f: impl FnOnce(&mut JNIEnv, &JObject) -> jni::errors::Result<()>) -> Result<(), String> {
     // SAFETY: android-activity hands out the process's JavaVM and a global reference to the

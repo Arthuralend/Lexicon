@@ -173,6 +173,11 @@ pub struct Services {
     pub make_default_app: Option<Box<dyn Fn() -> Result<DefaultApp, String>>>,
 }
 
+/// Does `text` hold Armenian or Georgian letters, which the interface faces lack?
+pub(crate) fn needs_script_fonts(text: &str) -> bool {
+    text.chars().any(|c| matches!(c, '\u{0531}'..='\u{058F}' | '\u{FB13}'..='\u{FB17}' | '\u{10A0}'..='\u{10FF}' | '\u{1C90}'..='\u{1CBF}' | '\u{2D00}'..='\u{2D2F}'))
+}
+
 /// How Save in the Save Changes prompt went.
 enum PromptSave {
     /// Written, keeping everything: the held-back command may run.
@@ -553,6 +558,9 @@ pub struct WordApp {
     comment_fonts_for: Option<(u64, u64)>,
     /// Whether the Armenian and Georgian interface fallbacks were looked up ([`Self::ensure_script_fonts`]).
     script_fonts_done: bool,
+    /// Armenian or Georgian text reached the interface (typed, pasted, or offered as a spelling
+    /// suggestion), so its fonts are needed ([`Self::ensure_script_fonts`]).
+    pub(crate) want_script_fonts: bool,
     fonts_frames: u32,
     /// The effective interface theme last installed in egui ([`theme::apply`]).
     applied_theme: Option<theme::Appearance>,
@@ -683,6 +691,7 @@ impl WordApp {
             want_system_cjk: false,
             comment_fonts_for: None,
             script_fonts_done: false,
+            want_script_fonts: false,
             fonts_frames: 0,
             applied_theme: None,
             native_scale: 1.0,
@@ -1914,10 +1923,12 @@ impl WordApp {
     }
 
     /// Lexicon: the interface faces have no Armenian or Georgian letters, which its Armenian and
-    /// Georgian interfaces need (and, on Android, text typed into dialogs in those scripts).
-    /// Borrow the document fonts' faces for them once, as the caption does.
+    /// Georgian interfaces need, and so do spelling suggestions in the context menu and text typed
+    /// or pasted into dialogs in those scripts ([`Self::want_script_fonts`]). Borrow the document
+    /// fonts' faces for them once, as the caption does.
     fn ensure_script_fonts(&mut self, lang: i18n::Lang) {
-        if self.script_fonts_done || !(matches!(lang.code(), "hy" | "ka") || cfg!(target_os = "android")) {
+        let wanted = self.want_script_fonts || matches!(lang.code(), "hy" | "ka") || cfg!(target_os = "android");
+        if self.script_fonts_done || !wanted {
             return;
         }
         self.script_fonts_done = true;
@@ -2178,6 +2189,15 @@ impl WordApp {
     /// Read a Control-click as the right-click on macOS, then inject synthetic input events from
     /// the control channel (one pointer event per frame).
     pub fn raw_input_hook(&mut self, raw: &mut egui::RawInput) {
+        if !self.script_fonts_done
+            && raw.events.iter().any(|e| match e {
+                egui::Event::Text(t) | egui::Event::Paste(t) | egui::Event::Ime(egui::ImeEvent::Commit(t)) => needs_script_fonts(t),
+                egui::Event::Ime(egui::ImeEvent::Preedit { text, .. }) => needs_script_fonts(text),
+                _ => false,
+            })
+        {
+            self.want_script_fonts = true;
+        }
         if cfg!(target_os = "macos") {
             control_click_as_secondary(&mut raw.events, &mut self.control_click);
         }
@@ -2791,6 +2811,27 @@ mod tests {
         frame(&mut cjk);
         assert!(cjk.want_system_cjk, "a CJK file name loads the CJK UI font");
         assert!(cjk.canvas.ime_faces.is_empty(), "CJK collections are not copied into the fallback list");
+    }
+
+    /// Lexicon: an Armenian spelling suggestion in the context menu (or Armenian typed into a
+    /// dialog) asks for the Armenian fonts the interface faces lack; Latin text doesn't.
+    #[test]
+    fn armenian_suggestions_and_typing_load_script_fonts() {
+        assert!(crate::needs_script_fonts("գիրք") && crate::needs_script_fonts("x წიგნი"));
+        assert!(!crate::needs_script_fonts("book молоко"));
+        let mut a = app();
+        a.run("text.insert", json!({"text": "Hello"})).unwrap();
+        crate::canvas::context_suggestions(&mut a);
+        assert!(!a.want_script_fonts, "Latin text needs no script fonts");
+        let mut hy = app();
+        hy.run("text.insert", json!({"text": "գիռք"})).unwrap();
+        hy.run("caret.left", json!({})).unwrap();
+        crate::canvas::context_suggestions(&mut hy);
+        assert!(hy.want_script_fonts, "{:?}", hy.canvas.context_issue);
+        let mut typed = app();
+        let mut raw = egui::RawInput { events: vec![egui::Event::Text("ա".into())], ..Default::default() };
+        typed.raw_input_hook(&mut raw);
+        assert!(typed.want_script_fonts);
     }
 
     /// Comment balloons draw comment text and author names with the interface faces, which have

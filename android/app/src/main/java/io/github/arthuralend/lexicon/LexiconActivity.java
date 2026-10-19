@@ -4,11 +4,18 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.app.NativeActivity;
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Insets;
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,6 +25,7 @@ import android.text.InputType;
 import android.view.InputDevice;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
+import android.view.PointerIcon;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -73,6 +81,7 @@ public class LexiconActivity extends NativeActivity {
             return v.onApplyWindowInsets(insets);
         });
         decor.requestApplyInsets();
+        setCursor(0);
         askForFileAccess();
     }
 
@@ -103,6 +112,116 @@ public class LexiconActivity extends NativeActivity {
             }
         }
         return null;
+    }
+
+    // ---- Mouse pointer ---------------------------------------------------------------------------
+
+    /** The arrow drawn for Lexicon, made once. */
+    private PointerIcon arrow;
+    private int cursorKind = -1;
+
+    /**
+     * Lexicon's arrow: a slim navy arrow with a white rim and a soft shadow, sized for the
+     * screen's density. Drawn here, so it needs no image file.
+     */
+    private PointerIcon makeArrow() {
+        float d = getResources().getDisplayMetrics().density;
+        int size = Math.round(28 * d);
+        Bitmap bmp = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(bmp);
+        float u = d; // one dp
+        Path arrow = new Path();
+        arrow.moveTo(3 * u, 2 * u);
+        arrow.lineTo(3 * u, 20 * u);
+        arrow.lineTo(7.6f * u, 15.8f * u);
+        arrow.lineTo(10.6f * u, 22.6f * u);
+        arrow.lineTo(13.6f * u, 21.3f * u);
+        arrow.lineTo(10.7f * u, 14.6f * u);
+        arrow.lineTo(16.8f * u, 14.6f * u);
+        arrow.close();
+        Paint shadow = new Paint(Paint.ANTI_ALIAS_FLAG);
+        shadow.setColor(Color.argb(70, 0, 0, 0));
+        shadow.setStyle(Paint.Style.FILL);
+        c.save();
+        c.translate(0.8f * u, 1.2f * u);
+        c.drawPath(arrow, shadow);
+        c.restore();
+        Paint rim = new Paint(Paint.ANTI_ALIAS_FLAG);
+        rim.setColor(Color.WHITE);
+        rim.setStyle(Paint.Style.STROKE);
+        rim.setStrokeWidth(2.4f * u);
+        rim.setStrokeJoin(Paint.Join.ROUND);
+        c.drawPath(arrow, rim);
+        Paint fill = new Paint(Paint.ANTI_ALIAS_FLAG);
+        fill.setColor(Color.rgb(0x1E, 0x2A, 0x5A));
+        fill.setStyle(Paint.Style.FILL);
+        c.drawPath(arrow, fill);
+        return PointerIcon.create(bmp, 3 * u, 2 * u);
+    }
+
+    /**
+     * Called from Rust when the pointer shape egui wants changes: 0 Lexicon's arrow, 1 text, 2 hand,
+     * 3 left-right, 4 up-down, 5 diagonal ↗↙, 6 diagonal ↖↘, 7 grab, 8 grabbing, 9 move,
+     * 10 crosshair, 11 wait, 12 not allowed, 13 context menu, 14 copy, 15 alias, 16 help,
+     * 17 zoom in, 18 zoom out, 19 hidden.
+     */
+    public void setCursor(final int kind) {
+        runOnUiThread(() -> {
+            if (kind == cursorKind) {
+                return;
+            }
+            cursorKind = kind;
+            PointerIcon icon;
+            if (kind == 0) {
+                if (arrow == null) {
+                    arrow = makeArrow();
+                }
+                icon = arrow;
+            } else {
+                int[] types = {
+                    PointerIcon.TYPE_ARROW, PointerIcon.TYPE_TEXT, PointerIcon.TYPE_HAND,
+                    PointerIcon.TYPE_HORIZONTAL_DOUBLE_ARROW, PointerIcon.TYPE_VERTICAL_DOUBLE_ARROW,
+                    PointerIcon.TYPE_TOP_RIGHT_DIAGONAL_DOUBLE_ARROW, PointerIcon.TYPE_TOP_LEFT_DIAGONAL_DOUBLE_ARROW,
+                    PointerIcon.TYPE_GRAB, PointerIcon.TYPE_GRABBING, PointerIcon.TYPE_ALL_SCROLL,
+                    PointerIcon.TYPE_CROSSHAIR, PointerIcon.TYPE_WAIT, PointerIcon.TYPE_NO_DROP,
+                    PointerIcon.TYPE_CONTEXT_MENU, PointerIcon.TYPE_COPY, PointerIcon.TYPE_ALIAS,
+                    PointerIcon.TYPE_HELP, PointerIcon.TYPE_ZOOM_IN, PointerIcon.TYPE_ZOOM_OUT,
+                    PointerIcon.TYPE_NULL,
+                };
+                int type = kind >= 0 && kind < types.length ? types[kind] : PointerIcon.TYPE_ARROW;
+                icon = PointerIcon.getSystemIcon(this, type);
+            }
+            getWindow().getDecorView().setPointerIcon(icon);
+            if (input != null) {
+                input.setPointerIcon(icon);
+            }
+        });
+    }
+
+    // ---- Clipboard -------------------------------------------------------------------------------
+
+    /** Called from Rust: put text on the system clipboard (Copy, Cut). */
+    public void setClipboardText(final String text) {
+        runOnUiThread(() -> {
+            ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+            if (cm != null) {
+                cm.setPrimaryClip(ClipData.newPlainText("Lexicon", text));
+            }
+        });
+    }
+
+    /** Called from Rust: the text on the system clipboard, or null (Paste). */
+    public String getClipboardText() {
+        ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        if (cm == null || !cm.hasPrimaryClip()) {
+            return null;
+        }
+        ClipData clip = cm.getPrimaryClip();
+        if (clip == null || clip.getItemCount() == 0) {
+            return null;
+        }
+        CharSequence text = clip.getItemAt(0).coerceToText(this);
+        return text == null ? null : text.toString();
     }
 
     /** Called from Rust on its own thread. */

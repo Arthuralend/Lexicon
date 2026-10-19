@@ -38,6 +38,7 @@ fn android_main(app: AndroidApp) {
     android_logger::init_once(android_logger::Config::default().with_max_level(log::LevelFilter::Info).with_tag("lexicon"));
     let settings = setup_folders(&app);
     let keyboard = keyboard::Keyboard::new(&app);
+    let android = app.clone();
     let options = eframe::NativeOptions { android_app: Some(app), ..Default::default() };
     let result = eframe::run_native(
         "Lexicon",
@@ -47,7 +48,7 @@ fn android_main(app: AndroidApp) {
             let region = wordcraft_ui_egui::i18n::system_region();
             let mut session = Session::new(wordcraft_engine::blank_document(&region));
             session.system_region = region;
-            let mut app = WordApp::new(session, services());
+            let mut app = WordApp::new(session, services(&android));
             let stored = settings.as_deref().and_then(|dir| std::fs::read(dir.join("ui.json")).ok());
             if let Some(ui) = stored.as_deref().and_then(UiState::from_json) {
                 app.apply_prefs(ui);
@@ -67,7 +68,7 @@ fn android_main(app: AndroidApp) {
             }
             app.start_screen();
             let last_prefs = stored.map(|b| String::from_utf8_lossy(&b).into_owned());
-            Ok(Box::new(Shell { app, keyboard, settings, last_prefs }))
+            Ok(Box::new(Shell { app, keyboard, settings, last_prefs, android, cursor: None }))
         }),
     );
     if let Err(e) = result {
@@ -106,9 +107,12 @@ fn setup_folders(app: &AndroidApp) -> Option<PathBuf> {
     settings
 }
 
-/// No system file dialog: every Open and Save goes to the built-in file browser.
-fn services() -> Services {
+/// No system file dialog: every Open and Save goes to the built-in file browser. The ribbon's
+/// Paste reads the system clipboard through the activity.
+fn services(android: &AndroidApp) -> Services {
+    let clip = android.clone();
     Services {
+        clipboard_text: Some(Box::new(move || keyboard::clipboard(&clip))),
         file_dialog: Some(Box::new(|_req: FileDialogRequest| {
             let (tx, rx) = std::sync::mpsc::channel::<FileDialogAnswer>();
             let _ = tx.send(Err("Android has no system file dialog".into()));
@@ -124,6 +128,9 @@ struct Shell {
     settings: Option<PathBuf>,
     /// The preferences last written, so `ui.json` is written only when they change.
     last_prefs: Option<String>,
+    android: AndroidApp,
+    /// The pointer shape last shown.
+    cursor: Option<egui::CursorIcon>,
 }
 
 impl Shell {
@@ -164,6 +171,7 @@ impl eframe::App for Shell {
 
     fn raw_input_hook(&mut self, _ctx: &egui::Context, raw: &mut egui::RawInput) {
         self.keyboard.fix_hardware_text(&mut raw.events);
+        keyboard::add_paste(&self.android, &mut raw.events);
         raw.events.extend(keyboard::take_events());
         self.app.raw_input_hook(raw);
     }
@@ -181,6 +189,21 @@ impl eframe::App for Shell {
         let wants = ui.ctx().output(|o| o.ime.is_some());
         let tapped = ui.ctx().input(|i| i.pointer.any_click());
         self.keyboard.update(wants, tapped);
+        // Copy and Cut go to the system clipboard; the pointer takes the shape egui asks for.
+        let (copied, icon) = ui.ctx().output(|o| {
+            let copied = o.commands.iter().rev().find_map(|c| match c {
+                egui::OutputCommand::CopyText(t) => Some(t.clone()),
+                _ => None,
+            });
+            (copied, o.cursor_icon)
+        });
+        if let Some(text) = copied {
+            keyboard::set_clipboard(&self.android, &text);
+        }
+        if self.cursor != Some(icon) {
+            self.cursor = Some(icon);
+            keyboard::set_cursor(&self.android, icon);
+        }
     }
 
     fn on_exit(&mut self) {
