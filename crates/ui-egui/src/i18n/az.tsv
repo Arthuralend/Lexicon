@@ -1,0 +1,2675 @@
+# Azerbaijani, Latin script (az) interface catalog. Columns, separated by a TAB:
+#   context <TAB> English source <TAB> translation
+#   context    usually empty. `preview` words sample text inside rendered previews (the Design
+#              tab's style-set tiles), which must fit a small tile; it falls back to the plain entry.
+#   source     the English text exactly as in the code (tl!(...), ribbon labels, command labels)
+#   escapes    \n  \t  \\  inside a column. `{name}` placeholders must appear in both columns, and a
+#              trailing "…" in one needs one in the other.
+#   Lines starting with # and blank lines are ignored. A missing entry shows in English.
+#
+# Clean room: written for Lexicon from the plain meaning of the English labels (and the Russian
+# catalog's wording) in ordinary computing vocabulary; no other product's localisation was
+# consulted or copied. Machine-assisted first version: corrections by native speakers welcome.
+# Product, format and technology names (Lexicon, PDF, Markdown, MCP …) stay in Latin letters.
+
+	(no suggestions)	(təklif yoxdur)
+	1.5 Line Spacing	1,5 sətirarası interval
+	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	Rust dilində yazılmış, rus və ingilis dillərində orfoqrafiya yoxlaması olan pulsuz, açıq mənbəli mətn redaktoru.\nArtCraft komandasının WordCraft proqramı əsasında hazırlanıb.
+	About	Proqram haqqında
+	About Lexicon	Lexicon haqqında
+	Accept	Qəbul et
+	Accept All Changes	Bütün dəyişiklikləri qəbul et
+	Accept This Change	Bu dəyişikliyi qəbul et
+	Accessibility	Əlçatanlıq
+	Add	Əlavə et
+	Add Space Before Paragraph	Abzasdan əvvəl interval əlavə et
+	Add Text	Mətn əlavə et
+	Add a Table	Cədvəl əlavə et
+	Add a comment	Şərh əlavə et
+	Add to Dictionary	Lüğətə əlavə et
+	Add to Style Gallery	Üslublar qalereyasına əlavə et
+	Address Block	Ünvan bloku
+	Address:	Ünvan:
+	Address\nBlock	Ünvan\nbloku
+	Adjust	Tənzimlə
+	Advanced	Əlavə
+	Advanced Find	Genişləndirilmiş axtarış
+	Advanced Find…	Genişləndirilmiş axtarış…
+	After:	Sonra:
+	Agents	Agentlər
+	Align	Düzləndir
+	Align Left	Sola düzləndir
+	Align Right	Sağa düzləndir
+	Alignment	Düzləndirmə
+	All Borders	Bütün sərhədlər
+	All Caps	Hamısı böyük hərflə
+	All Markup	Bütün qeydlər
+	All caps	Hamısı böyük hərflə
+	Alt Text	Alternativ mətn
+	Apply Character Style	Simvol üslubunu tətbiq et
+	Apply Style	Üslubu tətbiq et
+	Arrange	Yerləşdir
+	Arrange\nAll	Hamısını\nyerləşdir
+	Arrow	Ox
+	Artistic Effects	Bədii effektlər
+	Author	Müəllif
+	AutoCorrect Options	Avtodüzəliş parametrləri
+	AutoFit	Avtouyğunlaşma
+	AutoFit Contents	Məzmuna görə uyğunlaşdır
+	AutoFit Window	Pəncərəyə görə uyğunlaşdır
+	AutoSave	Avtosaxlama
+	AutoSave saves every change to the file (needs a saved document)	Avtosaxlama hər dəyişikliyi fayla yazır (sənəd artıq yadda saxlanmalıdır)
+	AutoText	Avtomətn
+	Automatic	Avtomatik
+	Automatic ({language})	Avtomatik ({language})
+	Automatic Table 1 (3 levels)	Avtomatik mündəricat 1 (3 səviyyə)
+	Automatic Table 2 (2 levels)	Avtomatik mündəricat 2 (2 səviyyə)
+	Automatic follows your system's language. Menus and commands change; your documents don't.	«Avtomatik» sistemin dilinə uyğun gəlir. Menyular və əmrlər dəyişir, sənədləriniz isə dəyişmir.
+	Backspace	Backspace
+	Banded Columns	Zolaqlı sütunlar
+	Banded Rows	Zolaqlı sətirlər
+	Before:	Əvvəl:
+	Bibliography	Biblioqrafiya
+	Binary assets added	İkili resurslar əlavə edildi
+	Binary assets removed	İkili resurslar silindi
+	Blank	Boş
+	Blank (Three Columns)	Boş (üç sütun)
+	Blank Page	Boş səhifə
+	Blank document	Yeni sənəd
+	Block\nAuthors	Müəllifləri\nblokla
+	Bold	Qalın
+	Bookmark	Əlfəcin
+	Bookmark name:	Əlfəcinin adı:
+	Delete Bookmark	Əlfəcini sil
+	Hidden bookmarks	Gizli əlfəcinlər
+	Sort by:	Çeşidlə:
+	Border Painter	Sərhəd fırçası
+	Border\nPainter	Sərhəd\nfırçası
+	Borders	Sərhədlər
+	Bottom Border	Alt sərhəd
+	Bottom Margin	Alt kənar
+	Bottom of Page	Səhifənin aşağısında
+	Bottom:	Aşağıdan:
+	Box	Çərçivə
+	Breaks	Fasilələr
+	Bring Forward	İrəli çək
+	Bullet Library	Markerlər kitabxanası
+	Bullets	Markerlər
+	Calendar	Təqvim
+	Cancel	Ləğv et
+	Capitalize Each Word	Hər Sözün Baş Hərfi Böyük
+	Captions	Başlıqlar
+	Cell Margins	Xana kənarları
+	Cell Size	Xana ölçüsü
+	Cell\nMargins	Xana\nkənarları
+	Center	Mərkəzə
+	Change	Dəyiş
+	Change Case	Registri dəyiş
+	Change List Level	Siyahı səviyyəsini dəyiş
+	Change Picture	Şəkli dəyiş
+	Change Shape	Fiquru dəyiş
+	Changes	Dəyişikliklər
+	Character Position	Simvolun mövqeyi
+	Character Scale	Simvol miqyası
+	Character Shading	Simvol kölgəsi
+	Character Spacing	Simvollararası interval
+	Characters	Simvollar
+	Characters (no spaces)	Simvollar (boşluqsuz)
+	Characters (with spaces)	Simvollar (boşluqla)
+	Chart	Diaqram
+	Check Accessibility	Əlçatanlığı yoxla
+	Check Compatibility	Uyğunluğu yoxla
+	Check Spelling as You Type	Yazarkən orfoqrafiyanı yoxla
+	Check for Errors	Xətaları yoxla
+	Check\nAccessibility	Əlçatanlığı\nyoxla
+	Citation Style	İstinad üslubu
+	Citations & Bibliography	İstinadlar və biblioqrafiya
+	Clear	Təmizlə
+	Clear All	Hamısını təmizlə
+	Clear All Formatting	Bütün formatlaşdırmanı təmizlə
+	Clear Character Formatting	Simvol formatlaşdırmasını təmizlə
+	Clear Character Style	Simvol üslubunu təmizlə
+	Clear Formatting Level	Formatlaşdırma səviyyəsini təmizlə
+	Clear Paragraph Formatting	Abzas formatlaşdırmasını təmizlə
+	Clipboard	Mübadilə buferi
+	Close	Bağla
+	Close Header and Footer	Kolontitulları bağla
+	Collapse Selection	Seçimi yığ
+	Color	Rəng
+	Color:	Rəng:
+	Colors	Rənglər
+	Column	Sütun
+	Column Break	Sütun fasiləsi
+	Columns	Sütunlar
+	Combine	Birləşdir
+	Commands	Əmrlər
+	Comment	Şərh
+	Comments	Şərhlər
+	Comments Pane	Şərhlər paneli
+	Community\nDiscord	İcma\nDiscord
+	Compact	Yığcam
+	Compare	Müqayisə et
+	Compress Pictures	Şəkilləri sıxışdır
+	Continuous	Fasiləsiz
+	Convert	Çevir
+	Convert Text to Table	Mətni cədvələ çevir
+	Convert Text to Table…	Mətni cədvələ çevir…
+	Convert to Text	Mətnə çevir
+	Copy	Kopyala
+	Copy Formatting	Formatlaşdırmanı kopyala
+	Corrections	Düzəlişlər
+	Count words in text boxes and notes	Mətn sahələrində və qeydlərdə sözləri say
+	Cover Page	Titul səhifəsi
+	Create	Yarat
+	Create New Style	Yeni üslub yarat
+	Create a Style	Üslub yarat
+	Create an interactive outline of your document.\n\nIt's a great way to keep track of where you are or quickly move your content around.\n\nTo get started, go to the Home tab and apply Heading styles to the headings in your document.	Sənədinizin interaktiv strukturunu yaradın.\n\nBu, harada olduğunuzu izləmək və ya məzmunu sürətlə yerdəyişmə etmək üçün əla üsuldur.\n\nBaşlamaq üçün «Əsas» tabına keçin və sənəddəki başlıqlara başlıq üslublarını tətbiq edin.
+	Crop	Kəs
+	Cross-reference	Çarpaz istinad
+	Current Position	Cari mövqe
+	Current style: {style}	Cari üslub: {style}
+	Custom Margins…	Fərdi kənarlar…
+	Custom Watermark	Fərdi su nişanı
+	Custom Watermark…	Fərdi su nişanı…
+	Customize Quick Access Toolbar	Sürətli giriş panelini fərdiləşdir
+	Cut	Kəs
+	Dark Mode	Qaranlıq rejim
+	Dashed	Ştrixli
+	Data	Verilənlər
+	Date & Time	Tarix və vaxt
+	Decrease Font Size	Şrift ölçüsünü kiçilt
+	Decrease Indent	Abzas boşluğunu azalt
+	Default	Defolt
+	Define New Bullet	Yeni marker təyin et
+	Define New Number Format	Yeni nömrə formatı təyin et
+	Delete	Sil
+	Delete Cells	Xanaları sil
+	Delete Columns	Sütunları sil
+	Delete Comment	Şərhi sil
+	Delete Next Word	Növbəti sözü sil
+	Delete Previous Word	Əvvəlki sözü sil
+	Delete Rows	Sətirləri sil
+	Delete Style	Üslubu sil
+	Delete Table	Cədvəli sil
+	Design	Dizayn
+	Diagonal	Diaqonal
+	Diamond	Romb
+	Dictate	Diktə et
+	Different First Page	Fərqli birinci səhifə
+	Different Odd & Even Pages	Cüt və tək səhifələr fərqli
+	Direct formatting	Birbaşa formatlaşdırma
+	Discord	Discord
+	Discord community	Discord icması
+	Display	Görüntü
+	Display for Review	Yoxlama üçün görüntü
+	Distribute Columns	Sütunları bərabər böl
+	Distribute Rows	Sətirləri bərabər böl
+	Distributed	Paylanmış
+	Do Not Show in TOC	Mündəricatda göstərmə
+	Document End	Sənədin sonu
+	Document Formatting	Sənədin formatlaşdırılması
+	Document Property	Sənəd xassəsi
+	Document Start	Sənədin əvvəli
+	Document Text	Sənəd mətni
+	Document Title	Sənədin adı
+	Documents you open will show up here.	Açdığınız sənədlər burada görünəcək.
+	Dot-dash	Nöqtə-tire
+	Dotted	Nöqtəli
+	Double	İkiqat
+	Double Spacing	İkiqat interval
+	Double Strikethrough	İkiqat üstündən xətt
+	Double Underline	İkiqat altından xətt
+	Down	Aşağı
+	Draft	Qaralama
+	Draw	Çək
+	Drawing Tools	Çəkmə alətləri
+	Drawing\nCanvas	Çəkmə\nlövhəsi
+	Drop Cap	İri baş hərf
+	Drops all formatting and pastes plain text.	Bütün formatlaşdırmanı silir və sadə mətni yapışdırır.
+	Edit Comment	Şərhi redaktə et
+	Edit Footer	Alt kolontitulu redaktə et
+	Edit Header	Üst kolontitulu redaktə et
+	Edit Recipient List	Alıcılar siyahısını redaktə et
+	Edit\nRecipient List	Alıcılar siyahısını\nredaktə et
+	Edited	Redaktə edilib
+	Editing	Redaktə
+	Editing header/footer	Kolontitulun redaktəsi
+	Editing — edit the document directly	Redaktə — sənədi birbaşa redaktə edin
+	Editor	Redaktor
+	Effects	Effektlər
+	Emboss	Qabarıq
+	Encrypt with Password	Oyma
+	English (United States)	İngilis dili (ABŞ)
+	Engrave	Batıq
+	Enter page number:	Səhifə nömrəsini daxil edin:
+	Envelopes	Zərflər
+	Eraser	Pozan
+	Even Page	Cüt səhifə
+	Every command is available to scripts and AI agents: run `wordcraft-cli mcp` for an MCP server, or start the app with `--control <port>` for the JSON control channel.	Hər əmr skriptlər və süni intellekt agentləri üçün əlçatandır: MCP serveri üçün `wordcraft-cli mcp` əmrini işə salın və ya JSON idarəetmə kanalı üçün proqramı `--control <port>` ilə başladın.
+	Export	İxrac
+	Export PDF	PDF-ə ixrac
+	Export Page as PNG	Səhifəni PNG kimi ixrac et
+	Export a copy to share (PDF, Word document)	Paylaşmaq üçün nüsxəni ixrac et (PDF, Word sənədi)
+	Exported {path}	İxrac edildi: {path}
+	Extend Selection	Seçimi genişləndir
+	Field	Sahə
+	File	Fayl
+	Find	Tap
+	Find Next	Növbətini tap
+	Find Previous	Əvvəlkini tap
+	Find Recipient	Alıcını tap
+	Find and Replace	Tap və əvəz et
+	Find what:	Axtarılan:
+	Finish	Bitir
+	Finish & Merge	Bitir və birləşdir
+	Finish &\nMerge	Bitir və\nbirləşdir
+	First Column	Birinci sütun
+	First commit	İlk kommit
+	First line:	Birinci sətir:
+	Fixed Column Width	Sabit sütun eni
+	Focus	Fokus
+	Font	Şrift
+	Font Color	Şrift rəngi
+	Font Dialog	«Şrift» pəncərəsi
+	Font Size	Şrift ölçüsü
+	Font color:	Şrift rəngi:
+	Font:	Şrift:
+	Fonts	Şriftlər
+	Footer	Alt kolontitul
+	Footnote and Endnote	Haşiyə və son haşiyə
+	Footnotes	Haşiyələr
+	Format	Format
+	Format Page Numbers	Səhifə nömrələrinin formatı
+	Format Page Numbers…	Səhifə nömrələrinin formatı…
+	Format Painter	Format fırçası
+	Formatted Text	Formatlı mətn
+	Formatting at Selection	Seçilmiş hissənin formatı
+	Formula	Düstur
+	General	Ümumi
+	Go To	Keç
+	Go To (⌘⌥G)	Keç (⌘⌥G)
+	Go To…	Keç…
+	Go to	Keç
+	Grab bag	Müxtəlif
+	Greeting Line	Salamlama sətri
+	Greeting\nLine	Salamlama\nsətri
+	Gridlines	Tor xətləri
+	Group	Qruplaşdır
+	Grow Font 1 Point	Şrifti 1 punkt böyüt
+	HTML Format	HTML formatı
+	Hanging Indent	Çıxıntılı abzas
+	Header	Üst kolontitul
+	Header & Footer	Kolontitullar
+	Header Row	Başlıq sətri
+	Header/Footer Position	Kolontitulun mövqeyi
+	Heading 1	Başlıq 1
+	Heading 2	Başlıq 2
+	Heading 3	Başlıq 3
+	Headings	Başlıqlar
+	Heart	Ürək
+	Help	Kömək
+	Hidden	Gizli
+	Highlight Merge Fields	Birləşmə sahələrini vurğula
+	Highlight\nMerge Fields	Birləşmə sahələrini\nvurğula
+	Highlighter	Marker
+	Home	Əsas
+	Horizontal	Üfüqi
+	Horizontal Line	Üfüqi xətt
+	Hyphenation	Hecalara bölmə
+	Icons	İkonlar
+	Ignore All	Hamısını ötür
+	Illustrations	İllüstrasiyalar
+	Immersive	İmmersiv
+	Immersive Reader	İmmersiv oxuyucu
+	Immersive\nReader	İmmersiv\noxuyucu
+	In the margin	Kənarda
+	Increase Font Size	Şrift ölçüsünü böyüt
+	Increase Indent	Abzas boşluğunu artır
+	Indent	Abzas boşluğu
+	Indentation	Abzas boşluqları
+	Indents	Abzas boşluqları
+	Index	Göstərici
+	Info	Məlumat
+	Ink to\nMath	Əlyazmanı\ndüstura
+	Ink to\nShape	Əlyazmanı\nfiqura
+	Ink\nReplay	Əlyazmanı\ntəkrarla
+	Insert	Daxil et
+	Insert Above	Yuxarıya daxil et
+	Insert Below	Aşağıya daxil et
+	Insert Caption	Başlıq daxil et
+	Insert Caption…	Başlıq daxil et…
+	Insert Citation	İstinad daxil et
+	Insert Endnote	Son haşiyə daxil et
+	Insert Footnote	Haşiyə daxil et
+	Insert Hyperlink	Hiperlink daxil et
+	Insert Index	Göstərici daxil et
+	Insert Left	Sola daxil et
+	Insert Merge Field	Birləşmə sahəsi daxil et
+	Insert Merge\nField	Birləşmə sahəsi\ndaxil et
+	Insert Right	Sağa daxil et
+	Insert Shapes	Fiqurlar daxil et
+	Insert Table	Cədvəl daxil et
+	Insert Table of Authorities	İstinadlar cədvəli daxil et
+	Insert Table of Figures	İllüstrasiyalar siyahısı daxil et
+	Insert Table…	Cədvəl daxil et…
+	Insert\nAbove	Yuxarıya\ndaxil et
+	Insert\nCaption	Başlıq\ndaxil et
+	Insert\nCitation	İstinad\ndaxil et
+	Insert\nFootnote	Haşiyə\ndaxil et
+	Inside Borders	Daxili sərhədlər
+	Inspect Document	Sənədi yoxla
+	Inspect Styles at Selection	Seçilmiş hissənin üslubları
+	Interface language:	İnterfeys dili:
+	Italic	Kursiv
+	Join the ArtCraft community on Discord	Discord-da ArtCraft icmasına qoşulun
+	Join us on Discord: discord.gg/artcraft	Discord-da bizə qoşulun: discord.gg/artcraft
+	Justify	Enə görə
+	Keep Lines Together	Sətirləri birlikdə saxla
+	Keep Text Only	Yalnız mətni saxla
+	Keep lines together	Sətirləri birlikdə saxla
+	Keep with Next	Növbəti ilə birlikdə
+	Keep with next	Növbəti ilə birlikdə
+	Keeps the fonts and formatting of the copied text.	Kopyalanmış mətnin şriftlərini və formatlaşdırmasını saxlayır.
+	Labels	Etiketlər
+	Landscape	Albom
+	Language	Dil
+	{language} (no dictionary)	{language} (lüğət yoxdur)
+	No spelling dictionary for {language} is installed, so it isn't checked. Lexicon looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	{language} dili üçün orfoqrafiya lüğəti quraşdırılmayıb, buna görə mətn yoxlanmır. Lexicon {name} Hunspell lüğətini WORDCRAFT_DICTIONARIES qovluğunda və adi sistem yerlərində axtarır.
+	Lasso	Kəmənd
+	Last Column	Son sütun
+	Last commit	Son kommit
+	Layout	Tərtibat
+	Layout Summary	Tərtibatın xülasəsi
+	Left	Sol
+	Left Border	Sol sərhəd
+	Left Margin	Sol kənar
+	Left:	Soldan:
+	Letter	Məktub
+	Line	Xətt
+	Line Break	Sətir fasiləsi
+	Line End	Sətrin sonu
+	Line Numbers	Sətir nömrələri
+	Line Spacing	Sətirarası interval
+	Line Spacing Options…	Sətirarası interval parametrləri…
+	Line Start	Sətrin əvvəli
+	Line and Page Breaks	Sətir və səhifə fasilələri
+	Line and Paragraph Spacing	Sətirlər və abzaslar arası interval
+	Line delta	Sətirlərin dəyişməsi
+	Line spacing:	Sətirarası interval:
+	Lines	Sətirlər
+	Lines added	Əlavə edilmiş sətirlər
+	Lines deleted	Silinmiş sətirlər
+	Link	Keçid
+	Link to Previous	Əvvəlkinə bağla
+	Links	Keçidlər
+	Location: {path}	Yer: {path}
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.
+	Macros	Makroslar
+	Mailings	Göndərişlər
+	Manage Sources	Mənbələri idarə et
+	Many pages	Çoxlu səhifə
+	Margins	Kənarlar
+	Mark Citation	İstinadı qeyd et
+	Mark Entry	Elementi qeyd et
+	Mark\nCitation	İstinadı\nqeyd et
+	Mark\nEntry	Elementi\nqeyd et
+	Markdown (*.md)	Markdown (*.md)
+	Match Fields	Sahələri uyğunlaşdır
+	Match case	Registri nəzərə al
+	Matrix	Matris
+	Merge	Birləşdir
+	Merge Cells	Xanaları birləşdir
+	Merge Formatting	Formatlaşdırmanı birləşdir
+	Merged PRs	Qəbul edilmiş PR-lar
+	Mirrored	Güzgü
+	Moderate	Orta
+	Modify Style	Üslubu dəyiş
+	Modify…	Dəyiş…
+	More templates →	Digər şablonlar →
+	Move or Resize	Yerini və ya ölçüsünü dəyiş
+	Multilevel List	Çoxsəviyyəli siyahı
+	Multilevel List Library	Çoxsəviyyəli siyahılar kitabxanası
+	Article I.	Maddə I.
+	Chapter 1	Fəsil 1
+	Section 1.01	Bölmə 1.01
+	Multiple Pages	Bir neçə səhifə
+	Name (A–Z)	Ad (A–Z)
+	Name:	Ad:
+	Narrow  {size} all	Dar  {size} hər tərəfdən
+	Navigation	Naviqasiya
+	Navigation Pane	Naviqasiya paneli
+	New	Yeni
+	New Comment	Yeni şərh
+	New Paragraph	Yeni abzas
+	New Style…	Yeni üslub…
+	New Window	Yeni pəncərə
+	New from Template	Şablondan yeni
+	New\nComment	Yeni\nşərh
+	New\nWindow	Yeni\npəncərə
+	Next	Növbəti
+	Next Change	Növbəti dəyişiklik
+	Next Comment	Növbəti şərh
+	Next Footnote	Növbəti haşiyə
+	Next Page	Növbəti səhifə
+	Next Record	Növbəti qeyd
+	Next Section	Növbəti bölmə
+	No Border	Sərhədsiz
+	No Color	Rəngsiz
+	No Markup	Qeydsiz
+	No Paragraph Space	Abzaslar arası intervalsız
+	No contributor data was built into this copy.	Bu nüsxəyə iştirakçılar haqqında məlumat daxil edilməyib.
+	No document is open. Create a document or open one first.	Açıq sənəd yoxdur. Əvvəlcə sənəd yaradın və ya açın.
+	No model credits were built into this copy.	Bu nüsxəyə modellər haqqında məlumat daxil edilməyib.
+	No templates match your search.	Axtarışınıza uyğun şablon yoxdur.
+	Nonbreaking Hyphen	Qırılmayan defis
+	Nonbreaking Space	Qırılmayan boşluq
+	None	Heç biri
+	Normal  {size} all	Adi  {size} hər tərəfdən
+	Normal Style	Adi üslub
+	Not available right now	Hazırda əlçatan deyil
+	Not saved	Yadda saxlanmayıb
+	Not saved yet	Hələ yadda saxlanmayıb
+	Nudge	Sürüşdür
+	Number of columns:	Sütunların sayı:
+	Number of rows:	Sətirlərin sayı:
+	Numbering	Nömrələmə
+	OK	OK
+	Object	Obyekt
+	Odd Page	Tək səhifə
+	Office 2003 Default	Office 2003 defolt
+	One	Bir
+	One Page	Bir səhifə
+	Only for the selected text	Yalnız seçilmiş mətn üçün
+	Open	Aç
+	OpenDocument Text (*.odt)	OpenDocument mətni (*.odt)
+	Optional Hyphen	Yumşaq defis
+	Options	Parametrlər
+	Orientation	İstiqamət
+	Outline	Struktur
+	Outline Level	Struktur səviyyəsi
+	Outside Borders	Xarici sərhədlər
+	Oval	Oval
+	PDF document (*.pdf)	PDF sənədi (*.pdf)
+	Page	Səhifə
+	Page Background	Səhifə fonu
+	Page Borders	Səhifə sərhədləri
+	Page Break	Səhifə fasiləsi
+	Page Break Before	Yeni səhifədən
+	Page Breaks	Səhifə fasilələri
+	Page Color	Səhifə rəngi
+	Page Down	Səhifə aşağı
+	Page Movement	Səhifələrin vərəqlənməsi
+	Page Number	Səhifə nömrəsi
+	Page Setup	Səhifə parametrləri
+	Page Up	Səhifə yuxarı
+	Page Width	Səhifə eninə
+	Page X of Y	Səhifə X / Y
+	Page break before	Yeni səhifədən
+	Page image (*.png)	Səhifə şəkli (*.png)
+	Page width	Səhifə eninə
+	Page {page}	Səhifə {page}
+	Page {page} of {pages}	Səhifə {page} / {pages}
+	Page\nBorders	Səhifə\nsərhədləri
+	Page\nColor	Səhifə\nrəngi
+	Page\nNumber	Səhifə\nnömrəsi
+	Pages	Səhifələr
+	Paragraph	Abzas
+	Paragraph Details	Abzasın təfərrüatları
+	Paragraph Down	Abzas aşağı
+	Paragraph Settings	Abzas parametrləri
+	Paragraph Spacing	Abzaslar arası interval
+	Paragraph Up	Abzas yuxarı
+	Paragraphs	Abzaslar
+	Paste	Yapışdır
+	Paste (⌘V)	Yapışdır (⌘V)
+	Paste Formatting	Formatlaşdırmanı yapışdır
+	Paste Special	Xüsusi yapışdırma
+	Paste Special…	Xüsusi yapışdırma…
+	Paste as:	Belə yapışdır:
+	Paste: Keep Text Only	Yapışdır: yalnız mətn
+	Paste: Merge Formatting	Yapışdır: formatlaşdırmanı birləşdir
+	Pen	Qələm
+	Pencil	Karandaş
+	Picture Border	Şəkil sərhədi
+	Picture Format	Şəkil formatı
+	Picture Styles	Şəkil üslubları
+	Pictures	Şəkillər
+	Plain text (*.txt)	Sadə mətn (*.txt)
+	Portrait	Kitab
+	Position	Mövqe
+	Preview Results	Nəticələrə baxış
+	Preview\nResults	Nəticələrə\nbaxış
+	Previous	Əvvəlki
+	Previous Change	Əvvəlki dəyişiklik
+	Previous Comment	Əvvəlki şərh
+	Previous Record	Əvvəlki qeyd
+	Previous Section	Əvvəlki bölmə
+	Print	Çap et
+	Print Layout	Çap tərtibatı
+	Print\nLayout	Çap\ntərtibatı
+	Proofing	Orfoqrafiya
+	Proofing Issues	Orfoqrafiya qeydləri
+	Properties	Xassələr
+	Protect	Qoru
+	Protect Document	Sənədi qoru
+	Quick Access Toolbar	Sürətli giriş paneli
+	Quick Parts	Hazır bloklar
+	Quick Tables	Hazır cədvəllər
+	Read Aloud	Səsli oxu
+	Read Mode	Oxu rejimi
+	Read\nAloud	Səsli\noxu
+	Read\nMode	Oxu\nrejimi
+	Reads the clipboard's rich text and keeps its formatting.	Buferdəki RTF mətni götürür və onun formatlaşdırmasını saxlayır.
+	Reads the clipboard's web content and keeps its formatting.	Buferdəki veb məzmunu götürür və onun formatlaşdırmasını saxlayır.
+	Picture	Şəkil
+	Pastes the clipboard's picture.	Buferdəki şəkli yapışdırır.
+	Reading Highlight	Uyğunluqları vurğula
+	Recent	Son
+	Record Macro	Makros yaz
+	Recover Unsaved Documents	Saxlanmamış sənədləri bərpa et
+	Rectangle	Düzbucaqlı
+	Redo	Qaytar
+	Reduce Hanging Indent	Çıxıntını azalt
+	References	İstinadlar
+	Reject	Rədd et
+	Reject All Changes	Bütün dəyişiklikləri rədd et
+	Reject Change	Dəyişikliyi rədd et
+	Relaxed	Sərbəst
+	Remove Background	Fonu sil
+	Remove Footer	Alt kolontitulu sil
+	Remove Header	Üst kolontitulu sil
+	Remove Hyperlink	Hiperlinki sil
+	Remove Space After Paragraph	Abzasdan sonra intervalı sil
+	Remove Table of Contents	Mündəricatı sil
+	Remove Watermark	Su nişanını sil
+	Reopen	Yenidən aç
+	Repeat	Təkrarla
+	Repeat Header Rows	Başlıq sətirlərini təkrarla
+	Replace	Əvəz et
+	Replace All	Hamısını əvəz et
+	Replace Document Text	Sənəd mətnini əvəz et
+	Replace with:	Əvəz et:
+	Replay	Təkrar oynat
+	Reply	Cavab ver
+	Report	Hesabat
+	Research	Araşdırma
+	Researcher	Tədqiqatçı
+	Reset Picture	Şəkli sıfırla
+	Reset to Normal	«Adi»yə qaytar
+	Resolve	Həll et
+	Resolved	Həll edilib
+	Restart Each Page	Hər səhifədə yenidən
+	Restart Each Section	Hər bölmədə yenidən
+	Restart at 1	1-dən başla
+	Restrict Editing	Redaktəni məhdudlaşdır
+	Restrict\nEditing	Redaktəni\nməhdudlaşdır
+	Result	Nəticə
+	Results	Nəticələr
+	Reverse the order	Tərs sırada
+	Reviewing	Yoxlama
+	Reviewing Pane	Yoxlama paneli
+	Reviewing — edits become suggestions	Yoxlama — düzəlişlər təkliflərə çevrilir
+	Rich Text Format (*.rtf)	Rich Text Format (*.rtf)
+	Rich Text Format (RTF)	Rich Text Format (RTF)
+	Right	Sağ
+	Right Border	Sağ sərhəd
+	Right Margin	Sağ kənar
+	Right-to-Left Text Direction	Mətnin istiqaməti sağdan sola
+	Left-to-Right Text Direction	Mətnin istiqaməti soldan sağa
+	Right:	Sağdan:
+	Rotate	Döndər
+	Rounded Rectangle	Yuvarlaq düzbucaqlı
+	Rows & Columns	Sətirlər və sütunlar
+	Ruler	Xətkeş
+	Rules	Qaydalar
+	Résumé	Tərcümeyi-hal
+	Save	Yadda saxla
+	Save As	Fərqli saxla
+	Save a copy in another format. Printing goes through a PDF you can print from any viewer.	Nüsxəni başqa formatda saxlayın. Çap istənilən baxış proqramından çap edilə bilən PDF vasitəsilə aparılır.
+	Save as Template	Şablon kimi saxla
+	Saved	Yadda saxlanıb
+	Search Commands	Əmrləri axtar
+	Search commands and help	Əmrləri və köməyi axtar
+	Search document	Sənəddə axtar
+	Search for templates	Şablonları axtar
+	Section Breaks	Bölmə fasilələri
+	Section Properties	Bölmə xassələri
+	Sections	Bölmələr
+	Select	Seç
+	Select All	Hamısını seç
+	Select Cell	Xananı seç
+	Select Line	Sətri seç
+	Select Objects	Obyektləri seç
+	Select Paragraph	Abzası seç
+	Select Range	Aralığı seç
+	Select Recipients	Alıcıları seç
+	Select Row	Cədvəl sətrini seç
+	Select Sentence	Cümləni seç
+	Select Table	Cədvəli seç
+	Select Text	Mətni seç
+	Select Text with Similar Formatting	Oxşar formatlı mətni seç
+	Select Word	Sözü seç
+	Select\nRecipients	Alıcıları\nseç
+	Selection	Seçim
+	Selection Pane	Seçim paneli
+	Send Backward	Geri çək
+	Sentence case.	Cümlədəki kimi.
+	Set Caret	Kursoru qoy
+	Set Character Formatting	Simvol formatını təyin et
+	Set Numbering Value	Nömrələmə dəyərini təyin et
+	Set Paragraph Formatting	Abzas formatını təyin et
+	Set as Default	Defolt olaraq təyin et
+	Shading	Kölgələmə
+	Shadow	Kölgə
+	Shape Fill	Fiqurun doldurulması
+	Shape Format	Fiqur formatı
+	Shape Outline	Fiqurun konturu
+	Shape Styles	Fiqur üslubları
+	Shapes	Fiqurlar
+	Share	Paylaş
+	Shift+Tab	Shift+Tab
+	Show	Göstər
+	Show Comments	Şərhləri göstər
+	Show Markup	Qeydləri göstər
+	Show Notes	Haşiyələri göstər
+	Show all formatting marks	Bütün formatlaşdırma işarələrini göstər
+	Show rulers	Xətkeşləri göstər
+	Show the community button in the title bar	Başlıq zolağında icma düyməsini göstər
+	Show/Hide ¶	Göstər/gizlət ¶
+	Show\nComments	Şərhləri\ngöstər
+	Shrink Font 1 Point	Şrifti 1 punkt kiçilt
+	Side to Side	Yan-yana
+	Side\nto Side	Yan-\nyana
+	Signature Line	İmza sətri
+	Single	Tək
+	Single Spacing	Tək interval
+	Size	Ölçü
+	Size:	Ölçü:
+	Small Caps	Kiçik böyük hərflər
+	Small caps	Kiçik böyük hərflər
+	SmartArt	SmartArt
+	Sort	Çeşidlə
+	Source code: github.com/Arthuralend/Lexicon	Mənbə kodu: github.com/Arthuralend/Lexicon
+	WordCraft: github.com/storytold/wordcraft	WordCraft: github.com/storytold/wordcraft
+	Space before/after:	Əvvəl/sonra interval:
+	Spacing	İnterval
+	Spacing (pt):	İnterval (pt):
+	Kerning for fonts:	Şriftlərin kerninqi:
+	Points and above	pt və daha çox
+	Speech	Nitq
+	Spelling & Grammar	Orfoqrafiya və qrammatika
+	Spelling &\nGrammar	Orfoqrafiya və\nqrammatika
+	Spelling Suggestions	Orfoqrafiya təklifləri
+	Split	Böl
+	Split Cells	Xanaları böl
+	Split Table	Cədvəli böl
+	Spreadsheet Table	Elektron cədvəl
+	Standard Colors	Standart rənglər
+	Star	Ulduz
+	Start Mail Merge	Məktub birləşməsinə başla
+	Start Mail\nMerge	Birləşməyə\nbaşla
+	Statistics	Statistika
+	Status Bar	Vəziyyət zolağı
+	Strikethrough	Üstündən xətt
+	Studio cover	Studio üz qabığı
+	Studio handbook (sample)	Studio təlimatı (nümunə)
+	Style	Üslub
+	Style Inspector	Üslub müfəttişi
+	Style Set	Üslub dəsti
+	Style based on:	Əsaslandığı üslub:
+	Styles	Üslublar
+	Styles Pane	Üslublar paneli
+	Subscript	Aşağı indeks
+	Superscript	Yuxarı indeks
+	Switch Modes	Rejimi dəyiş
+	Switch\nModes	Rejimi\ndəyiş
+	Symbol	Simvol
+	Symbols	Simvollar
+	Synonyms	Sinonimlər
+	Tab	Tab
+	Table	Cədvəl
+	Table Column Width	Cədvəl sütununun eni
+	Table Design	Cədvəl dizaynı
+	Table Layout	Cədvəl tərtibatı
+	Table Properties	Cədvəl xassələri
+	Table Properties…	Cədvəl xassələri…
+	Table Row Height	Cədvəl sətrinin hündürlüyü
+	Table Style Options	Cədvəl üslubu parametrləri
+	Table Styles	Cədvəl üslubları
+	Table of Authorities	İstinadlar cədvəli
+	Table of Contents	Mündəricat
+	Table of\nContents	Mündəricat
+	Tables	Cədvəllər
+	Tabs	Tabulyasiya
+	Tabular List	Cədvəl şəkilli siyahı
+	Text	Mətn
+	Text Box	Mətn sahəsi
+	Text Direction	Mətnin istiqaməti
+	Text Effects	Mətn effektləri
+	Text Effects and Typography	Mətn effektləri və tipoqrafiya
+	Text Highlight Color	Mətnin vurğulama rəngi
+	Text Wrapping	Mətnlə əhatə
+	Text from File	Fayldan mətn
+	Text to display:	Göstəriləcək mətn:
+	Text:	Mətn:
+	Text\nBox	Mətn\nsahəsi
+	Text\nDirection	Mətnin\nistiqaməti
+	The clipboard is empty.	Mübadilə buferi boşdur.
+	The new style takes the formatting of the current paragraph.	Yeni üslub cari abzasın formatlaşdırmasını alacaq.
+	Theme Colors	Mövzu rəngləri
+	Theme Fonts	Mövzu şriftləri
+	Theme List	Mövzular siyahısı
+	Themes	Mövzular
+	Thesaurus	Tezaurus
+	Thick	Qalın
+	Three	Üç
+	Tight	Sıx
+	Top Border	Üst sərhəd
+	Top Margin	Üst kənar
+	Top of Page	Səhifənin yuxarısında
+	Top:	Yuxarıdan:
+	Total Row	Yekun sətri
+	Track Changes	Dəyişiklikləri izlə
+	Track Changes: On	Dəyişikliklərin izlənməsi: aktiv
+	Tracking	İzləmə
+	Translate	Tərcümə et
+	Transparency	Şəffaflıq
+	Triangle	Üçbucaq
+	Two	İki
+	Type Text	Mətn yaz
+	Type a command, e.g. "insert table"	Əmr yazın, məsələn «cədvəl daxil et»
+	UPPERCASE	HAMISI BÖYÜK HƏRFLƏ
+	Underline	Altından xətt
+	Underline Words Only	Yalnız sözlərin altından xətt
+	Undo	Geri al
+	Undo {action}	Geri al: {action}
+	Unformatted Text	Formatsız mətn
+	Up	Yuxarı
+	Update Field	Sahəni yenilə
+	Update Index	Göstəricini yenilə
+	Update Style to Match Selection	Üslubu seçimə uyğun yenilə
+	Update Table	Cədvəli yenilə
+	Update Table of Figures	İllüstrasiyalar siyahısını yenilə
+	Update to Match	Nümunəyə uyğun yenilə
+	Update to Match Selection	Seçimə uyğun yenilə
+	User Name	İstifadəçi adı
+	User name:	İstifadəçi adı:
+	Version History	Versiyalar tarixçəsi
+	Version {version} ({build})	Versiya {version} ({build})
+	Vertical	Şaquli
+	Vertical Alignment	Şaquli düzləndirmə
+	View	Görünüş
+	View Gridlines	Tor xətlərini göstər
+	View State	Görünüş vəziyyəti
+	Views	Görünüşlər
+	Voice	Səs
+	Watermark	Su nişanı
+	Wave	Dalğalı
+	Web Layout	Veb tərtibatı
+	Web\nLayout	Veb\ntərtibatı
+	Web page (*.html)	Veb səhifə (*.html)
+	Whole page	Bütün səhifə
+	Whole words	Tam sözlər
+	Wide	Geniş
+	Widow/Orphan Control	Tək qalan sətirlərə nəzarət
+	Widow/Orphan control	Tək qalan sətirlərə nəzarət
+	Wildcards (regex)	Şablon simvollar (regex)
+	Window	Pəncərə
+	Word Count	Söz sayı
+	Word Left	Bir söz sola
+	Word Right	Bir söz sağa
+	Word document (*.docx)	Word sənədi (*.docx)
+	WordArt	WordArt
+	Lexicon	Lexicon
+	Words	Sözlər
+	Words only	Yalnız sözlər
+	Wrap Text	Mətnlə əhatə
+	Wrap\nText	Mətnlə\nəhatə
+	Write & Insert Fields	Yaz və sahələr daxil et
+	Write a reply	Cavab yaz
+	Zoom	Miqyas
+	Zoom In	Böyüt
+	Zoom Out	Kiçilt
+	development build	tərtibatçı versiyası
+	lowercase	hamısı kiçik hərflə
+	{group} settings	{group}: parametrlər
+	{key}+Click to follow link	Keçidə keçmək üçün {key}+klik
+	{selected} of {words} words	Sözlər: {selected} / {words}
+	{words} words	Sözlər: {words}
+	➕ New comment	➕ Yeni şərh
+	📂  Browse…	📂  Bax…
+	Equation	Tənlik
+	Review	Yoxlama
+	Track\nChanges	Dəyişiklikləri\nizlə
+	Track\nChanges ✓	Dəyişiklikləri\nizlə ✓
+	Scroll ribbon left	Lenti sola sürüşdür
+	Scroll ribbon right	Lenti sağa sürüşdür
+	Apply Styles	Üslubları tətbiq et
+	Dark page (white text on black)	Qaranlıq səhifə (qara üzərində ağ mətn)
+	Show documents with their colours inverted, like View › Switch Modes. Saving, printing and PDFs are unchanged.	Sənədləri «Görünüş › Rejimi dəyiş» kimi tərs rənglərlə göstər. Yadda saxlama, çap və PDF dəyişmir.
+	Only web (http, https) and email (mailto) links can be followed	Yalnız veb (http, https) və e-poçt (mailto) keçidlərinə keçmək olar
+	Character Border	Simvol sərhədi
+	Direction:	İstiqamət:
+	Right-to-left	Sağdan sola
+	Left-to-right	Soldan sağa
+	Zotero	Zotero
+	Citations	İstinadlar
+	Document	Sənəd
+	Add/Edit\nCitation	İstinad əlavə et/\nredaktə et
+	Add\nNote	Qeyd\nəlavə et
+	Add/Edit\nBibliography	Biblioqrafiya əlavə et/\nredaktə et
+	Refresh	Yenilə
+	Document\nPreferences	Sənəd\nparametrləri
+	Unlink\nCitations	İstinadları\nayır
+	Waiting for Zotero…	Zotero gözlənilir…
+	Zotero: done	Zotero: hazırdır
+	Zotero: cancelled	Zotero: ləğv edildi
+	Yes	Bəli
+	No	Xeyr
+	Move Past Citation	İstinaddan sonraya keç
+	Move Past\nCitation	İstinaddan\nsonraya keç
+	Next Sentence	Növbəti cümlə
+	Previous Sentence	Əvvəlki cümlə
+	Next sentence	Növbəti cümlə
+	Previous sentence	Əvvəlki cümlə
+	Play/Pause	Oynat/fasilə
+	Read Aloud Status	Səsli oxunun vəziyyəti
+	Reading Speed	Oxu sürəti
+	Skip Citations and Bibliography	İstinadları və biblioqrafiyanı ötür
+	Skip citations & bibliography	İstinadları və biblioqrafiyanı ötür
+	Stop Reading	Oxunu dayandır
+	Don't read Zotero, Mendeley or EndNote citations and bibliographies	Zotero, Mendeley və ya EndNote istinadlarını və biblioqrafiyalarını oxuma
+	Play	Oynat
+	Pause	Fasilə
+	Stop	Dayan
+	Sentence	Cümlə
+	Paused	Fasilə verildi
+	Finished	Bitdi
+	Stopped	Dayandırıldı
+	Speed	Sürət
+	Normal speed	Normal sürət
+	AutoSave documents you have saved in Lexicon	Lexicon-da yadda saxladığınız sənədlərin avtosaxlanması
+	AutoSave failed: {error}. Save the document to turn AutoSave back on.	Avtosaxlama xətası: {error}. Avtosaxlamanı yenidən aktivləşdirmək üçün sənədi yadda saxlayın.
+	Couldn't download {name}: {error}	{name} yüklənmədi: {error}
+	Do you want to save changes to {name}?	{name} faylındakı dəyişiklikləri saxlayırsınız?
+	Don't Save	Saxlama
+	That format doesn't keep everything, so the document is still open. Save it as a Word document (.docx) to go on.	Bu format hər şeyi saxlamır, buna görə sənəd açıq qalır. Davam etmək üçün onu Word sənədi (.docx) kimi saxlayın.
+	Your changes will be lost if you don't save them.	Dəyişiklikləri saxlamasanız, onlar itəcək.
+	Change Structure	Strukturu dəyiş
+	Change to Display	Ayrıca sətirdə göstər
+	Change to Inline	Sətir daxilində göstər
+	Conversions	Çevirmələr
+	Delete Back in Equation	Tənlikdə geri sil
+	Delete in Equation	Tənlikdə sil
+	Edit Equation	Tənliyi redaktə et
+	Enter in Equation	Tənlikdə yeni sətir
+	Equation Gallery	Tənliklər qalereyası
+	Equation Info	Tənlik haqqında məlumat
+	Equation Number	Tənlik nömrəsi
+	Input Format	Daxiletmə formatı
+	Insert Structure	Struktur daxil et
+	Insert Symbol	Simvol daxil et
+	Justification	Düzləndirmə
+	Leave Equation	Tənlikdən çıx
+	Move in Equation	Tənlikdə hərəkət
+	Normal Text	Adi mətn
+	Set Equation	Tənliyi təyin et
+	Structure Actions	Struktur əməliyyatları
+	Structures	Strukturlar
+	Tools	Alətlər
+	Type in Equation	Tənliyə yaz
+	Inline	Sətir daxilində
+	Number	Nömrə
+	Close Equation	Tənliyi bağla
+	Insert New Equation	Yeni tənlik daxil et
+	Built-In	Daxili
+	Professional	Peşəkar
+	Linear	Xətti
+	Fraction	Kəsr
+	Script	İndeks
+	Radical	Kök
+	Integral	İnteqral
+	Large\nOperator	Böyük\noperator
+	Bracket	Mötərizə
+	Function	Funksiya
+	Accent	Diakritika
+	Limit and\nLog	Limit və\nloqarifm
+	Operator	Operator
+	Equation Options	Tənlik parametrləri
+	All symbol sets	Bütün simvol dəstləri
+	Send the document straight to the system print dialog, or save a copy in another format below.	Sənədi birbaşa sistemin çap pəncərəsinə göndərin və ya aşağıda nüsxəni başqa formatda saxlayın.
+	Or save a copy in another format:	Və ya nüsxəni başqa formatda saxlayın:
+	Opening print dialog…	Çap pəncərəsi açılır…
+	Print failed: {error}	Çap xətası: {error}
+	Couldn't open {path}: {error}	{path} açılmadı: {error}
+	Column Selection	Sütun seçimi
+	New Table Style	Yeni cədvəl üslubu
+	Modify Table Style	Cədvəl üslubunu dəyiş
+	New Table Style…	Yeni cədvəl üslubu…
+	Modify Table Style…	Cədvəl üslubunu dəyiş…
+	Apply formatting to:	Formatlaşdırmanı tətbiq et:
+	Whole Table	Bütün cədvəl
+	Fill color:	Doldurma rəngi:
+	{count} items highlighted	Vurğulanmış uyğunluqlar: {count}
+	{n} pt	{n} pt
+	Not {name}	{name} deyil
+	Level {n}	Səviyyə {n}
+	Body Text	Əsas mətn
+	{n} lines	Vurma {n}
+	At least {n}	Ən azı {n}
+	Exactly {n}	Dəqiq {n}
+	Centered	Mərkəzə
+	Character spacing	Simvollararası interval
+	Don't add space between paragraphs of the same style	Eyni üslublu abzaslar arasında interval əlavə etmə
+	Don't hyphenate	Hecalara bölmə
+	Double strikethrough	İkiqat üstündən xətt
+	Drop cap	İri baş hərf
+	First line	Birinci sətir
+	Font color	Şrift rəngi
+	Highlight	Rənglə vurğulama
+	Justified	Enə görə
+	Left indent	Sol abzas boşluğu
+	Line spacing	Sətirarası interval
+	Outline level	Struktur səviyyəsi
+	Raised/lowered	Qaldırılmış/endirilmiş
+	Right indent	Sağ abzas boşluğu
+	Scale	Miqyas
+	Space after	Sonra interval
+	Space before	Əvvəl interval
+	Suppress line numbers	Sətir nömrələməsiz
+	Underline color	Alt xəttin rəngi
+	Letters	Məktublar
+	E-mail Messages	E-poçt mesajları
+	Directory	Kataloq
+	Normal Word Document	Adi Word sənədi
+	If…Then…Else…	Əgər…Onda…Əks halda…
+	If…Then…Else	Əgər…Onda…Əks halda
+	Merge Record #	Birləşmə qeydinin nömrəsi
+	Skip Record If…	Qeydi ötür, əgər…
+	Skip Record If	Qeydi ötür, əgər
+	Equals:	Bərabərdir:
+	Then insert:	Onda daxil et:
+	Otherwise insert:	Əks halda daxil et:
+	Courtesy Title	Müraciət
+	First Name	Ad
+	Last Name	Soyad
+	Company	Təşkilat
+	Address	Ünvan
+	City	Şəhər
+	State	Region
+	Postal Code	Poçt indeksi
+	Country	Ölkə
+	(not matched)	(uyğunlaşdırılmayıb)
+	Leave a recipient out of the merge when a field has this value.	Sahə bu dəyərə malik olduqda alıcını birləşməyə daxil etmə.
+	Insert one text or another, depending on a field's value.	Sahənin dəyərindən asılı olaraq bu və ya digər mətni daxil et.
+	Select recipients first to match their fields.	Sahələrini uyğunlaşdırmaq üçün əvvəlcə alıcıları seçin.
+	The recipient-list field that fills each part of an address block and greeting line.	Ünvan blokunun və salamlama sətrinin hər hissəsini dolduran alıcılar siyahısı sahəsi.
+	No errors found: every merge field is in the recipient list.	Xəta tapılmadı: bütün birləşmə sahələri alıcılar siyahısındadır.
+	These merge fields aren't in the recipient list:	Bu birləşmə sahələri alıcılar siyahısında yoxdur:
+	Add at least one field.	Ən azı bir sahə əlavə edin.
+	Add Field	Sahə əlavə et
+	Every field needs a name.	Hər sahənin adı olmalıdır.
+	Field name	Sahənin adı
+	Field names must be different.	Sahə adları fərqli olmalıdır.
+	Fields:	Sahələr:
+	Field:	Sahə:
+	Find:	Tap:
+	New Entry	Yeni qeyd
+	Recipient List	Alıcılar siyahısı
+	Recipients: {count}	Alıcılar: {count}
+	Remove field	Sahəni sil
+	Remove recipient	Alıcını sil
+	Select recipients first to choose from their fields.	Sahələrindən seçmək üçün əvvəlcə alıcıları seçin.
+	Type a New List…	Yeni siyahı yaz…
+	Type at least one recipient.	Ən azı bir alıcı yazın.
+	Type the recipients, or load them from a file.	Alıcıları yazın və ya fayldan yükləyin.
+	Use an Existing List…	Mövcud siyahıdan istifadə et…
+	Interface theme:	İnterfeys mövzusu:
+	Interface\nTheme	İnterfeys\nmövzusu
+	Interface Theme	İnterfeys mövzusu
+	Light	İşıqlı
+	Dark	Qaranlıq
+	Use system setting	Sistem parametrinə uyğun
+	A file dialog is already open.	Fayl seçmə pəncərəsi artıq açıqdır.
+	Height:	Hündürlük:
+	Width:	En:
+	Row	Sətir
+	Cell	Xana
+	Preferred width:	Üstünlük verilən en:
+	Alignment:	Düzləndirmə:
+	Indent from left:	Soldan abzas boşluğu:
+	Specify height:	Hündürlüyü göstər:
+	Exactly	Dəqiq
+	At least	Ən azı
+	Allow row to break across pages	Sətrin səhifələr arasında bölünməsinə icazə ver
+	Repeat as header row on each page	Hər səhifədə başlıq sətri kimi təkrarla
+	Vertical alignment:	Şaquli düzləndirmə:
+	Top	Yuxarı
+	Bottom	Aşağı
+	Alt text	Alternativ mətn
+	Alt:	Alternativ mətn:
+	W:	E:
+	H:	H:
+	Reset	Sıfırla
+	Reset Crop	Kəsməni sıfırla
+	Insert a new equation (Alt+=)	Yeni tənlik daxil et (Alt+=)
+	Leave the equation (Esc)	Tənlikdən çıx (Esc)
+	Preview	Önbaxış
+	getartcraft.com/apps/wordcraft	getartcraft.com/apps/wordcraft
+	English (United Kingdom)	İngilis dili (Birləşmiş Krallıq)
+	Polish	Polyak dili
+	Do Not Check Spelling or Grammar	Orfoqrafiya və qrammatikanı yoxlama
+	Possible spelling mistake	Mümkün orfoqrafiya xətası
+	Extra space	Artıq boşluq
+	Capitalize the first word of a sentence	Cümlənin ilk sözünü böyük hərflə yazın
+	Remove the space before the punctuation	Durğu işarəsindən əvvəlki boşluğu silin
+	Use "an" before a vowel sound	Sait səsdən əvvəl «an» işlədin
+	Use "a" before a consonant sound	Samit səsdən əvvəl «a» işlədin
+	The spelling and grammar check is complete.	Orfoqrafiya və qrammatika yoxlaması başa çatdı.
+	Font…	Şrift…
+	Paragraph…	Abzas…
+	Link…	Keçid…
+	Change Picture…	Şəkli dəyiş…
+	Size and Crop…	Ölçü və kəsmə…
+	Insert Rows Above	Yuxarıya sətirlər daxil et
+	Insert Rows Below	Aşağıya sətirlər daxil et
+	Insert Columns to the Left	Sola sütunlar daxil et
+	Insert Columns to the Right	Sağa sütunlar daxil et
+	(picture or object)	(şəkil və ya obyekt)
+	A password is required to open this document.	Bu sənədi açmaq üçün parol lazımdır.
+	Add Object to Selection	Obyekti seçimə əlavə et
+	Add space between Asian and Latin text	Asiya və latın mətni arasında boşluq əlavə et
+	Add space between Asian text and numbers	Asiya mətni ilə rəqəmlər arasında boşluq əlavə et
+	Allow Latin text to wrap in the middle of a word	Latın mətninin sözün ortasında keçirilməsinə icazə ver
+	Allow hanging punctuation	Asılı durğu işarələrinə icazə ver
+	Alphabetical	Əlifba sırası ilə
+	Anyone can open this document. Encrypt it with a password to keep it private.	Bu sənədi hər kəs aça bilər. Qorumaq üçün onu parolla şifrələyin.
+	Anyone who opens the document will need this password.	Sənədi açan hər kəsə bu parol lazım olacaq.
+	Apply Asian line-breaking rules (kinsoku)	Asiya sətir keçirmə qaydalarını tətbiq et (kinsoku)
+	As Recommended	Tövsiyə edildiyi kimi
+	Asian Typography	Asiya tipoqrafiyası
+	AutoSave isn't available in the browser: it can't write to your files. Save downloads a copy.	Brauzerdə avtosaxlama əlçatan deyil: fayllarınıza yaza bilmir. «Yadda saxla» nüsxəni yükləyir.
+	AutoSave only keeps .docx, .odt and .rtf files; {name} can't keep all formatting. Save as .docx to turn on AutoSave.	Avtosaxlama yalnız .docx, .odt və .rtf fayllarını saxlayır; {name} bütün formatlaşdırmanı saxlaya bilmir. Avtosaxlamanı aktivləşdirmək üçün .docx kimi saxlayın.
+	Based on: {style}	Əsaslanır: {style}
+	Browse…	Bax…
+	Built-in style	Daxili üslub
+	Built-in styles can't be deleted.	Daxili üslublar silinə bilməz.
+	Change Password…	Parolu dəyiş…
+	Character style	Simvol üslubu
+	Click an item to paste it.	Yapışdırmaq üçün elementə klikləyin.
+	Clipboard Items	Bufer elementləri
+	Clipboard Pane	Bufer paneli
+	Color: {color}	Rəng: {color}
+	Compress punctuation at the start of a line	Sətrin əvvəlində durğu işarələrini sıxışdır
+	Confirm password:	Parolu təsdiqləyin:
+	Delete Clipboard Item	Bufer elementini sil
+	Delete Table Style	Cədvəl üslubunu sil
+	Encrypt with Password…	Parolla şifrələ…
+	Font: {font}	Şrift: {font}
+	Glow	Parıltı
+	Glow Colors	Parıltı rəngləri
+	Hide from style lists	Üslub siyahılarında gizlət
+	Indents and Spacing	Abzas boşluqları və intervallar
+	Keep the password somewhere safe: without it nobody, Lexicon included, can open the document. Leave both boxes empty to remove the password.	Parolu təhlükəsiz yerdə saxlayın: onsuz heç kim, o cümlədən Lexicon, sənədi aça bilməz. Parolu silmək üçün hər iki sahəni boş buraxın.
+	Line breaking	Sətir keçirmə
+	Linked style (paragraph and character)	Əlaqəli üslub (abzas və simvol)
+	Manage Styles	Üslubları idarə et
+	Manage Styles…	Üslubları idarə et…
+	No Glow	Parıltısız
+	No Shadow	Kölgəsiz
+	No Soft Edges	Yumşaq kənarsız
+	Nothing collected yet. Items you copy or cut appear here.	Hələ heç nə yoxdur. Kopyaladığınız və ya kəsdiyiniz elementlər burada görünəcək.
+	Offset: Bottom	Sürüşmə: aşağı
+	Offset: Bottom Left	Sürüşmə: aşağı sola
+	Offset: Bottom Right	Sürüşmə: aşağı sağa
+	Offset: Center	Sürüşmə: mərkəz
+	Offset: Left	Sürüşmə: sola
+	Offset: Right	Sürüşmə: sağa
+	Offset: Top	Sürüşmə: yuxarı
+	Offset: Top Left	Sürüşmə: yuxarı sola
+	Offset: Top Right	Sürüşmə: yuxarı sağa
+	Paragraph style	Abzas üslubu
+	Password	Parol
+	Password:	Parol:
+	Paste All	Hamısını yapışdır
+	Paste Clipboard Item	Bufer elementini yapışdır
+	Remove Password	Parolu sil
+	Save the document to turn on AutoSave	Avtosaxlamanı aktivləşdirmək üçün sənədi yadda saxlayın
+	Save the document to turn on AutoSave (a file you have only opened isn't rewritten until you save it)	Avtosaxlamanı aktivləşdirmək üçün sənədi yadda saxlayın (yalnız açdığınız fayl siz saxlayana qədər yenidən yazılmır)
+	Shadow, glow and soft edges	Kölgə, parıltı və yumşaq kənarlar
+	Shape Effects	Fiqur effektləri
+	Show in the Styles gallery	Üslublar qalereyasında göstər
+	Show or Hide Style	Üslubu göstər və ya gizlət
+	Soft Edges	Yumşaq kənarlar
+	Sort order:	Çeşidləmə sırası:
+	Space after: {pt} pt	Sonra interval: {pt} pt
+	Space before: {pt} pt	Əvvəl interval: {pt} pt
+	Table style	Cədvəl üslubu
+	That password isn't right. Check it (passwords are case-sensitive) and try again.	Parol düzgün deyil. Onu yoxlayın (böyük və kiçik hərflər fərqlənir) və yenidən cəhd edin.
+	The document will be saved with a password. Save it to protect it.	Sənəd parolla saxlanacaq. Qorumaq üçün onu yadda saxlayın.
+	The password is removed. Save the document to keep the change.	Parol silindi. Dəyişikliyin qalması üçün sənədi yadda saxlayın.
+	The passwords don't match.	Parollar uyğun gəlmir.
+	Ungroup	Qruplaşdırmanı ləğv et
+	Weight	Qalınlıq
+	{name} is protected with a password.	{name} parolla qorunur.
+	{size} pt	{size} pt
+	% of all commits	Bütün kommitlərin %-i
+	(All)	(Hamısı)
+	(no style)	(üslubsuz)
+	(none)	(heç biri)
+	(normal text)	(adi mətn)
+	1/4 Em Space	1/4 Em boşluq
+	3-D	Həcmli
+	A mail merge field	Birləşmə sahəsi
+	A numbered sequence (figures, tables…)	Nömrələnmiş ardıcıllıq (şəkillər, cədvəllər…)
+	A table of contents	Mündəricat
+	AaBbYyZz	AaBbYyZz
+	Add tab stop at:	Tabulyasiya mövqeyi əlavə et:
+	Align Bottom Center	Aşağı, mərkəzə
+	Align Bottom Left	Aşağı, sola
+	Align Bottom Right	Aşağı, sağa
+	Align Center	Mərkəzə
+	Align Center Left	Mərkəz, sola
+	Align Center Right	Mərkəz, sağa
+	Align Top Center	Yuxarı, mərkəzə
+	Align Top Left	Yuxarı, sola
+	Align Top Right	Yuxarı, sağa
+	Aligned at:	Düzləndirmə yeri:
+	All	Hamısı
+	Apply to:	Tətbiq et:
+	Atelier	Atelye
+	Balloons	Balonlar
+	Bar	Xətt
+	Between	Arasında
+	Borders and Shading	Sərhədlər və kölgələmə
+	Borders and Shading…	Sərhədlər və kölgələmə…
+	Bullet	Marker
+	By author	Müəllifə görə
+	Categories:	Kateqoriyalar:
+	Changed lines:	Dəyişmiş sətirlər:
+	Character	Simvol
+	Character code:	Simvol kodu:
+	Click a border between two cells to merge them. Esc stops.	İki xananı birləşdirmək üçün onların arasındakı sərhədə klikləyin. Esc — bitir.
+	Click level to modify:	Dəyişdiriləcək səviyyəni seçin:
+	Col #:	Sütun №:
+	Color only	Yalnız rəng
+	Commits	Kommitlər
+	Copy of the text a bookmark marks	Əlfəcinlə qeyd edilmiş mətnin nüsxəsi
+	Copyright	Müəllif hüququ işarəsi
+	Craft	Sənət
+	Custom	Fərdi
+	Darkroom	Fotolaboratoriya
+	Date and Time	Tarix və vaxt
+	Date formats:	Tarix formatları:
+	Decimal	Onluq
+	Default tab stops:	Defolt tabulyasiya:
+	Define New Multilevel List	Yeni çoxsəviyyəli siyahı təyin et
+	Define New Multilevel List…	Yeni çoxsəviyyəli siyahı təyin et…
+	Deletions:	Silmələr:
+	Description:	Təsvir:
+	Display name	Göstərilən ad
+	Document Information	Sənəd haqqında məlumat
+	Document1	Sənəd1
+	Dot dash	Nöqtə-tire
+	Double Closing Quote	Bağlayan qoşa dırnaq
+	Double Opening Quote	Açan qoşa dırnaq
+	Drag a rectangle to draw a table, or a line across cells to split them. Esc stops.	Cədvəl çəkmək üçün düzbucaqlı, xanaları bölmək üçün onların üzərindən xətt çəkin. Esc — bitir.
+	Draw Ink	Əllə çək
+	Draw Table	Cədvəl çək
+	Ellipsis	Üç nöqtə
+	Em Dash	Uzun tire
+	Em Space	Em boşluq
+	En Dash	Qısa tire
+	En Space	En boşluq
+	Enter formatting for number:	Nömrə formatını daxil edin:
+	Equal column width	Bərabər enli sütunlar
+	Erase Ink	Əlyazmanı pozan
+	Field Codes	Sahə kodları
+	Field code:	Sahə kodu:
+	Field codes:	Sahə kodları:
+	Field name:	Sahənin adı:
+	Field names:	Sahə adları:
+	Field properties	Sahə xassələri
+	Field…	Sahə…
+	Fill	Doldurma
+	First	Birinci
+	Flip Horizontal	Üfüqi əks etdir
+	Flip Vertical	Şaquli əks etdir
+	Follow number with:	Nömrədən sonra:
+	Format:	Format:
+	Formatted	Formatlanıb
+	Formatting	Formatlaşdırma
+	Gallery	Qalereya
+	Hide Codes	Kodları gizlət
+	Hide Ink	Əlyazmanı gizlət
+	Hide\nInk	Əlyazmanı\ngizlət
+	How many pages the whole document has	Bütün sənəddə neçə səhifə var
+	How many pages this section has	Bu bölmədə neçə səhifə var
+	How many words the document holds	Sənəddə neçə söz var
+	Include level number from:	Səviyyə nömrəsini daxil et:
+	Index and Tables	Göstəricilər və cədvəllər
+	Ink	Əlyazma
+	Insertions and Deletions	Daxiletmələr və silmələr
+	Insertions:	Daxiletmələr:
+	Interface size:	İnterfeys ölçüsü:
+	Last	Sonuncu
+	Leader	Doldurucu
+	Left border	Sol sərhəd
+	Legal style numbering	Hüquqi üslubda nömrələmə
+	Line between	Ayırıcı xətt
+	Lines +/−	Sətirlər +/−
+	Link level to style:	Səviyyəni üsluba bağla:
+	Links and References	Keçidlər və istinadlar
+	List Definition	Siyahının təyini
+	Mail Merge	Məktub birləşməsi
+	Auto ({percent}%)	Avto ({percent}%)
+	Makes the ribbon, menus and dialogs larger or smaller. Auto follows your system's display scaling; 100% is one screen pixel per point. Document zoom is separate.	Lenti, menyuları və dialoqları böyüdür və ya kiçildir. «Avto» sistemin ekran miqyasına uyğun gəlir; 100% — bir nöqtəyə bir ekran pikseli. Sənədin miqyası ayrıca tənzimlənir.
+	Model	Model
+	Mon	B.e.
+	More Columns…	Digər sütunlar…
+	More Symbols…	Digər simvollar…
+	Name	Ad
+	Name of the file this document is saved as	Bu sənədin yadda saxlandığı faylın adı
+	No-Width Non Break	Sıfır enli qırılmayan simvol
+	No-Width Optional Break	Sıfır enli ixtiyari fasilə
+	North	Şimal
+	Nothing	Heç nə
+	Number alignment:	Nömrənin düzləndirilməsi:
+	Number format	Nömrə formatı
+	Number of the page the field sits on	Sahənin yerləşdiyi səhifənin nömrəsi
+	Number of the section the field sits in	Sahənin yerləşdiyi bölmənin nömrəsi
+	Number style for this level:	Bu səviyyə üçün nömrələmə üslubu:
+	Outside border	Xarici sərhəd
+	PRs	PR-lar
+	Page Border	Səhifə sərhədi
+	Page on which a bookmarked passage falls	Əlfəcinlə qeyd edilmiş hissənin olduğu səhifə
+	Paragraph Mark	Abzas işarəsi
+	Pens	Qələmlər
+	Pick a field from the list	Siyahıdan sahə seçin
+	Preserve formatting during updates	Yenilənmə zamanı formatı saxla
+	Presets	Hazır nümunələr
+	Real name	Həqiqi ad
+	Recently used symbols:	Son istifadə olunan simvollar:
+	Registered	Qeydiyyatdan keçmiş əmtəə nişanı
+	Restart list after:	Siyahını yenidən başla:
+	Right border	Sağ sərhəd
+	Rotate Left 90°	Sola 90° döndər
+	Rotate Right 90°	Sağa 90° döndər
+	Rotation	Dönmə
+	Rotation:	Dönmə:
+	Section Mark	Paraqraf işarəsi
+	Sequence name:	Ardıcıllığın adı:
+	Set	Təyin et
+	Setting:	Növ:
+	Shortcut key:	Qısayol düyməsi:
+	Show all revisions inline	Bütün dəyişiklikləri mətndə göstər
+	Show only comments and formatting in balloons	Balonlarda yalnız şərhləri və formatlaşdırmanı göstər
+	Show revisions in balloons	Dəyişiklikləri balonlarda göstər
+	Single Closing Quote	Bağlayan tək dırnaq
+	Single Opening Quote	Açan tək dırnaq
+	Sketchbook	Eskiz dəftəri
+	South	Cənub
+	Space	Boşluq
+	Spacing:	Aralıq:
+	Special Characters	Xüsusi simvollar
+	Start at:	Başla:
+	Studio	Studiya
+	Style:	Xəttin növü:
+	Style: {style}	Üslub: {style}
+	Subset:	Dəst:
+	Sum	Cəm
+	Tab character	Tabulyasiya simvolu
+	Tab stop position:	Tabulyasiya mövqeyi:
+	Tab stops to be cleared:	Silinəcək tabulyasiya mövqeləri:
+	Tabs…	Tabulyasiya…
+	Text indent at:	Mətnin abzas boşluğu:
+	The date it is today	Bugünkü tarix
+	The document has no bookmarks yet.	Sənəddə hələ əlfəcin yoxdur.
+	The time right now	İndiki vaxt
+	Thickness	Qalınlıq
+	This field has no options.	Bu sahənin parametrləri yoxdur.
+	This font has no characters to show.	Bu şriftdə göstəriləcək simvol yoxdur.
+	This point forward	Bu nöqtədən sonra
+	This section	Bu bölmə
+	Selected text	Seçilmiş mətn
+	Title from the document properties	Sənəd xassələrindən başlıq
+	Total	Cəmi
+	Track Changes Options	Dəyişikliklərin izlənməsi parametrləri
+	Track formatting	Formatlaşdırmanı izlə
+	Trademark	Əmtəə nişanı
+	Triple	Üçqat
+	Tue	Ç.a.
+	Type the field's name and its switches, for example PAGE \\* roman.	Sahənin adını və açarlarını yazın, məsələn PAGE \\* roman.
+	Username	İstifadəçi adı
+	Version	Versiya
+	Wed	Ç.
+	West	Qərb
+	When this document was first created	Bu sənəd ilk dəfə nə vaxt yaradılıb
+	When this document was most recently printed	Bu sənəd sonuncu dəfə nə vaxt çap edilib
+	When this document was most recently saved	Bu sənəd sonuncu dəfə nə vaxt yadda saxlanılıb
+	Who the document properties name as author	Sənəd xassələrində müəllif kimi kim göstərilib
+	Whole document	Bütün sənəd
+	Width and spacing	En və aralıq
+	from Unicode (hex)	Unicode (onaltılıq)
+	pt	pt
+	{cols}×{rows} Table	{cols}×{rows} cədvəl
+	{contributors} contributors · {commits} commits	İştirakçılar: {contributors} · kommitlər: {commits}
+	Copyright Sign	Müəllif hüququ işarəsi
+	Edit Field Code	Sahə kodunu redaktə et
+	Edit Field…	Sahəni redaktə et…
+	Insert Date Field	Tarix sahəsi daxil et
+	Insert Page Field	Səhifə nömrəsi sahəsi daxil et
+	Insert Time Field	Vaxt sahəsi daxil et
+	Lock Fields	Sahələri kilidlə
+	Next Field	Növbəti sahə
+	Previous Field	Əvvəlki sahə
+	Registered Sign	Qeydiyyatdan keçmiş nişan işarəsi
+	Reset Character Formatting	Simvol formatlaşdırmasını sıfırla
+	Reset Paragraph Formatting	Abzas formatlaşdırmasını sıfırla
+	Selected Fields	Seçilmiş sahələr
+	Toggle Field Codes	Sahə kodları/dəyərləri
+	Trademark Sign	Əmtəə nişanı işarəsi
+	Unlink Fields	Sahələrlə əlaqəni kəs
+	Unlock Fields	Sahələrin kilidini aç
+	All Commands	Bütün əmrlər
+	Assign	Təyin et
+	Choose a command	Əmr seçin
+	Choose a shortcut	Qısayol seçin
+	Commands:	Əmrlər:
+	Customize	Fərdiləşdir
+	Customize Keyboard	Klaviaturanı fərdiləşdir
+	Customize…	Fərdiləşdir…
+	Demote	Səviyyəni endir
+	Draw\nTable	Cədvəl\nçək
+	Go Back	Geri qayıt
+	Keyboard shortcuts:	Klaviatura qısayolları:
+	Keys for this command:	Bu əmrin düymələri:
+	Move Paragraph Down	Abzası aşağı köçür
+	Move Paragraph Up	Abzası yuxarı köçür
+	New shortcut:	Yeni qısayol:
+	Not used by any command	Heç bir əmr istifadə etmir
+	Now used by {command}	İndi istifadə edir: {command}
+	Press a key combination	Düymə birləşməsini basın
+	Promote	Səviyyəni qaldır
+	Remove	Sil
+	Remove every custom shortcut and restore the built-in keys?	Bütün fərdi qısayollar silinsin və daxili düymələr bərpa edilsin?
+	Reset All…	Hamısını sıfırla…
+	Toggle Unicode Character	Unicode simvolunu çevir
+	Type Character Code	Simvol kodunu yaz
+	(Custom)	(Fərdi)
+	<< Remove	<< Sil
+	Add >>	Əlavə et >>
+	Add to Quick Access Toolbar	Sürətli giriş panelinə əlavə et
+	Customize Quick Access Toolbar…	Sürətli giriş panelini fərdiləşdir…
+	Customize Ribbon	Lenti fərdiləşdir
+	Customize the Ribbon…	Lenti fərdiləşdir…
+	More Commands…	Digər əmrlər…
+	New Group	Yeni qrup
+	New Tab	Yeni tab
+	Pick a custom group (New Group makes one)	Fərdi qrup seçin («Yeni qrup» onu yaradır)
+	Put the default commands back on the Quick Access Toolbar?	Defolt əmrlər sürətli giriş panelinə qaytarılsın?
+	Remove every custom tab and group and show all tabs again?	Bütün fərdi tablar və qruplar silinsin və bütün tablar yenidən göstərilsin?
+	Remove from Quick Access Toolbar	Sürətli giriş panelindən sil
+	Hide Quick Access Toolbar	Sürətli giriş panelini gizlət
+	Show Quick Access Toolbar	Sürətli giriş panelini göstər
+	Rename…	Adını dəyiş…
+	Reset…	Sıfırla…
+	Ribbon	Lent
+	Ribbon and Quick Access Toolbar:	Lent və sürətli giriş paneli:
+	Ribbon tabs	Lent tabları
+	Align Text	Mətni düzləndir
+	Apply	Tətbiq et
+	Arrows	Oxlar
+	Base text:	Əsas mətn:
+	Behind Text	Mətnin arxasında
+	Below text	Mətnin altında
+	Both Sides	Hər iki tərəfdən
+	Break Link	Əlaqəni kəs
+	Canvas Member	Lövhə elementi
+	Choose the sheet that holds the recipients.	Alıcıların olduğu vərəqi seçin.
+	Circle	Dairə
+	Click the empty text box the text should continue in (Esc cancels)	Mətnin davam etməli olduğu boş mətn sahəsinə klikləyin (Esc — ləğv)
+	Communication	Rabitə
+	Continuous numbering	Fasiləsiz nömrələmə
+	Convert Notes	Haşiyələri çevir
+	Create Link	Əlaqə yarat
+	Custom mark:	Fərdi işarə:
+	Distribute letters	Hərfləri paylaşdır
+	Distribute spacing	İntervalı paylaşdır
+	Drawing Canvas	Çəkmə lövhəsi
+	Enclose Characters	Simvolları çərçivəyə al
+	Enclosure	Çərçivə
+	End of document	Sənədin sonunda
+	End of section	Bölmənin sonunda
+	Endnotes	Son haşiyələr
+	Endnotes to footnotes	Son haşiyələri adi haşiyələrə
+	Enlarge symbol	Simvolu böyüt
+	Expand	Genişləndir
+	First row of data contains column headers	Verilənlərin birinci sətrində sütun başlıqları var
+	Fit	Ölçüyə uyğun
+	Footnotes to endnotes	Haşiyələri son haşiyələrə
+	Icon Color	İkon rəngi
+	In Front of Text	Mətnin önündə
+	In Line with Text	Mətnlə bir sətirdə
+	Largest Only	Yalnız ən böyük tərəfdən
+	Left Only	Yalnız soldan
+	Location	Yer
+	Middle	Ortada
+	Moved from	Haradan köçürülüb
+	Moved to	Haraya köçürülüb
+	Nature	Təbiət
+	New Drawing Canvas	Yeni çəkmə lövhəsi
+	No icons match your search.	Axtarışınıza uyğun ikon yoxdur.
+	Not linked: click a text box	Bağlanmayıb: mətn sahəsinə klikləyin
+	Office	Ofis
+	Offset (pt):	Sürüşmə (pt):
+	People	İnsanlar
+	Phonetic Guide	Fonetik bələdçi
+	Recolor a one-color picture, such as an icon	İkon kimi birrəngli şəkli yenidən rənglə
+	Right (vertical)	Sağdan (şaquli)
+	Right Only	Yalnız sağdan
+	Right-to-Left Section	Sağdan sola bölmə
+	Right-to-Left Table	Sağdan sola cədvəl
+	Rotate all text 270°	Bütün mətni 270° döndər
+	Rotate all text 90°	Bütün mətni 90° döndər
+	Ruby text:	Ruby mətni:
+	Scale Drawing	Çertyojun miqyasını dəyiş
+	Search icons	İkonları axtar
+	Section direction:	Bölmənin istiqaməti:
+	Shrink text	Mətni kiçilt
+	Size (pt):	Ölçü (pt):
+	Square	Kvadrat
+	Stacked	Üst-üstə
+	Swap footnotes and endnotes	Haşiyələrin və son haşiyələrin yerini dəyiş
+	Table direction:	Cədvəlin istiqaməti:
+	Technology	Texnologiya
+	Through	İçindən
+	Top and Bottom	Yuxarıdan və aşağıdan
+	Transport	Nəqliyyat
+	Weather	Hava
+	Wrap Text Sides	Əhatə tərəfləri
+	Characters per line:	Sətirdə simvol sayı:
+	Document Grid	Sənəd toru
+	Lines and characters	Sətirlər və simvollar
+	Lines only	Yalnız sətirlər
+	Lines per page:	Səhifədə sətir sayı:
+	No grid	Torsuz
+	Text snaps to characters	Mətn simvollara bağlanır
+	A, B, C, …	A, B, C, …
+	Above the item	Elementin üstündə
+	Accessed on	Müraciət tarixi
+	Accessibility Pane	Əlçatanlıq paneli
+	Add New Source…	Yeni mənbə əlavə et…
+	Add Pen	Qələm əlavə et
+	Add line numbering	Sətir nömrələməsi əlavə et
+	Add the chapter number	Fəsil nömrəsini əlavə et
+	Add to Document	Sənədə əlavə et
+	Add\nPen	Qələm\nəlavə et
+	Address labels	Ünvan etiketləri
+	Alt Text Pane	Alternativ mətn paneli
+	Alt\nText	Alternativ\nmətn
+	Arabic	Ərəb
+	Atmosphere	Atmosfer
+	Auto	Avto
+	Automatically hyphenate document	Sənədi avtomatik hecalara böl
+	Below the item	Elementin altında
+	Book	Kitab
+	Book title	Kitabın adı
+	Caption	Başlıq
+	Caption Numbering	Başlıqların nömrələnməsi
+	Caption text	Başlıq mətni
+	Caption:	Başlıq:
+	Chapter in a book	Kitabda fəsil
+	Chapters begin at:	Fəsillər başlayır:
+	Chinese (Simplified)	Çin dili (sadələşdirilmiş)
+	Chinese (Traditional)	Çin dili (ənənəvi)
+	Collect entries from:	Qeydləri topla:
+	Column:	Sütun:
+	Columns:	Sütunlar:
+	Conference	Konfrans
+	Conference paper	Konfrans məruzəsi
+	Container Title	Konteynerin adı
+	Convert to Shapes	Fiqurlara çevir
+	Count by:	Addım:
+	Create Source	Mənbə yarat
+	Cross-reference:	Çarpaz istinad:
+	Custom Table of Contents…	Fərdi mündəricat…
+	Czech	Çex dili
+	DOI	DOI
+	Danish	Danimarka dili
+	Day	Gün
+	Decorative objects only add visual interest: screen readers skip them.	Dekorativ obyektlər yalnız vizual maraq əlavə edir: ekran oxuyucuları onları ötürür.
+	Delete Label	Etiketi sil
+	Delete Selected Ink	Seçilmiş əlyazmanı sil
+	Delivery address:	Çatdırılma ünvanı:
+	Describe what this object shows, for people who can't see it.	Bu obyektin nə göstərdiyini onu görə bilməyən insanlar üçün təsvir edin.
+	Describe what this table shows, for people who can't see it.	Bu cədvəlin nə göstərdiyini onu görə bilməyən insanlar üçün təsvir edin.
+	Detect language automatically	Dili avtomatik müəyyən et
+	Do not check spelling or grammar	Orfoqrafiya və qrammatikanı yoxlama
+	Dutch	Niderland dili
+	Edit Source	Mənbəni redaktə et
+	Edition	Nəşr
+	Edit…	Redaktə et…
+	Entry marked.	Qeyd işarələndi.
+	Envelope size:	Zərf ölçüsü:
+	Errors ({n})	Xətalar ({n})
+	Estonian	Eston dili
+	Example: {sample}	Nümunə: {sample}
+	Figure	Şəkil
+	Film	Film
+	Finnish	Fin dili
+	Forward	İrəli
+	French (France)	Fransız dili (Fransa)
+	From text:	Mətndən:
+	Full page of the same label	Eyni etiketdən tam səhifə
+	German (Germany)	Alman dili (Almaniya)
+	Greek	Yunan dili
+	Heading styles (levels 1–{n})	Başlıq üslubları (səviyyə 1–{n})
+	Heading {n}	Başlıq {n}
+	Hebrew	İvrit dili
+	Hyphenate at:	Hecalara böl:
+	Hyphenate words in CAPS	BÖYÜK HƏRFLƏ yazılmış sözləri hecalara böl
+	Hyphenation Options…	Hecalara bölmə parametrləri…
+	Hyphenation zone:	Hecalara bölmə zonası:
+	I, II, III, …	I, II, III, …
+	Include page numbers	Səhifə nömrələrini daxil et
+	Indented	Pilləli abzasla
+	Ink Replay	Əlyazmanın təkrarı
+	Ink to Shape	Əlyazmanı fiqura
+	Institution	Təşkilat
+	Ionosphere	İonosfer
+	Issue	Buraxılış
+	Italian	İtalyan dili
+	Croatian	Xorvat dili
+	Indonesian	İndoneziya dili
+	Japanese	Yapon dili
+	Journal	Jurnal
+	Korean	Koreya dili
+	Label:	Etiket:
+	Lasso Select	Kəməndlə seçim
+	Last, First; Last, First	Soyad, Ad; Soyad, Ad
+	Leave the label out of the caption	Etiketi başlığa daxil etmə
+	Letter headings	Hərfli başlıqlar
+	Levels:	Səviyyələr:
+	Limit consecutive hyphens to:	Ardıcıl hecalara bölmələrin həddi:
+	Line Numbering Options…	Sətir nömrələməsi parametrləri…
+	Link entries to their headings	Qeydləri başlıqlarına bağla
+	Made from the author and year when empty	Boş olduqda müəllif və ildən düzəldilir
+	Magazine or newspaper article	Jurnal və ya qəzet məqaləsi
+	Main entry:	Əsas qeyd:
+	Manual Hyphenation	Əllə hecalara bölmə
+	Manual hyphenation is complete.	Əllə hecalara bölmə başa çatdı.
+	Manual…	Əllə…
+	Mark	Qeyd et
+	Mark All	Hamısını qeyd et
+	Mark Entry…	Qeydi işarələ…
+	Mark Index Entry	Göstərici elementini qeyd et
+	Mark as decorative	Dekorativ kimi qeyd et
+	Mark selected text as:	Seçilmiş mətni belə qeyd et:
+	Mesosphere	Mezosfer
+	Month	Ay
+	Move Selected Ink	Seçilmiş əlyazmanı köçür
+	New Document	Yeni sənəd
+	New Label	Yeni etiket
+	New Label…	Yeni etiket…
+	New…	Yeni…
+	No accessibility issues found.	Əlçatanlıq problemi tapılmadı.
+	No limit	Məhdudiyyətsiz
+	No sources yet.	Hələ mənbə yoxdur.
+	Norwegian (Bokmål)	Norveç dili (bukmol)
+	Numbering:	Nömrələmə:
+	Numbering…	Nömrələmə…
+	Omit	Burax
+	One label per recipient	Hər alıcı üçün bir etiket
+	Options…	Parametrlər…
+	Other	Digər
+	Other styles and their TOC level:	Digər üslublar və onların mündəricatdakı səviyyəsi:
+	Outline levels	Struktur səviyyələri
+	Page number style	Səhifə nömrələrinin üslubu
+	Page numbers at the right margin	Səhifə nömrələri sağ kənarda
+	Page title	Səhifənin başlığı
+	Pages of bookmark:	Əlfəcinin səhifələri:
+	Periodical	Dövri nəşr
+	Portuguese (Brazil)	Portuqal dili (Braziliya)
+	Portuguese (Portugal)	Portuqal dili (Portuqaliya)
+	Position:	Mövqe:
+	Publisher	Nəşriyyat
+	Recolor Selected Ink	Seçilmiş əlyazmanı yenidən rənglə
+	Remove Pen	Qələmi sil
+	Return address labels	Qayıdış ünvanı etiketləri
+	Return address:	Qayıdış ünvanı:
+	Rewind	Geri sar
+	Row:	Sətir:
+	Run-in	Sətir daxilində
+	Russian	Rus dili
+	See	Bax
+	Select a picture, shape, chart or table to describe it.	Təsvir etmək üçün şəkil, fiqur, diaqram və ya cədvəl seçin.
+	Separator:	Ayırıcı:
+	Serbian (Cyrillic)	Serb dili (kiril)
+	Serbian (Latin)	Serb dili (latın)
+	Set As Default	Defolt olaraq təyin et
+	Shipping labels	Göndəriş etiketləri
+	Show every bibliography field	Bütün biblioqrafiya sahələrini göstər
+	Single label	Tək etiket
+	Site name	Saytın adı
+	Source Manager	Mənbə meneceri
+	Source type:	Mənbənin növü:
+	Sources in this document:	Bu sənəddəki mənbələr:
+	Spanish (Mexico)	İspan dili (Meksika)
+	Spanish (Spain)	İspan dili (İspaniya)
+	Stroke {n} of {total}	Ştrix {n} / {total}
+	Styles:	Üslublar:
+	Subentry:	Alt qeyd:
+	Swedish	İsveç dili
+	TC entry fields	TC qeyd sahələri
+	Tab leader:	Tabulyasiya doldurucusu:
+	Table of Contents Options	Mündəricat parametrləri
+	Table of Contents Styles	Mündəricat üslubları
+	Tag	Teq
+	This page	Bu səhifə
+	Tips ({n})	Məsləhətlər ({n})
+	Title	Başlıq
+	Title:	Başlıq:
+	Turkish	Türk dili
+	Type:	Növ:
+	URL	URL
+	Ukrainian	Ukrayna dili
+	View Alt Text…	Alternativ mətnə bax…
+	Volume	Cild
+	Warnings ({n})	Xəbərdarlıqlar ({n})
+	Website	Veb sayt
+	Year	İl
+	a, b, c, …	a, b, c, …
+	i, ii, iii, …	i, ii, iii, …
+	{language} is now the document's default language.	{language} indi sənədin defolt dilidir.
+	{n} entries marked.	Qeyd edilmiş elementlər: {n}.
+	0 or More Characters	0 və ya daha çox simvol
+	1. Formatting restrictions	1. Formatlaşdırma məhdudiyyətləri
+	2. Editing restrictions	2. Redaktə məhdudiyyətləri
+	3. Start enforcement	3. Qorumanı aktivləşdir
+	<< Less	<< Az
+	Above Chart	Diaqramın üstündə
+	Accent Gradient	Aksent qradiyenti
+	Accent with Reflection	Əks olunmalı aksent
+	Accent {n}	Aksent {n}
+	Add Chart Element	Diaqram elementi əlavə et
+	Add Font…	Şrift əlavə et…
+	Add Row	Sətir əlavə et
+	Add Series	Sıra əlavə et
+	Add Shape	Fiqur əlavə et
+	Add\nShape	Fiqur\nəlavə et
+	Added Fonts	Əlavə edilmiş şriftlər
+	All Levels	Bütün səviyyələr
+	All files	Bütün fayllar
+	All pages	Bütün səhifələr
+	All pages in the range	Aralıqdakı bütün səhifələr
+	Allow line breaks	Sətir fasilələrinə icazə ver
+	Animate the caret (it glides and fades)	Kursoru animasiya et (rəvan hərəkət edir və sönür)
+	Animation	Animasiya
+	Animation effects:	Animasiya effektləri:
+	Another file	Başqa fayl
+	Any Character	İstənilən simvol
+	Any Digit	İstənilən rəqəm
+	Any Letter	İstənilən hərf
+	Apply as you type	Yazarkən tətbiq et
+	Arch Down	Aşağı qövs
+	Arch Up	Yuxarı qövs
+	Area	Sahəli
+	As you type	Yazarkən
+	Asian text font:	Asiya mətni şrifti:
+	Attach Template	Şablon qoş
+	Attach…	Qoş…
+	AutoCorrect	Avtodüzəliş
+	AutoFormat As You Type	Yazarkən avtoformat
+	AutoSave writes your changes to the file a moment after you stop typing.	Avtosaxlama yazmağı dayandırdıqdan bir az sonra dəyişiklikləri fayla yazır.
+	Automatic bulleted lists	Avtomatik markerli siyahılar
+	Automatic numbered lists	Avtomatik nömrəli siyahılar
+	Automatically Update Document Styles	Sənəd üslublarını avtomatik yenilə
+	Automatically update document styles	Sənəd üslublarını avtomatik yenilə
+	Basic Cycle	Sadə dövr
+	Basic List	Sadə siyahı
+	Basic Matrix	Sadə matris
+	Basic Process	Sadə proses
+	Basic Pyramid	Sadə piramida
+	Basic Radial	Sadə radial
+	Basic Venn	Sadə Venn diaqramı
+	Beginning of Word	Sözün əvvəli
+	Blue:	Göy:
+	Border lines	Sərhəd xətləri
+	Browse in Lexicon…	Lexicon-da bax…
+	Building Block Gallery Content Control	Məzmun idarəetmə elementi: bloklar qalereyası
+	Can't be deleted	Silinə bilməz
+	Capitalize first letter of sentences	Cümlələrin ilk hərfini böyük et
+	Capitalize first letter of table cells	Cədvəl xanalarının ilk hərfini böyük et
+	Capitalize names of days	Həftə günlərinin adlarını böyük hərflə yaz
+	Caret Character	Daxiletmə işarəsi (^)
+	Case changes	Registr dəyişiklikləri
+	Categories	Kateqoriyalar
+	Category {n}	Kateqoriya {n}
+	Centimeters	Santimetrlər
+	Change Chart Type	Diaqram növünü dəyiş
+	Change Colors	Rəngləri dəyiş
+	Change Layout	Tərtibatı dəyiş
+	Change\nChart Type	Diaqram növünü\ndəyiş
+	Change\nColors	Rəngləri\ndəyiş
+	Character in Range	Aralıqdan simvol
+	Character level	Simvol səviyyəsində
+	Chart Design	Diaqram dizaynı
+	Chart Layouts	Diaqram tərtibatları
+	Chart Title	Diaqramın başlığı
+	Check Box Content Control	Məzmun idarəetmə elementi: qeyd qutusu
+	Check spelling as you type	Yazarkən orfoqrafiyanı yoxla
+	Checked styles are allowed:	İşarələnmiş üslublara icazə verilir:
+	Checked symbol	İşarələnmiş qutu simvolu
+	Chevron Down	Aşağı şevron
+	Chevron Up	Yuxarı şevron
+	Choose List Item	Siyahı elementini seç
+	Click to switch back to inserting	Daxiletmə rejiminə qayıtmaq üçün klikləyin
+	Clipboard Contents	Buferin məzmunu
+	Close Outline View	Struktur görünüşünü bağla
+	Close Outline\nView	Struktur görünüşünü\nbağla
+	Clustered Bar	Qruplaşdırılmış zolaqlar
+	Clustered Column	Qruplaşdırılmış sütunlar
+	Collapse	Yığ
+	Collate copies	Nüsxələr üzrə sırala
+	Color model:	Rəng modeli:
+	Colorful	Rəngarəng
+	Colors:	Rənglər:
+	Combine Documents	Sənədləri birləşdir
+	Combo Box Content Control	Məzmun idarəetmə elementi: kombinə edilmiş sahə
+	Comments beside each page and tracked changes in PDFs, prints and images; a comment list at the end of web pages, Markdown and text.	PDF-lərdə, çapda və şəkillərdə hər səhifənin yanında şərhlər və izlənən dəyişikliklər; veb səhifələrin, Markdown-un və mətnin sonunda şərhlər siyahısı.
+	Compare Documents	Sənədləri müqayisə et
+	Compared: {changes} changes	Müqayisə edildi: {changes} dəyişiklik
+	Comparing with another file needs the desktop app.	Başqa faylla müqayisə üçün masaüstü proqram lazımdır.
+	Comparison settings	Müqayisə parametrləri
+	Connect Shapes	Fiqurları birləşdir
+	Content Control Properties	Məzmun idarəetmə elementinin xassələri
+	Content Control at Selection	Seçimdəki məzmun idarəetmə elementi
+	Contents can't be edited	Məzmun redaktə edilə bilməz
+	Controls	İdarəetmə elementləri
+	Copies	Nüsxələr
+	Copy Styles	Üslubları kopyala
+	Create Graphic	Qrafika yarat
+	Current	Cari
+	Current page	Cari səhifə
+	Curved Arrow Connector	Oxlu əyri birləşdirici
+	Curved Connector	Əyri birləşdirici
+	Custom dictionary	Fərdi lüğət
+	Custom range	Fərdi aralıq
+	Cycle	Dövr
+	Dark with Shadow	Kölgəli qaranlıq
+	Data Labels	Verilən etiketləri
+	Date Picker Content Control	Məzmun idarəetmə elementi: tarix seçicisi
+	Date format	Tarix formatı
+	Deflate	Sıxılma
+	Deleted	Silinib
+	Demote to Body Text	Əsas mətnə endir
+	Design Mode	Konstruktor rejimi
+	Detach Template	Şablonu ayır
+	Developer	Tərtibatçı
+	Display text	Göstərilən mətn
+	Document template:	Sənəd şablonu:
+	Documents	Sənədlər
+	Don't capitalize after:	Bundan sonra böyük hərf etmə:
+	Doughnut	Halqavari
+	Drop-Down List Content Control	Məzmun idarəetmə elementi: açılan siyahı
+	Edit Data	Verilənləri redaktə et
+	Edit Items	Elementləri redaktə et
+	Edit\nData	Verilənləri\nredaktə et
+	Editing in this document is restricted.	Bu sənədin redaktəsi məhdudlaşdırılıb.
+	Elbow Arrow Connector	Oxlu bucaqlı birləşdirici
+	Elbow Connector	Bucaqlı birləşdirici
+	End of Word	Sözün sonu
+	Even pages only	Yalnız cüt səhifələr
+	Every change is recorded as a tracked change.	Hər dəyişiklik izlənən dəyişiklik kimi qeydə alınır.
+	Everyone	Hamı
+	Exceptions (optional)	İstisnalar (ixtiyari)
+	Exceptions…	İstisnalar…
+	Expand or Collapse Heading	Başlığı aç və ya yığ
+	Expression	İfadə
+	Extend Selection by Units	Seçimi vahidlərlə genişləndir
+	Fields	Sahələr
+	File name:	Faylın adı:
+	Filling in forms	Formaların doldurulması
+	Find Next Editable Region	Növbəti redaktə edilə bilən sahəni tap
+	Find What Expression	Tapılmış ifadə
+	Find What Text	Axtarılan mətn
+	Fix Position on Page	Səhifədə mövqeyi sabitlə
+	Footnotes and endnotes	Haşiyələr və son haşiyələr
+	Formatting exceptions	Formatlaşdırma istisnaları
+	Formatting marks	Formatlaşdırma işarələri
+	Formatting, case changes, white space and tables are compared; the other settings are kept for later.	Formatlaşdırma, registr dəyişiklikləri, boşluqlar və cədvəllər müqayisə olunur; digər parametrlər sonrakı üçün saxlanılır.
+	Fractions (1/2) as fraction characters (½)	Kəsrlər (1/2) kəsr simvolları kimi (½)
+	Graphic	Qrafika
+	Green:	Yaşıl:
+	Headers and footers	Kolontitullar
+	Hex:	Hex:
+	Hidden text	Gizli mətn
+	Hide White Space	Səhifələr arasındakı boş yeri gizlət
+	Hierarchy	İyerarxiya
+	Hollow	İçiboş
+	Home folder	Ev qovluğu
+	Hue:	Çalar:
+	Hyphens (--) as dashes (—)	Defislər (--) tire kimi (—)
+	Ignore punctuation characters	Durğu işarələrinə məhəl qoyma
+	Ignore web and file addresses	Veb və fayl ünvanlarını ötür
+	Ignore white-space characters	Boşluqlara məhəl qoyma
+	Ignore words in capitals	Böyük hərfli sözləri ötür
+	Ignore words with numbers	Rəqəmli sözləri ötür
+	In equations, typing a name after a backslash replaces it with its symbol.	Tənliklərdə tərs xətdən sonra yazılan ad öz simvolu ilə əvəz olunur.
+	Inches	Düymlər
+	Inflate	Şişirtmə
+	Initials:	İnisiallar:
+	Insert Chart	Diaqram daxil et
+	Insert SmartArt	SmartArt daxil et
+	Inside:	Daxildə:
+	Interface	İnterfeys
+	Interface language	İnterfeys dili
+	Internet addresses as links	İnternet ünvanları keçid kimi
+	Label changes with:	Dəyişiklikləri belə qeyd et:
+	Latin text font:	Latın mətni şrifti:
+	Layouts	Tərtibatlar
+	Legend	Əfsanə
+	Light with Outline	Konturlu işıqlı
+	Limit formatting to a selection of styles	Formatlaşdırmanı seçilmiş üslublarla məhdudlaşdır
+	List	Siyahı
+	List entries	Siyahı elementləri
+	Lum:	Parlaqlıq:
+	Manual Line Break	Sətir fasiləsi
+	Manual Page Break	Səhifə fasiləsi
+	Mark grammar errors as you type	Yazarkən qrammatik xətaları qeyd et
+	Match prefix	Sözün əvvəli
+	Match suffix	Sözün sonu
+	Math AutoCorrect	Riyazi avtodüzəliş
+	Measurement units:	Ölçü vahidləri:
+	Millimeters	Millimetrlər
+	Mirror indents	Güzgü abzas boşluqları
+	More >>	Daha çox >>
+	More Colors…	Digər rənglər…
+	Move Down	Aşağı köçür
+	Move Up	Yuxarı köçür
+	Move with Text	Mətnlə birlikdə hərəkət et
+	Moves	Köçürmələr
+	Moved from:	Haradan köçürülüb:
+	Moved to:	Haraya köçürülüb:
+	New comments and tracked changes are recorded under this name and these initials.	Yeni şərhlər və izlənən dəyişikliklər bu ad və inisiallarla qeydə alınır.
+	New document	Yeni sənəd
+	New word	Yeni söz
+	No Fill	Doldurmasız
+	No Outline	Kontursuz
+	No Reflection	Əks olunmasız
+	No Transform	Transformasiyasız
+	No changes (read only)	Dəyişiklik yoxdur (yalnız oxumaq)
+	No words yet. Add to Dictionary on a misspelled word puts it here.	Hələ söz yoxdur. Səhv yazılmış sözdə «Lüğətə əlavə et» onu bura yerləşdirir.
+	Not	Deyil
+	Num Occurrences	Uyğunluqların sayı
+	Odd pages only	Yalnız tək səhifələr
+	Off	Söndürülüb
+	On	Aktivdir
+	On: the caret glides to its new place when you type or use the arrow keys, and its blink fades. Off: it jumps and blinks on and off.	Aktiv: yazarkən və ya ox düymələrindən istifadə edərkən kursor yeni yerinə rəvan keçir və yanıb-sönməsi sönür. Söndürülüb: o sıçrayır və yanıb-sönür.
+	One line per item. Enter adds an item.	Hər elementə bir sətir. Enter element əlavə edir.
+	Only allow this kind of editing:	Yalnız bu növ redaktəyə icazə ver:
+	Only comments can be added, except in regions marked editable.	Redaktə edilə bilən kimi qeyd olunmuş sahələr istisna olmaqla, yalnız şərh əlavə etmək olar.
+	Only form fields can be filled in.	Yalnız forma sahələrini doldurmaq olar.
+	Only the allowed styles can be applied.	Yalnız icazə verilmiş üslubları tətbiq etmək olar.
+	Open a file with Lexicon's own browser when the system file dialog doesn't appear.	Sistem fayl pəncərəsi görünmədikdə faylı Lexicon-un öz brauzeri ilə aç.
+	Ordinals (1st) as superscript	Sıra sayları (1st) yuxarı indeks kimi
+	Organizer	Təşkilatçı
+	Organizer…	Təşkilatçı…
+	Original document	Orijinal sənəd
+	Outline State	Strukturun vəziyyəti
+	Outline Tools	Struktur alətləri
+	Outlining	Struktur
+	Outside:	Xaricdə:
+	Overtype	Əvəzetmə
+	Overtype (typing replaces the characters after the caret)	Əvəzetmə (yazılan mətn kursordan sonrakı simvolları əvəz edir)
+	Show alignment guides when moving pictures and shapes	Şəkilləri və fiqurları köçürərkən düzləndirmə bələdçilərini göstər
+	Moved objects snap to the page's edges and centre, the margins and other objects. Hold Alt to move freely.	Köçürülən obyektlər səhifənin kənarlarına və mərkəzinə, kənar boşluqlara və digər obyektlərə yapışır. Sərbəst köçürmək üçün Alt düyməsini basılı saxlayın.
+	Page display	Səhifənin görüntüsü
+	Pages like 1-3, 5	Səhifələr, məsələn 1-3, 5
+	Paragraph Character	Abzas simvolu
+	Paragraph marks	Abzas işarələri
+	Personalize	Fərdiləşdirmə
+	Picas	Pikalar
+	Picture Content Control	Məzmun idarəetmə elementi: şəkil
+	Pie	Dairəvi
+	Placeholder text	Yer tutucu mətn
+	Plain Text Content Control	Məzmun idarəetmə elementi: sadə mətn
+	Points	Punktlar
+	Previous 1 or More	Əvvəlki 1 və ya daha çox dəfə
+	Previous Page	Əvvəlki səhifə
+	Print Markup	Qeydləri çap et
+	Print the page color	Səhifə rəngini çap et
+	Print to PDF	PDF-ə çap et
+	Printing	Çap
+	Process	Proses
+	Promote to Heading 1	«Başlıq 1»-ə qaldır
+	Proofing language	Orfoqrafiya yoxlaması dili
+	Put the caret in a content control first.	Əvvəlcə kursoru məzmun idarəetmə elementinə qoyun.
+	Pyramid	Piramida
+	Recent Colors	Son rənglər
+	Recent documents to show:	Göstəriləcək son sənədlər:
+	Recipient lists	Alıcılar siyahıları
+	Red:	Qırmızı:
+	Reflection	Əks olunma
+	Regular expressions	Müntəzəm ifadələr
+	Relationship	Əlaqə
+	Remove Added Font	Əlavə edilmiş şrifti sil
+	Load System Installed Fonts…	Sistemdə quraşdırılmış şriftləri yüklə…
+	All system fonts are already available.	Bütün sistem şriftləri artıq əlçatandır.
+	Local font access is not supported by your browser.	Brauzeriniz yerli şriftlərə girişi dəstəkləmir.
+	Local font access was denied.	Yerli şriftlərə giriş rədd edildi.
+	Loaded {count} system fonts.	Yüklənmiş sistem şriftləri: {count}.
+	Remove Content Control	Məzmun idarəetmə elementini sil
+	Remove row	Sətri sil
+	Remove series	Sıranı sil
+	Remove the control once edited	Redaktədən sonra idarəetmə elementini sil
+	Rename Style	Üslubun adını dəyiş
+	Repeating Section Content Control	Məzmun idarəetmə elementi: təkrarlanan bölmə
+	Replace as you type	Yazarkən əvəz et
+	Replace text as you type	Yazarkən mətni əvəz et
+	Replace:	Əvəz et:
+	Reset Graphic	Qrafikanı sıfırla
+	Reset\nGraphic	Qrafikanı\nsıfırla
+	Resize Table by Dragging	Cədvəlin ölçüsünü dartaraq dəyiş
+	Select Column	Cədvəl sütununu seç
+	Select Table Cells by Clicking	Cədvəl xanalarını klikləyərək seç
+	Insert Row or Column by Clicking	Klikləyərək sətir və ya sütun daxil et
+	Move Table by Dragging	Cədvəli dartaraq köçür
+	AutoFit Column by Double-Clicking	Cüt kliklə sütunun avtouyğunlaşdırılması
+	Revised document	Düzəliş edilmiş sənəd
+	Rich Text Content Control	Məzmun idarəetmə elementi: formatlı mətn
+	Sat:	Doyğunluq:
+	Save documents	Sənədlərin saxlanması
+	Save these pages as PDF…	Bu səhifələri PDF kimi saxla…
+	Scatter	Nöqtəvi
+	Search Options	Axtarış parametrləri
+	Section Break	Bölmə fasiləsi
+	Section Character	Bölmə simvolu
+	Select Heading and Content	Başlığı və məzmunu seç
+	Select text, then tick who can still edit it.	Mətni seçin, sonra onu kimin redaktə edə biləcəyini qeyd edin.
+	Selected pages	Seçilmiş səhifələr
+	Series name	Sıranın adı
+	Series {n}	Sıra {n}
+	Set Date	Tarixi təyin et
+	Settings…	Parametrlər…
+	Show All Levels	Bütün səviyyələri göstər
+	Show First Line Only	Yalnız birinci sətri göstər
+	Show Level	Səviyyəni göstər
+	Show Level 1	1-ci səviyyəni göstər
+	Show Level 2	2-ci səviyyəni göstər
+	Show Level 3	3-cü səviyyəni göstər
+	Show Level 4	4-cü səviyyəni göstər
+	Show Level 5	5-ci səviyyəni göstər
+	Show Level 6	6-cı səviyyəni göstər
+	Show Level 7	7-ci səviyyəni göstər
+	Show Level 8	8-ci səviyyəni göstər
+	Show Level 9	9-cu səviyyəni göstər
+	Show Text Formatting	Mətnin formatlaşdırmasını göstər
+	Show changes at:	Dəyişiklikləri göstər:
+	Show changes in:	Dəyişiklikləri göstər:
+	Show the mini toolbar when text is selected	Mətn seçiləndə mini paneli göstər
+	Showing the first {count} items.	İlk {count} element göstərilir.
+	Shows a tree: each item below the item it belongs to.	Ağac göstərir: hər element aid olduğu elementin altındadır.
+	Shows items around a central idea: the first item is the centre.	Elementləri mərkəzi ideyanın ətrafında göstərir: birinci element mərkəzdədir.
+	Shows items of equal weight as blocks in rows.	Bərabər çəkili elementləri sətirlərdə bloklar kimi göstərir.
+	Shows overlapping ideas as overlapping circles.	Üst-üstə düşən ideyaları üst-üstə düşən dairələr kimi göstərir.
+	Shows parts of a whole as quadrants.	Bütövün hissələrini dörddəbirlər kimi göstərir.
+	Shows parts that build on each other, largest at the bottom.	Bir-birinə söykənən hissələri göstərir, ən böyüyü aşağıda.
+	Shows steps in order, left to right, with arrows between them.	Addımları ardıcıllıqla, soldan sağa, aralarında oxlarla göstərir.
+	Shows steps that repeat, around a circle.	Təkrarlanan addımları dairə üzrə göstərir.
+	Slant Down	Aşağı meyl
+	Slant Up	Yuxarı meyl
+	Smart quotes instead of straight quotes	Düz dırnaqlar əvəzinə «ağıllı» dırnaqlar
+	SmartArt Design	SmartArt dizaynı
+	SmartArt Styles	SmartArt üslubları
+	Smooth scrolling and zooming, and menus and buttons that fade in. Off shows every change at once.	Rəvan sürüşdürmə və miqyaslama, həmçinin menyu və düymələrin rəvan görünməsi. «Söndürülüb» hər dəyişikliyi dərhal göstərir.
+	Soft Glow	Yumşaq parıltı
+	Solid Accent	Bütöv aksent
+	Spaces	Boşluqlar
+	Special	Xüsusi
+	Spelling	Orfoqrafiya
+	Spelling and grammar are checked in English (United States).	Orfoqrafiya və qrammatika ingilis dilində (ABŞ) yoxlanılır.
+	Stacked Bar	Yığılmış zolaqlar
+	Stacked Column	Yığılmış sütunlar
+	Standard	Standart
+	Start Enforcing Protection	Qorumanı aktivləşdir
+	Stop Protection	Qorumanı dayandır
+	Straight Arrow Connector	Oxlu düz birləşdirici
+	Straight Connector	Düz birləşdirici
+	Tab Character	Tabulyasiya simvolu
+	Tab characters	Tabulyasiya simvolları
+	Templates	Şablonlar
+	Templates and Add-ins	Şablonlar və əlavələr
+	Text Fill	Mətnin doldurulması
+	Text Outline	Mətnin konturu
+	Text Pane	Mətn paneli
+	Text boxes	Mətn sahələri
+	The document is read only, except for regions marked editable.	Redaktə edilə bilən kimi qeyd olunmuş sahələr istisna olmaqla, sənəd yalnız oxumaq üçündür.
+	The password is optional; without it anyone can stop the protection.	Parol ixtiyaridir; onsuz qorumanı hər kəs dayandıra bilər.
+	The printer, two-sided printing and pages per sheet are chosen in that dialog.	Printer, ikitərəfli çap və vərəqdəki səhifə sayı həmin pəncərədə seçilir.
+	The system file dialog isn't available, so Lexicon shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Sistem fayl pəncərəsi əlçatan deyil, buna görə Lexicon özününkünü göstərir. Sistem pəncərəsini almaq üçün fayl seçmə portalı (məsələn, xdg-desktop-portal-gtk) və ya zenity quraşdırın.
+	These marks show even when Show/Hide ¶ is off.	Bu işarələr «Göstər/gizlət ¶» söndürüləndə də görünür.
+	This document	Bu sənəd
+	This folder can't be read: {error}	Bu qovluq oxuna bilmir: {error}
+	This password type isn't supported.	Bu parol növü dəstəklənmir.
+	Today	Bu gün
+	Toggle Check Box	Qeyd qutusunu dəyiş
+	Tracked changes	İzlənən dəyişikliklər
+	Transform	Transformasiya
+	Triangle Down	Aşağı üçbucaq
+	Triangle Up	Yuxarı üçbucaq
+	Type	Növ
+	Type the categories down the side and a column of values per series.	Kateqoriyaları şaquli, hər sıra üçün isə dəyərlər sütununu yazın.
+	Type the password to stop the protection.	Qorumanı dayandırmaq üçün parolu yazın.
+	Typing replaces selected text	Yazmaq seçilmiş mətni əvəz edir
+	Unchecked symbol	İşarələnməmiş qutu simvolu
+	Up one level	Bir səviyyə yuxarı
+	Update Styles from Template	Üslubları şablondan yenilə
+	Update fields before printing	Çapdan əvvəl sahələri yenilə
+	Use the Insert key to switch overtype on and off	Əvəzetmə rejimini Insert düyməsi ilə yandır və söndür
+	Use wildcards	Şablon simvollardan istifadə et
+	Value	Dəyər
+	Visual effects	Vizual effektlər
+	Warm Gradient with Outline	Konturlu isti qradiyent
+	White Space	Boşluq simvolu
+	White space	Boşluqlar
+	With:	Nə ilə:
+	Word XML Document (*.xml)	Word XML sənədi (*.xml)
+	Word 2003 XML Document (*.xml)	Word 2003 XML sənədi (*.xml)
+	Word document	Word sənədi
+	Word level	Söz səviyyəsində
+	WordArt Styles	WordArt üslubları
+	Your system doesn't report an animation setting, so animation effects stay on.	Sisteminiz animasiya parametrini bildirmir, buna görə animasiya effektləri aktiv qalır.
+	Your system has animation effects turned off.	Sisteminizdə animasiya effektləri söndürülüb.
+	Your system has animation effects turned on.	Sisteminizdə animasiya effektləri aktivdir.
+	{count} of {total} pages will print	{total} səhifədən {count} səhifə çap ediləcək
+	{name} already exists. Choose Save again to replace it.	{name} artıq mövcuddur. Əvəz etmək üçün yenidən «Yadda saxla» seçin.
+	{name} wasn't found.	{name} tapılmadı.
+	“{text}” ({row}, {series}) isn't a number.	«{text}» ({row}, {series}) rəqəm deyil.
+	Undo Actions	Əməliyyatları geri al
+	Undo History	Geri alma tarixçəsi
+	Undo 1 Action	1 əməliyyatı geri al
+	Undo {n} Actions	{n} əməliyyatı geri al
+	Start-up	Başlanğıc
+	Show the Start screen when Lexicon starts	Lexicon başlayanda başlanğıc ekranını göstər
+	On: Lexicon opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Aktiv: Lexicon boş sənəd, şablonlar və son sənədlərinizlə «Fayl › Əsas» səhifəsində açılır. Söndürülüb: boş sənəd açılır.
+	Couldn't make Lexicon the default: {error}	Lexicon defolt proqram edilə bilmədi: {error}
+	In Default apps, choose Lexicon for the document types you want it to open.	«Defolt proqramlar» bölməsində Lexicon-un açmasını istədiyiniz sənəd növləri üçün onu seçin.
+	Make Lexicon the default for Word documents…	Lexicon-u Word sənədləri üçün defolt et…
+	Opens .docx, .doc, .rtf and .odt files and Word templates with Lexicon from now on.	Bundan sonra .docx, .doc, .rtf və .odt faylları və Word şablonları Lexicon ilə açılacaq.
+	Opens Settings › Default apps, where you choose Lexicon for .docx and the other document types.	«Parametrlər › Defolt proqramlar» bölməsini açır; orada .docx və digər sənəd növləri üçün Lexicon seçilir.
+	To open Word documents with Lexicon by default: select one in Finder, choose File › Get Info, pick Lexicon under Open with, then click Change All.	Word sənədlərini defolt olaraq Lexicon ilə açmaq üçün: Finder-də sənədi seçin, File › Get Info seçin, «Open with» bölməsində Lexicon-u seçin və «Change All» düyməsinə klikləyin.
+	Lexicon is now the default app for Word documents.	Lexicon indi Word sənədləri üçün defolt proqramdır.
+	Numerals:	Rəqəmlər:
+	Numerals	Rəqəmlər
+	Hindi	Hind
+	Context	Kontekst
+	System	Sistem
+	Odd Banded Rows	Tək zolaqlı sətirlər
+	Even Banded Rows	Cüt zolaqlı sətirlər
+	Odd Banded Columns	Tək zolaqlı sütunlar
+	Even Banded Columns	Cüt zolaqlı sütunlar
+	Top Left Cell	Yuxarı sol xana
+	Top Right Cell	Yuxarı sağ xana
+	Bottom Left Cell	Aşağı sol xana
+	Bottom Right Cell	Aşağı sağ xana
+	Inside Horizontal Border	Daxili üfüqi sərhəd
+	Inside Vertical Border	Daxili şaquli sərhəd
+	Filter Recipients	Alıcıları filtrlə
+	Sort Recipients	Alıcıları çeşidlə
+	Filter and Sort	Filtr və çeşidləmə
+	And	Və
+	Or	Və ya
+	Comparison	Müqayisə
+	Compare to	Müqayisə et
+	Add Condition	Şərt əlavə et
+	Remove condition	Şərti sil
+	Sort by	Çeşidlə
+	Then by	Sonra
+	Ascending	Artan sıra ilə
+	Descending	Azalan sıra ilə
+	Equal to	Bərabərdir
+	Not equal to	Bərabər deyil
+	Less than	Kiçikdir
+	Greater than	Böyükdür
+	Less than or equal	Kiçik və ya bərabər
+	Greater than or equal	Böyük və ya bərabər
+	Is blank	Boşdur
+	Is not blank	Boş deyil
+	Contains	Ehtiva edir
+	Does not contain	Ehtiva etmir
+	{count} of {total} recipients will be merged.	{total} alıcıdan {count} alıcı birləşdiriləcək.
+	Find in list:	Siyahıda tap:
+	Any field	İstənilən sahə
+	Matches: {count}	Uyğunluqlar: {count}
+	Show only records that will be merged	Yalnız birləşdiriləcək qeydləri göstər
+	Book Title	Kitabın adı
+	Category	Kateqoriya
+	Contributors	İştirakçılar
+	Emphasis	Vurğu
+	Endnote Reference	Son haşiyə istinadı
+	Endnote Text	Son haşiyə mətni
+	Footnote Reference	Haşiyə istinadı
+	Footnote Text	Haşiyə mətni
+	Hyperlink	Hiperlink
+	Intense Emphasis	Güclü vurğu
+	Intense Quote	Vurğulanmış sitat
+	Intense Reference	Güclü istinad
+	Keywords	Açar sözlər
+	No Spacing	İntervalsız
+	Quote	Sitat
+	Strong	Ciddi
+	Subject	Mövzu
+	Subtitle	Alt başlıq
+	Subtle Emphasis	Zəif vurğu
+	Subtle Reference	Zəif istinad
+	TOC Heading	Mündəricat başlığı
+	TOC {n}	Mündəricat {n}
+	List Paragraph	Siyahı abzası
+	Models	Modellər
+	Show KeyTips (Alt or F10)	Düymə ipuclarını göstər (Alt və ya F10)
+	Reading	Oxu
+	Reading Column Width	Oxu sütununun eni
+	Reading Line Spacing	Oxu sətirarası intervalı
+	Reading Text Size	Oxu mətninin ölçüsü
+	Correct TWo INitial CApitals	İKi BAşlanğıc BÖyük hərfi düzəlt
+	Correct accidental usage of cAPS LOCK key	cAPS LOCK düyməsinin təsadüfi istifadəsini düzəlt
+	Region:	Region:
+	Automatic ({region})	Avtomatik ({region})
+	Text of the nearest paragraph with a given style (running headers)	Verilmiş üslublu ən yaxın abzasın mətni (canlı kolontitullar)
+	Style name:	Üslubun adı:
+	Take the last match on the page	Səhifədəki son uyğunluğu götür
+	Show its list number	Onun siyahıdakı nömrəsini göstər
+	Show its number relative to this field	Onun bu sahəyə nisbətən nömrəsini göstər
+	Show its number with all higher levels	Onun nömrəsini bütün yuxarı səviyyələrlə göstər
+	Number only, without the label's words	Yalnız nömrə, etiketin sözləri olmadan
+	Add whether it is above or below	Yuxarıda və ya aşağıda olduğunu əlavə et
+	AaBbCcDd	AaBbCcDd
+	Annotation Reference	Qeyd istinadı
+	Annotation Subject	Qeydin mövzusu
+	Annotation Text	Qeydin mətni
+	Body text in a short paragraph to show spacing.	İntervalları göstərmək üçün qısa abzasda əsas mətn.
+	Default Paragraph Font	Defolt abzas şrifti
+	Envelope Address	Zərfdəki ünvan
+	Envelope Return	Qayıdış ünvanı
+	Index Heading	Göstərici başlığı
+	Index {n}	Göstərici {n}
+	Line Number	Sətir nömrəsi
+	Normal	Adi
+	Normal Indent	Adi abzas boşluğu
+	Normal Table	Adi cədvəl
+	Table Grid	Cədvəl toru
+	Table of Figures	İllüstrasiyalar siyahısı
+preview	Title	Nümunə
+	TOA Heading	İstinadlar cədvəlinin başlığı
+	Good evening	Axşamınız xeyir
+	Good morning	Sabahınız xeyir
+	Good afternoon	Günortanız xeyir
+	tOGGLE cASE	rEGİSTRİ dƏYİŞ
+	Change to Level 1	1-ci səviyyəyə keç
+	Change to Level 2	2-ci səviyyəyə keç
+	Change to Level 3	3-cü səviyyəyə keç
+	Change to Level 4	4-cü səviyyəyə keç
+	Change to Level 5	5-ci səviyyəyə keç
+	Level 1	Səviyyə 1
+	Level 2	Səviyyə 2
+	Level 3	Səviyyə 3
+	ASAP	TƏCİLİ
+	CONFIDENTIAL	MƏXFİ
+	DO NOT COPY	KOPYALAMAYIN
+	DRAFT	QARALAMA
+	SAMPLE	NÜMUNƏ
+	URGENT	TƏCİLİ!
+	Plain Table 1	Sadə cədvəl 1
+	Grid Table 1 Light	Torlu cədvəl 1, işıqlı
+	Grid Table 4 – Blue	Torlu cədvəl 4 — göy
+	Grid Table 4 – Green	Torlu cədvəl 4 — yaşıl
+	Grid Table 4 – Orange	Torlu cədvəl 4 — narıncı
+	Grid Table 4 – Purple	Torlu cədvəl 4 — bənövşəyi
+	List Table 3 – Blue	Siyahı cədvəli 3 — göy
+	List Table 3 – Green	Siyahı cədvəli 3 — yaşıl
+	List Table 3 – Orange	Siyahı cədvəli 3 — narıncı
+	List Table 3 – Purple	Siyahı cədvəli 3 — bənövşəyi
+	Convert between built-up and linear form	Peşəkar və xətti görünüş arasında çevir
+	Justification of a display equation	Ayrıca tənliyin düzləndirilməsi
+	Number the equation; the number sits at the right margin (or type # then the number)	Tənliyi nömrələ; nömrə sağ kənarda dayanır (və ya # və nömrəni yazın)
+	Show the equation in the line of text	Tənliyi mətn sətrində göstər
+	Show the equation on a line of its own	Tənliyi ayrıca sətirdə göstər
+	Type equations in LaTeX	Tənlikləri LaTeX ilə yaz
+	Type equations in the linear format (UnicodeMath)	Tənlikləri xətti formatda yaz (UnicodeMath)
+	Type normal (non-math) text in the equation	Tənlikdə adi (qeyri-riyazi) mətn yaz
+	Sides of a right triangle	Düzbucaqlı üçbucağın tərəfləri
+	Circle area from its radius	Radiusa görə dairənin sahəsi
+	Roots of ax²+bx+c	ax²+bx+c-nin kökləri
+	Binomial expansion of (x+a)ⁿ	(x+a)ⁿ binomunun açılışı
+	Power series of (1+x)ⁿ	(1+x)ⁿ qüvvət sırası
+	Euler's identity	Eyler eyniliyi
+	Derivative as a limit	Limit kimi törəmə
+	Exponential series	Eksponent sırası
+	Integral of e^(−x²)	e^(−x²) inteqralı
+	Sine and cosine series of f(x)	f(x) üçün Furye sırası
+	Sum or difference of sines	Sinusların cəmi və ya fərqi
+	Sum of cosines	Kosinusların cəmi
+	Normal probability density	Normal paylanmanın sıxlığı
+	Bayes' rule	Bayes düsturu
+	Accents	Diakritik işarələr
+	Basic Math	Əsas riyazi
+	Boxed Formulas	Çərçivəli düsturlar
+	Cases and Stacks	Sistemlər və sütunlar
+	Common Accent Objects	Tez-tez istifadə olunan diakritik obyektlər
+	Common Brackets	Tez-tez istifadə olunan mötərizələr
+	Common Fractions	Tez-tez istifadə olunan kəsrlər
+	Common Functions	Tez-tez istifadə olunan funksiyalar
+	Common Large Operators	Tez-tez istifadə olunan böyük operatorlar
+	Common Operator Structures	Tez-tez istifadə olunan operator strukturları
+	Common Operators	Tez-tez istifadə olunan operatorlar
+	Common Radicals	Tez-tez istifadə olunan köklər
+	Common Subscripts and Superscripts	Tez-tez istifadə olunan indekslər
+	Contour Integrals	Kontur inteqralları
+	Differentials	Diferensiallar
+	Dots	Üç nöqtələr
+	Empty Matrices	Boş matrislər
+	Functions	Funksiyalar
+	Geometry	Həndəsə
+	Greek Letters	Yunan hərfləri
+	Hyperbolic Functions	Hiperbolik funksiyalar
+	Identity Matrices	Vahid matrislər
+	Integrals	İnteqrallar
+	Inverse Functions	Tərs funksiyalar
+	Inverse Hyperbolic Functions	Tərs hiperbolik funksiyalar
+	Letter-Like Symbols	Hərfəbənzər simvollar
+	Matrices with Brackets	Mötərizəli matrislər
+	Negated Relations	Münasibətlərin inkarı
+	Operator Structures	Operator strukturları
+	Operators	Operatorlar
+	Other Large Operators	Digər böyük operatorlar
+	Overbars and Underbars	Üst və alt xətlər
+	Products and Coproducts	Hasillər və kohasillər
+	Radicals	Köklər
+	Scripts	İndekslər
+	Single Brackets	Tək mötərizələr
+	Sparse Matrices	Seyrək matrislər
+	Subscripts and Superscripts	Alt və üst indekslər
+	Summations	Cəmlər
+	Trigonometric Functions	Triqonometrik funksiyalar
+	Unions and Intersections	Birləşmələr və kəsişmələr
+	1×2 Empty Matrix	1×2 boş matris
+	1×3 Empty Matrix	1×3 boş matris
+	2×1 Empty Matrix	2×1 boş matris
+	2×2 Empty Matrix	2×2 boş matris
+	2×3 Empty Matrix	2×3 boş matris
+	3×1 Empty Matrix	3×1 boş matris
+	3×2 Empty Matrix	3×2 boş matris
+	3×3 Empty Matrix	3×3 boş matris
+	2×2 Determinant	2×2 determinant
+	2×2 Identity Matrix	2×2 vahid matris
+	2×2 Identity Matrix (sparse)	2×2 vahid matris (seyrək)
+	3×3 Identity Matrix	3×3 vahid matris
+	3×3 Identity Matrix (sparse)	3×3 vahid matris (seyrək)
+	2×2 Matrix in Brackets	Kvadrat mötərizədə 2×2 matris
+	2×2 Matrix in Double Bars	İkiqat şaquli xətlərdə 2×2 matris
+	2×2 Matrix in Parentheses	Dairəvi mötərizədə 2×2 matris
+	n×n Identity Matrix	n×n vahid matris
+	n×n Matrix	n×n matris
+	A xor B	A istisna edən VƏ YA B
+	Absolute value cases	Hallar üzrə tənlik
+	Acute	Kəskin vurğu
+	Angle Brackets	Bucaqlı mötərizələr
+	Angle Brackets with Separator	Ayırıcılı bucaqlı mötərizələr
+	Angle Brackets with Two Separators	İki ayırıcılı bucaqlı mötərizələr
+	Baseline Dots	Baza xətti üzrə üç nöqtə
+	Binomial Coefficient	Binomial əmsal
+	Binomial Coefficient (angle)	Binomial əmsal (bucaqlı)
+	Binomial Coefficient with Angle Brackets	Bucaqlı mötərizədə binomial əmsal
+	Boxed Formula	Çərçivəli düstur
+	Boxed Formula (example)	Çərçivəli düstur (nümunə)
+	Braces	Fiqurlu mötərizələr
+	Braces with Separator	Ayırıcılı fiqurlu mötərizələr
+	Brackets	Kvadrat mötərizələr
+	Brackets with Separators	Ayırıcılı mötərizələr
+	Breve	Breve
+	Cases (Three Conditions)	Sistem (üç şərt)
+	Cases (Two Conditions)	Sistem (iki şərt)
+	Ceiling	Yuxarı yuvarlaqlaşdırma
+	Change in y over change in x	y artımının x artımına nisbəti
+	Check	İşarə ✓
+	Circled Dot	Dairədə nöqtə
+	Circled Plus	Dairədə üstəgəl
+	Circled Times	Dairədə vurma
+	Colon Equal	İki nöqtə bərabər
+	Contour Integral	Kontur inteqralı
+	Contour Integral with Limits	Hədləri olan kontur inteqralı
+	Contour Integral with Stacked Limits	Üst-alt hədləri olan kontur inteqralı
+	Coproduct	Kohasil
+	Coproduct with Limits	Hədləri olan kohasil
+	Coproduct with Lower Limit	Alt hədli kohasil
+	Coproduct with Subscript-Superscript Limits	İndeks hədləri olan kohasil
+	Cosecant Function	Kosekans
+	Cosine 2x	Kosinus 2x
+	Cosine Function	Kosinus
+	Cotangent Function	Kotangens
+	Cube Root	Kub kökü
+	Delta Equal To	Delta bərabərdir
+	Delta over arrow	Ox üzərində delta
+	Diagonal Dots	Diaqonal üç nöqtə
+	Differential	Diferensial
+	Differential theta	Diferensial teta
+	Differential x	Diferensial x
+	Differential y	Diferensial y
+	Dot	Nöqtə
+	Double Bar	İkiqat xətt
+	Double Dot	İki nöqtə
+	Double Integral	İkiqat inteqral
+	Double Integral with Limits	Hədləri olan ikiqat inteqral
+	Double Integral with Stacked Limits	Üst-alt hədləri olan ikiqat inteqral
+	Double Left Arrow with Text Above	Üstündə mətn olan ikiqat sol ox
+	Double Left Arrow with Text Below	Altında mətn olan ikiqat sol ox
+	Double Left Right Arrow with Text Above	Üstündə mətn olan ikiqat ikitərəfli ox
+	Double Left Right Arrow with Text Below	Altında mətn olan ikiqat ikitərəfli ox
+	Double Right Arrow with Text Above	Üstündə mətn olan ikiqat sağ ox
+	Double Right Arrow with Text Below	Altında mətn olan ikiqat sağ ox
+	Double Square Brackets	İkiqat kvadrat mötərizələr
+	Double Vertical Bars	İkiqat şaquli xətlər
+	Double summation	İkiqat cəm
+	Equal Equal	Bərabər bərabər
+	Equal by Definition	Tərifə görə bərabər
+	Exponential	Eksponent
+	Floor	Aşağı yuvarlaqlaşdırma
+	Grave	Ağır vurğu
+	Grouping Character Above	Üstdə qruplaşdırıcı işarə
+	Grouping Character Below	Altda qruplaşdırıcı işarə
+	Hat	Papaq
+	Hyperbolic Cosecant Function	Hiperbolik kosekans
+	Hyperbolic Cosine Function	Hiperbolik kosinus
+	Hyperbolic Cotangent Function	Hiperbolik kotangens
+	Hyperbolic Secant Function	Hiperbolik sekans
+	Hyperbolic Sine Function	Hiperbolik sinus
+	Hyperbolic Tangent Function	Hiperbolik tangens
+	Hypotenuse	Hipotenuz
+	Integral with Limits	Hədləri olan inteqral
+	Integral with Stacked Limits	Üst-alt hədləri olan inteqral
+	Intersection	Kəsişmə
+	Intersection with Limits	Hədləri olan kəsişmə
+	Intersection with Lower Limit	Alt hədli kəsişmə
+	Intersection with Subscript-Superscript Limits	İndeks hədləri olan kəsişmə
+	Inverse Cosecant Function	Arkkosekans
+	Inverse Cosine Function	Arkkosinus
+	Inverse Cotangent Function	Arkkotangens
+	Inverse Hyperbolic Cosecant Function	Tərs hiperbolik kosekans
+	Inverse Hyperbolic Cosine Function	Tərs hiperbolik kosinus
+	Inverse Hyperbolic Cotangent Function	Tərs hiperbolik kotangens
+	Inverse Hyperbolic Secant Function	Tərs hiperbolik sekans
+	Inverse Hyperbolic Sine Function	Tərs hiperbolik sinus
+	Inverse Hyperbolic Tangent Function	Tərs hiperbolik tangens
+	Inverse Secant Function	Arksekans
+	Inverse Sine Function	Arksinus
+	Inverse Tangent Function	Arktangens
+	Left Arrow with Text Above	Üstündə mətn olan sol ox
+	Left Arrow with Text Below	Altında mətn olan sol ox
+	Left Bracket Twice	İki sol kvadrat mötərizə
+	Left Right Arrow Above	Üstdə ikitərəfli ox
+	Left Right Arrow with Text Above	Üstündə mətn olan ikitərəfli ox
+	Left Right Arrow with Text Below	Altında mətn olan ikitərəfli ox
+	Left Subscript-Superscript	Sol alt və üst indekslər
+	Leftwards Arrow Above	Üstdə sol ox
+	Leftwards Harpoon Above	Üstdə sol harpun
+	Limit	Limit
+	Limit Example	Limit nümunəsi
+	Linear Fraction	Xətti kəsr
+	Logarithm	Loqarifm
+	Logarithm with Base	Əsaslı loqarifm
+	Logical AND	Məntiqi VƏ
+	Logical AND with Limits	Hədləri olan məntiqi VƏ
+	Logical OR	Məntiqi VƏ YA
+	Logical OR with Limits	Hədləri olan məntiqi VƏ YA
+	Maximum	Maksimum
+	Maximum Example	Maksimum nümunəsi
+	Measured By	Ölçü vahidi
+	Midline Dots	Orta xətt üzrə üç nöqtə
+	Minimum	Minimum
+	Minus Equal	Çıx bərabər
+	Natural Logarithm	Natural loqarifm
+	One half	İkidə bir
+	Outward Brackets	Xarici kvadrat mötərizələr
+	Overbar	Üst xətt
+	Overbrace	Üstdə fiqurlu mötərizə
+	Parentheses	Dairəvi mötərizələr
+	Parentheses with Separator	Ayırıcılı dairəvi mötərizələr
+	Partial Differential	Xüsusi diferensial
+	Pi Over 2	Pi bölü 2
+	Plus Equal	Üstəgəl bərabər
+	Product	Hasil
+	Product of A	A-nın hasili
+	Product with Limits	Hədləri olan hasil
+	Product with Lower Limit	Alt hədli hasil
+	Product with Subscript-Superscript Limits	İndeks hədləri olan hasil
+	Quadratic Root	Kvadrat tənliyin kökü
+	Radical with Degree	Dərəcəli kök
+	Right Arrow with Text Above	Üstündə mətn olan sağ ox
+	Right Arrow with Text Below	Altında mətn olan sağ ox
+	Right Bracket Twice	İki sağ kvadrat mötərizə
+	Rightwards Arrow Above	Üstdə sağ ox
+	Rightwards Harpoon Above	Üstdə sağ harpun
+	Secant Function	Sekans
+	Sine Function	Sinus
+	Sine theta	Sinus teta
+	Single Left Angle	Tək sol bucaqlı mötərizə
+	Single Left Bar	Tək sol xətt
+	Single Left Brace	Tək sol fiqurlu mötərizə
+	Single Left Bracket	Tək sol kvadrat mötərizə
+	Single Left Parenthesis	Tək sol dairəvi mötərizə
+	Single Right Brace	Tək sağ fiqurlu mötərizə
+	Single Right Bracket	Tək sağ kvadrat mötərizə
+	Single Right Parenthesis	Tək sağ dairəvi mötərizə
+	Skewed Fraction	Maili kəsr
+	Small change	Kiçik artım
+	Square Root	Kvadrat kök
+	Square Root with Degree	Dərəcəli kvadrat kök
+	Square Union	Kvadrat birləşmə
+	Stack Object	Üst-üstə obyekt
+	Stack Object (Three)	Üst-üstə obyekt (üç)
+	Stacked Fraction	Şaquli kəsr
+	Stacked, no bar	Üst-üstə, xəttsiz
+	Subscript-Superscript	Alt və üst indekslər
+	Summation	Cəm
+	Summation from 0 to n	0-dan n-ə qədər cəm
+	Summation over binomials	Binomial əmsalların cəmi
+	Summation with Limits	Hədləri olan cəm
+	Summation with Lower Limit	Alt hədli cəm
+	Summation with Subscript Limit	İndeks hədli cəm
+	Summation with Subscript-Superscript Limits	İndeks hədləri olan cəm
+	Surface Integral	Səth inteqralı
+	Surface Integral with Limits	Hədləri olan səth inteqralı
+	Surface Integral with Stacked Limits	Üst-alt hədləri olan səth inteqralı
+	Tangent Function	Tangens
+	Tangent formula	Tangens düsturu
+	Text over Colon Equal	İki nöqtə bərabər üzərində mətn
+	Text over Equal	Bərabərlik işarəsi üzərində mətn
+	Tilde	Tilda
+	Triple Dot	Üç nöqtə
+	Triple Integral	Üçqat inteqral
+	Triple Integral with Limits	Hədləri olan üçqat inteqral
+	Triple Integral with Stacked Limits	Üst-alt hədləri olan üçqat inteqral
+	Underbar	Alt xətt
+	Underbrace	Altda fiqurlu mötərizə
+	Union	Birləşmə
+	Union of intersections	Kəsişmələrin birləşməsi
+	Union with Limits	Hədləri olan birləşmə
+	Union with Lower Limit	Alt hədli birləşmə
+	Union with Plus	Üstəgəlli birləşmə
+	Union with Subscript-Superscript Limits	İndeks hədləri olan birləşmə
+	Up Diagonal Dots	Yuxarı diaqonal üç nöqtə
+	Vector A	A vektoru
+	Vector AB	AB vektoru
+	Vertical Bars	Şaquli xətlər
+	Vertical Dots	Şaquli üç nöqtə
+	Volume Integral	Həcm inteqralı
+	Volume Integral with Limits	Hədləri olan həcm inteqralı
+	Volume Integral with Stacked Limits	Üst-alt hədləri olan həcm inteqralı
+	Yields	Çıxış
+	x bar	Xətli x
+	All - Linear	Hamısı — xətti
+	All - Professional	Hamısı — peşəkar
+	Current - Linear	Cari — xətti
+	Current - Professional	Cari — peşəkar
+	Centered as Group	Qrup kimi mərkəzə
+	✓ None	✓ Heç biri
+	Change to Level 6	6-cı səviyyəyə keç
+	Change to Level 7	7-ci səviyyəyə keç
+	Change to Level 8	8-ci səviyyəyə keç
+	Change to Level 9	9-cu səviyyəyə keç
+	Level 4	Səviyyə 4
+	Level 5	Səviyyə 5
+	Level 6	Səviyyə 6
+	Level 7	Səviyyə 7
+	Level 8	Səviyyə 8
+	Level 9	Səviyyə 9
+	Typing	Yazı
+	Search	Axtarış
+	Title Bar	Başlıq zolağı
+	Copy to	Kopyala:
+	Rename Document	Sənədin adını dəyiş
+	Document name	Sənədin adı
+	Rename	Adını dəyiş
+	Account	Hesab
+	Privacy Options	Məxfilik parametrləri
+	Trust Center	Etibar mərkəzi
+	Privacy for this document	Bu sənədin məxfiliyi
+	Remove my name from comments, changes and file properties when saving	Saxlayarkən adımı şərhlərdən, dəyişikliklərdən və fayl xassələrindən sil
+	Leave out the date and time of comments and tracked changes when saving	Saxlayarkən şərhlərin və izlənən dəyişikliklərin tarix və vaxtını daxil etmə
+	The document you are editing keeps the names and dates; only the saved file leaves them out.	Redaktə etdiyiniz sənəd adları və tarixləri saxlayır; onlar yalnız saxlanmış faylda olmur.
+	Privacy Settings	Məxfilik parametrləri
+	Waiting for the save to finish…	Saxlamanın bitməsi gözlənilir…
+	Saving {name} was cancelled, so it is still open and nothing was lost.	{name} saxlanması ləğv edildi, buna görə o hələ də açıqdır və heç nə itməyib.
+	Paper	Kağız
+	Paper size:	Kağız ölçüsü:
+	Custom size	Fərdi ölçü
+	More Paper Sizes…	Digər kağız ölçüləri…
+	The margins don't fit on a page this size; make the margins smaller first.	Kənarlar bu ölçülü səhifəyə sığmır; əvvəlcə kənarları kiçildin.
+	Full Screen	Tam ekran
+	Full\nScreen	Tam\nekran
+	Use the browser's full screen (F11)	Brauzerin tam ekran rejimindən istifadə edin (F11)
+	{name}   {height} × {width} in	{name}   {height} × {width} düym
+	{name}   {height} × {width} mm	{name}   {height} × {width} mm
+	{width} × {height} mm	{width} × {height} mm
+	{kind}, {columns} × {rows}, {size} ({paper})	{kind}, {columns} × {rows}, {size} ({paper})
+	Researcher needs an online service; Lexicon keeps your documents offline.	Tədqiqatçıya onlayn xidmət lazımdır; Lexicon isə sənədlərinizi oflayn saxlayır.
+	These settings will be used for new documents.	Bu parametrlər yeni sənədlər üçün istifadə olunacaq.
+	can't split at the first row	birinci sətirdə bölmək olmur
+	select two or more cells to merge	birləşdirmək üçün iki və ya daha çox xana seçin
+	there is no ink to replay	təkrarlanacaq əlyazma yoxdur
+	there's no citation after the caret	kursordan sonra istinad yoxdur
+	this item is already at the top level	bu element artıq yuxarı səviyyədədir
+	Envelope #10	Zərf №10
+	Envelope DL	Zərf DL
+	Reading Mode	Oxu rejimi
+	Column width	Sütun eni
+	Text size	Mətn ölçüsü
+	Edit Document	Sənədi redaktə et
+	Go to what:	Haraya keç:
+	Type +2 or -1 to move from the page you are on.	Cari səhifədən keçmək üçün +2 və ya -1 yazın.
+	Suggested	Təklif olunan
+	Set Proofing Language…	Orfoqrafiya yoxlaması dilini seç…
+	Language Preferences…	Dil parametrləri…
+	APA	APA
+	Chicago	Chicago
+	GB/T 7714	GB/T 7714
+	GOST (name sort)	GOST (soyada görə)
+	GOST (title sort)	GOST (başlığa görə)
+	Harvard (Anglia)	Harvard (Anglia)
+	IEEE	IEEE
+	ISO 690 (author-date)	ISO 690 (müəllif–tarix)
+	ISO 690 (numerical)	ISO 690 (rəqəmli)
+	MLA	MLA
+	SIST02	SIST02
+	Turabian	Turabian
+	Large	Böyük
+	Limit and	Limit və
+	Log	Loqarifm
+	Printer	Printer
+	Select a printer	Printer seçin
+	Refresh printers	Printerləri yenilə
+	Two-sided printing	İkitərəfli çap
+	Printer default	Printerin defoltu
+	One-sided	Birtərəfli
+	Two-sided: long edge	İkitərəfli: uzun kənar
+	Two-sided: short edge	İkitərəfli: qısa kənar
+	Grayscale	Boz çalarlar
+	Finding printers…	Printerlər axtarılır…
+	No printers found. Configure a system printer or export a PDF.	Printer tapılmadı. Sistem printerini quraşdırın və ya PDF ixrac edin.
+	Printer discovery failed.	Printerləri tapmaq alınmadı.
+	Submitting print job…	Çap tapşırığı göndərilir…
+	Print job submitted.	Çap tapşırığı göndərildi.
+	Print job submitted: {receipt}	Çap tapşırığı göndərildi: {receipt}
+	Print failed: the printing worker stopped.	Çap alınmadı: çap prosesi dayandı.
+	Print settings	Çap parametrləri
+	Submit print job	Çap tapşırığını göndər
+	For which item:	Hansı element üçün:
+	Heading	Başlıq
+	Heading text	Başlıq mətni
+	Insert reference to:	İstinad daxil et:
+	Reference type:	İstinad növü:
+	Dictionaries	Lüğətlər
+	Dictionaries folder:	Lüğətlər qovluğu:
+	Not set: the system's usual places	Təyin edilməyib: sistemin adi yerləri
+	Hunspell .aff and .dic files here (pl_PL, pt_BR, it_IT, hr_HR, tr_TR) are used before the system's.	Buradakı Hunspell .aff və .dic faylları (pl_PL, pt_BR, it_IT, hr_HR, tr_TR) sistemdəkilərdən əvvəl istifadə olunur.
+	{language}: {file}	{language}: {file}
+	{language}: no dictionary found	{language}: lüğət tapılmadı
+	Recover	Bərpa et
+	Mirror margins	Güzgü kənarlar
+	Existing File or Web Page	Mövcud fayl və ya veb səhifə
+	Link to:	Bağla:
+	Place in This Document	Bu sənəddə yer
+	Column {n}	Sütun {n}
+	Header row	Başlıq sətri
+	No header row	Başlıq sətri yoxdur
+	My list has	Siyahımda var
+	Formula:	Düstur:
+	Paste function:	Funksiya daxil et:
+	Narrow	Dar
+	Medium	Orta
+	Merge cells before split	Bölmədən əvvəl xanaları birləşdir
+	Table size	Cədvəl ölçüsü
+	AutoFit behavior	Avtouyğunlaşma davranışı
+	Initial column width:	Sütunun ilkin eni:
+	AutoFit to contents	Məzmuna görə uyğunlaşdır
+	AutoFit to window	Pəncərəyə görə uyğunlaşdır
+	Separate text at	Mətni ayır
+	Commas	Vergüllər
+	Other:	Digər:
+	The number must be between 1 and {max}.	Rəqəm 1 ilə {max} arasında olmalıdır.
+	The measurement must be between {min} and {max}.	Ölçü {min} ilə {max} arasında olmalıdır.
+	Recently Used Fonts	Son istifadə olunan şriftlər
+	All Fonts	Bütün şriftlər
+	Spike	Toplayıcı
+	Insert Spike	Toplayıcıdan daxil et
+	Added 1 font	1 şrift əlavə edildi
+	Added {n} fonts	{n} şrift əlavə edildi
+	{added}; {count} couldn't be read: {names}	{added}; {count} oxuna bilmədi: {names}
+	{names} and {n} more	{names} və daha {n}
+	{added}; {n} skipped (limit {max})	{added}; {n} ötürüldü (hədd {max})
+	nothing is selected	heç nə seçilməyib
+	select a picture or shape first	əvvəlcə şəkil və ya fiqur seçin
+	select recipients first	əvvəlcə alıcıları seçin
+	select two or more pictures or shapes first (Shift+click)	əvvəlcə iki və ya daha çox şəkil və ya fiqur seçin (Shift+klik)
+	text boxes can't go inside a text box	mətn sahəsi mətn sahəsinin içinə yerləşə bilməz
+	the cursor isn't in a table	kursor cədvəldə deyil
+	{name} options	{name}: parametrlər
+	Dropped	Mətndə
+	In margin	Kənarda
+	Drop Cap Options…	İri baş hərf parametrləri…
+	Lines to drop:	Sətirlərlə hündürlük:
+	Distance from text:	Mətndən məsafə:
+	Distance from text	Mətndən məsafə
+	the paragraph is empty	abzas boşdur
+	the paragraph starts with a space	abzas boşluqla başlayır
+	Lock aspect ratio	Proporsiyaları saxla
+	Relative to original picture size	Şəklin ilkin ölçüsünə nisbətən
+	Original size	İlkin ölçü
+	{width} × {height} pixels	{width} × {height} piksel
+	Type a size in any unit, such as 5 cm or 300 px. The other side follows, so the picture keeps its proportions.	Ölçünü istənilən vahidlə yazın, məsələn 5 cm və ya 300 px. Digər tərəf də uyğun dəyişəcək və şəkil proporsiyalarını saxlayacaq.
+	Import…	İdxal…
+	Armenian	Erməni dili
+	Georgian	Gürcü dili
+	Azerbaijani	Azərbaycan dili

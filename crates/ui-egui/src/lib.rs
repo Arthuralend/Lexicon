@@ -551,6 +551,8 @@ pub struct WordApp {
     /// The document (id, revision) whose comment text [`WordApp::ensure_comment_fonts`] last
     /// looked at.
     comment_fonts_for: Option<(u64, u64)>,
+    /// Whether the Armenian and Georgian interface fallbacks were looked up ([`Self::ensure_script_fonts`]).
+    script_fonts_done: bool,
     fonts_frames: u32,
     /// The effective interface theme last installed in egui ([`theme::apply`]).
     applied_theme: Option<theme::Appearance>,
@@ -680,6 +682,7 @@ impl WordApp {
             fonts_system_cjk: false,
             want_system_cjk: false,
             comment_fonts_for: None,
+            script_fonts_done: false,
             fonts_frames: 0,
             applied_theme: None,
             native_scale: 1.0,
@@ -1910,6 +1913,23 @@ impl WordApp {
         }
     }
 
+    /// Lexicon: the interface faces have no Armenian or Georgian letters, which its Armenian and
+    /// Georgian interfaces need (and, on Android, text typed into dialogs in those scripts).
+    /// Borrow the document fonts' faces for them once, as the caption does.
+    fn ensure_script_fonts(&mut self, lang: i18n::Lang) {
+        if self.script_fonts_done || !(matches!(lang.code(), "hy" | "ka") || cfg!(target_os = "android")) {
+            return;
+        }
+        self.script_fonts_done = true;
+        let new = theme::faces_for_preedit("ԱաՄմՔք აბგდჰ", &self.canvas.ime_faces, theme::caption_char_covered, |c| {
+            wordcraft_fonts::FontDb::global().fallback_for(c, u32::MAX)
+        });
+        if !new.is_empty() {
+            self.canvas.ime_faces.extend(new);
+            self.styled = false;
+        }
+    }
+
     /// Document title for the title bar (and the suggested file name). An untitled document is
     /// named in the interface language, as `Document1` is in English.
     pub fn title_stem(&self) -> String {
@@ -1957,6 +1977,7 @@ impl WordApp {
         // in this frame (dialog, drop, control channel) is picked up again at the end.
         self.ensure_caption_fonts();
         self.ensure_comment_fonts();
+        self.ensure_script_fonts(lang);
         self.install_ui_fonts(ctx, lang);
         if let Some(answer) = self.desktop_theme.take_change() {
             self.desktop_dark = Some(answer);

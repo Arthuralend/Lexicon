@@ -1,0 +1,2675 @@
+# Georgian (ka) interface catalog. Columns, separated by a TAB:
+#   context <TAB> English source <TAB> translation
+#   context    usually empty. `preview` words sample text inside rendered previews (the Design
+#              tab's style-set tiles), which must fit a small tile; it falls back to the plain entry.
+#   source     the English text exactly as in the code (tl!(...), ribbon labels, command labels)
+#   escapes    \n  \t  \\  inside a column. `{name}` placeholders must appear in both columns, and a
+#              trailing "…" in one needs one in the other.
+#   Lines starting with # and blank lines are ignored. A missing entry shows in English.
+#
+# Clean room: written for Lexicon from the plain meaning of the English labels (and the Russian
+# catalog's wording) in ordinary computing vocabulary; no other product's localisation was
+# consulted or copied. Machine-assisted first version: corrections by native speakers welcome.
+# Product, format and technology names (Lexicon, PDF, Markdown, MCP …) stay in Latin letters.
+
+	(no suggestions)	(შემოთავაზებები არ არის)
+	1.5 Line Spacing	1,5 ხაზთაშორისი ინტერვალი
+	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	უფასო, ღია კოდის ტექსტური რედაქტორი, დაწერილი Rust-ზე, რუსული და ინგლისური მართლწერით.\nდაფუძნებულია ArtCraft-ის გუნდის WordCraft-ზე.
+	About	პროგრამის შესახებ
+	About Lexicon	Lexicon-ის შესახებ
+	Accept	მიღება
+	Accept All Changes	ყველა ცვლილების მიღება
+	Accept This Change	ამ ცვლილების მიღება
+	Accessibility	ხელმისაწვდომობა
+	Add	დამატება
+	Add Space Before Paragraph	ინტერვალის დამატება აბზაცის წინ
+	Add Text	ტექსტის დამატება
+	Add a Table	ცხრილის დამატება
+	Add a comment	კომენტარის დამატება
+	Add to Dictionary	ლექსიკონში დამატება
+	Add to Style Gallery	სტილების გალერეაში დამატება
+	Address Block	მისამართის ბლოკი
+	Address:	მისამართი:
+	Address\nBlock	მისამართის\nბლოკი
+	Adjust	მორგება
+	Advanced	დამატებითი
+	Advanced Find	გაფართოებული ძიება
+	Advanced Find…	გაფართოებული ძიება…
+	After:	შემდეგ:
+	Agents	აგენტები
+	Align	გასწორება
+	Align Left	მარცხნივ გასწორება
+	Align Right	მარჯვნივ გასწორება
+	Alignment	გასწორება
+	All Borders	ყველა საზღვარი
+	All Caps	ყველა მთავრული
+	All Markup	ყველა მონიშვნა
+	All caps	ყველა მთავრული
+	Alt Text	ალტერნატიული ტექსტი
+	Apply Character Style	სიმბოლოების სტილის გამოყენება
+	Apply Style	სტილის გამოყენება
+	Arrange	განლაგება
+	Arrange\nAll	ყველას\nგანლაგება
+	Arrow	ისარი
+	Artistic Effects	მხატვრული ეფექტები
+	Author	ავტორი
+	AutoCorrect Options	ავტოშესწორების პარამეტრები
+	AutoFit	ავტომორგება
+	AutoFit Contents	შიგთავსის მიხედვით მორგება
+	AutoFit Window	ფანჯრის მიხედვით მორგება
+	AutoSave	ავტოშენახვა
+	AutoSave saves every change to the file (needs a saved document)	ავტოშენახვა ფაილში წერს ყოველ ცვლილებას (დოკუმენტი უკვე შენახული უნდა იყოს)
+	AutoText	ავტოტექსტი
+	Automatic	ავტომატური
+	Automatic ({language})	ავტომატური ({language})
+	Automatic Table 1 (3 levels)	ავტომატური სარჩევი 1 (3 დონე)
+	Automatic Table 2 (2 levels)	ავტომატური სარჩევი 2 (2 დონე)
+	Automatic follows your system's language. Menus and commands change; your documents don't.	„ავტომატური“ მიჰყვება სისტემის ენას. იცვლება მენიუები და ბრძანებები, დოკუმენტები — არა.
+	Backspace	Backspace
+	Banded Columns	ზოლიანი სვეტები
+	Banded Rows	ზოლიანი მწკრივები
+	Before:	წინ:
+	Bibliography	ბიბლიოგრაფია
+	Binary assets added	დაემატა ორობითი რესურსები
+	Binary assets removed	წაიშალა ორობითი რესურსები
+	Blank	ცარიელი
+	Blank (Three Columns)	ცარიელი (სამი სვეტი)
+	Blank Page	ცარიელი გვერდი
+	Blank document	ახალი დოკუმენტი
+	Block\nAuthors	ავტორების\nდაბლოკვა
+	Bold	მუქი
+	Bookmark	სანიშნე
+	Bookmark name:	სანიშნის სახელი:
+	Delete Bookmark	სანიშნის წაშლა
+	Hidden bookmarks	დამალული სანიშნეები
+	Sort by:	დალაგება:
+	Border Painter	საზღვრის ფუნჯი
+	Border\nPainter	საზღვრის\nფუნჯი
+	Borders	საზღვრები
+	Bottom Border	ქვედა საზღვარი
+	Bottom Margin	ქვედა მინდორი
+	Bottom of Page	გვერდის ბოლოში
+	Bottom:	ქვემოდან:
+	Box	ჩარჩო
+	Breaks	წყვეტები
+	Bring Forward	წინ გადატანა
+	Bullet Library	მარკერების ბიბლიოთეკა
+	Bullets	მარკერები
+	Calendar	კალენდარი
+	Cancel	გაუქმება
+	Capitalize Each Word	ყოველი სიტყვა მთავრულით
+	Captions	წარწერები
+	Cell Margins	უჯრის მინდვრები
+	Cell Size	უჯრის ზომა
+	Cell\nMargins	უჯრის\nმინდვრები
+	Center	ცენტრში
+	Change	შეცვლა
+	Change Case	რეგისტრის შეცვლა
+	Change List Level	სიის დონის შეცვლა
+	Change Picture	სურათის შეცვლა
+	Change Shape	ფიგურის შეცვლა
+	Changes	ცვლილებები
+	Character Position	სიმბოლოების პოზიცია
+	Character Scale	სიმბოლოების მასშტაბი
+	Character Shading	სიმბოლოების დაჩრდილვა
+	Character Spacing	სიმბოლოთაშორისი ინტერვალი
+	Characters	სიმბოლოები
+	Characters (no spaces)	სიმბოლოები (ჰარის გარეშე)
+	Characters (with spaces)	სიმბოლოები (ჰარით)
+	Chart	დიაგრამა
+	Check Accessibility	ხელმისაწვდომობის შემოწმება
+	Check Compatibility	თავსებადობის შემოწმება
+	Check Spelling as You Type	მართლწერის შემოწმება აკრეფისას
+	Check for Errors	შეცდომების შემოწმება
+	Check\nAccessibility	ხელმისაწვდომობის\nშემოწმება
+	Citation Style	ციტირების სტილი
+	Citations & Bibliography	ციტატები და ბიბლიოგრაფია
+	Clear	გასუფთავება
+	Clear All	ყველაფრის გასუფთავება
+	Clear All Formatting	მთელი ფორმატირების გასუფთავება
+	Clear Character Formatting	სიმბოლოების ფორმატირების გასუფთავება
+	Clear Character Style	სიმბოლოების სტილის გასუფთავება
+	Clear Formatting Level	ფორმატირების დონის გასუფთავება
+	Clear Paragraph Formatting	აბზაცის ფორმატირების გასუფთავება
+	Clipboard	ბუფერი
+	Close	დახურვა
+	Close Header and Footer	ზედა და ქვედა კოლონტიტულის დახურვა
+	Collapse Selection	მონიშვნის შეკუმშვა
+	Color	ფერი
+	Color:	ფერი:
+	Colors	ფერები
+	Column	სვეტი
+	Column Break	სვეტის წყვეტა
+	Columns	სვეტები
+	Combine	გაერთიანება
+	Commands	ბრძანებები
+	Comment	კომენტარი
+	Comments	კომენტარები
+	Comments Pane	კომენტარების პანელი
+	Community\nDiscord	საზოგადოება\nDiscord
+	Compact	კომპაქტური
+	Compare	შედარება
+	Compress Pictures	სურათების შეკუმშვა
+	Continuous	უწყვეტი
+	Convert	გარდაქმნა
+	Convert Text to Table	ტექსტის ცხრილად გარდაქმნა
+	Convert Text to Table…	ტექსტის ცხრილად გარდაქმნა…
+	Convert to Text	ტექსტად გარდაქმნა
+	Copy	კოპირება
+	Copy Formatting	ფორმატირების კოპირება
+	Corrections	კორექცია
+	Count words in text boxes and notes	სიტყვების დათვლა ტექსტურ ველებსა და შენიშვნებში
+	Cover Page	სატიტულო გვერდი
+	Create	შექმნა
+	Create New Style	ახალი სტილის შექმნა
+	Create a Style	სტილის შექმნა
+	Create an interactive outline of your document.\n\nIt's a great way to keep track of where you are or quickly move your content around.\n\nTo get started, go to the Home tab and apply Heading styles to the headings in your document.	შექმენით დოკუმენტის ინტერაქტიული სტრუქტურა.\n\nასე ადვილად გაიგებთ, სად ხართ, და სწრაფად გადააადგილებთ შიგთავსს.\n\nდასაწყებად გახსენით „მთავარი“ ჩანართი და დოკუმენტის სათაურებს მიანიჭეთ სათაურის სტილები.
+	Crop	ამოჭრა
+	Cross-reference	ჯვარედინი ბმული
+	Current Position	მიმდინარე პოზიცია
+	Current style: {style}	მიმდინარე სტილი: {style}
+	Custom Margins…	მორგებული მინდვრები…
+	Custom Watermark	მორგებული წყლის ნიშანი
+	Custom Watermark…	მორგებული წყლის ნიშანი…
+	Customize Quick Access Toolbar	სწრაფი წვდომის ზოლის მორგება
+	Cut	ამოჭრა
+	Dark Mode	მუქი რეჟიმი
+	Dashed	წყვეტილი
+	Data	მონაცემები
+	Date & Time	თარიღი და დრო
+	Decrease Font Size	შრიფტის ზომის შემცირება
+	Decrease Indent	შეწევის შემცირება
+	Default	ნაგულისხმევი
+	Define New Bullet	ახალი მარკერის განსაზღვრა
+	Define New Number Format	ნომრის ახალი ფორმატის განსაზღვრა
+	Delete	წაშლა
+	Delete Cells	უჯრების წაშლა
+	Delete Columns	სვეტების წაშლა
+	Delete Comment	კომენტარის წაშლა
+	Delete Next Word	შემდეგი სიტყვის წაშლა
+	Delete Previous Word	წინა სიტყვის წაშლა
+	Delete Rows	მწკრივების წაშლა
+	Delete Style	სტილის წაშლა
+	Delete Table	ცხრილის წაშლა
+	Design	დიზაინი
+	Diagonal	დიაგონალი
+	Diamond	რომბი
+	Dictate	კარნახი
+	Different First Page	განსხვავებული პირველი გვერდი
+	Different Odd & Even Pages	განსხვავებული ლუწი და კენტი გვერდები
+	Direct formatting	პირდაპირი ფორმატირება
+	Discord	Discord
+	Discord community	Discord საზოგადოება
+	Display	ჩვენება
+	Display for Review	ჩვენება რეცენზირებისთვის
+	Distribute Columns	სვეტების თანაბრად განაწილება
+	Distribute Rows	მწკრივების თანაბრად განაწილება
+	Distributed	განაწილებული
+	Do Not Show in TOC	სარჩევში არ ჩანდეს
+	Document End	დოკუმენტის ბოლო
+	Document Formatting	დოკუმენტის ფორმატირება
+	Document Property	დოკუმენტის თვისება
+	Document Start	დოკუმენტის დასაწყისი
+	Document Text	დოკუმენტის ტექსტი
+	Document Title	დოკუმენტის სათაური
+	Documents you open will show up here.	თქვენ მიერ გახსნილი დოკუმენტები აქ გამოჩნდება.
+	Dot-dash	წერტილ-ტირე
+	Dotted	წერტილოვანი
+	Double	ორმაგი
+	Double Spacing	ორმაგი ინტერვალი
+	Double Strikethrough	ორმაგი გადახაზვა
+	Double Underline	ორმაგი ხაზგასმა
+	Down	ქვემოთ
+	Draft	მონახაზი
+	Draw	ხატვა
+	Drawing Tools	ხატვის ხელსაწყოები
+	Drawing\nCanvas	სახატავი\nტილო
+	Drop Cap	ასომთავრული
+	Drops all formatting and pastes plain text.	შლის მთელ ფორმატირებას და სვამს უბრალო ტექსტს.
+	Edit Comment	კომენტარის რედაქტირება
+	Edit Footer	ქვედა კოლონტიტულის რედაქტირება
+	Edit Header	ზედა კოლონტიტულის რედაქტირება
+	Edit Recipient List	მიმღებთა სიის რედაქტირება
+	Edit\nRecipient List	მიმღებთა სიის\nრედაქტირება
+	Edited	შეცვლილი
+	Editing	რედაქტირება
+	Editing header/footer	კოლონტიტულის რედაქტირება
+	Editing — edit the document directly	რედაქტირება — დოკუმენტის პირდაპირ რედაქტირება
+	Editor	რედაქტორი
+	Effects	ეფექტები
+	Emboss	რელიეფი
+	Encrypt with Password	ამოკვეთილი
+	English (United States)	ინგლისური (აშშ)
+	Engrave	ჩაღრმავებული
+	Enter page number:	შეიყვანეთ გვერდის ნომერი:
+	Envelopes	კონვერტები
+	Eraser	საშლელი
+	Even Page	ლუწი გვერდი
+	Every command is available to scripts and AI agents: run `wordcraft-cli mcp` for an MCP server, or start the app with `--control <port>` for the JSON control channel.	ყველა ბრძანება ხელმისაწვდომია სკრიპტებისა და ხელოვნური ინტელექტის აგენტებისთვის: გაუშვით `wordcraft-cli mcp` MCP სერვერისთვის, ან გაუშვით აპლიკაცია `--control <port>`-ით JSON მართვის არხისთვის.
+	Export	ექსპორტი
+	Export PDF	PDF-ად ექსპორტი
+	Export Page as PNG	გვერდის PNG-ად ექსპორტი
+	Export a copy to share (PDF, Word document)	ასლის ექსპორტი გასაზიარებლად (PDF, Word დოკუმენტი)
+	Exported {path}	ექსპორტირებულია: {path}
+	Extend Selection	მონიშვნის გაფართოება
+	Field	ველი
+	File	ფაილი
+	Find	ძიება
+	Find Next	შემდეგის პოვნა
+	Find Previous	წინას პოვნა
+	Find Recipient	მიმღების პოვნა
+	Find and Replace	ძიება და ჩანაცვლება
+	Find what:	მოსაძებნი:
+	Finish	დასრულება
+	Finish & Merge	დასრულება და შერწყმა
+	Finish &\nMerge	დასრულება და\nშერწყმა
+	First Column	პირველი სვეტი
+	First commit	პირველი კომიტი
+	First line:	პირველი ხაზი:
+	Fixed Column Width	სვეტის ფიქსირებული სიგანე
+	Focus	ფოკუსი
+	Font	შრიფტი
+	Font Color	შრიფტის ფერი
+	Font Dialog	„შრიფტის“ ფანჯარა
+	Font Size	შრიფტის ზომა
+	Font color:	შრიფტის ფერი:
+	Font:	შრიფტი:
+	Fonts	შრიფტები
+	Footer	ქვედა კოლონტიტული
+	Footnote and Endnote	სქოლიო და ბოლო სქოლიო
+	Footnotes	სქოლიოები
+	Format	ფორმატი
+	Format Page Numbers	გვერდის ნომრების ფორმატი
+	Format Page Numbers…	გვერდის ნომრების ფორმატი…
+	Format Painter	ფორმატის ფუნჯი
+	Formatted Text	ფორმატირებული ტექსტი
+	Formatting at Selection	მონიშნულის ფორმატირება
+	Formula	ფორმულა
+	General	ზოგადი
+	Go To	გადასვლა
+	Go To (⌘⌥G)	გადასვლა (⌘⌥G)
+	Go To…	გადასვლა…
+	Go to	გადასვლა
+	Grab bag	სხვადასხვა
+	Greeting Line	მისალმების ხაზი
+	Greeting\nLine	მისალმების\nხაზი
+	Gridlines	ბადის ხაზები
+	Group	დაჯგუფება
+	Grow Font 1 Point	შრიფტის 1 პუნქტით გაზრდა
+	HTML Format	HTML ფორმატი
+	Hanging Indent	გამოწეული შეწევა
+	Header	ზედა კოლონტიტული
+	Header & Footer	ზედა და ქვედა კოლონტიტული
+	Header Row	სათაურის მწკრივი
+	Header/Footer Position	კოლონტიტულის პოზიცია
+	Heading 1	სათაური 1
+	Heading 2	სათაური 2
+	Heading 3	სათაური 3
+	Headings	სათაურები
+	Heart	გული
+	Help	დახმარება
+	Hidden	დამალული
+	Highlight Merge Fields	შერწყმის ველების გამოკვეთა
+	Highlight\nMerge Fields	შერწყმის ველების\nგამოკვეთა
+	Highlighter	მარკერი
+	Home	მთავარი
+	Horizontal	ჰორიზონტალური
+	Horizontal Line	ჰორიზონტალური ხაზი
+	Hyphenation	დამარცვლა
+	Icons	ხატულები
+	Ignore All	ყველას გამოტოვება
+	Illustrations	ილუსტრაციები
+	Immersive	იმერსიული
+	Immersive Reader	იმერსიული წამკითხველი
+	Immersive\nReader	იმერსიული\nწამკითხველი
+	In the margin	მინდორზე
+	Increase Font Size	შრიფტის ზომის გაზრდა
+	Increase Indent	შეწევის გაზრდა
+	Indent	შეწევა
+	Indentation	შეწევები
+	Indents	შეწევები
+	Index	საძიებელი
+	Info	ინფორმაცია
+	Ink to\nMath	ხელნაწერი\nფორმულად
+	Ink to\nShape	ხელნაწერი\nფიგურად
+	Ink\nReplay	ხელნაწერის\nგამეორება
+	Insert	ჩასმა
+	Insert Above	ზემოთ ჩასმა
+	Insert Below	ქვემოთ ჩასმა
+	Insert Caption	წარწერის ჩასმა
+	Insert Caption…	წარწერის ჩასმა…
+	Insert Citation	ციტატის ჩასმა
+	Insert Endnote	ბოლო სქოლიოს ჩასმა
+	Insert Footnote	სქოლიოს ჩასმა
+	Insert Hyperlink	ჰიპერბმულის ჩასმა
+	Insert Index	საძიებლის ჩასმა
+	Insert Left	მარცხნივ ჩასმა
+	Insert Merge Field	შერწყმის ველის ჩასმა
+	Insert Merge\nField	შერწყმის ველის\nჩასმა
+	Insert Right	მარჯვნივ ჩასმა
+	Insert Shapes	ფიგურების ჩასმა
+	Insert Table	ცხრილის ჩასმა
+	Insert Table of Authorities	ბმულების ცხრილის ჩასმა
+	Insert Table of Figures	ილუსტრაციების სიის ჩასმა
+	Insert Table…	ცხრილის ჩასმა…
+	Insert\nAbove	ზემოთ\nჩასმა
+	Insert\nCaption	წარწერის\nჩასმა
+	Insert\nCitation	ციტატის\nჩასმა
+	Insert\nFootnote	სქოლიოს\nჩასმა
+	Inside Borders	შიდა საზღვრები
+	Inspect Document	დოკუმენტის შემოწმება
+	Inspect Styles at Selection	მონიშნულის სტილები
+	Interface language:	ინტერფეისის ენა:
+	Italic	დახრილი
+	Join the ArtCraft community on Discord	შემოუერთდით ArtCraft-ის საზოგადოებას Discord-ზე
+	Join us on Discord: discord.gg/artcraft	შემოგვიერთდით Discord-ზე: discord.gg/artcraft
+	Justify	სიგანეზე
+	Keep Lines Together	ხაზების ერთად შენარჩუნება
+	Keep Text Only	მხოლოდ ტექსტის შენარჩუნება
+	Keep lines together	ხაზების ერთად შენარჩუნება
+	Keep with Next	შემდეგთან ერთად
+	Keep with next	შემდეგთან ერთად
+	Keeps the fonts and formatting of the copied text.	ინარჩუნებს დაკოპირებული ტექსტის შრიფტებს და ფორმატირებას.
+	Labels	ეტიკეტები
+	Landscape	ალბომური
+	Language	ენა
+	{language} (no dictionary)	{language} (ლექსიკონი არ არის)
+	No spelling dictionary for {language} is installed, so it isn't checked. Lexicon looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	ენისთვის „{language}“ მართლწერის ლექსიკონი დაყენებული არ არის, ამიტომ ტექსტი არ მოწმდება. Lexicon ეძებს Hunspell ლექსიკონს {name} საქაღალდეში WORDCRAFT_DICTIONARIES და სისტემის ჩვეულ ადგილებში.
+	Lasso	ლასო
+	Last Column	ბოლო სვეტი
+	Last commit	ბოლო კომიტი
+	Layout	განლაგება
+	Layout Summary	განლაგების შეჯამება
+	Left	მარცხნივ
+	Left Border	მარცხენა საზღვარი
+	Left Margin	მარცხენა მინდორი
+	Left:	მარცხნიდან:
+	Letter	წერილი
+	Line	ხაზი
+	Line Break	ხაზის წყვეტა
+	Line End	ხაზის ბოლო
+	Line Numbers	ხაზების ნომრები
+	Line Spacing	ხაზთაშორისი ინტერვალი
+	Line Spacing Options…	ხაზთაშორისი ინტერვალის პარამეტრები…
+	Line Start	ხაზის დასაწყისი
+	Line and Page Breaks	ხაზისა და გვერდის წყვეტები
+	Line and Paragraph Spacing	ხაზებისა და აბზაცების ინტერვალი
+	Line delta	ხაზების ცვლილება
+	Line spacing:	ხაზთაშორისი ინტერვალი:
+	Lines	ხაზები
+	Lines added	დამატებული ხაზები
+	Lines deleted	წაშლილი ხაზები
+	Link	ბმული
+	Link to Previous	წინასთან დაკავშირება
+	Links	ბმულები
+	Location: {path}	მდებარეობა: {path}
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.
+	Macros	მაკროები
+	Mailings	დაგზავნა
+	Manage Sources	წყაროების მართვა
+	Many pages	ბევრი გვერდი
+	Margins	მინდვრები
+	Mark Citation	ციტატის მონიშვნა
+	Mark Entry	ელემენტის მონიშვნა
+	Mark\nCitation	ციტატის\nმონიშვნა
+	Mark\nEntry	ელემენტის\nმონიშვნა
+	Markdown (*.md)	Markdown (*.md)
+	Match Fields	ველების შესაბამისობა
+	Match case	რეგისტრის გათვალისწინება
+	Matrix	მატრიცა
+	Merge	გაერთიანება
+	Merge Cells	უჯრების გაერთიანება
+	Merge Formatting	ფორმატირების გაერთიანება
+	Merged PRs	მიღებული PR-ები
+	Mirrored	სარკისებური
+	Moderate	ზომიერი
+	Modify Style	სტილის შეცვლა
+	Modify…	შეცვლა…
+	More templates →	სხვა შაბლონები →
+	Move or Resize	გადაადგილება ან ზომის შეცვლა
+	Multilevel List	მრავალდონიანი სია
+	Multilevel List Library	მრავალდონიანი სიების ბიბლიოთეკა
+	Article I.	მუხლი I.
+	Chapter 1	თავი 1
+	Section 1.01	ნაწილი 1.01
+	Multiple Pages	რამდენიმე გვერდი
+	Name (A–Z)	სახელი (ა–ჰ)
+	Name:	სახელი:
+	Narrow  {size} all	ვიწრო  {size} ყველა მხრიდან
+	Navigation	ნავიგაცია
+	Navigation Pane	ნავიგაციის პანელი
+	New	ახალი
+	New Comment	ახალი კომენტარი
+	New Paragraph	ახალი აბზაცი
+	New Style…	ახალი სტილი…
+	New Window	ახალი ფანჯარა
+	New from Template	ახალი შაბლონიდან
+	New\nComment	ახალი\nკომენტარი
+	New\nWindow	ახალი\nფანჯარა
+	Next	შემდეგი
+	Next Change	შემდეგი ცვლილება
+	Next Comment	შემდეგი კომენტარი
+	Next Footnote	შემდეგი სქოლიო
+	Next Page	შემდეგი გვერდი
+	Next Record	შემდეგი ჩანაწერი
+	Next Section	შემდეგი ნაწილი
+	No Border	საზღვრის გარეშე
+	No Color	ფერის გარეშე
+	No Markup	მონიშვნების გარეშე
+	No Paragraph Space	აბზაცებს შორის ინტერვალის გარეშე
+	No contributor data was built into this copy.	ამ ასლში მონაწილეების მონაცემები არ არის ჩართული.
+	No document is open. Create a document or open one first.	გახსნილი დოკუმენტი არ არის. ჯერ შექმენით ან გახსენით დოკუმენტი.
+	No model credits were built into this copy.	ამ ასლში მოდელების შესახებ ინფორმაცია არ არის ჩართული.
+	No templates match your search.	თქვენს მოთხოვნას შაბლონები არ შეესაბამება.
+	Nonbreaking Hyphen	უწყვეტი დეფისი
+	Nonbreaking Space	უწყვეტი ჰარი
+	None	არცერთი
+	Normal  {size} all	ჩვეულებრივი  {size} ყველა მხრიდან
+	Normal Style	ჩვეულებრივი სტილი
+	Not available right now	ახლა მიუწვდომელია
+	Not saved	არ არის შენახული
+	Not saved yet	ჯერ არ არის შენახული
+	Nudge	წაძვრა
+	Number of columns:	სვეტების რაოდენობა:
+	Number of rows:	მწკრივების რაოდენობა:
+	Numbering	ნუმერაცია
+	OK	კარგი
+	Object	ობიექტი
+	Odd Page	კენტი გვერდი
+	Office 2003 Default	Office 2003-ის ნაგულისხმევი
+	One	ერთი
+	One Page	ერთი გვერდი
+	Only for the selected text	მხოლოდ მონიშნული ტექსტისთვის
+	Open	გახსნა
+	OpenDocument Text (*.odt)	OpenDocument ტექსტი (*.odt)
+	Optional Hyphen	რბილი დეფისი
+	Options	პარამეტრები
+	Orientation	ორიენტაცია
+	Outline	სტრუქტურა
+	Outline Level	სტრუქტურის დონე
+	Outside Borders	გარე საზღვრები
+	Oval	ოვალი
+	PDF document (*.pdf)	PDF დოკუმენტი (*.pdf)
+	Page	გვერდი
+	Page Background	გვერდის ფონი
+	Page Borders	გვერდის საზღვრები
+	Page Break	გვერდის წყვეტა
+	Page Break Before	ახალი გვერდიდან
+	Page Breaks	გვერდის წყვეტები
+	Page Color	გვერდის ფერი
+	Page Down	გვერდი ქვემოთ
+	Page Movement	გვერდების გადაფურცვლა
+	Page Number	გვერდის ნომერი
+	Page Setup	გვერდის პარამეტრები
+	Page Up	გვერდი ზემოთ
+	Page Width	გვერდის სიგანეზე
+	Page X of Y	გვერდი X / Y
+	Page break before	ახალი გვერდიდან
+	Page image (*.png)	გვერდის გამოსახულება (*.png)
+	Page width	გვერდის სიგანეზე
+	Page {page}	გვერდი {page}
+	Page {page} of {pages}	გვერდი {page} / {pages}
+	Page\nBorders	გვერდის\nსაზღვრები
+	Page\nColor	გვერდის\nფერი
+	Page\nNumber	გვერდის\nნომერი
+	Pages	გვერდები
+	Paragraph	აბზაცი
+	Paragraph Details	აბზაცის დეტალები
+	Paragraph Down	აბზაცით ქვემოთ
+	Paragraph Settings	აბზაცის პარამეტრები
+	Paragraph Spacing	აბზაცებს შორის ინტერვალი
+	Paragraph Up	აბზაცით ზემოთ
+	Paragraphs	აბზაცები
+	Paste	ჩასმა
+	Paste (⌘V)	ჩასმა (⌘V)
+	Paste Formatting	ფორმატირების ჩასმა
+	Paste Special	სპეციალური ჩასმა
+	Paste Special…	სპეციალური ჩასმა…
+	Paste as:	ჩასმა როგორც:
+	Paste: Keep Text Only	ჩასმა: მხოლოდ ტექსტი
+	Paste: Merge Formatting	ჩასმა: ფორმატირების გაერთიანება
+	Pen	კალამი
+	Pencil	ფანქარი
+	Picture Border	სურათის საზღვარი
+	Picture Format	სურათის ფორმატი
+	Picture Styles	სურათის სტილები
+	Pictures	სურათები
+	Plain text (*.txt)	უბრალო ტექსტი (*.txt)
+	Portrait	წიგნისებური
+	Position	პოზიცია
+	Preview Results	შედეგების გადახედვა
+	Preview\nResults	შედეგების\nგადახედვა
+	Previous	წინა
+	Previous Change	წინა ცვლილება
+	Previous Comment	წინა კომენტარი
+	Previous Record	წინა ჩანაწერი
+	Previous Section	წინა ნაწილი
+	Print	ბეჭდვა
+	Print Layout	ბეჭდვის განლაგება
+	Print\nLayout	ბეჭდვის\nგანლაგება
+	Proofing	მართლწერა
+	Proofing Issues	მართლწერის შენიშვნები
+	Properties	თვისებები
+	Protect	დაცვა
+	Protect Document	დოკუმენტის დაცვა
+	Quick Access Toolbar	სწრაფი წვდომის ზოლი
+	Quick Parts	სწრაფი ნაწილები
+	Quick Tables	სწრაფი ცხრილები
+	Read Aloud	ხმამაღლა წაკითხვა
+	Read Mode	კითხვის რეჟიმი
+	Read\nAloud	ხმამაღლა\nწაკითხვა
+	Read\nMode	კითხვის\nრეჟიმი
+	Reads the clipboard's rich text and keeps its formatting.	იღებს ბუფერის RTF ტექსტს და ინარჩუნებს მის ფორმატირებას.
+	Reads the clipboard's web content and keeps its formatting.	იღებს ბუფერის ვებ-შიგთავსს და ინარჩუნებს მის ფორმატირებას.
+	Picture	სურათი
+	Pastes the clipboard's picture.	სვამს სურათს ბუფერიდან.
+	Reading Highlight	დამთხვევების გამოკვეთა
+	Recent	ბოლოდროინდელი
+	Record Macro	მაკროს ჩაწერა
+	Recover Unsaved Documents	შეუნახავი დოკუმენტების აღდგენა
+	Rectangle	მართკუთხედი
+	Redo	დაბრუნება
+	Reduce Hanging Indent	გამოწეული შეწევის შემცირება
+	References	წყაროები
+	Reject	უარყოფა
+	Reject All Changes	ყველა ცვლილების უარყოფა
+	Reject Change	ცვლილების უარყოფა
+	Relaxed	თავისუფალი
+	Remove Background	ფონის წაშლა
+	Remove Footer	ქვედა კოლონტიტულის წაშლა
+	Remove Header	ზედა კოლონტიტულის წაშლა
+	Remove Hyperlink	ჰიპერბმულის წაშლა
+	Remove Space After Paragraph	აბზაცის შემდეგ ინტერვალის წაშლა
+	Remove Table of Contents	სარჩევის წაშლა
+	Remove Watermark	წყლის ნიშნის წაშლა
+	Reopen	ხელახლა გახსნა
+	Repeat	გამეორება
+	Repeat Header Rows	სათაურის მწკრივების გამეორება
+	Replace	ჩანაცვლება
+	Replace All	ყველას ჩანაცვლება
+	Replace Document Text	დოკუმენტის ტექსტის ჩანაცვლება
+	Replace with:	ჩანაცვლება:
+	Replay	გამეორება
+	Reply	პასუხი
+	Report	ანგარიში
+	Research	კვლევა
+	Researcher	მკვლევარი
+	Reset Picture	სურათის საწყისზე დაბრუნება
+	Reset to Normal	„ჩვეულებრივზე“ დაბრუნება
+	Resolve	გადაწყვეტა
+	Resolved	გადაწყვეტილი
+	Restart Each Page	თავიდან ყოველ გვერდზე
+	Restart Each Section	თავიდან ყოველ ნაწილში
+	Restart at 1	1-დან დაწყება
+	Restrict Editing	რედაქტირების შეზღუდვა
+	Restrict\nEditing	რედაქტირების\nშეზღუდვა
+	Result	შედეგი
+	Results	შედეგები
+	Reverse the order	საპირისპირო თანმიმდევრობით
+	Reviewing	რეცენზირება
+	Reviewing Pane	რეცენზირების პანელი
+	Reviewing — edits become suggestions	რეცენზირება — ცვლილებები შემოთავაზებებად იქცევა
+	Rich Text Format (*.rtf)	Rich Text Format (*.rtf)
+	Rich Text Format (RTF)	Rich Text Format (RTF)
+	Right	მარჯვნივ
+	Right Border	მარჯვენა საზღვარი
+	Right Margin	მარჯვენა მინდორი
+	Right-to-Left Text Direction	ტექსტის მიმართულება მარჯვნიდან მარცხნივ
+	Left-to-Right Text Direction	ტექსტის მიმართულება მარცხნიდან მარჯვნივ
+	Right:	მარჯვნიდან:
+	Rotate	შემობრუნება
+	Rounded Rectangle	მომრგვალებული მართკუთხედი
+	Rows & Columns	მწკრივები და სვეტები
+	Ruler	სახაზავი
+	Rules	წესები
+	Résumé	რეზიუმე
+	Save	შენახვა
+	Save As	შენახვა როგორც
+	Save a copy in another format. Printing goes through a PDF you can print from any viewer.	შეინახეთ ასლი სხვა ფორმატში. ბეჭდვა ხდება PDF-ის მეშვეობით, რომლის დაბეჭდვაც ნებისმიერი მნახველიდან შეიძლება.
+	Save as Template	შაბლონად შენახვა
+	Saved	შენახულია
+	Search Commands	ბრძანებების ძიება
+	Search commands and help	ბრძანებებისა და დახმარების ძიება
+	Search document	დოკუმენტში ძიება
+	Search for templates	შაბლონების ძიება
+	Section Breaks	ნაწილების წყვეტები
+	Section Properties	ნაწილის თვისებები
+	Sections	ნაწილები
+	Select	მონიშვნა
+	Select All	ყველაფრის მონიშვნა
+	Select Cell	უჯრის მონიშვნა
+	Select Line	ხაზის მონიშვნა
+	Select Objects	ობიექტების არჩევა
+	Select Paragraph	აბზაცის მონიშვნა
+	Select Range	დიაპაზონის მონიშვნა
+	Select Recipients	მიმღებების არჩევა
+	Select Row	ცხრილის მწკრივის მონიშვნა
+	Select Sentence	წინადადების მონიშვნა
+	Select Table	ცხრილის მონიშვნა
+	Select Text	ტექსტის მონიშვნა
+	Select Text with Similar Formatting	მსგავსი ფორმატირების ტექსტის მონიშვნა
+	Select Word	სიტყვის მონიშვნა
+	Select\nRecipients	მიმღებების\nარჩევა
+	Selection	მონიშვნა
+	Selection Pane	მონიშვნის პანელი
+	Send Backward	უკან გადატანა
+	Sentence case.	როგორც წინადადებაში.
+	Set Caret	კურსორის დაყენება
+	Set Character Formatting	სიმბოლოების ფორმატის დაყენება
+	Set Numbering Value	ნუმერაციის მნიშვნელობის დაყენება
+	Set Paragraph Formatting	აბზაცის ფორმატის დაყენება
+	Set as Default	ნაგულისხმევად დაყენება
+	Shading	დაჩრდილვა
+	Shadow	ჩრდილი
+	Shape Fill	ფიგურის შევსება
+	Shape Format	ფიგურის ფორმატი
+	Shape Outline	ფიგურის კონტური
+	Shape Styles	ფიგურის სტილები
+	Shapes	ფიგურები
+	Share	გაზიარება
+	Shift+Tab	Shift+Tab
+	Show	ჩვენება
+	Show Comments	კომენტარების ჩვენება
+	Show Markup	მონიშვნების ჩვენება
+	Show Notes	სქოლიოების ჩვენება
+	Show all formatting marks	ფორმატირების ყველა ნიშნის ჩვენება
+	Show rulers	სახაზავების ჩვენება
+	Show the community button in the title bar	საზოგადოების ღილაკის ჩვენება სათაურის ზოლში
+	Show/Hide ¶	ჩვენება/დამალვა ¶
+	Show\nComments	კომენტარების\nჩვენება
+	Shrink Font 1 Point	შრიფტის 1 პუნქტით შემცირება
+	Side to Side	გვერდიგვერდ
+	Side\nto Side	გვერდი-\nგვერდ
+	Signature Line	ხელმოწერის ხაზი
+	Single	ერთმაგი
+	Single Spacing	ერთმაგი ინტერვალი
+	Size	ზომა
+	Size:	ზომა:
+	Small Caps	პატარა მთავრულები
+	Small caps	პატარა მთავრულები
+	SmartArt	SmartArt
+	Sort	დალაგება
+	Source code: github.com/Arthuralend/Lexicon	საწყისი კოდი: github.com/Arthuralend/Lexicon
+	WordCraft: github.com/storytold/wordcraft	WordCraft: github.com/storytold/wordcraft
+	Space before/after:	ინტერვალი წინ/შემდეგ:
+	Spacing	ინტერვალი
+	Spacing (pt):	ინტერვალი (პტ):
+	Kerning for fonts:	შრიფტების კერნინგი:
+	Points and above	პტ და მეტი
+	Speech	მეტყველება
+	Spelling & Grammar	მართლწერა და გრამატიკა
+	Spelling &\nGrammar	მართლწერა და\nგრამატიკა
+	Spelling Suggestions	მართლწერის შემოთავაზებები
+	Split	გაყოფა
+	Split Cells	უჯრების გაყოფა
+	Split Table	ცხრილის გაყოფა
+	Spreadsheet Table	ელექტრონული ცხრილი
+	Standard Colors	სტანდარტული ფერები
+	Star	ვარსკვლავი
+	Start Mail Merge	წერილების შერწყმის დაწყება
+	Start Mail\nMerge	შერწყმის\nდაწყება
+	Statistics	სტატისტიკა
+	Status Bar	მდგომარეობის ზოლი
+	Strikethrough	გადახაზული
+	Studio cover	Studio-ს გარეკანი
+	Studio handbook (sample)	Studio-ს სახელმძღვანელო (ნიმუში)
+	Style	სტილი
+	Style Inspector	სტილების ინსპექტორი
+	Style Set	სტილების ნაკრები
+	Style based on:	საფუძვლად აღებული სტილი:
+	Styles	სტილები
+	Styles Pane	სტილების პანელი
+	Subscript	ქვედა ინდექსი
+	Superscript	ზედა ინდექსი
+	Switch Modes	რეჟიმის შეცვლა
+	Switch\nModes	რეჟიმის\nშეცვლა
+	Symbol	სიმბოლო
+	Symbols	სიმბოლოები
+	Synonyms	სინონიმები
+	Tab	Tab
+	Table	ცხრილი
+	Table Column Width	ცხრილის სვეტის სიგანე
+	Table Design	ცხრილის დიზაინი
+	Table Layout	ცხრილის განლაგება
+	Table Properties	ცხრილის თვისებები
+	Table Properties…	ცხრილის თვისებები…
+	Table Row Height	ცხრილის მწკრივის სიმაღლე
+	Table Style Options	ცხრილის სტილის პარამეტრები
+	Table Styles	ცხრილის სტილები
+	Table of Authorities	ბმულების ცხრილი
+	Table of Contents	სარჩევი
+	Table of\nContents	სარჩევი
+	Tables	ცხრილები
+	Tabs	ტაბულაცია
+	Tabular List	ცხრილოვანი სია
+	Text	ტექსტი
+	Text Box	ტექსტური ველი
+	Text Direction	ტექსტის მიმართულება
+	Text Effects	ტექსტის ეფექტები
+	Text Effects and Typography	ტექსტის ეფექტები და ტიპოგრაფია
+	Text Highlight Color	ტექსტის გამოკვეთის ფერი
+	Text Wrapping	ტექსტით გარსშემოვლა
+	Text from File	ტექსტი ფაილიდან
+	Text to display:	საჩვენებელი ტექსტი:
+	Text:	ტექსტი:
+	Text\nBox	ტექსტური\nველი
+	Text\nDirection	ტექსტის\nმიმართულება
+	The clipboard is empty.	ბუფერი ცარიელია.
+	The new style takes the formatting of the current paragraph.	ახალი სტილი მიიღებს მიმდინარე აბზაცის ფორმატირებას.
+	Theme Colors	თემის ფერები
+	Theme Fonts	თემის შრიფტები
+	Theme List	თემების სია
+	Themes	თემები
+	Thesaurus	თეზაურუსი
+	Thick	სქელი
+	Three	სამი
+	Tight	მჭიდრო
+	Top Border	ზედა საზღვარი
+	Top Margin	ზედა მინდორი
+	Top of Page	გვერდის თავში
+	Top:	ზემოდან:
+	Total Row	ჯამის მწკრივი
+	Track Changes	ცვლილებების თვალყურის დევნება
+	Track Changes: On	ცვლილებების თვალყურის დევნება: ჩართულია
+	Tracking	თვალყურის დევნება
+	Translate	თარგმნა
+	Transparency	გამჭვირვალობა
+	Triangle	სამკუთხედი
+	Two	ორი
+	Type Text	ტექსტის აკრეფა
+	Type a command, e.g. "insert table"	აკრიფეთ ბრძანება, მაგ. „ცხრილის ჩასმა“
+	UPPERCASE	ყველა მთავრული
+	Underline	ხაზგასმული
+	Underline Words Only	მხოლოდ სიტყვების ხაზგასმა
+	Undo	გაუქმება
+	Undo {action}	გაუქმება: {action}
+	Unformatted Text	დაუფორმატებელი ტექსტი
+	Up	ზემოთ
+	Update Field	ველის განახლება
+	Update Index	საძიებლის განახლება
+	Update Style to Match Selection	სტილის განახლება მონიშნულის მიხედვით
+	Update Table	ცხრილის განახლება
+	Update Table of Figures	ილუსტრაციების სიის განახლება
+	Update to Match	ნიმუშის მიხედვით განახლება
+	Update to Match Selection	მონიშნულის მიხედვით განახლება
+	User Name	მომხმარებლის სახელი
+	User name:	მომხმარებლის სახელი:
+	Version History	ვერსიების ისტორია
+	Version {version} ({build})	ვერსია {version} ({build})
+	Vertical	ვერტიკალური
+	Vertical Alignment	ვერტიკალური გასწორება
+	View	ხედი
+	View Gridlines	ბადის ხაზების ჩვენება
+	View State	ხედის მდგომარეობა
+	Views	ხედები
+	Voice	ხმა
+	Watermark	წყლის ნიშანი
+	Wave	ტალღოვანი
+	Web Layout	ვებ-განლაგება
+	Web\nLayout	ვებ-\nგანლაგება
+	Web page (*.html)	ვებგვერდი (*.html)
+	Whole page	მთელი გვერდი
+	Whole words	მთლიანი სიტყვები
+	Wide	ფართო
+	Widow/Orphan Control	ობოლი ხაზების კონტროლი
+	Widow/Orphan control	ობოლი ხაზების კონტროლი
+	Wildcards (regex)	შაბლონური სიმბოლოები (regex)
+	Window	ფანჯარა
+	Word Count	სიტყვების რაოდენობა
+	Word Left	სიტყვით მარცხნივ
+	Word Right	სიტყვით მარჯვნივ
+	Word document (*.docx)	Word დოკუმენტი (*.docx)
+	WordArt	WordArt
+	Lexicon	Lexicon
+	Words	სიტყვები
+	Words only	მხოლოდ სიტყვები
+	Wrap Text	ტექსტით გარსშემოვლა
+	Wrap\nText	ტექსტით\nგარსშემოვლა
+	Write & Insert Fields	წერა და ველების ჩასმა
+	Write a reply	პასუხის დაწერა
+	Zoom	მასშტაბი
+	Zoom In	გადიდება
+	Zoom Out	დაპატარავება
+	development build	შემუშავების ვერსია
+	lowercase	ყველა პატარა
+	{group} settings	{group}: პარამეტრები
+	{key}+Click to follow link	{key}+დაწკაპუნება ბმულზე გადასასვლელად
+	{selected} of {words} words	სიტყვები: {selected} / {words}
+	{words} words	სიტყვები: {words}
+	➕ New comment	➕ ახალი კომენტარი
+	📂  Browse…	📂  დათვალიერება…
+	Equation	განტოლება
+	Review	რეცენზირება
+	Track\nChanges	ცვლილებების\nთვალყურის დევნება
+	Track\nChanges ✓	ცვლილებების\nთვალყურის დევნება ✓
+	Scroll ribbon left	ლენტის მარცხნივ გადახვევა
+	Scroll ribbon right	ლენტის მარჯვნივ გადახვევა
+	Apply Styles	სტილების გამოყენება
+	Dark page (white text on black)	მუქი გვერდი (თეთრი ტექსტი შავზე)
+	Show documents with their colours inverted, like View › Switch Modes. Saving, printing and PDFs are unchanged.	დოკუმენტების ჩვენება შებრუნებული ფერებით, როგორც „ხედი › რეჟიმის შეცვლა“. შენახვა, ბეჭდვა და PDF არ იცვლება.
+	Only web (http, https) and email (mailto) links can be followed	გადასვლა შესაძლებელია მხოლოდ ვებ (http, https) და ელფოსტის (mailto) ბმულებზე
+	Character Border	სიმბოლოების საზღვარი
+	Direction:	მიმართულება:
+	Right-to-left	მარჯვნიდან მარცხნივ
+	Left-to-right	მარცხნიდან მარჯვნივ
+	Zotero	Zotero
+	Citations	ციტატები
+	Document	დოკუმენტი
+	Add/Edit\nCitation	ციტატის დამატება/\nრედაქტირება
+	Add\nNote	შენიშვნის\nდამატება
+	Add/Edit\nBibliography	ბიბლიოგრაფიის დამატება/\nრედაქტირება
+	Refresh	განახლება
+	Document\nPreferences	დოკუმენტის\nპარამეტრები
+	Unlink\nCitations	ციტატების\nგათიშვა
+	Waiting for Zotero…	Zotero-ს ლოდინი…
+	Zotero: done	Zotero: მზადაა
+	Zotero: cancelled	Zotero: გაუქმდა
+	Yes	დიახ
+	No	არა
+	Move Past Citation	ციტატის მიღმა გადასვლა
+	Move Past\nCitation	ციტატის მიღმა\nგადასვლა
+	Next Sentence	შემდეგი წინადადება
+	Previous Sentence	წინა წინადადება
+	Next sentence	შემდეგი წინადადება
+	Previous sentence	წინა წინადადება
+	Play/Pause	დაკვრა/პაუზა
+	Read Aloud Status	ხმამაღლა კითხვის მდგომარეობა
+	Reading Speed	კითხვის სიჩქარე
+	Skip Citations and Bibliography	ციტატებისა და ბიბლიოგრაფიის გამოტოვება
+	Skip citations & bibliography	ციტატებისა და ბიბლიოგრაფიის გამოტოვება
+	Stop Reading	კითხვის შეწყვეტა
+	Don't read Zotero, Mendeley or EndNote citations and bibliographies	არ წაიკითხო Zotero-ს, Mendeley-ის ან EndNote-ის ციტატები და ბიბლიოგრაფიები
+	Play	დაკვრა
+	Pause	პაუზა
+	Stop	შეჩერება
+	Sentence	წინადადება
+	Paused	დაპაუზებულია
+	Finished	დასრულებულია
+	Stopped	შეჩერებულია
+	Speed	სიჩქარე
+	Normal speed	ჩვეულებრივი სიჩქარე
+	AutoSave documents you have saved in Lexicon	Lexicon-ში უკვე შენახული დოკუმენტების ავტოშენახვა
+	AutoSave failed: {error}. Save the document to turn AutoSave back on.	ავტოშენახვის შეცდომა: {error}. შეინახეთ დოკუმენტი, რომ ავტოშენახვა ისევ ჩაირთოს.
+	Couldn't download {name}: {error}	{name}-ის ჩამოტვირთვა ვერ მოხერხდა: {error}
+	Do you want to save changes to {name}?	შევინახო ცვლილებები ფაილში {name}?
+	Don't Save	არ შეინახო
+	That format doesn't keep everything, so the document is still open. Save it as a Word document (.docx) to go on.	ეს ფორმატი ყველაფერს არ ინახავს, ამიტომ დოკუმენტი ღია რჩება. გასაგრძელებლად შეინახეთ ის Word დოკუმენტად (.docx).
+	Your changes will be lost if you don't save them.	თუ ცვლილებებს არ შეინახავთ, ისინი დაიკარგება.
+	Change Structure	სტრუქტურის შეცვლა
+	Change to Display	ცალკე ხაზზე ჩვენება
+	Change to Inline	ხაზში ჩვენება
+	Conversions	გარდაქმნები
+	Delete Back in Equation	უკან წაშლა განტოლებაში
+	Delete in Equation	წაშლა განტოლებაში
+	Edit Equation	განტოლების რედაქტირება
+	Enter in Equation	ახალი ხაზი განტოლებაში
+	Equation Gallery	განტოლებების გალერეა
+	Equation Info	ინფორმაცია განტოლებაზე
+	Equation Number	განტოლების ნომერი
+	Input Format	შეყვანის ფორმატი
+	Insert Structure	სტრუქტურის ჩასმა
+	Insert Symbol	სიმბოლოს ჩასმა
+	Justification	გასწორება
+	Leave Equation	განტოლებიდან გასვლა
+	Move in Equation	გადაადგილება განტოლებაში
+	Normal Text	ჩვეულებრივი ტექსტი
+	Set Equation	განტოლების დაყენება
+	Structure Actions	სტრუქტურის მოქმედებები
+	Structures	სტრუქტურები
+	Tools	ხელსაწყოები
+	Type in Equation	განტოლებაში აკრეფა
+	Inline	ხაზში
+	Number	ნომერი
+	Close Equation	განტოლების დახურვა
+	Insert New Equation	ახალი განტოლების ჩასმა
+	Built-In	ჩაშენებული
+	Professional	პროფესიული
+	Linear	წრფივი
+	Fraction	წილადი
+	Script	ინდექსი
+	Radical	ფესვი
+	Integral	ინტეგრალი
+	Large\nOperator	დიდი\nოპერატორი
+	Bracket	ფრჩხილი
+	Function	ფუნქცია
+	Accent	დიაკრიტიკა
+	Limit and\nLog	ზღვარი და\nლოგარითმი
+	Operator	ოპერატორი
+	Equation Options	განტოლების პარამეტრები
+	All symbol sets	სიმბოლოების ყველა ნაკრები
+	Send the document straight to the system print dialog, or save a copy in another format below.	გააგზავნეთ დოკუმენტი პირდაპირ სისტემის ბეჭდვის ფანჯარაში ან ქვემოთ შეინახეთ ასლი სხვა ფორმატში.
+	Or save a copy in another format:	ან შეინახეთ ასლი სხვა ფორმატში:
+	Opening print dialog…	იხსნება ბეჭდვის ფანჯარა…
+	Print failed: {error}	ბეჭდვის შეცდომა: {error}
+	Couldn't open {path}: {error}	{path}-ის გახსნა ვერ მოხერხდა: {error}
+	Column Selection	სვეტის მონიშვნა
+	New Table Style	ცხრილის ახალი სტილი
+	Modify Table Style	ცხრილის სტილის შეცვლა
+	New Table Style…	ცხრილის ახალი სტილი…
+	Modify Table Style…	ცხრილის სტილის შეცვლა…
+	Apply formatting to:	ფორმატირების გამოყენება:
+	Whole Table	მთელი ცხრილი
+	Fill color:	შევსების ფერი:
+	{count} items highlighted	გამოკვეთილი დამთხვევები: {count}
+	{n} pt	{n} პტ
+	Not {name}	არა {name}
+	Level {n}	დონე {n}
+	Body Text	ძირითადი ტექსტი
+	{n} lines	მამრავლი {n}
+	At least {n}	მინიმუმ {n}
+	Exactly {n}	ზუსტად {n}
+	Centered	ცენტრში
+	Character spacing	სიმბოლოთაშორისი ინტერვალი
+	Don't add space between paragraphs of the same style	არ დაემატოს ინტერვალი ერთი სტილის აბზაცებს შორის
+	Don't hyphenate	დამარცვლის გარეშე
+	Double strikethrough	ორმაგი გადახაზვა
+	Drop cap	ასომთავრული
+	First line	პირველი ხაზი
+	Font color	შრიფტის ფერი
+	Highlight	ფერით გამოკვეთა
+	Justified	სიგანეზე
+	Left indent	მარცხენა შეწევა
+	Line spacing	ხაზთაშორისი ინტერვალი
+	Outline level	სტრუქტურის დონე
+	Raised/lowered	აწეული/დაწეული
+	Right indent	მარჯვენა შეწევა
+	Scale	მასშტაბი
+	Space after	ინტერვალი შემდეგ
+	Space before	ინტერვალი წინ
+	Suppress line numbers	ხაზების ნუმერაციის გარეშე
+	Underline color	ხაზგასმის ფერი
+	Letters	წერილები
+	E-mail Messages	ელფოსტის შეტყობინებები
+	Directory	კატალოგი
+	Normal Word Document	ჩვეულებრივი Word დოკუმენტი
+	If…Then…Else…	თუ…მაშინ…სხვა შემთხვევაში…
+	If…Then…Else	თუ…მაშინ…სხვა შემთხვევაში
+	Merge Record #	შერწყმის ჩანაწერის №
+	Skip Record If…	ჩანაწერის გამოტოვება, თუ…
+	Skip Record If	ჩანაწერის გამოტოვება, თუ
+	Equals:	უდრის:
+	Then insert:	მაშინ ჩასვი:
+	Otherwise insert:	სხვა შემთხვევაში ჩასვი:
+	Courtesy Title	მიმართვა
+	First Name	სახელი
+	Last Name	გვარი
+	Company	ორგანიზაცია
+	Address	მისამართი
+	City	ქალაქი
+	State	რეგიონი
+	Postal Code	საფოსტო ინდექსი
+	Country	ქვეყანა
+	(not matched)	(შესაბამისობა არ არის)
+	Leave a recipient out of the merge when a field has this value.	მიმღების შერწყმიდან გამორიცხვა, როცა ველს ეს მნიშვნელობა აქვს.
+	Insert one text or another, depending on a field's value.	ერთი ან მეორე ტექსტის ჩასმა ველის მნიშვნელობის მიხედვით.
+	Select recipients first to match their fields.	ჯერ აირჩიეთ მიმღებები, რომ მათი ველები შეუსაბამოთ.
+	The recipient-list field that fills each part of an address block and greeting line.	მიმღებთა სიის ველი, რომელიც ავსებს მისამართის ბლოკისა და მისალმების ხაზის თითოეულ ნაწილს.
+	No errors found: every merge field is in the recipient list.	შეცდომები ვერ მოიძებნა: შერწყმის ყველა ველი მიმღებთა სიაშია.
+	These merge fields aren't in the recipient list:	შერწყმის ეს ველები მიმღებთა სიაში არ არის:
+	Add at least one field.	დაამატეთ ერთი ველი მაინც.
+	Add Field	ველის დამატება
+	Every field needs a name.	ყველა ველს სახელი უნდა ჰქონდეს.
+	Field name	ველის სახელი
+	Field names must be different.	ველების სახელები არ უნდა მეორდებოდეს.
+	Fields:	ველები:
+	Field:	ველი:
+	Find:	ძიება:
+	New Entry	ახალი ჩანაწერი
+	Recipient List	მიმღებთა სია
+	Recipients: {count}	მიმღებები: {count}
+	Remove field	ველის წაშლა
+	Remove recipient	მიმღების წაშლა
+	Select recipients first to choose from their fields.	ჯერ აირჩიეთ მიმღებები, რომ მათი ველებიდან აირჩიოთ.
+	Type a New List…	ახალი სიის აკრეფა…
+	Type at least one recipient.	აკრიფეთ ერთი მიმღები მაინც.
+	Type the recipients, or load them from a file.	აკრიფეთ მიმღებები ან ჩატვირთეთ ისინი ფაილიდან.
+	Use an Existing List…	არსებული სიის გამოყენება…
+	Interface theme:	ინტერფეისის თემა:
+	Interface\nTheme	ინტერფეისის\nთემა
+	Interface Theme	ინტერფეისის თემა
+	Light	ღია
+	Dark	მუქი
+	Use system setting	როგორც სისტემაში
+	A file dialog is already open.	ფაილის არჩევის ფანჯარა უკვე ღიაა.
+	Height:	სიმაღლე:
+	Width:	სიგანე:
+	Row	მწკრივი
+	Cell	უჯრა
+	Preferred width:	სასურველი სიგანე:
+	Alignment:	გასწორება:
+	Indent from left:	შეწევა მარცხნიდან:
+	Specify height:	სიმაღლის მითითება:
+	Exactly	ზუსტად
+	At least	მინიმუმ
+	Allow row to break across pages	მწკრივის გვერდებზე გადატანის დაშვება
+	Repeat as header row on each page	სათაურის მწკრივად გამეორება ყოველ გვერდზე
+	Vertical alignment:	ვერტიკალური გასწორება:
+	Top	ზემოთ
+	Bottom	ქვემოთ
+	Alt text	ალტერნატიული ტექსტი
+	Alt:	ალტერნატიული ტექსტი:
+	W:	ს:
+	H:	მ:
+	Reset	ჩამოყრა
+	Reset Crop	ამოჭრის გაუქმება
+	Insert a new equation (Alt+=)	ახალი განტოლების ჩასმა (Alt+=)
+	Leave the equation (Esc)	განტოლებიდან გასვლა (Esc)
+	Preview	გადახედვა
+	getartcraft.com/apps/wordcraft	getartcraft.com/apps/wordcraft
+	English (United Kingdom)	ინგლისური (გაერთიანებული სამეფო)
+	Polish	პოლონური
+	Do Not Check Spelling or Grammar	მართლწერისა და გრამატიკის შემოწმების გარეშე
+	Possible spelling mistake	შესაძლო ორთოგრაფიული შეცდომა
+	Extra space	ზედმეტი ჰარი
+	Capitalize the first word of a sentence	წინადადების პირველი სიტყვა მთავრულით დაწერეთ
+	Remove the space before the punctuation	წაშალეთ ჰარი სასვენი ნიშნის წინ
+	Use "an" before a vowel sound	ხმოვანი ბგერის წინ გამოიყენეთ „an“
+	Use "a" before a consonant sound	თანხმოვანი ბგერის წინ გამოიყენეთ „a“
+	The spelling and grammar check is complete.	მართლწერისა და გრამატიკის შემოწმება დასრულდა.
+	Font…	შრიფტი…
+	Paragraph…	აბზაცი…
+	Link…	ბმული…
+	Change Picture…	სურათის შეცვლა…
+	Size and Crop…	ზომა და ამოჭრა…
+	Insert Rows Above	მწკრივების ზემოთ ჩასმა
+	Insert Rows Below	მწკრივების ქვემოთ ჩასმა
+	Insert Columns to the Left	სვეტების მარცხნივ ჩასმა
+	Insert Columns to the Right	სვეტების მარჯვნივ ჩასმა
+	(picture or object)	(სურათი ან ობიექტი)
+	A password is required to open this document.	ამ დოკუმენტის გასახსნელად პაროლია საჭირო.
+	Add Object to Selection	ობიექტის მონიშვნაში დამატება
+	Add space between Asian and Latin text	ჰარის დამატება აზიურ და ლათინურ ტექსტს შორის
+	Add space between Asian text and numbers	ჰარის დამატება აზიურ ტექსტსა და რიცხვებს შორის
+	Allow Latin text to wrap in the middle of a word	ლათინური ტექსტის სიტყვის შუაში გადატანის დაშვება
+	Allow hanging punctuation	ჩამოკიდებული პუნქტუაციის დაშვება
+	Alphabetical	ანბანის მიხედვით
+	Anyone can open this document. Encrypt it with a password to keep it private.	ამ დოკუმენტის გახსნა ნებისმიერს შეუძლია. დასაცავად დაშიფრეთ ის პაროლით.
+	Anyone who opens the document will need this password.	დოკუმენტის გამხსნელს ეს პაროლი დასჭირდება.
+	Apply Asian line-breaking rules (kinsoku)	ხაზის წყვეტის აზიური წესების გამოყენება (kinsoku)
+	As Recommended	რეკომენდაციის მიხედვით
+	Asian Typography	აზიური ტიპოგრაფია
+	AutoSave isn't available in the browser: it can't write to your files. Save downloads a copy.	ბრაუზერში ავტოშენახვა მიუწვდომელია: ის თქვენს ფაილებში ვერ წერს. „შენახვა“ ჩამოტვირთავს ასლს.
+	AutoSave only keeps .docx, .odt and .rtf files; {name} can't keep all formatting. Save as .docx to turn on AutoSave.	ავტოშენახვა მხოლოდ .docx, .odt და .rtf ფაილებს ინახავს; {name} ვერ ინახავს მთელ ფორმატირებას. ავტოშენახვის ჩასართავად შეინახეთ .docx ფორმატში.
+	Based on: {style}	საფუძველი: {style}
+	Browse…	დათვალიერება…
+	Built-in style	ჩაშენებული სტილი
+	Built-in styles can't be deleted.	ჩაშენებული სტილების წაშლა შეუძლებელია.
+	Change Password…	პაროლის შეცვლა…
+	Character style	სიმბოლოების სტილი
+	Click an item to paste it.	დააწკაპუნეთ ელემენტზე მის ჩასასმელად.
+	Clipboard Items	ბუფერის ელემენტები
+	Clipboard Pane	ბუფერის პანელი
+	Color: {color}	ფერი: {color}
+	Compress punctuation at the start of a line	პუნქტუაციის შეკუმშვა ხაზის დასაწყისში
+	Confirm password:	დაადასტურეთ პაროლი:
+	Delete Clipboard Item	ბუფერის ელემენტის წაშლა
+	Delete Table Style	ცხრილის სტილის წაშლა
+	Encrypt with Password…	პაროლით დაშიფვრა…
+	Font: {font}	შრიფტი: {font}
+	Glow	ნათება
+	Glow Colors	ნათების ფერები
+	Hide from style lists	სტილების სიებიდან დამალვა
+	Indents and Spacing	შეწევები და ინტერვალები
+	Keep the password somewhere safe: without it nobody, Lexicon included, can open the document. Leave both boxes empty to remove the password.	შეინახეთ პაროლი უსაფრთხო ადგილას: მის გარეშე ვერავინ, მათ შორის Lexicon, ვერ გახსნის დოკუმენტს. პაროლის მოსახსნელად ორივე ველი ცარიელი დატოვეთ.
+	Line breaking	ხაზის წყვეტა
+	Linked style (paragraph and character)	დაკავშირებული სტილი (აბზაცისა და სიმბოლოების)
+	Manage Styles	სტილების მართვა
+	Manage Styles…	სტილების მართვა…
+	No Glow	ნათების გარეშე
+	No Shadow	ჩრდილის გარეშე
+	No Soft Edges	რბილი კიდეების გარეშე
+	Nothing collected yet. Items you copy or cut appear here.	ჯერ არაფერია. აქ გამოჩნდება თქვენ მიერ დაკოპირებული ან ამოჭრილი ელემენტები.
+	Offset: Bottom	წანაცვლება: ქვემოთ
+	Offset: Bottom Left	წანაცვლება: ქვემოთ მარცხნივ
+	Offset: Bottom Right	წანაცვლება: ქვემოთ მარჯვნივ
+	Offset: Center	წანაცვლება: ცენტრში
+	Offset: Left	წანაცვლება: მარცხნივ
+	Offset: Right	წანაცვლება: მარჯვნივ
+	Offset: Top	წანაცვლება: ზემოთ
+	Offset: Top Left	წანაცვლება: ზემოთ მარცხნივ
+	Offset: Top Right	წანაცვლება: ზემოთ მარჯვნივ
+	Paragraph style	აბზაცის სტილი
+	Password	პაროლი
+	Password:	პაროლი:
+	Paste All	ყველაფრის ჩასმა
+	Paste Clipboard Item	ბუფერის ელემენტის ჩასმა
+	Remove Password	პაროლის მოხსნა
+	Save the document to turn on AutoSave	ავტოშენახვის ჩასართავად შეინახეთ დოკუმენტი
+	Save the document to turn on AutoSave (a file you have only opened isn't rewritten until you save it)	ავტოშენახვის ჩასართავად შეინახეთ დოკუმენტი (მხოლოდ გახსნილი ფაილი არ გადაიწერება, სანამ არ შეინახავთ)
+	Shadow, glow and soft edges	ჩრდილი, ნათება და რბილი კიდეები
+	Shape Effects	ფიგურის ეფექტები
+	Show in the Styles gallery	სტილების გალერეაში ჩვენება
+	Show or Hide Style	სტილის ჩვენება ან დამალვა
+	Soft Edges	რბილი კიდეები
+	Sort order:	დალაგების წესი:
+	Space after: {pt} pt	ინტერვალი შემდეგ: {pt} პტ
+	Space before: {pt} pt	ინტერვალი წინ: {pt} პტ
+	Table style	ცხრილის სტილი
+	That password isn't right. Check it (passwords are case-sensitive) and try again.	პაროლი არასწორია. შეამოწმეთ ის (რეგისტრს მნიშვნელობა აქვს) და კვლავ სცადეთ.
+	The document will be saved with a password. Save it to protect it.	დოკუმენტი პაროლით შეინახება. დასაცავად შეინახეთ ის.
+	The password is removed. Save the document to keep the change.	პაროლი მოხსნილია. ცვლილების შესანარჩუნებლად შეინახეთ დოკუმენტი.
+	The passwords don't match.	პაროლები არ ემთხვევა.
+	Ungroup	დაჯგუფების გაუქმება
+	Weight	სისქე
+	{name} is protected with a password.	{name} დაცულია პაროლით.
+	{size} pt	{size} პტ
+	% of all commits	ყველა კომიტის %
+	(All)	(ყველა)
+	(no style)	(სტილის გარეშე)
+	(none)	(არცერთი)
+	(normal text)	(ჩვეულებრივი ტექსტი)
+	1/4 Em Space	1/4 Em ჰარი
+	3-D	სამგანზომილებიანი
+	A mail merge field	შერწყმის ველი
+	A numbered sequence (figures, tables…)	დანომრილი თანმიმდევრობა (სურათები, ცხრილები…)
+	A table of contents	სარჩევი
+	AaBbYyZz	ააბბჰჰ
+	Add tab stop at:	ტაბულაციის პოზიციის დამატება:
+	Align Bottom Center	ქვემოთ, ცენტრში
+	Align Bottom Left	ქვემოთ, მარცხნივ
+	Align Bottom Right	ქვემოთ, მარჯვნივ
+	Align Center	ცენტრში
+	Align Center Left	ცენტრში, მარცხნივ
+	Align Center Right	ცენტრში, მარჯვნივ
+	Align Top Center	ზემოთ, ცენტრში
+	Align Top Left	ზემოთ, მარცხნივ
+	Align Top Right	ზემოთ, მარჯვნივ
+	Aligned at:	გასწორებულია:
+	All	ყველა
+	Apply to:	გამოყენება:
+	Atelier	სახელოსნო
+	Balloons	ბუშტები
+	Bar	ზოლი
+	Between	შორის
+	Borders and Shading	საზღვრები და დაჩრდილვა
+	Borders and Shading…	საზღვრები და დაჩრდილვა…
+	Bullet	მარკერი
+	By author	ავტორის მიხედვით
+	Categories:	კატეგორიები:
+	Changed lines:	შეცვლილი ხაზები:
+	Character	სიმბოლო
+	Character code:	სიმბოლოს კოდი:
+	Click a border between two cells to merge them. Esc stops.	დააწკაპუნეთ ორ უჯრას შორის საზღვარზე მათ გასაერთიანებლად. Esc — დასრულება.
+	Click level to modify:	აირჩიეთ შესაცვლელი დონე:
+	Col #:	სვეტი №:
+	Color only	მხოლოდ ფერი
+	Commits	კომიტები
+	Copy of the text a bookmark marks	სანიშნით მონიშნული ტექსტის ასლი
+	Copyright	საავტორო უფლების ნიშანი
+	Craft	ხელობა
+	Custom	მორგებული
+	Darkroom	ფოტოლაბორატორია
+	Date and Time	თარიღი და დრო
+	Date formats:	თარიღის ფორმატები:
+	Decimal	ათობითი
+	Default tab stops:	ნაგულისხმევი ტაბულაცია:
+	Define New Multilevel List	ახალი მრავალდონიანი სიის განსაზღვრა
+	Define New Multilevel List…	ახალი მრავალდონიანი სიის განსაზღვრა…
+	Deletions:	წაშლები:
+	Description:	აღწერა:
+	Display name	საჩვენებელი სახელი
+	Document Information	ინფორმაცია დოკუმენტზე
+	Document1	დოკუმენტი1
+	Dot dash	წერტილ-ტირე
+	Double Closing Quote	ორმაგი დამხურავი ბრჭყალი
+	Double Opening Quote	ორმაგი გამხსნელი ბრჭყალი
+	Drag a rectangle to draw a table, or a line across cells to split them. Esc stops.	გადაათრიეთ მართკუთხედი ცხრილის დასახატად ან ხაზი უჯრებზე მათ გასაყოფად. Esc — დასრულება.
+	Draw Ink	ხელით ხატვა
+	Draw Table	ცხრილის დახატვა
+	Ellipsis	მრავალწერტილი
+	Em Dash	გრძელი ტირე
+	Em Space	Em ჰარი
+	En Dash	მოკლე ტირე
+	En Space	En ჰარი
+	Enter formatting for number:	შეიყვანეთ ნომრის ფორმატი:
+	Equal column width	თანაბარი სიგანის სვეტები
+	Erase Ink	ხელნაწერის წაშლა
+	Field Codes	ველების კოდები
+	Field code:	ველის კოდი:
+	Field codes:	ველების კოდები:
+	Field name:	ველის სახელი:
+	Field names:	ველების სახელები:
+	Field properties	ველის თვისებები
+	Field…	ველი…
+	Fill	შევსება
+	First	პირველი
+	Flip Horizontal	ჰორიზონტალური არეკვლა
+	Flip Vertical	ვერტიკალური არეკვლა
+	Follow number with:	ნომრის შემდეგ:
+	Format:	ფორმატი:
+	Formatted	დაფორმატებული
+	Formatting	ფორმატირება
+	Gallery	გალერეა
+	Hide Codes	კოდების დამალვა
+	Hide Ink	ხელნაწერის დამალვა
+	Hide\nInk	ხელნაწერის\nდამალვა
+	How many pages the whole document has	რამდენი გვერდია მთელ დოკუმენტში
+	How many pages this section has	რამდენი გვერდია ამ ნაწილში
+	How many words the document holds	რამდენი სიტყვაა დოკუმენტში
+	Include level number from:	დონის ნომრის ჩართვა:
+	Index and Tables	საძიებლები და ცხრილები
+	Ink	ხელნაწერი
+	Insertions and Deletions	ჩასმები და წაშლები
+	Insertions:	ჩასმები:
+	Interface size:	ინტერფეისის ზომა:
+	Last	ბოლო
+	Leader	შემავსებელი
+	Left border	მარცხენა საზღვარი
+	Legal style numbering	იურიდიული სტილის ნუმერაცია
+	Line between	გამყოფი ხაზი
+	Lines +/−	ხაზები +/−
+	Link level to style:	დონის სტილთან დაკავშირება:
+	Links and References	ბმულები და მითითებები
+	List Definition	სიის განსაზღვრა
+	Mail Merge	წერილების შერწყმა
+	Auto ({percent}%)	ავტო ({percent}%)
+	Makes the ribbon, menus and dialogs larger or smaller. Auto follows your system's display scaling; 100% is one screen pixel per point. Document zoom is separate.	ადიდებს ან ამცირებს ლენტს, მენიუებს და დიალოგებს. „ავტო“ მიჰყვება სისტემის ეკრანის მასშტაბს; 100% — ეკრანის ერთი პიქსელი ერთ წერტილზე. დოკუმენტის მასშტაბი ცალკე ყენდება.
+	Model	მოდელი
+	Mon	ორშ
+	More Columns…	სხვა სვეტები…
+	More Symbols…	სხვა სიმბოლოები…
+	Name	სახელი
+	Name of the file this document is saved as	ფაილის სახელი, რომლითაც ეს დოკუმენტია შენახული
+	No-Width Non Break	ნულოვანი სიგანის უწყვეტი ნიშანი
+	No-Width Optional Break	ნულოვანი სიგანის არჩევითი წყვეტა
+	North	ჩრდილოეთი
+	Nothing	არაფერი
+	Number alignment:	ნომრის გასწორება:
+	Number format	ნომრის ფორმატი
+	Number of the page the field sits on	გვერდის ნომერი, რომელზეც ველია
+	Number of the section the field sits in	ნაწილის ნომერი, რომელშიც ველია
+	Number style for this level:	ამ დონის ნუმერაციის სტილი:
+	Outside border	გარე საზღვარი
+	PRs	PR-ები
+	Page Border	გვერდის საზღვარი
+	Page on which a bookmarked passage falls	გვერდი, რომელზეც სანიშნით მონიშნული მონაკვეთია
+	Paragraph Mark	აბზაცის ნიშანი
+	Pens	კალმები
+	Pick a field from the list	აირჩიეთ ველი სიიდან
+	Preserve formatting during updates	ფორმატირების შენარჩუნება განახლებისას
+	Presets	შაბლონები
+	Real name	ნამდვილი სახელი
+	Recently used symbols:	ბოლოს გამოყენებული სიმბოლოები:
+	Registered	რეგისტრირებული სავაჭრო ნიშანი
+	Restart list after:	სიის თავიდან დაწყება შემდეგ:
+	Right border	მარჯვენა საზღვარი
+	Rotate Left 90°	მარცხნივ შემობრუნება 90°
+	Rotate Right 90°	მარჯვნივ შემობრუნება 90°
+	Rotation	შემობრუნება
+	Rotation:	შემობრუნება:
+	Section Mark	პარაგრაფის ნიშანი
+	Sequence name:	თანმიმდევრობის სახელი:
+	Set	დაყენება
+	Setting:	ტიპი:
+	Shortcut key:	კლავიშთა კომბინაცია:
+	Show all revisions inline	ყველა ცვლილების ტექსტში ჩვენება
+	Show only comments and formatting in balloons	ბუშტებში მხოლოდ კომენტარებისა და ფორმატირების ჩვენება
+	Show revisions in balloons	ცვლილებების ბუშტებში ჩვენება
+	Single Closing Quote	ერთმაგი დამხურავი ბრჭყალი
+	Single Opening Quote	ერთმაგი გამხსნელი ბრჭყალი
+	Sketchbook	ესკიზების რვეული
+	South	სამხრეთი
+	Space	ჰარი
+	Spacing:	შუალედი:
+	Special Characters	სპეციალური სიმბოლოები
+	Start at:	დაწყება:
+	Studio	სტუდია
+	Style:	ხაზის ტიპი:
+	Style: {style}	სტილი: {style}
+	Subset:	ნაკრები:
+	Sum	ჯამი
+	Tab character	ტაბულაციის ნიშანი
+	Tab stop position:	ტაბულაციის პოზიცია:
+	Tab stops to be cleared:	წასაშლელი ტაბულაციის პოზიციები:
+	Tabs…	ტაბულაცია…
+	Text indent at:	ტექსტის შეწევა:
+	The date it is today	დღევანდელი თარიღი
+	The document has no bookmarks yet.	დოკუმენტში ჯერ სანიშნეები არ არის.
+	The time right now	მიმდინარე დრო
+	Thickness	სისქე
+	This field has no options.	ამ ველს პარამეტრები არ აქვს.
+	This font has no characters to show.	ამ შრიფტში საჩვენებელი სიმბოლოები არ არის.
+	This point forward	ამ წერტილიდან ბოლომდე
+	This section	ეს ნაწილი
+	Selected text	მონიშნული ტექსტი
+	Title from the document properties	სათაური დოკუმენტის თვისებებიდან
+	Total	სულ
+	Track Changes Options	ცვლილებების თვალყურის დევნების პარამეტრები
+	Track formatting	ფორმატირების თვალყურის დევნება
+	Trademark	სავაჭრო ნიშანი
+	Triple	სამმაგი
+	Tue	სამ
+	Type the field's name and its switches, for example PAGE \\* roman.	აკრიფეთ ველის სახელი და მისი გასაღებები, მაგალითად PAGE \\* roman.
+	Username	მომხმარებლის სახელი
+	Version	ვერსია
+	Wed	ოთხ
+	West	დასავლეთი
+	When this document was first created	როდის შეიქმნა ეს დოკუმენტი
+	When this document was most recently printed	როდის დაიბეჭდა ეს დოკუმენტი ბოლოს
+	When this document was most recently saved	როდის შეინახა ეს დოკუმენტი ბოლოს
+	Who the document properties name as author	ვინ არის ავტორად მითითებული დოკუმენტის თვისებებში
+	Whole document	მთელი დოკუმენტი
+	Width and spacing	სიგანე და შუალედი
+	from Unicode (hex)	Unicode (თექვსმეტობითი)
+	pt	პტ
+	{cols}×{rows} Table	ცხრილი {cols}×{rows}
+	{contributors} contributors · {commits} commits	მონაწილეები: {contributors} · კომიტები: {commits}
+	Copyright Sign	საავტორო უფლების ნიშანი
+	Edit Field Code	ველის კოდის რედაქტირება
+	Edit Field…	ველის რედაქტირება…
+	Insert Date Field	თარიღის ველის ჩასმა
+	Insert Page Field	გვერდის ნომრის ველის ჩასმა
+	Insert Time Field	დროის ველის ჩასმა
+	Lock Fields	ველების ჩაკეტვა
+	Next Field	შემდეგი ველი
+	Previous Field	წინა ველი
+	Registered Sign	რეგისტრირებული სავაჭრო ნიშნის ნიშანი
+	Reset Character Formatting	სიმბოლოების ფორმატირების ჩამოყრა
+	Reset Paragraph Formatting	აბზაცის ფორმატირების ჩამოყრა
+	Selected Fields	მონიშნული ველები
+	Toggle Field Codes	ველების კოდები/მნიშვნელობები
+	Trademark Sign	სავაჭრო ნიშნის ნიშანი
+	Unlink Fields	ველებთან კავშირის გაწყვეტა
+	Unlock Fields	ველების განბლოკვა
+	All Commands	ყველა ბრძანება
+	Assign	მინიჭება
+	Choose a command	აირჩიეთ ბრძანება
+	Choose a shortcut	აირჩიეთ კლავიშთა კომბინაცია
+	Commands:	ბრძანებები:
+	Customize	მორგება
+	Customize Keyboard	კლავიატურის მორგება
+	Customize…	მორგება…
+	Demote	დონის დაწევა
+	Draw\nTable	ცხრილის\nდახატვა
+	Go Back	უკან დაბრუნება
+	Keyboard shortcuts:	კლავიშთა კომბინაციები:
+	Keys for this command:	ამ ბრძანების კლავიშები:
+	Move Paragraph Down	აბზაცის ქვემოთ გადატანა
+	Move Paragraph Up	აბზაცის ზემოთ გადატანა
+	New shortcut:	ახალი კომბინაცია:
+	Not used by any command	არცერთი ბრძანება არ იყენებს
+	Now used by {command}	ახლა იყენებს: {command}
+	Press a key combination	დააჭირეთ კლავიშთა კომბინაციას
+	Promote	დონის აწევა
+	Remove	წაშლა
+	Remove every custom shortcut and restore the built-in keys?	წავშალო ყველა მორგებული კომბინაცია და აღვადგინო ჩაშენებული კლავიშები?
+	Reset All…	ყველას ჩამოყრა…
+	Toggle Unicode Character	Unicode სიმბოლოს გარდაქმნა
+	Type Character Code	სიმბოლოს კოდის აკრეფა
+	(Custom)	(მორგებული)
+	<< Remove	<< წაშლა
+	Add >>	დამატება >>
+	Add to Quick Access Toolbar	სწრაფი წვდომის ზოლში დამატება
+	Customize Quick Access Toolbar…	სწრაფი წვდომის ზოლის მორგება…
+	Customize Ribbon	ლენტის მორგება
+	Customize the Ribbon…	ლენტის მორგება…
+	More Commands…	სხვა ბრძანებები…
+	New Group	ახალი ჯგუფი
+	New Tab	ახალი ჩანართი
+	Pick a custom group (New Group makes one)	აირჩიეთ მორგებული ჯგუფი („ახალი ჯგუფი“ ქმნის მას)
+	Put the default commands back on the Quick Access Toolbar?	დავაბრუნო ნაგულისხმევი ბრძანებები სწრაფი წვდომის ზოლში?
+	Remove every custom tab and group and show all tabs again?	წავშალო ყველა მორგებული ჩანართი და ჯგუფი და ისევ ვაჩვენო ყველა ჩანართი?
+	Remove from Quick Access Toolbar	სწრაფი წვდომის ზოლიდან წაშლა
+	Hide Quick Access Toolbar	სწრაფი წვდომის ზოლის დამალვა
+	Show Quick Access Toolbar	სწრაფი წვდომის ზოლის ჩვენება
+	Rename…	გადარქმევა…
+	Reset…	ჩამოყრა…
+	Ribbon	ლენტი
+	Ribbon and Quick Access Toolbar:	ლენტი და სწრაფი წვდომის ზოლი:
+	Ribbon tabs	ლენტის ჩანართები
+	Align Text	ტექსტის გასწორება
+	Apply	გამოყენება
+	Arrows	ისრები
+	Base text:	ძირითადი ტექსტი:
+	Behind Text	ტექსტის უკან
+	Below text	ტექსტის ქვემოთ
+	Both Sides	ორივე მხრიდან
+	Break Link	კავშირის გაწყვეტა
+	Canvas Member	ტილოს ელემენტი
+	Choose the sheet that holds the recipients.	აირჩიეთ ფურცელი მიმღებებით.
+	Circle	წრე
+	Click the empty text box the text should continue in (Esc cancels)	დააწკაპუნეთ ცარიელ ტექსტურ ველზე, სადაც ტექსტი უნდა გაგრძელდეს (Esc — გაუქმება)
+	Communication	კავშირი
+	Continuous numbering	უწყვეტი ნუმერაცია
+	Convert Notes	სქოლიოების გარდაქმნა
+	Create Link	კავშირის შექმნა
+	Custom mark:	მორგებული ნიშანი:
+	Distribute letters	ასოების განაწილება
+	Distribute spacing	ინტერვალის განაწილება
+	Drawing Canvas	სახატავი ტილო
+	Enclose Characters	სიმბოლოების ჩარჩოში ჩასმა
+	Enclosure	ჩარჩო
+	End of document	დოკუმენტის ბოლოს
+	End of section	ნაწილის ბოლოს
+	Endnotes	ბოლო სქოლიოები
+	Endnotes to footnotes	ბოლო სქოლიოები ჩვეულებრივად
+	Enlarge symbol	სიმბოლოს გადიდება
+	Expand	გაფართოება
+	First row of data contains column headers	მონაცემების პირველი მწკრივი შეიცავს სვეტების სათაურებს
+	Fit	ზომაზე მორგება
+	Footnotes to endnotes	სქოლიოები ბოლო სქოლიოებად
+	Icon Color	ხატულის ფერი
+	In Front of Text	ტექსტის წინ
+	In Line with Text	ტექსტთან ერთ ხაზზე
+	Largest Only	მხოლოდ უდიდესი მხრიდან
+	Left Only	მხოლოდ მარცხნივ
+	Location	მდებარეობა
+	Middle	შუაში
+	Moved from	გადატანილია საიდან
+	Moved to	გადატანილია სად
+	Nature	ბუნება
+	New Drawing Canvas	ახალი სახატავი ტილო
+	No icons match your search.	თქვენს მოთხოვნას ხატულები არ შეესაბამება.
+	Not linked: click a text box	არ არის დაკავშირებული: დააწკაპუნეთ ტექსტურ ველზე
+	Office	ოფისი
+	Offset (pt):	წანაცვლება (პტ):
+	People	ადამიანები
+	Phonetic Guide	ფონეტიკური სახელმძღვანელო
+	Recolor a one-color picture, such as an icon	ერთფერიანი სურათის, მაგალითად ხატულის, გადაღებვა
+	Right (vertical)	მარჯვნივ (ვერტიკალურად)
+	Right Only	მხოლოდ მარჯვნივ
+	Right-to-Left Section	მარჯვნიდან მარცხნივ ნაწილი
+	Right-to-Left Table	მარჯვნიდან მარცხნივ ცხრილი
+	Rotate all text 270°	მთელი ტექსტის 270°-ით შემობრუნება
+	Rotate all text 90°	მთელი ტექსტის 90°-ით შემობრუნება
+	Ruby text:	Ruby ტექსტი:
+	Scale Drawing	ნახატის მასშტაბირება
+	Search icons	ხატულების ძიება
+	Section direction:	ნაწილის მიმართულება:
+	Shrink text	ტექსტის შემცირება
+	Size (pt):	ზომა (პტ):
+	Square	კვადრატი
+	Stacked	ერთმანეთზე
+	Swap footnotes and endnotes	სქოლიოებისა და ბოლო სქოლიოების გაცვლა
+	Table direction:	ცხრილის მიმართულება:
+	Technology	ტექნოლოგიები
+	Through	გამჭოლი
+	Top and Bottom	ზემოდან და ქვემოდან
+	Transport	ტრანსპორტი
+	Weather	ამინდი
+	Wrap Text Sides	გარსშემოვლის მხარეები
+	Characters per line:	სიმბოლოები ხაზზე:
+	Document Grid	დოკუმენტის ბადე
+	Lines and characters	ხაზები და სიმბოლოები
+	Lines only	მხოლოდ ხაზები
+	Lines per page:	ხაზები გვერდზე:
+	No grid	ბადის გარეშე
+	Text snaps to characters	ტექსტი სიმბოლოებს ებმის
+	A, B, C, …	A, B, C, …
+	Above the item	ელემენტის ზემოთ
+	Accessed on	მიმართვის თარიღი
+	Accessibility Pane	ხელმისაწვდომობის პანელი
+	Add New Source…	ახალი წყაროს დამატება…
+	Add Pen	კალმის დამატება
+	Add line numbering	ხაზების ნუმერაციის დამატება
+	Add the chapter number	თავის ნომრის დამატება
+	Add to Document	დოკუმენტში დამატება
+	Add\nPen	კალმის\nდამატება
+	Address labels	მისამართის ეტიკეტები
+	Alt Text Pane	ალტერნატიული ტექსტის პანელი
+	Alt\nText	ალტერნატიული\nტექსტი
+	Arabic	არაბული
+	Atmosphere	ატმოსფერო
+	Auto	ავტო
+	Automatically hyphenate document	დოკუმენტის ავტომატური დამარცვლა
+	Below the item	ელემენტის ქვემოთ
+	Book	წიგნი
+	Book title	წიგნის სათაური
+	Caption	წარწერა
+	Caption Numbering	წარწერების ნუმერაცია
+	Caption text	წარწერის ტექსტი
+	Caption:	წარწერა:
+	Chapter in a book	წიგნის თავი
+	Chapters begin at:	თავები იწყება:
+	Chinese (Simplified)	ჩინური (გამარტივებული)
+	Chinese (Traditional)	ჩინური (ტრადიციული)
+	Collect entries from:	ჩანაწერების შეგროვება:
+	Column:	სვეტი:
+	Columns:	სვეტები:
+	Conference	კონფერენცია
+	Conference paper	კონფერენციის მოხსენება
+	Container Title	კონტეინერის სათაური
+	Convert to Shapes	ფიგურებად გარდაქმნა
+	Count by:	ბიჯი:
+	Create Source	წყაროს შექმნა
+	Cross-reference:	ჯვარედინი ბმული:
+	Custom Table of Contents…	მორგებული სარჩევი…
+	Czech	ჩეხური
+	DOI	DOI
+	Danish	დანიური
+	Day	დღე
+	Decorative objects only add visual interest: screen readers skip them.	დეკორატიული ობიექტები მხოლოდ ალამაზებს დოკუმენტს: ეკრანის წამკითხველები მათ გამოტოვებენ.
+	Delete Label	წარწერის წაშლა
+	Delete Selected Ink	მონიშნული ხელნაწერის წაშლა
+	Delivery address:	მიწოდების მისამართი:
+	Describe what this object shows, for people who can't see it.	აღწერეთ, რას აჩვენებს ეს ობიექტი, მათთვის, ვინც მას ვერ ხედავს.
+	Describe what this table shows, for people who can't see it.	აღწერეთ, რას აჩვენებს ეს ცხრილი, მათთვის, ვინც მას ვერ ხედავს.
+	Detect language automatically	ენის ავტომატური ამოცნობა
+	Do not check spelling or grammar	მართლწერისა და გრამატიკის შემოწმების გარეშე
+	Dutch	ნიდერლანდური
+	Edit Source	წყაროს რედაქტირება
+	Edition	გამოცემა
+	Edit…	რედაქტირება…
+	Entry marked.	ჩანაწერი მონიშნულია.
+	Envelope size:	კონვერტის ზომა:
+	Errors ({n})	შეცდომები ({n})
+	Estonian	ესტონური
+	Example: {sample}	მაგალითი: {sample}
+	Figure	სურათი
+	Film	ფილმი
+	Finnish	ფინური
+	Forward	წინ
+	French (France)	ფრანგული (საფრანგეთი)
+	From text:	ტექსტიდან:
+	Full page of the same label	ერთნაირი ეტიკეტების სრული გვერდი
+	German (Germany)	გერმანული (გერმანია)
+	Greek	ბერძნული
+	Heading styles (levels 1–{n})	სათაურის სტილები (დონეები 1–{n})
+	Heading {n}	სათაური {n}
+	Hebrew	ებრაული
+	Hyphenate at:	დამარცვლა:
+	Hyphenate words in CAPS	მთავრულით დაწერილი სიტყვების დამარცვლა
+	Hyphenation Options…	დამარცვლის პარამეტრები…
+	Hyphenation zone:	დამარცვლის ზონა:
+	I, II, III, …	I, II, III, …
+	Include page numbers	გვერდის ნომრების ჩართვა
+	Indented	საფეხურებრივი შეწევით
+	Ink Replay	ხელნაწერის გამეორება
+	Ink to Shape	ხელნაწერი ფიგურად
+	Institution	დაწესებულება
+	Ionosphere	იონოსფერო
+	Issue	ნომერი
+	Italian	იტალიური
+	Croatian	ხორვატული
+	Indonesian	ინდონეზიური
+	Japanese	იაპონური
+	Journal	ჟურნალი
+	Korean	კორეული
+	Label:	წარწერა:
+	Lasso Select	ლასოთი მონიშვნა
+	Last, First; Last, First	გვარი, სახელი; გვარი, სახელი
+	Leave the label out of the caption	წარწერაში ეტიკეტის გამოტოვება
+	Letter headings	ასოებიანი სათაურები
+	Levels:	დონეები:
+	Limit consecutive hyphens to:	ზედიზედ დამარცვლების მაქსიმუმი:
+	Line Numbering Options…	ხაზების ნუმერაციის პარამეტრები…
+	Link entries to their headings	ჩანაწერების სათაურებთან დაკავშირება
+	Made from the author and year when empty	ცარიელის შემთხვევაში შედგება ავტორისა და წლისგან
+	Magazine or newspaper article	სტატია ჟურნალში ან გაზეთში
+	Main entry:	მთავარი ჩანაწერი:
+	Manual Hyphenation	ხელით დამარცვლა
+	Manual hyphenation is complete.	ხელით დამარცვლა დასრულდა.
+	Manual…	ხელით…
+	Mark	მონიშვნა
+	Mark All	ყველას მონიშვნა
+	Mark Entry…	ჩანაწერის მონიშვნა…
+	Mark Index Entry	საძიებლის ელემენტის მონიშვნა
+	Mark as decorative	დეკორატიულად მონიშვნა
+	Mark selected text as:	მონიშნული ტექსტის მონიშვნა როგორც:
+	Mesosphere	მეზოსფერო
+	Month	თვე
+	Move Selected Ink	მონიშნული ხელნაწერის გადატანა
+	New Document	ახალი დოკუმენტი
+	New Label	ახალი წარწერა
+	New Label…	ახალი წარწერა…
+	New…	ახალი…
+	No accessibility issues found.	ხელმისაწვდომობის პრობლემები ვერ მოიძებნა.
+	No limit	შეზღუდვის გარეშე
+	No sources yet.	წყაროები ჯერ არ არის.
+	Norwegian (Bokmål)	ნორვეგიული (ბუკმოლი)
+	Numbering:	ნუმერაცია:
+	Numbering…	ნუმერაცია…
+	Omit	გამოტოვება
+	One label per recipient	თითო ეტიკეტი თითო მიმღებზე
+	Options…	პარამეტრები…
+	Other	სხვა
+	Other styles and their TOC level:	სხვა სტილები და მათი დონე სარჩევში:
+	Outline levels	სტრუქტურის დონეები
+	Page number style	გვერდის ნომრების სტილი
+	Page numbers at the right margin	გვერდის ნომრები მარჯვენა კიდესთან
+	Page title	გვერდის სათაური
+	Pages of bookmark:	სანიშნის გვერდები:
+	Periodical	პერიოდული გამოცემა
+	Portuguese (Brazil)	პორტუგალიური (ბრაზილია)
+	Portuguese (Portugal)	პორტუგალიური (პორტუგალია)
+	Position:	პოზიცია:
+	Publisher	გამომცემელი
+	Recolor Selected Ink	მონიშნული ხელნაწერის გადაღებვა
+	Remove Pen	კალმის წაშლა
+	Return address labels	დასაბრუნებელი მისამართის ეტიკეტები
+	Return address:	დასაბრუნებელი მისამართი:
+	Rewind	უკან გადახვევა
+	Row:	მწკრივი:
+	Run-in	ერთ ხაზზე
+	Russian	რუსული
+	See	იხ.
+	Select a picture, shape, chart or table to describe it.	აირჩიეთ სურათი, ფიგურა, დიაგრამა ან ცხრილი მის აღსაწერად.
+	Separator:	გამყოფი:
+	Serbian (Cyrillic)	სერბული (კირილიცა)
+	Serbian (Latin)	სერბული (ლათინური)
+	Set As Default	ნაგულისხმევად დაყენება
+	Shipping labels	გადაზიდვის ეტიკეტები
+	Show every bibliography field	ბიბლიოგრაფიის ყველა ველის ჩვენება
+	Single label	ერთი ეტიკეტი
+	Site name	საიტის სახელი
+	Source Manager	წყაროების მმართველი
+	Source type:	წყაროს ტიპი:
+	Sources in this document:	ამ დოკუმენტის წყაროები:
+	Spanish (Mexico)	ესპანური (მექსიკა)
+	Spanish (Spain)	ესპანური (ესპანეთი)
+	Stroke {n} of {total}	შტრიხი {n} / {total}
+	Styles:	სტილები:
+	Subentry:	ქვეჩანაწერი:
+	Swedish	შვედური
+	TC entry fields	TC ჩანაწერების ველები
+	Tab leader:	ტაბულაციის შემავსებელი:
+	Table of Contents Options	სარჩევის პარამეტრები
+	Table of Contents Styles	სარჩევის სტილები
+	Tag	ტეგი
+	This page	ეს გვერდი
+	Tips ({n})	რჩევები ({n})
+	Title	სათაური
+	Title:	სათაური:
+	Turkish	თურქული
+	Type:	ტიპი:
+	URL	URL
+	Ukrainian	უკრაინული
+	View Alt Text…	ალტერნატიული ტექსტის ნახვა…
+	Volume	ტომი
+	Warnings ({n})	გაფრთხილებები ({n})
+	Website	ვებსაიტი
+	Year	წელი
+	a, b, c, …	a, b, c, …
+	i, ii, iii, …	i, ii, iii, …
+	{language} is now the document's default language.	{language} ახლა დოკუმენტის ნაგულისხმევი ენაა.
+	{n} entries marked.	მონიშნული ჩანაწერები: {n}.
+	0 or More Characters	0 ან მეტი სიმბოლო
+	1. Formatting restrictions	1. ფორმატირების შეზღუდვები
+	2. Editing restrictions	2. რედაქტირების შეზღუდვები
+	3. Start enforcement	3. დაცვის ჩართვა
+	<< Less	<< ნაკლები
+	Above Chart	დიაგრამის ზემოთ
+	Accent Gradient	აქცენტის გრადიენტი
+	Accent with Reflection	აქცენტი არეკვლით
+	Accent {n}	აქცენტი {n}
+	Add Chart Element	დიაგრამის ელემენტის დამატება
+	Add Font…	შრიფტის დამატება…
+	Add Row	მწკრივის დამატება
+	Add Series	სერიის დამატება
+	Add Shape	ფიგურის დამატება
+	Add\nShape	ფიგურის\nდამატება
+	Added Fonts	დამატებული შრიფტები
+	All Levels	ყველა დონე
+	All files	ყველა ფაილი
+	All pages	ყველა გვერდი
+	All pages in the range	დიაპაზონის ყველა გვერდი
+	Allow line breaks	ხაზის წყვეტების დაშვება
+	Animate the caret (it glides and fades)	კურსორის ანიმაცია (მდორედ მოძრაობს და ქრება)
+	Animation	ანიმაცია
+	Animation effects:	ანიმაციის ეფექტები:
+	Another file	სხვა ფაილი
+	Any Character	ნებისმიერი სიმბოლო
+	Any Digit	ნებისმიერი ციფრი
+	Any Letter	ნებისმიერი ასო
+	Apply as you type	გამოყენება აკრეფისას
+	Arch Down	თაღი ქვემოთ
+	Arch Up	თაღი ზემოთ
+	Area	ფართობებით
+	As you type	აკრეფისას
+	Asian text font:	აზიური ტექსტის შრიფტი:
+	Attach Template	შაბლონის მიმაგრება
+	Attach…	მიმაგრება…
+	AutoCorrect	ავტოშესწორება
+	AutoFormat As You Type	ავტოფორმატი აკრეფისას
+	AutoSave writes your changes to the file a moment after you stop typing.	ავტოშენახვა ცვლილებებს ფაილში წერს აკრეფის შეწყვეტიდან ცოტა ხანში.
+	Automatic bulleted lists	ავტომატური მარკირებული სიები
+	Automatic numbered lists	ავტომატური დანომრილი სიები
+	Automatically Update Document Styles	დოკუმენტის სტილების ავტომატური განახლება
+	Automatically update document styles	დოკუმენტის სტილების ავტომატური განახლება
+	Basic Cycle	მარტივი ციკლი
+	Basic List	მარტივი სია
+	Basic Matrix	მარტივი მატრიცა
+	Basic Process	მარტივი პროცესი
+	Basic Pyramid	მარტივი პირამიდა
+	Basic Radial	მარტივი რადიალური
+	Basic Venn	მარტივი ვენის დიაგრამა
+	Beginning of Word	სიტყვის დასაწყისი
+	Blue:	ლურჯი:
+	Border lines	საზღვრის ხაზები
+	Browse in Lexicon…	დათვალიერება Lexicon-ში…
+	Building Block Gallery Content Control	შიგთავსის მართვის ელემენტი: ბლოკების გალერეა
+	Can't be deleted	წაშლა შეუძლებელია
+	Capitalize first letter of sentences	წინადადების პირველი ასო მთავრულით
+	Capitalize first letter of table cells	ცხრილის უჯრის პირველი ასო მთავრულით
+	Capitalize names of days	კვირის დღეების სახელები მთავრულით
+	Caret Character	ჩასმის ნიშანი (^)
+	Case changes	რეგისტრის ცვლილებები
+	Categories	კატეგორიები
+	Category {n}	კატეგორია {n}
+	Centimeters	სანტიმეტრები
+	Change Chart Type	დიაგრამის ტიპის შეცვლა
+	Change Colors	ფერების შეცვლა
+	Change Layout	განლაგების შეცვლა
+	Change\nChart Type	დიაგრამის ტიპის\nშეცვლა
+	Change\nColors	ფერების\nშეცვლა
+	Character in Range	სიმბოლო დიაპაზონიდან
+	Character level	სიმბოლოების დონეზე
+	Chart Design	დიაგრამის დიზაინი
+	Chart Layouts	დიაგრამის განლაგებები
+	Chart Title	დიაგრამის სათაური
+	Check Box Content Control	შიგთავსის მართვის ელემენტი: მოსანიშნი ველი
+	Check spelling as you type	მართლწერის შემოწმება აკრეფისას
+	Checked styles are allowed:	დაშვებულია მონიშნული სტილები:
+	Checked symbol	მონიშნული ველის სიმბოლო
+	Chevron Down	შევრონი ქვემოთ
+	Chevron Up	შევრონი ზემოთ
+	Choose List Item	სიის ელემენტის არჩევა
+	Click to switch back to inserting	დააწკაპუნეთ ჩასმის რეჟიმში დასაბრუნებლად
+	Clipboard Contents	ბუფერის შიგთავსი
+	Close Outline View	სტრუქტურის ხედის დახურვა
+	Close Outline\nView	სტრუქტურის\nხედის დახურვა
+	Clustered Bar	დაჯგუფებული ზოლები
+	Clustered Column	დაჯგუფებული სვეტები
+	Collapse	ჩაკეცვა
+	Collate copies	ასლების მიხედვით დალაგება
+	Color model:	ფერის მოდელი:
+	Colorful	ფერადი
+	Colors:	ფერები:
+	Combine Documents	დოკუმენტების გაერთიანება
+	Combo Box Content Control	შიგთავსის მართვის ელემენტი: კომბინირებული ველი
+	Comments beside each page and tracked changes in PDFs, prints and images; a comment list at the end of web pages, Markdown and text.	კომენტარები თითოეული გვერდის გვერდით და თვალყურდევნებული ცვლილებები PDF-ში, ბეჭდვისას და გამოსახულებებში; კომენტარების სია ვებგვერდების, Markdown-ისა და ტექსტის ბოლოს.
+	Compare Documents	დოკუმენტების შედარება
+	Compared: {changes} changes	შედარებულია: {changes} ცვლილება
+	Comparing with another file needs the desktop app.	სხვა ფაილთან შესადარებლად საჭიროა დესკტოპის აპლიკაცია.
+	Comparison settings	შედარების პარამეტრები
+	Connect Shapes	ფიგურების შეერთება
+	Content Control Properties	შიგთავსის მართვის ელემენტის თვისებები
+	Content Control at Selection	შიგთავსის მართვის ელემენტი მონიშნულში
+	Contents can't be edited	შიგთავსის რედაქტირება შეუძლებელია
+	Controls	მართვის ელემენტები
+	Copies	ასლები
+	Copy Styles	სტილების კოპირება
+	Create Graphic	გრაფიკის შექმნა
+	Current	მიმდინარე
+	Current page	მიმდინარე გვერდი
+	Curved Arrow Connector	მრუდი ისრიანი შემაერთებელი
+	Curved Connector	მრუდი შემაერთებელი
+	Custom dictionary	მომხმარებლის ლექსიკონი
+	Custom range	მორგებული დიაპაზონი
+	Cycle	ციკლი
+	Dark with Shadow	მუქი ჩრდილით
+	Data Labels	მონაცემების წარწერები
+	Date Picker Content Control	შიგთავსის მართვის ელემენტი: თარიღის ამრჩევი
+	Date format	თარიღის ფორმატი
+	Deflate	შეკუმშვა
+	Deleted	წაშლილი
+	Demote to Body Text	ძირითად ტექსტამდე დაწევა
+	Design Mode	კონსტრუქტორის რეჟიმი
+	Detach Template	შაბლონის მოხსნა
+	Developer	დეველოპერი
+	Display text	საჩვენებელი ტექსტი
+	Document template:	დოკუმენტის შაბლონი:
+	Documents	დოკუმენტები
+	Don't capitalize after:	მთავრული არ დაიწეროს შემდეგ:
+	Doughnut	რგოლისებრი
+	Drop-Down List Content Control	შიგთავსის მართვის ელემენტი: ჩამოსაშლელი სია
+	Edit Data	მონაცემების რედაქტირება
+	Edit Items	ელემენტების რედაქტირება
+	Edit\nData	მონაცემების\nრედაქტირება
+	Editing in this document is restricted.	ამ დოკუმენტის რედაქტირება შეზღუდულია.
+	Elbow Arrow Connector	კუთხოვანი ისრიანი შემაერთებელი
+	Elbow Connector	კუთხოვანი შემაერთებელი
+	End of Word	სიტყვის ბოლო
+	Even pages only	მხოლოდ ლუწი გვერდები
+	Every change is recorded as a tracked change.	ყოველი ცვლილება თვალყურდევნებულ ცვლილებად ჩაიწერება.
+	Everyone	ყველა
+	Exceptions (optional)	გამონაკლისები (არასავალდებულო)
+	Exceptions…	გამონაკლისები…
+	Expand or Collapse Heading	სათაურის გაშლა ან ჩაკეცვა
+	Expression	გამოსახულება
+	Extend Selection by Units	მონიშვნის ერთეულებით გაფართოება
+	Fields	ველები
+	File name:	ფაილის სახელი:
+	Filling in forms	ფორმების შევსება
+	Find Next Editable Region	შემდეგი რედაქტირებადი უბნის პოვნა
+	Find What Expression	ნაპოვნი გამოსახულება
+	Find What Text	საძიებო ტექსტი
+	Fix Position on Page	გვერდზე პოზიციის დაფიქსირება
+	Footnotes and endnotes	სქოლიოები და ბოლო სქოლიოები
+	Formatting exceptions	ფორმატირების გამონაკლისები
+	Formatting marks	ფორმატირების ნიშნები
+	Formatting, case changes, white space and tables are compared; the other settings are kept for later.	შედარდება ფორმატირება, რეგისტრის ცვლილებები, ჰარები და ცხრილები; დანარჩენი პარამეტრები შემდგომისთვის ინახება.
+	Fractions (1/2) as fraction characters (½)	წილადები (1/2) წილადის სიმბოლოებად (½)
+	Graphic	გრაფიკა
+	Green:	მწვანე:
+	Headers and footers	ზედა და ქვედა კოლონტიტულები
+	Hex:	Hex:
+	Hidden text	დამალული ტექსტი
+	Hide White Space	გვერდებს შორის ცარიელი ადგილის დამალვა
+	Hierarchy	იერარქია
+	Hollow	ღრუ
+	Home folder	მთავარი საქაღალდე
+	Hue:	ტონი:
+	Hyphens (--) as dashes (—)	დეფისები (--) ტირედ (—)
+	Ignore punctuation characters	სასვენი ნიშნების უგულებელყოფა
+	Ignore web and file addresses	ვებ და ფაილის მისამართების გამოტოვება
+	Ignore white-space characters	ჰარების უგულებელყოფა
+	Ignore words in capitals	მთავრულით დაწერილი სიტყვების გამოტოვება
+	Ignore words with numbers	ციფრებიანი სიტყვების გამოტოვება
+	In equations, typing a name after a backslash replaces it with its symbol.	განტოლებებში უკუდახრილი ხაზის შემდეგ სახელი მისი სიმბოლოთი იცვლება.
+	Inches	დიუიმები
+	Inflate	გაბერვა
+	Initials:	ინიციალები:
+	Insert Chart	დიაგრამის ჩასმა
+	Insert SmartArt	SmartArt-ის ჩასმა
+	Inside:	შიგნით:
+	Interface	ინტერფეისი
+	Interface language	ინტერფეისის ენა
+	Internet addresses as links	ინტერნეტ-მისამართები ბმულებად
+	Label changes with:	ცვლილებების მონიშვნა:
+	Latin text font:	ლათინური ტექსტის შრიფტი:
+	Layouts	განლაგებები
+	Legend	ლეგენდა
+	Light with Outline	ღია კონტურით
+	Limit formatting to a selection of styles	ფორმატირების შეზღუდვა არჩეული სტილებით
+	List	სია
+	List entries	სიის ელემენტები
+	Lum:	სიკაშკაშე:
+	Manual Line Break	ხაზის წყვეტა
+	Manual Page Break	გვერდის წყვეტა
+	Mark grammar errors as you type	გრამატიკული შეცდომების მონიშვნა აკრეფისას
+	Match prefix	სიტყვის დასაწყისი
+	Match suffix	სიტყვის ბოლო
+	Math AutoCorrect	მათემატიკური ავტოშესწორება
+	Measurement units:	საზომი ერთეულები:
+	Millimeters	მილიმეტრები
+	Mirror indents	სარკისებური შეწევები
+	More >>	მეტი >>
+	More Colors…	სხვა ფერები…
+	Move Down	ქვემოთ გადატანა
+	Move Up	ზემოთ გადატანა
+	Move with Text	ტექსტთან ერთად გადაადგილება
+	Moves	გადატანები
+	Moved from:	გადატანილია საიდან:
+	Moved to:	გადატანილია სად:
+	New comments and tracked changes are recorded under this name and these initials.	ახალი კომენტარები და ცვლილებები ამ სახელითა და ინიციალებით ჩაიწერება.
+	New document	ახალი დოკუმენტი
+	New word	ახალი სიტყვა
+	No Fill	შევსების გარეშე
+	No Outline	კონტურის გარეშე
+	No Reflection	არეკვლის გარეშე
+	No Transform	ტრანსფორმაციის გარეშე
+	No changes (read only)	ცვლილებების გარეშე (მხოლოდ კითხვა)
+	No words yet. Add to Dictionary on a misspelled word puts it here.	სიტყვები ჯერ არ არის. შეცდომიან სიტყვაზე „ლექსიკონში დამატება“ მას აქ ათავსებს.
+	Not	არა
+	Num Occurrences	დამთხვევების რაოდენობა
+	Odd pages only	მხოლოდ კენტი გვერდები
+	Off	გამორთული
+	On	ჩართული
+	On: the caret glides to its new place when you type or use the arrow keys, and its blink fades. Off: it jumps and blinks on and off.	ჩართული: აკრეფისას ან ისრებით კურსორი მდორედ გადადის ახალ ადგილზე და მისი ციმციმი ქრება. გამორთული: ის ხტება და ციმციმებს.
+	One line per item. Enter adds an item.	თითო ხაზი თითო ელემენტზე. Enter ამატებს ელემენტს.
+	Only allow this kind of editing:	მხოლოდ ამგვარი რედაქტირების დაშვება:
+	Only comments can be added, except in regions marked editable.	შესაძლებელია მხოლოდ კომენტარების დამატება, გარდა რედაქტირებადად მონიშნული უბნებისა.
+	Only form fields can be filled in.	შესაძლებელია მხოლოდ ფორმის ველების შევსება.
+	Only the allowed styles can be applied.	შესაძლებელია მხოლოდ დაშვებული სტილების გამოყენება.
+	Open a file with Lexicon's own browser when the system file dialog doesn't appear.	ფაილის გახსნა Lexicon-ის ჩაშენებული ბრაუზერით, როცა სისტემის ფაილის ფანჯარა არ ჩნდება.
+	Ordinals (1st) as superscript	რიგობითი რიცხვები (1st) ზედა ინდექსად
+	Organizer	ორგანიზატორი
+	Organizer…	ორგანიზატორი…
+	Original document	ორიგინალი დოკუმენტი
+	Outline State	სტრუქტურის მდგომარეობა
+	Outline Tools	სტრუქტურის ხელსაწყოები
+	Outlining	სტრუქტურა
+	Outside:	გარეთ:
+	Overtype	ჩანაცვლება
+	Overtype (typing replaces the characters after the caret)	ჩანაცვლება (აკრეფილი ტექსტი კურსორის შემდეგ სიმბოლოებს ცვლის)
+	Show alignment guides when moving pictures and shapes	გასწორების მიმმართველების ჩვენება სურათებისა და ფიგურების გადაადგილებისას
+	Moved objects snap to the page's edges and centre, the margins and other objects. Hold Alt to move freely.	გადაადგილებული ობიექტები ეკვრის გვერდის კიდეებსა და ცენტრს, მინდვრებს და სხვა ობიექტებს. თავისუფლად გადასაადგილებლად დააჭირეთ Alt-ს.
+	Page display	გვერდის ჩვენება
+	Pages like 1-3, 5	გვერდები, მაგ. 1-3, 5
+	Paragraph Character	აბზაცის ნიშანი
+	Paragraph marks	აბზაცის ნიშნები
+	Personalize	პერსონალიზაცია
+	Picas	პიკები
+	Picture Content Control	შიგთავსის მართვის ელემენტი: სურათი
+	Pie	წრიული
+	Placeholder text	ჩანაცვლების ტექსტი
+	Plain Text Content Control	შიგთავსის მართვის ელემენტი: უბრალო ტექსტი
+	Points	პუნქტები
+	Previous 1 or More	წინა 1 ან მეტჯერ
+	Previous Page	წინა გვერდი
+	Print Markup	მონიშვნების ბეჭდვა
+	Print the page color	გვერდის ფერის ბეჭდვა
+	Print to PDF	PDF-ში ბეჭდვა
+	Printing	ბეჭდვა
+	Process	პროცესი
+	Promote to Heading 1	„სათაური 1“-მდე აწევა
+	Proofing language	მართლწერის შემოწმების ენა
+	Put the caret in a content control first.	ჯერ მოათავსეთ კურსორი შიგთავსის მართვის ელემენტში.
+	Pyramid	პირამიდა
+	Recent Colors	ბოლოდროინდელი ფერები
+	Recent documents to show:	საჩვენებელი ბოლო დოკუმენტები:
+	Recipient lists	მიმღებთა სიები
+	Red:	წითელი:
+	Reflection	არეკვლა
+	Regular expressions	რეგულარული გამოსახულებები
+	Relationship	კავშირი
+	Remove Added Font	დამატებული შრიფტის წაშლა
+	Load System Installed Fonts…	სისტემაში დაყენებული შრიფტების ჩატვირთვა…
+	All system fonts are already available.	სისტემის ყველა შრიფტი უკვე ხელმისაწვდომია.
+	Local font access is not supported by your browser.	თქვენი ბრაუზერი ადგილობრივ შრიფტებზე წვდომას არ უჭერს მხარს.
+	Local font access was denied.	ადგილობრივ შრიფტებზე წვდომა უარყოფილია.
+	Loaded {count} system fonts.	ჩატვირთული სისტემური შრიფტები: {count}.
+	Remove Content Control	შიგთავსის მართვის ელემენტის წაშლა
+	Remove row	მწკრივის წაშლა
+	Remove series	სერიის წაშლა
+	Remove the control once edited	მართვის ელემენტის წაშლა რედაქტირების შემდეგ
+	Rename Style	სტილის გადარქმევა
+	Repeating Section Content Control	შიგთავსის მართვის ელემენტი: განმეორებადი ნაწილი
+	Replace as you type	ჩანაცვლება აკრეფისას
+	Replace text as you type	ტექსტის ჩანაცვლება აკრეფისას
+	Replace:	ჩანაცვლება:
+	Reset Graphic	გრაფიკის ჩამოყრა
+	Reset\nGraphic	გრაფიკის\nჩამოყრა
+	Resize Table by Dragging	ცხრილის ზომის შეცვლა გადათრევით
+	Select Column	ცხრილის სვეტის მონიშვნა
+	Select Table Cells by Clicking	ცხრილის უჯრების მონიშვნა დაწკაპუნებით
+	Insert Row or Column by Clicking	მწკრივის ან სვეტის ჩასმა დაწკაპუნებით
+	Move Table by Dragging	ცხრილის გადატანა გადათრევით
+	AutoFit Column by Double-Clicking	სვეტის ავტომორგება ორმაგი დაწკაპუნებით
+	Revised document	გადამუშავებული დოკუმენტი
+	Rich Text Content Control	შიგთავსის მართვის ელემენტი: ფორმატირებული ტექსტი
+	Sat:	გაჯერება:
+	Save documents	დოკუმენტების შენახვა
+	Save these pages as PDF…	ამ გვერდების PDF-ად შენახვა…
+	Scatter	წერტილოვანი
+	Search Options	ძიების პარამეტრები
+	Section Break	ნაწილის წყვეტა
+	Section Character	ნაწილის ნიშანი
+	Select Heading and Content	სათაურისა და შიგთავსის მონიშვნა
+	Select text, then tick who can still edit it.	მონიშნეთ ტექსტი, შემდეგ აღნიშნეთ, ვის შეუძლია მისი რედაქტირება.
+	Selected pages	არჩეული გვერდები
+	Series name	სერიის სახელი
+	Series {n}	სერია {n}
+	Set Date	თარიღის დაყენება
+	Settings…	პარამეტრები…
+	Show All Levels	ყველა დონის ჩვენება
+	Show First Line Only	მხოლოდ პირველი ხაზის ჩვენება
+	Show Level	დონის ჩვენება
+	Show Level 1	1-ლი დონის ჩვენება
+	Show Level 2	მე-2 დონის ჩვენება
+	Show Level 3	მე-3 დონის ჩვენება
+	Show Level 4	მე-4 დონის ჩვენება
+	Show Level 5	მე-5 დონის ჩვენება
+	Show Level 6	მე-6 დონის ჩვენება
+	Show Level 7	მე-7 დონის ჩვენება
+	Show Level 8	მე-8 დონის ჩვენება
+	Show Level 9	მე-9 დონის ჩვენება
+	Show Text Formatting	ტექსტის ფორმატირების ჩვენება
+	Show changes at:	ცვლილებების ჩვენება:
+	Show changes in:	ცვლილებების ჩვენება:
+	Show the mini toolbar when text is selected	მინი ზოლის ჩვენება ტექსტის მონიშვნისას
+	Showing the first {count} items.	ნაჩვენებია პირველი {count} ელემენტი.
+	Shows a tree: each item below the item it belongs to.	აჩვენებს ხეს: თითოეული ელემენტი იმ ელემენტის ქვემოთაა, რომელსაც ეკუთვნის.
+	Shows items around a central idea: the first item is the centre.	აჩვენებს ელემენტებს ცენტრალური იდეის გარშემო: პირველი ელემენტი ცენტრშია.
+	Shows items of equal weight as blocks in rows.	აჩვენებს თანაბარი წონის ელემენტებს ბლოკებად მწკრივებში.
+	Shows overlapping ideas as overlapping circles.	აჩვენებს ურთიერთგადამფარავ იდეებს ურთიერთგადამფარავ წრეებად.
+	Shows parts of a whole as quadrants.	აჩვენებს მთელის ნაწილებს მეოთხედებად.
+	Shows parts that build on each other, largest at the bottom.	აჩვენებს ერთმანეთზე დაშენებულ ნაწილებს, უდიდესი — ქვემოთ.
+	Shows steps in order, left to right, with arrows between them.	აჩვენებს ნაბიჯებს თანმიმდევრობით, მარცხნიდან მარჯვნივ, მათ შორის ისრებით.
+	Shows steps that repeat, around a circle.	აჩვენებს განმეორებად ნაბიჯებს წრეზე.
+	Slant Down	დახრა ქვემოთ
+	Slant Up	დახრა ზემოთ
+	Smart quotes instead of straight quotes	„ჭკვიანი“ ბრჭყალები სწორის ნაცვლად
+	SmartArt Design	SmartArt დიზაინი
+	SmartArt Styles	SmartArt სტილები
+	Smooth scrolling and zooming, and menus and buttons that fade in. Off shows every change at once.	მდორე გადახვევა და მასშტაბირება, ასევე მენიუებისა და ღილაკების მდორე გამოჩენა. „გამორთული“ ყველა ცვლილებას ერთბაშად აჩვენებს.
+	Soft Glow	რბილი ნათება
+	Solid Accent	მყარი აქცენტი
+	Spaces	ჰარები
+	Special	სპეციალური
+	Spelling	მართლწერა
+	Spelling and grammar are checked in English (United States).	მართლწერა და გრამატიკა მოწმდება ინგლისურად (აშშ).
+	Stacked Bar	დაგროვებული ზოლები
+	Stacked Column	დაგროვებული სვეტები
+	Standard	სტანდარტული
+	Start Enforcing Protection	დაცვის ჩართვა
+	Stop Protection	დაცვის გამორთვა
+	Straight Arrow Connector	სწორი ისრიანი შემაერთებელი
+	Straight Connector	სწორი შემაერთებელი
+	Tab Character	ტაბულაციის ნიშანი
+	Tab characters	ტაბულაციის ნიშნები
+	Templates	შაბლონები
+	Templates and Add-ins	შაბლონები და დანამატები
+	Text Fill	ტექსტის შევსება
+	Text Outline	ტექსტის კონტური
+	Text Pane	ტექსტის პანელი
+	Text boxes	ტექსტური ველები
+	The document is read only, except for regions marked editable.	დოკუმენტი მხოლოდ წასაკითხადაა, გარდა რედაქტირებადად მონიშნული უბნებისა.
+	The password is optional; without it anyone can stop the protection.	პაროლი არასავალდებულოა; მის გარეშე დაცვის გამორთვა ნებისმიერს შეუძლია.
+	The printer, two-sided printing and pages per sheet are chosen in that dialog.	პრინტერი, ორმხრივი ბეჭდვა და გვერდების რაოდენობა ფურცელზე იმ ფანჯარაში აირჩევა.
+	The system file dialog isn't available, so Lexicon shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	სისტემის ფაილის ფანჯარა მიუწვდომელია, ამიტომ Lexicon საკუთარს აჩვენებს. სისტემურის მისაღებად დააყენეთ ფაილის არჩევის პორტალი (მაგ. xdg-desktop-portal-gtk) ან zenity.
+	These marks show even when Show/Hide ¶ is off.	ეს ნიშნები ჩანს მაშინაც, როცა „ჩვენება/დამალვა ¶“ გამორთულია.
+	This document	ეს დოკუმენტი
+	This folder can't be read: {error}	საქაღალდის წაკითხვა ვერ მოხერხდა: {error}
+	This password type isn't supported.	პაროლის ეს ტიპი მხარდაჭერილი არ არის.
+	Today	დღეს
+	Toggle Check Box	მოსანიშნი ველის გადართვა
+	Tracked changes	თვალყურდევნებული ცვლილებები
+	Transform	ტრანსფორმაცია
+	Triangle Down	სამკუთხედი ქვემოთ
+	Triangle Up	სამკუთხედი ზემოთ
+	Type	ტიპი
+	Type the categories down the side and a column of values per series.	აკრიფეთ კატეგორიები ვერტიკალურად და მნიშვნელობების სვეტი თითოეული სერიისთვის.
+	Type the password to stop the protection.	დაცვის გასათიშად აკრიფეთ პაროლი.
+	Typing replaces selected text	აკრეფა ცვლის მონიშნულ ტექსტს
+	Unchecked symbol	მოუნიშნავი ველის სიმბოლო
+	Up one level	ერთი დონით ზემოთ
+	Update Styles from Template	სტილების განახლება შაბლონიდან
+	Update fields before printing	ველების განახლება ბეჭდვამდე
+	Use the Insert key to switch overtype on and off	Insert კლავიშით ჩანაცვლების რეჟიმის ჩართვა და გამორთვა
+	Use wildcards	შაბლონური სიმბოლოების გამოყენება
+	Value	მნიშვნელობა
+	Visual effects	ვიზუალური ეფექტები
+	Warm Gradient with Outline	თბილი გრადიენტი კონტურით
+	White Space	ჰარის სიმბოლო
+	White space	ჰარები
+	With:	რით:
+	Word XML Document (*.xml)	Word XML დოკუმენტი (*.xml)
+	Word 2003 XML Document (*.xml)	Word 2003 XML დოკუმენტი (*.xml)
+	Word document	Word დოკუმენტი
+	Word level	სიტყვების დონეზე
+	WordArt Styles	WordArt სტილები
+	Your system doesn't report an animation setting, so animation effects stay on.	თქვენი სისტემა ანიმაციის პარამეტრს არ აცნობებს, ამიტომ ანიმაციის ეფექტები ჩართული რჩება.
+	Your system has animation effects turned off.	თქვენს სისტემაში ანიმაციის ეფექტები გამორთულია.
+	Your system has animation effects turned on.	თქვენს სისტემაში ანიმაციის ეფექტები ჩართულია.
+	{count} of {total} pages will print	დაიბეჭდება {count} გვერდი {total}-დან
+	{name} already exists. Choose Save again to replace it.	{name} უკვე არსებობს. ჩასანაცვლებლად კვლავ აირჩიეთ „შენახვა“.
+	{name} wasn't found.	{name} ვერ მოიძებნა.
+	“{text}” ({row}, {series}) isn't a number.	„{text}“ ({row}, {series}) რიცხვი არ არის.
+	Undo Actions	მოქმედებების გაუქმება
+	Undo History	გაუქმების ისტორია
+	Undo 1 Action	1 მოქმედების გაუქმება
+	Undo {n} Actions	{n} მოქმედების გაუქმება
+	Start-up	გაშვება
+	Show the Start screen when Lexicon starts	საწყისი ეკრანის ჩვენება Lexicon-ის გაშვებისას
+	On: Lexicon opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	ჩართული: Lexicon იხსნება „ფაილი › მთავარი“ გვერდზე ცარიელი დოკუმენტით, შაბლონებით და ბოლო დოკუმენტებით. გამორთული: იხსნება ცარიელი დოკუმენტი.
+	Couldn't make Lexicon the default: {error}	Lexicon-ის ნაგულისხმევად გახდომა ვერ მოხერხდა: {error}
+	In Default apps, choose Lexicon for the document types you want it to open.	„ნაგულისხმევ აპებში“ აირჩიეთ Lexicon იმ დოკუმენტის ტიპებისთვის, რომელთა გახსნაც გსურთ.
+	Make Lexicon the default for Word documents…	Lexicon-ის Word დოკუმენტების ნაგულისხმევ აპად დაყენება…
+	Opens .docx, .doc, .rtf and .odt files and Word templates with Lexicon from now on.	ამიერიდან .docx, .doc, .rtf და .odt ფაილები და Word შაბლონები Lexicon-ით გაიხსნება.
+	Opens Settings › Default apps, where you choose Lexicon for .docx and the other document types.	ხსნის „პარამეტრები › ნაგულისხმევი აპები“, სადაც .docx-ისა და სხვა ტიპებისთვის აირჩევთ Lexicon-ს.
+	To open Word documents with Lexicon by default: select one in Finder, choose File › Get Info, pick Lexicon under Open with, then click Change All.	Word დოკუმენტების ნაგულისხმევად Lexicon-ით გასახსნელად: მონიშნეთ დოკუმენტი Finder-ში, აირჩიეთ File › Get Info, „Open with“-ში აირჩიეთ Lexicon და დააწკაპუნეთ „Change All“.
+	Lexicon is now the default app for Word documents.	Lexicon ახლა Word დოკუმენტების ნაგულისხმევი აპია.
+	Numerals:	ციფრები:
+	Numerals	ციფრები
+	Hindi	ჰინდი
+	Context	კონტექსტი
+	System	სისტემური
+	Odd Banded Rows	კენტი ზოლიანი მწკრივები
+	Even Banded Rows	ლუწი ზოლიანი მწკრივები
+	Odd Banded Columns	კენტი ზოლიანი სვეტები
+	Even Banded Columns	ლუწი ზოლიანი სვეტები
+	Top Left Cell	ზედა მარცხენა უჯრა
+	Top Right Cell	ზედა მარჯვენა უჯრა
+	Bottom Left Cell	ქვედა მარცხენა უჯრა
+	Bottom Right Cell	ქვედა მარჯვენა უჯრა
+	Inside Horizontal Border	შიდა ჰორიზონტალური საზღვარი
+	Inside Vertical Border	შიდა ვერტიკალური საზღვარი
+	Filter Recipients	მიმღებების გაფილტვრა
+	Sort Recipients	მიმღებების დალაგება
+	Filter and Sort	ფილტრი და დალაგება
+	And	და
+	Or	ან
+	Comparison	შედარება
+	Compare to	შესადარებელი
+	Add Condition	პირობის დამატება
+	Remove condition	პირობის წაშლა
+	Sort by	დალაგება
+	Then by	შემდეგ
+	Ascending	ზრდადობით
+	Descending	კლებადობით
+	Equal to	ტოლია
+	Not equal to	არ არის ტოლი
+	Less than	ნაკლებია
+	Greater than	მეტია
+	Less than or equal	ნაკლები ან ტოლი
+	Greater than or equal	მეტი ან ტოლი
+	Is blank	ცარიელია
+	Is not blank	არ არის ცარიელი
+	Contains	შეიცავს
+	Does not contain	არ შეიცავს
+	{count} of {total} recipients will be merged.	შეირწყმება {count} მიმღები {total}-დან.
+	Find in list:	სიაში ძიება:
+	Any field	ნებისმიერი ველი
+	Matches: {count}	დამთხვევები: {count}
+	Show only records that will be merged	მხოლოდ შესარწყმელი ჩანაწერების ჩვენება
+	Book Title	წიგნის სათაური
+	Category	კატეგორია
+	Contributors	მონაწილეები
+	Emphasis	აქცენტი
+	Endnote Reference	ბოლო სქოლიოს ნიშანი
+	Endnote Text	ბოლო სქოლიოს ტექსტი
+	Footnote Reference	სქოლიოს ნიშანი
+	Footnote Text	სქოლიოს ტექსტი
+	Hyperlink	ჰიპერბმული
+	Intense Emphasis	ძლიერი აქცენტი
+	Intense Quote	გამოკვეთილი ციტატა
+	Intense Reference	ძლიერი მითითება
+	Keywords	საკვანძო სიტყვები
+	No Spacing	ინტერვალის გარეშე
+	Quote	ციტატა
+	Strong	მკაცრი
+	Subject	თემა
+	Subtitle	ქვესათაური
+	Subtle Emphasis	სუსტი აქცენტი
+	Subtle Reference	სუსტი მითითება
+	TOC Heading	სარჩევის სათაური
+	TOC {n}	სარჩევი {n}
+	List Paragraph	სიის აბზაცი
+	Models	მოდელები
+	Show KeyTips (Alt or F10)	კლავიშების მინიშნებების ჩვენება (Alt ან F10)
+	Reading	კითხვა
+	Reading Column Width	კითხვის სვეტის სიგანე
+	Reading Line Spacing	კითხვის ხაზთაშორისი ინტერვალი
+	Reading Text Size	კითხვის ტექსტის ზომა
+	Correct TWo INitial CApitals	ორი თავკიდური მთავრულის გასწორება
+	Correct accidental usage of cAPS LOCK key	CAPS LOCK-ის შემთხვევითი გამოყენების გასწორება
+	Region:	რეგიონი:
+	Automatic ({region})	ავტომატური ({region})
+	Text of the nearest paragraph with a given style (running headers)	მოცემული სტილის უახლოესი აბზაცის ტექსტი (ცოცხალი კოლონტიტულები)
+	Style name:	სტილის სახელი:
+	Take the last match on the page	გვერდზე ბოლო დამთხვევის აღება
+	Show its list number	მისი ნომრის ჩვენება სიაში
+	Show its number relative to this field	მისი ნომრის ჩვენება ამ ველის მიმართ
+	Show its number with all higher levels	მისი ნომრის ჩვენება ყველა ზედა დონით
+	Number only, without the label's words	მხოლოდ ნომერი, წარწერის სიტყვების გარეშე
+	Add whether it is above or below	დამატება, ზემოთაა თუ ქვემოთ
+	AaBbCcDd	ააბბგგდდ
+	Annotation Reference	შენიშვნის ნიშანი
+	Annotation Subject	შენიშვნის თემა
+	Annotation Text	შენიშვნის ტექსტი
+	Body text in a short paragraph to show spacing.	ძირითადი ტექსტი მოკლე აბზაცში ინტერვალების საჩვენებლად.
+	Default Paragraph Font	აბზაცის ნაგულისხმევი შრიფტი
+	Envelope Address	კონვერტის მისამართი
+	Envelope Return	დასაბრუნებელი მისამართი
+	Index Heading	საძიებლის სათაური
+	Index {n}	საძიებელი {n}
+	Line Number	ხაზის ნომერი
+	Normal	ჩვეულებრივი
+	Normal Indent	ჩვეულებრივი შეწევა
+	Normal Table	ჩვეულებრივი ცხრილი
+	Table Grid	ცხრილის ბადე
+	Table of Figures	ილუსტრაციების სია
+preview	Title	ნიმუში
+	TOA Heading	ბმულების ცხრილის სათაური
+	Good evening	საღამო მშვიდობისა
+	Good morning	დილა მშვიდობისა
+	Good afternoon	დღე მშვიდობისა
+	tOGGLE cASE	რეგისტრის შებრუნება
+	Change to Level 1	1-ლ დონეზე გადასვლა
+	Change to Level 2	მე-2 დონეზე გადასვლა
+	Change to Level 3	მე-3 დონეზე გადასვლა
+	Change to Level 4	მე-4 დონეზე გადასვლა
+	Change to Level 5	მე-5 დონეზე გადასვლა
+	Level 1	დონე 1
+	Level 2	დონე 2
+	Level 3	დონე 3
+	ASAP	სასწრაფოდ
+	CONFIDENTIAL	კონფიდენციალური
+	DO NOT COPY	არ დააკოპიროთ
+	DRAFT	მონახაზი
+	SAMPLE	ნიმუში
+	URGENT	სასწრაფო!
+	Plain Table 1	მარტივი ცხრილი 1
+	Grid Table 1 Light	ბადისებრი ცხრილი 1, ღია
+	Grid Table 4 – Blue	ბადისებრი ცხრილი 4 — ლურჯი
+	Grid Table 4 – Green	ბადისებრი ცხრილი 4 — მწვანე
+	Grid Table 4 – Orange	ბადისებრი ცხრილი 4 — ნარინჯისფერი
+	Grid Table 4 – Purple	ბადისებრი ცხრილი 4 — იისფერი
+	List Table 3 – Blue	სიისებრი ცხრილი 3 — ლურჯი
+	List Table 3 – Green	სიისებრი ცხრილი 3 — მწვანე
+	List Table 3 – Orange	სიისებრი ცხრილი 3 — ნარინჯისფერი
+	List Table 3 – Purple	სიისებრი ცხრილი 3 — იისფერი
+	Convert between built-up and linear form	პროფესიულ და წრფივ ფორმებს შორის გადართვა
+	Justification of a display equation	ცალკე განტოლების გასწორება
+	Number the equation; the number sits at the right margin (or type # then the number)	განტოლების დანომვრა; ნომერი მარჯვენა მინდორთანაა (ან აკრიფეთ # და ნომერი)
+	Show the equation in the line of text	განტოლების ჩვენება ტექსტის ხაზში
+	Show the equation on a line of its own	განტოლების ჩვენება ცალკე ხაზზე
+	Type equations in LaTeX	განტოლებების LaTeX-ით აკრეფა
+	Type equations in the linear format (UnicodeMath)	განტოლებების წრფივ ფორმატში აკრეფა (UnicodeMath)
+	Type normal (non-math) text in the equation	განტოლებაში ჩვეულებრივი (არამათემატიკური) ტექსტის აკრეფა
+	Sides of a right triangle	მართკუთხა სამკუთხედის გვერდები
+	Circle area from its radius	წრის ფართობი რადიუსით
+	Roots of ax²+bx+c	ax²+bx+c-ის ფესვები
+	Binomial expansion of (x+a)ⁿ	(x+a)ⁿ-ის ბინომური გაშლა
+	Power series of (1+x)ⁿ	(1+x)ⁿ-ის ხარისხოვანი მწკრივი
+	Euler's identity	ეილერის იგივეობა
+	Derivative as a limit	წარმოებული როგორც ზღვარი
+	Exponential series	ექსპონენტის მწკრივი
+	Integral of e^(−x²)	e^(−x²)-ის ინტეგრალი
+	Sine and cosine series of f(x)	f(x)-ის ფურიეს მწკრივი
+	Sum or difference of sines	სინუსების ჯამი ან სხვაობა
+	Sum of cosines	კოსინუსების ჯამი
+	Normal probability density	ნორმალური განაწილების სიმკვრივე
+	Bayes' rule	ბაიესის ფორმულა
+	Accents	დიაკრიტიკული ნიშნები
+	Basic Math	ძირითადი მათემატიკური
+	Boxed Formulas	ჩარჩოში ჩასმული ფორმულები
+	Cases and Stacks	სისტემები და სვეტები
+	Common Accent Objects	ხშირი დიაკრიტიკული ობიექტები
+	Common Brackets	ხშირი ფრჩხილები
+	Common Fractions	ხშირი წილადები
+	Common Functions	ხშირი ფუნქციები
+	Common Large Operators	ხშირი დიდი ოპერატორები
+	Common Operator Structures	ოპერატორების ხშირი სტრუქტურები
+	Common Operators	ხშირი ოპერატორები
+	Common Radicals	ხშირი ფესვები
+	Common Subscripts and Superscripts	ხშირი ინდექსები
+	Contour Integrals	კონტურული ინტეგრალები
+	Differentials	დიფერენციალები
+	Dots	მრავალწერტილები
+	Empty Matrices	ცარიელი მატრიცები
+	Functions	ფუნქციები
+	Geometry	გეომეტრია
+	Greek Letters	ბერძნული ასოები
+	Hyperbolic Functions	ჰიპერბოლური ფუნქციები
+	Identity Matrices	ერთეულოვანი მატრიცები
+	Integrals	ინტეგრალები
+	Inverse Functions	შებრუნებული ფუნქციები
+	Inverse Hyperbolic Functions	შებრუნებული ჰიპერბოლური ფუნქციები
+	Letter-Like Symbols	ასოსმაგვარი სიმბოლოები
+	Matrices with Brackets	მატრიცები ფრჩხილებით
+	Negated Relations	მიმართებების უარყოფები
+	Operator Structures	ოპერატორების სტრუქტურები
+	Operators	ოპერატორები
+	Other Large Operators	სხვა დიდი ოპერატორები
+	Overbars and Underbars	ზედა და ქვედა ხაზები
+	Products and Coproducts	ნამრავლები და თანანამრავლები
+	Radicals	ფესვები
+	Scripts	ინდექსები
+	Single Brackets	ერთეული ფრჩხილები
+	Sparse Matrices	იშვიათი მატრიცები
+	Subscripts and Superscripts	ქვედა და ზედა ინდექსები
+	Summations	ჯამები
+	Trigonometric Functions	ტრიგონომეტრიული ფუნქციები
+	Unions and Intersections	გაერთიანებები და თანაკვეთები
+	1×2 Empty Matrix	1×2 ცარიელი მატრიცა
+	1×3 Empty Matrix	1×3 ცარიელი მატრიცა
+	2×1 Empty Matrix	2×1 ცარიელი მატრიცა
+	2×2 Empty Matrix	2×2 ცარიელი მატრიცა
+	2×3 Empty Matrix	2×3 ცარიელი მატრიცა
+	3×1 Empty Matrix	3×1 ცარიელი მატრიცა
+	3×2 Empty Matrix	3×2 ცარიელი მატრიცა
+	3×3 Empty Matrix	3×3 ცარიელი მატრიცა
+	2×2 Determinant	2×2 დეტერმინანტი
+	2×2 Identity Matrix	2×2 ერთეულოვანი მატრიცა
+	2×2 Identity Matrix (sparse)	2×2 ერთეულოვანი მატრიცა (იშვიათი)
+	3×3 Identity Matrix	3×3 ერთეულოვანი მატრიცა
+	3×3 Identity Matrix (sparse)	3×3 ერთეულოვანი მატრიცა (იშვიათი)
+	2×2 Matrix in Brackets	2×2 მატრიცა კვადრატულ ფრჩხილებში
+	2×2 Matrix in Double Bars	2×2 მატრიცა ორმაგ ვერტიკალურ ხაზებში
+	2×2 Matrix in Parentheses	2×2 მატრიცა მრგვალ ფრჩხილებში
+	n×n Identity Matrix	n×n ერთეულოვანი მატრიცა
+	n×n Matrix	n×n მატრიცა
+	A xor B	A გამომრიცხავი ან B
+	Absolute value cases	შემთხვევებიანი განტოლება
+	Acute	მახვილი
+	Angle Brackets	კუთხოვანი ფრჩხილები
+	Angle Brackets with Separator	კუთხოვანი ფრჩხილები გამყოფით
+	Angle Brackets with Two Separators	კუთხოვანი ფრჩხილები ორი გამყოფით
+	Baseline Dots	საბაზისო ხაზის მრავალწერტილი
+	Binomial Coefficient	ბინომური კოეფიციენტი
+	Binomial Coefficient (angle)	ბინომური კოეფიციენტი (კუთხოვანი)
+	Binomial Coefficient with Angle Brackets	ბინომური კოეფიციენტი კუთხოვან ფრჩხილებში
+	Boxed Formula	ჩარჩოში ჩასმული ფორმულა
+	Boxed Formula (example)	ჩარჩოში ჩასმული ფორმულა (მაგალითი)
+	Braces	ფიგურული ფრჩხილები
+	Braces with Separator	ფიგურული ფრჩხილები გამყოფით
+	Brackets	კვადრატული ფრჩხილები
+	Brackets with Separators	ფრჩხილები გამყოფებით
+	Breve	ბრევისი
+	Cases (Three Conditions)	სისტემა (სამი პირობა)
+	Cases (Two Conditions)	სისტემა (ორი პირობა)
+	Ceiling	ზემოთ დამრგვალება
+	Change in y over change in x	y-ის ნაზრდი x-ის ნაზრდთან
+	Check	ნიშანი ✓
+	Circled Dot	წერტილი წრეში
+	Circled Plus	პლიუსი წრეში
+	Circled Times	გამრავლება წრეში
+	Colon Equal	ორწერტილი-ტოლობა
+	Contour Integral	კონტურული ინტეგრალი
+	Contour Integral with Limits	კონტურული ინტეგრალი ზღვრებით
+	Contour Integral with Stacked Limits	კონტურული ინტეგრალი ზედა-ქვედა ზღვრებით
+	Coproduct	თანანამრავლი
+	Coproduct with Limits	თანანამრავლი ზღვრებით
+	Coproduct with Lower Limit	თანანამრავლი ქვედა ზღვრით
+	Coproduct with Subscript-Superscript Limits	თანანამრავლი ინდექსური ზღვრებით
+	Cosecant Function	კოსეკანსი
+	Cosine 2x	კოსინუსი 2x
+	Cosine Function	კოსინუსი
+	Cotangent Function	კოტანგენსი
+	Cube Root	კუბური ფესვი
+	Delta Equal To	დელტა ტოლია
+	Delta over arrow	დელტა ისრის ზემოთ
+	Diagonal Dots	დიაგონალური მრავალწერტილი
+	Differential	დიფერენციალი
+	Differential theta	დიფერენციალი თეტა
+	Differential x	დიფერენციალი x
+	Differential y	დიფერენციალი y
+	Dot	წერტილი
+	Double Bar	ორმაგი ხაზი
+	Double Dot	ორი წერტილი
+	Double Integral	ორმაგი ინტეგრალი
+	Double Integral with Limits	ორმაგი ინტეგრალი ზღვრებით
+	Double Integral with Stacked Limits	ორმაგი ინტეგრალი ზედა-ქვედა ზღვრებით
+	Double Left Arrow with Text Above	ორმაგი ისარი მარცხნივ ტექსტით ზემოთ
+	Double Left Arrow with Text Below	ორმაგი ისარი მარცხნივ ტექსტით ქვემოთ
+	Double Left Right Arrow with Text Above	ორმაგი ორმხრივი ისარი ტექსტით ზემოთ
+	Double Left Right Arrow with Text Below	ორმაგი ორმხრივი ისარი ტექსტით ქვემოთ
+	Double Right Arrow with Text Above	ორმაგი ისარი მარჯვნივ ტექსტით ზემოთ
+	Double Right Arrow with Text Below	ორმაგი ისარი მარჯვნივ ტექსტით ქვემოთ
+	Double Square Brackets	ორმაგი კვადრატული ფრჩხილები
+	Double Vertical Bars	ორმაგი ვერტიკალური ხაზები
+	Double summation	ორმაგი ჯამი
+	Equal Equal	ტოლი-ტოლი
+	Equal by Definition	ტოლია განსაზღვრებით
+	Exponential	ექსპონენტი
+	Floor	ქვემოთ დამრგვალება
+	Grave	მძიმე მახვილი
+	Grouping Character Above	დამაჯგუფებელი ნიშანი ზემოთ
+	Grouping Character Below	დამაჯგუფებელი ნიშანი ქვემოთ
+	Hat	ქუდი
+	Hyperbolic Cosecant Function	ჰიპერბოლური კოსეკანსი
+	Hyperbolic Cosine Function	ჰიპერბოლური კოსინუსი
+	Hyperbolic Cotangent Function	ჰიპერბოლური კოტანგენსი
+	Hyperbolic Secant Function	ჰიპერბოლური სეკანსი
+	Hyperbolic Sine Function	ჰიპერბოლური სინუსი
+	Hyperbolic Tangent Function	ჰიპერბოლური ტანგენსი
+	Hypotenuse	ჰიპოტენუზა
+	Integral with Limits	ინტეგრალი ზღვრებით
+	Integral with Stacked Limits	ინტეგრალი ზედა-ქვედა ზღვრებით
+	Intersection	თანაკვეთა
+	Intersection with Limits	თანაკვეთა ზღვრებით
+	Intersection with Lower Limit	თანაკვეთა ქვედა ზღვრით
+	Intersection with Subscript-Superscript Limits	თანაკვეთა ინდექსური ზღვრებით
+	Inverse Cosecant Function	არკკოსეკანსი
+	Inverse Cosine Function	არკკოსინუსი
+	Inverse Cotangent Function	არკკოტანგენსი
+	Inverse Hyperbolic Cosecant Function	შებრუნებული ჰიპერბოლური კოსეკანსი
+	Inverse Hyperbolic Cosine Function	შებრუნებული ჰიპერბოლური კოსინუსი
+	Inverse Hyperbolic Cotangent Function	შებრუნებული ჰიპერბოლური კოტანგენსი
+	Inverse Hyperbolic Secant Function	შებრუნებული ჰიპერბოლური სეკანსი
+	Inverse Hyperbolic Sine Function	შებრუნებული ჰიპერბოლური სინუსი
+	Inverse Hyperbolic Tangent Function	შებრუნებული ჰიპერბოლური ტანგენსი
+	Inverse Secant Function	არკსეკანსი
+	Inverse Sine Function	არკსინუსი
+	Inverse Tangent Function	არკტანგენსი
+	Left Arrow with Text Above	ისარი მარცხნივ ტექსტით ზემოთ
+	Left Arrow with Text Below	ისარი მარცხნივ ტექსტით ქვემოთ
+	Left Bracket Twice	ორი მარცხენა კვადრატული ფრჩხილი
+	Left Right Arrow Above	ორმხრივი ისარი ზემოთ
+	Left Right Arrow with Text Above	ორმხრივი ისარი ტექსტით ზემოთ
+	Left Right Arrow with Text Below	ორმხრივი ისარი ტექსტით ქვემოთ
+	Left Subscript-Superscript	მარცხენა ქვედა და ზედა ინდექსები
+	Leftwards Arrow Above	მარცხენა ისარი ზემოთ
+	Leftwards Harpoon Above	მარცხენა ჰარპუნი ზემოთ
+	Limit	ზღვარი
+	Limit Example	ზღვრის მაგალითი
+	Linear Fraction	წრფივი წილადი
+	Logarithm	ლოგარითმი
+	Logarithm with Base	ლოგარითმი ფუძით
+	Logical AND	ლოგიკური და
+	Logical AND with Limits	ლოგიკური და ზღვრებით
+	Logical OR	ლოგიკური ან
+	Logical OR with Limits	ლოგიკური ან ზღვრებით
+	Maximum	მაქსიმუმი
+	Maximum Example	მაქსიმუმის მაგალითი
+	Measured By	საზომი ერთეული
+	Midline Dots	შუა ხაზის მრავალწერტილი
+	Minimum	მინიმუმი
+	Minus Equal	მინუს-ტოლობა
+	Natural Logarithm	ნატურალური ლოგარითმი
+	One half	ერთი მეორედი
+	Outward Brackets	გარე კვადრატული ფრჩხილები
+	Overbar	ხაზი ზემოთ
+	Overbrace	ფიგურული ფრჩხილი ზემოთ
+	Parentheses	მრგვალი ფრჩხილები
+	Parentheses with Separator	მრგვალი ფრჩხილები გამყოფით
+	Partial Differential	კერძო დიფერენციალი
+	Pi Over 2	პი გაყოფილი 2-ზე
+	Plus Equal	პლიუს-ტოლობა
+	Product	ნამრავლი
+	Product of A	A-ს ნამრავლი
+	Product with Limits	ნამრავლი ზღვრებით
+	Product with Lower Limit	ნამრავლი ქვედა ზღვრით
+	Product with Subscript-Superscript Limits	ნამრავლი ინდექსური ზღვრებით
+	Quadratic Root	კვადრატული განტოლების ფესვი
+	Radical with Degree	ფესვი ხარისხით
+	Right Arrow with Text Above	ისარი მარჯვნივ ტექსტით ზემოთ
+	Right Arrow with Text Below	ისარი მარჯვნივ ტექსტით ქვემოთ
+	Right Bracket Twice	ორი მარჯვენა კვადრატული ფრჩხილი
+	Rightwards Arrow Above	მარჯვენა ისარი ზემოთ
+	Rightwards Harpoon Above	მარჯვენა ჰარპუნი ზემოთ
+	Secant Function	სეკანსი
+	Sine Function	სინუსი
+	Sine theta	სინუსი თეტა
+	Single Left Angle	ერთეული მარცხენა კუთხოვანი ფრჩხილი
+	Single Left Bar	ერთეული მარცხენა ხაზი
+	Single Left Brace	ერთეული მარცხენა ფიგურული ფრჩხილი
+	Single Left Bracket	ერთეული მარცხენა კვადრატული ფრჩხილი
+	Single Left Parenthesis	ერთეული მარცხენა მრგვალი ფრჩხილი
+	Single Right Brace	ერთეული მარჯვენა ფიგურული ფრჩხილი
+	Single Right Bracket	ერთეული მარჯვენა კვადრატული ფრჩხილი
+	Single Right Parenthesis	ერთეული მარჯვენა მრგვალი ფრჩხილი
+	Skewed Fraction	დახრილი წილადი
+	Small change	მცირე ნაზრდი
+	Square Root	კვადრატული ფესვი
+	Square Root with Degree	კვადრატული ფესვი ხარისხით
+	Square Union	კვადრატული გაერთიანება
+	Stack Object	დაწყობილი ობიექტი
+	Stack Object (Three)	დაწყობილი ობიექტი (სამი)
+	Stacked Fraction	ვერტიკალური წილადი
+	Stacked, no bar	ერთმანეთზე, ხაზის გარეშე
+	Subscript-Superscript	ქვედა და ზედა ინდექსები
+	Summation	ჯამი
+	Summation from 0 to n	ჯამი 0-დან n-მდე
+	Summation over binomials	ბინომური კოეფიციენტების ჯამი
+	Summation with Limits	ჯამი ზღვრებით
+	Summation with Lower Limit	ჯამი ქვედა ზღვრით
+	Summation with Subscript Limit	ჯამი ინდექსური ზღვრით
+	Summation with Subscript-Superscript Limits	ჯამი ინდექსური ზღვრებით
+	Surface Integral	ზედაპირული ინტეგრალი
+	Surface Integral with Limits	ზედაპირული ინტეგრალი ზღვრებით
+	Surface Integral with Stacked Limits	ზედაპირული ინტეგრალი ზედა-ქვედა ზღვრებით
+	Tangent Function	ტანგენსი
+	Tangent formula	ტანგენსის ფორმულა
+	Text over Colon Equal	ტექსტი ორწერტილი-ტოლობის ზემოთ
+	Text over Equal	ტექსტი ტოლობის ნიშნის ზემოთ
+	Tilde	ტილდა
+	Triple Dot	სამი წერტილი
+	Triple Integral	სამმაგი ინტეგრალი
+	Triple Integral with Limits	სამმაგი ინტეგრალი ზღვრებით
+	Triple Integral with Stacked Limits	სამმაგი ინტეგრალი ზედა-ქვედა ზღვრებით
+	Underbar	ხაზი ქვემოთ
+	Underbrace	ფიგურული ფრჩხილი ქვემოთ
+	Union	გაერთიანება
+	Union of intersections	თანაკვეთების გაერთიანება
+	Union with Limits	გაერთიანება ზღვრებით
+	Union with Lower Limit	გაერთიანება ქვედა ზღვრით
+	Union with Plus	გაერთიანება პლიუსით
+	Union with Subscript-Superscript Limits	გაერთიანება ინდექსური ზღვრებით
+	Up Diagonal Dots	დიაგონალური მრავალწერტილი ზემოთ
+	Vector A	ვექტორი A
+	Vector AB	ვექტორი AB
+	Vertical Bars	ვერტიკალური ხაზები
+	Vertical Dots	ვერტიკალური მრავალწერტილი
+	Volume Integral	მოცულობითი ინტეგრალი
+	Volume Integral with Limits	მოცულობითი ინტეგრალი ზღვრებით
+	Volume Integral with Stacked Limits	მოცულობითი ინტეგრალი ზედა-ქვედა ზღვრებით
+	Yields	გამოსავალი
+	x bar	x ხაზით
+	All - Linear	ყველა — წრფივი
+	All - Professional	ყველა — პროფესიული
+	Current - Linear	მიმდინარე — წრფივი
+	Current - Professional	მიმდინარე — პროფესიული
+	Centered as Group	ცენტრში ჯგუფად
+	✓ None	✓ არცერთი
+	Change to Level 6	მე-6 დონეზე გადასვლა
+	Change to Level 7	მე-7 დონეზე გადასვლა
+	Change to Level 8	მე-8 დონეზე გადასვლა
+	Change to Level 9	მე-9 დონეზე გადასვლა
+	Level 4	დონე 4
+	Level 5	დონე 5
+	Level 6	დონე 6
+	Level 7	დონე 7
+	Level 8	დონე 8
+	Level 9	დონე 9
+	Typing	აკრეფა
+	Search	ძიება
+	Title Bar	სათაურის ზოლი
+	Copy to	კოპირება:
+	Rename Document	დოკუმენტის გადარქმევა
+	Document name	დოკუმენტის სახელი
+	Rename	გადარქმევა
+	Account	ანგარიში
+	Privacy Options	კონფიდენციალურობის პარამეტრები
+	Trust Center	ნდობის ცენტრი
+	Privacy for this document	ამ დოკუმენტის კონფიდენციალურობა
+	Remove my name from comments, changes and file properties when saving	შენახვისას ჩემი სახელის წაშლა კომენტარებიდან, ცვლილებებიდან და ფაილის თვისებებიდან
+	Leave out the date and time of comments and tracked changes when saving	შენახვისას კომენტარებისა და ცვლილებების თარიღისა და დროის გამოტოვება
+	The document you are editing keeps the names and dates; only the saved file leaves them out.	რედაქტირებადი დოკუმენტი ინახავს სახელებსა და თარიღებს; ისინი მხოლოდ შენახულ ფაილში არ იქნება.
+	Privacy Settings	კონფიდენციალურობის პარამეტრები
+	Waiting for the save to finish…	შენახვის დასრულების ლოდინი…
+	Saving {name} was cancelled, so it is still open and nothing was lost.	{name}-ის შენახვა გაუქმდა, ამიტომ ის კვლავ ღიაა და არაფერი დაკარგულა.
+	Paper	ქაღალდი
+	Paper size:	ქაღალდის ზომა:
+	Custom size	მორგებული ზომა
+	More Paper Sizes…	ქაღალდის სხვა ზომები…
+	The margins don't fit on a page this size; make the margins smaller first.	მინდვრები ამ ზომის გვერდზე არ ეტევა; ჯერ შეამცირეთ მინდვრები.
+	Full Screen	მთელ ეკრანზე
+	Full\nScreen	მთელ\nეკრანზე
+	Use the browser's full screen (F11)	გამოიყენეთ ბრაუზერის სრულეკრანიანი რეჟიმი (F11)
+	{name}   {height} × {width} in	{name}   {height} × {width} დიუიმი
+	{name}   {height} × {width} mm	{name}   {height} × {width} მმ
+	{width} × {height} mm	{width} × {height} მმ
+	{kind}, {columns} × {rows}, {size} ({paper})	{kind}, {columns} × {rows}, {size} ({paper})
+	Researcher needs an online service; Lexicon keeps your documents offline.	მკვლევარს ონლაინ სერვისი სჭირდება, Lexicon კი თქვენს დოკუმენტებს ოფლაინ ინახავს.
+	These settings will be used for new documents.	ეს პარამეტრები ახალი დოკუმენტებისთვის გამოიყენება.
+	can't split at the first row	პირველ მწკრივზე გაყოფა შეუძლებელია
+	select two or more cells to merge	გასაერთიანებლად მონიშნეთ ორი ან მეტი უჯრა
+	there is no ink to replay	გასამეორებელი ხელნაწერი არ არის
+	there's no citation after the caret	კურსორის შემდეგ ციტატა არ არის
+	this item is already at the top level	ეს ელემენტი უკვე ზედა დონეზეა
+	Envelope #10	კონვერტი №10
+	Envelope DL	კონვერტი DL
+	Reading Mode	კითხვის რეჟიმი
+	Column width	სვეტის სიგანე
+	Text size	ტექსტის ზომა
+	Edit Document	დოკუმენტის რედაქტირება
+	Go to what:	გადასვლა:
+	Type +2 or -1 to move from the page you are on.	აკრიფეთ +2 ან -1 მიმდინარე გვერდიდან გადასასვლელად.
+	Suggested	შემოთავაზებული
+	Set Proofing Language…	მართლწერის შემოწმების ენის არჩევა…
+	Language Preferences…	ენის პარამეტრები…
+	APA	APA
+	Chicago	Chicago
+	GB/T 7714	GB/T 7714
+	GOST (name sort)	GOST (გვარის მიხედვით)
+	GOST (title sort)	GOST (სათაურის მიხედვით)
+	Harvard (Anglia)	Harvard (Anglia)
+	IEEE	IEEE
+	ISO 690 (author-date)	ISO 690 (ავტორი–თარიღი)
+	ISO 690 (numerical)	ISO 690 (რიცხვითი)
+	MLA	MLA
+	SIST02	SIST02
+	Turabian	Turabian
+	Large	დიდი
+	Limit and	ზღვარი და
+	Log	ლოგარითმი
+	Printer	პრინტერი
+	Select a printer	აირჩიეთ პრინტერი
+	Refresh printers	პრინტერების განახლება
+	Two-sided printing	ორმხრივი ბეჭდვა
+	Printer default	პრინტერის ნაგულისხმევი
+	One-sided	ცალმხრივი
+	Two-sided: long edge	ორმხრივი: გრძელი კიდე
+	Two-sided: short edge	ორმხრივი: მოკლე კიდე
+	Grayscale	ნაცრისფერის ტონები
+	Finding printers…	პრინტერების ძიება…
+	No printers found. Configure a system printer or export a PDF.	პრინტერები ვერ მოიძებნა. დააყენეთ სისტემური პრინტერი ან გაიტანეთ PDF.
+	Printer discovery failed.	პრინტერების ძიება ვერ მოხერხდა.
+	Submitting print job…	ბეჭდვის დავალების გაგზავნა…
+	Print job submitted.	ბეჭდვის დავალება გაიგზავნა.
+	Print job submitted: {receipt}	ბეჭდვის დავალება გაიგზავნა: {receipt}
+	Print failed: the printing worker stopped.	ბეჭდვა ვერ მოხერხდა: ბეჭდვის პროცესი შეჩერდა.
+	Print settings	ბეჭდვის პარამეტრები
+	Submit print job	ბეჭდვის დავალების გაგზავნა
+	For which item:	რომელი ელემენტისთვის:
+	Heading	სათაური
+	Heading text	სათაურის ტექსტი
+	Insert reference to:	ბმულის ჩასმა:
+	Reference type:	ბმულის ტიპი:
+	Dictionaries	ლექსიკონები
+	Dictionaries folder:	ლექსიკონების საქაღალდე:
+	Not set: the system's usual places	არ არის მითითებული: სისტემის ჩვეული ადგილები
+	Hunspell .aff and .dic files here (pl_PL, pt_BR, it_IT, hr_HR, tr_TR) are used before the system's.	აქ არსებული Hunspell .aff და .dic ფაილები (pl_PL, pt_BR, it_IT, hr_HR, tr_TR) სისტემურზე ადრე გამოიყენება.
+	{language}: {file}	{language}: {file}
+	{language}: no dictionary found	{language}: ლექსიკონი ვერ მოიძებნა
+	Recover	აღდგენა
+	Mirror margins	სარკისებური მინდვრები
+	Existing File or Web Page	არსებული ფაილი ან ვებგვერდი
+	Link to:	დაკავშირება:
+	Place in This Document	ადგილი ამ დოკუმენტში
+	Column {n}	სვეტი {n}
+	Header row	სათაურის მწკრივი
+	No header row	სათაურის მწკრივის გარეშე
+	My list has	ჩემს სიას აქვს
+	Formula:	ფორმულა:
+	Paste function:	ფუნქციის ჩასმა:
+	Narrow	ვიწრო
+	Medium	საშუალო
+	Merge cells before split	უჯრების გაერთიანება გაყოფამდე
+	Table size	ცხრილის ზომა
+	AutoFit behavior	ავტომორგების ქცევა
+	Initial column width:	სვეტის საწყისი სიგანე:
+	AutoFit to contents	შიგთავსის მიხედვით მორგება
+	AutoFit to window	ფანჯრის მიხედვით მორგება
+	Separate text at	ტექსტის გამყოფი
+	Commas	მძიმეები
+	Other:	სხვა:
+	The number must be between 1 and {max}.	რიცხვი უნდა იყოს 1-დან {max}-მდე.
+	The measurement must be between {min} and {max}.	ზომა უნდა იყოს {min}-დან {max}-მდე.
+	Recently Used Fonts	ბოლოს გამოყენებული შრიფტები
+	All Fonts	ყველა შრიფტი
+	Spike	ყულაბა
+	Insert Spike	ყულაბიდან ჩასმა
+	Added 1 font	დაემატა 1 შრიფტი
+	Added {n} fonts	დაემატა {n} შრიფტი
+	{added}; {count} couldn't be read: {names}	{added}; {count} ვერ წაიკითხა: {names}
+	{names} and {n} more	{names} და კიდევ {n}
+	{added}; {n} skipped (limit {max})	{added}; გამოტოვებულია {n} (ლიმიტი {max})
+	nothing is selected	არაფერია მონიშნული
+	select a picture or shape first	ჯერ მონიშნეთ სურათი ან ფიგურა
+	select recipients first	ჯერ აირჩიეთ მიმღებები
+	select two or more pictures or shapes first (Shift+click)	ჯერ მონიშნეთ ორი ან მეტი სურათი ან ფიგურა (Shift+დაწკაპუნება)
+	text boxes can't go inside a text box	ტექსტური ველი ვერ მოთავსდება ტექსტურ ველში
+	the cursor isn't in a table	კურსორი ცხრილში არ არის
+	{name} options	{name}: პარამეტრები
+	Dropped	ტექსტში
+	In margin	მინდორზე
+	Drop Cap Options…	ასომთავრულის პარამეტრები…
+	Lines to drop:	სიმაღლე ხაზებში:
+	Distance from text:	მანძილი ტექსტიდან:
+	Distance from text	მანძილი ტექსტიდან
+	the paragraph is empty	აბზაცი ცარიელია
+	the paragraph starts with a space	აბზაცი ჰარით იწყება
+	Lock aspect ratio	პროპორციების შენარჩუნება
+	Relative to original picture size	სურათის საწყისი ზომის მიმართ
+	Original size	საწყისი ზომა
+	{width} × {height} pixels	{width} × {height} პიქსელი
+	Type a size in any unit, such as 5 cm or 300 px. The other side follows, so the picture keeps its proportions.	აკრიფეთ ზომა ნებისმიერ ერთეულში, მაგალითად 5 cm ან 300 px. მეორე მხარე შესაბამისად შეიცვლება და სურათი პროპორციებს შეინარჩუნებს.
+	Import…	იმპორტი…
+	Armenian	სომხური
+	Georgian	ქართული
+	Azerbaijani	აზერბაიჯანული

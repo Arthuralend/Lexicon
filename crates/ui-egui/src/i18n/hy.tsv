@@ -1,0 +1,2675 @@
+# Armenian (hy) interface catalog. Columns, separated by a TAB:
+#   context <TAB> English source <TAB> translation
+#   context    usually empty. `preview` words sample text inside rendered previews (the Design
+#              tab's style-set tiles), which must fit a small tile; it falls back to the plain entry.
+#   source     the English text exactly as in the code (tl!(...), ribbon labels, command labels)
+#   escapes    \n  \t  \\  inside a column. `{name}` placeholders must appear in both columns, and a
+#              trailing "…" in one needs one in the other.
+#   Lines starting with # and blank lines are ignored. A missing entry shows in English.
+#
+# Clean room: written for Lexicon from the plain meaning of the English labels (and the Russian
+# catalog's wording) in ordinary computing vocabulary; no other product's localisation was
+# consulted or copied. Machine-assisted first version: corrections by native speakers welcome.
+# Product, format and technology names (Lexicon, PDF, Markdown, MCP …) stay in Latin letters.
+
+	(no suggestions)	(առաջարկներ չկան)
+	1.5 Line Spacing	1,5 միջտողային տարածություն
+	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	Անվճար, բաց կոդով տեքստային խմբագիր՝ գրված Rust-ով, ռուսերեն և անգլերեն ուղղագրությամբ։\nՀիմնված է ArtCraft թիմի WordCraft-ի վրա։
+	About	Ծրագրի մասին
+	About Lexicon	Lexicon-ի մասին
+	Accept	Ընդունել
+	Accept All Changes	Ընդունել բոլոր փոփոխությունները
+	Accept This Change	Ընդունել այս փոփոխությունը
+	Accessibility	Մատչելիություն
+	Add	Ավելացնել
+	Add Space Before Paragraph	Ավելացնել տարածություն պարբերությունից առաջ
+	Add Text	Ավելացնել տեքստ
+	Add a Table	Ավելացնել աղյուսակ
+	Add a comment	Ավելացնել մեկնաբանություն
+	Add to Dictionary	Ավելացնել բառարանում
+	Add to Style Gallery	Ավելացնել ոճերի պատկերասրահում
+	Address Block	Հասցեի բլոկ
+	Address:	Հասցե՝
+	Address\nBlock	Հասցեի\nբլոկ
+	Adjust	Կարգավորել
+	Advanced	Լրացուցիչ
+	Advanced Find	Ընդլայնված որոնում
+	Advanced Find…	Ընդլայնված որոնում…
+	After:	Հետո՝
+	Agents	Գործակալներ
+	Align	Հավասարեցնել
+	Align Left	Ձախ հավասարեցում
+	Align Right	Աջ հավասարեցում
+	Alignment	Հավասարեցում
+	All Borders	Բոլոր եզրագծերը
+	All Caps	Բոլորը մեծատառ
+	All Markup	Բոլոր նշումները
+	All caps	Բոլորը մեծատառ
+	Alt Text	Այլընտրանքային տեքստ
+	Apply Character Style	Կիրառել նիշերի ոճ
+	Apply Style	Կիրառել ոճ
+	Arrange	Դասավորել
+	Arrange\nAll	Դասավորել\nբոլորը
+	Arrow	Սլաք
+	Artistic Effects	Գեղարվեստական էֆեկտներ
+	Author	Հեղինակ
+	AutoCorrect Options	Ինքնաուղղման կարգավորումներ
+	AutoFit	Ինքնահարմարեցում
+	AutoFit Contents	Հարմարեցնել ըստ բովանդակության
+	AutoFit Window	Հարմարեցնել ըստ պատուհանի
+	AutoSave	Ինքնապահպանում
+	AutoSave saves every change to the file (needs a saved document)	Ինքնապահպանումը գրում է յուրաքանչյուր փոփոխություն ֆայլում (փաստաթուղթը պետք է արդեն պահպանված լինի)
+	AutoText	Ինքնատեքստ
+	Automatic	Ավտոմատ
+	Automatic ({language})	Ավտոմատ ({language})
+	Automatic Table 1 (3 levels)	Ավտոմատ բովանդակություն 1 (3 մակարդակ)
+	Automatic Table 2 (2 levels)	Ավտոմատ բովանդակություն 2 (2 մակարդակ)
+	Automatic follows your system's language. Menus and commands change; your documents don't.	«Ավտոմատ»-ը հետևում է համակարգի լեզվին։ Փոխվում են ընտրացանկերը և հրամանները, փաստաթղթերը՝ ոչ։
+	Backspace	Backspace
+	Banded Columns	Շերտավոր սյունակներ
+	Banded Rows	Շերտավոր տողեր
+	Before:	Առաջ՝
+	Bibliography	Գրականության ցանկ
+	Binary assets added	Ավելացվել են երկուական ռեսուրսներ
+	Binary assets removed	Հեռացվել են երկուական ռեսուրսներ
+	Blank	Դատարկ
+	Blank (Three Columns)	Դատարկ (երեք սյունակ)
+	Blank Page	Դատարկ էջ
+	Blank document	Նոր փաստաթուղթ
+	Block\nAuthors	Արգելափակել\nհեղինակներին
+	Bold	Թավ
+	Bookmark	Էջանիշ
+	Bookmark name:	Էջանիշի անունը՝
+	Delete Bookmark	Ջնջել էջանիշը
+	Hidden bookmarks	Թաքնված էջանիշներ
+	Sort by:	Դասավորել ըստ՝
+	Border Painter	Եզրագծի վրձին
+	Border\nPainter	Եզրագծի\nվրձին
+	Borders	Եզրագծեր
+	Bottom Border	Ներքևի եզրագիծ
+	Bottom Margin	Ներքևի լուսանցք
+	Bottom of Page	Էջի ներքևում
+	Bottom:	Ներքևից՝
+	Box	Շրջանակ
+	Breaks	Ընդհատումներ
+	Bring Forward	Տեղափոխել առաջ
+	Bullet Library	Նշիչների գրադարան
+	Bullets	Նշիչներ
+	Calendar	Օրացույց
+	Cancel	Չեղարկել
+	Capitalize Each Word	Յուրաքանչյուր Բառ Մեծատառով
+	Captions	Մակագրություններ
+	Cell Margins	Բջջի լուսանցքներ
+	Cell Size	Բջջի չափը
+	Cell\nMargins	Բջջի\nլուսանցքներ
+	Center	Կենտրոնում
+	Change	Փոխել
+	Change Case	Փոխել ռեգիստրը
+	Change List Level	Փոխել ցուցակի մակարդակը
+	Change Picture	Փոխել նկարը
+	Change Shape	Փոխել պատկերը
+	Changes	Փոփոխություններ
+	Character Position	Նիշերի դիրքը
+	Character Scale	Նիշերի մասշտաբը
+	Character Shading	Նիշերի ստվերագունում
+	Character Spacing	Միջնիշային տարածություն
+	Characters	Նիշեր
+	Characters (no spaces)	Նիշեր (առանց բացատների)
+	Characters (with spaces)	Նիշեր (բացատներով)
+	Chart	Գծապատկեր
+	Check Accessibility	Ստուգել մատչելիությունը
+	Check Compatibility	Ստուգել համատեղելիությունը
+	Check Spelling as You Type	Ստուգել ուղղագրությունը մուտքագրելիս
+	Check for Errors	Ստուգել սխալները
+	Check\nAccessibility	Ստուգել\nմատչելիությունը
+	Citation Style	Մեջբերումների ոճ
+	Citations & Bibliography	Մեջբերումներ և գրականություն
+	Clear	Մաքրել
+	Clear All	Մաքրել բոլորը
+	Clear All Formatting	Մաքրել ամբողջ ձևաչափումը
+	Clear Character Formatting	Մաքրել նիշերի ձևաչափումը
+	Clear Character Style	Մաքրել նիշերի ոճը
+	Clear Formatting Level	Մաքրել ձևաչափման մակարդակը
+	Clear Paragraph Formatting	Մաքրել պարբերության ձևաչափումը
+	Clipboard	Սեղմատախտակ
+	Close	Փակել
+	Close Header and Footer	Փակել վերնագիրը և ստորագիրը
+	Collapse Selection	Սեղմել ընտրությունը
+	Color	Գույն
+	Color:	Գույն՝
+	Colors	Գույներ
+	Column	Սյունակ
+	Column Break	Սյունակի ընդհատում
+	Columns	Սյունակներ
+	Combine	Միավորել
+	Commands	Հրամաններ
+	Comment	Մեկնաբանություն
+	Comments	Մեկնաբանություններ
+	Comments Pane	Մեկնաբանությունների վահանակ
+	Community\nDiscord	Համայնք\nDiscord
+	Compact	Կոմպակտ
+	Compare	Համեմատել
+	Compress Pictures	Սեղմել նկարները
+	Continuous	Անընդհատ
+	Convert	Փոխարկել
+	Convert Text to Table	Փոխարկել տեքստը աղյուսակի
+	Convert Text to Table…	Փոխարկել տեքստը աղյուսակի…
+	Convert to Text	Փոխարկել տեքստի
+	Copy	Պատճենել
+	Copy Formatting	Պատճենել ձևաչափումը
+	Corrections	Ուղղումներ
+	Count words in text boxes and notes	Հաշվել բառերը տեքստային դաշտերում և ծանոթագրություններում
+	Cover Page	Տիտղոսաթերթ
+	Create	Ստեղծել
+	Create New Style	Ստեղծել նոր ոճ
+	Create a Style	Ստեղծել ոճ
+	Create an interactive outline of your document.\n\nIt's a great way to keep track of where you are or quickly move your content around.\n\nTo get started, go to the Home tab and apply Heading styles to the headings in your document.	Ստեղծեք ձեր փաստաթղթի ինտերակտիվ կառուցվածքը։\n\nԴա հարմար է՝ իմանալու, թե որտեղ եք գտնվում, կամ արագ տեղափոխելու բովանդակությունը։\n\nՍկսելու համար բացեք «Գլխավոր» ներդիրը և կիրառեք վերնագրերի ոճերը փաստաթղթի վերնագրերին։
+	Crop	Կտրել եզրերը
+	Cross-reference	Խաչաձև հղում
+	Current Position	Ընթացիկ դիրքը
+	Current style: {style}	Ընթացիկ ոճը՝ {style}
+	Custom Margins…	Հատուկ լուսանցքներ…
+	Custom Watermark	Հատուկ ջրանիշ
+	Custom Watermark…	Հատուկ ջրանիշ…
+	Customize Quick Access Toolbar	Կարգավորել արագ մուտքի գործիքագոտին
+	Cut	Կտրել
+	Dark Mode	Մուգ ռեժիմ
+	Dashed	Գծիկավոր
+	Data	Տվյալներ
+	Date & Time	Ամսաթիվ և ժամ
+	Decrease Font Size	Փոքրացնել տառաչափը
+	Decrease Indent	Փոքրացնել նահանջը
+	Default	Լռելյայն
+	Define New Bullet	Սահմանել նոր նշիչ
+	Define New Number Format	Սահմանել համարի նոր ձևաչափ
+	Delete	Ջնջել
+	Delete Cells	Ջնջել բջիջները
+	Delete Columns	Ջնջել սյունակները
+	Delete Comment	Ջնջել մեկնաբանությունը
+	Delete Next Word	Ջնջել հաջորդ բառը
+	Delete Previous Word	Ջնջել նախորդ բառը
+	Delete Rows	Ջնջել տողերը
+	Delete Style	Ջնջել ոճը
+	Delete Table	Ջնջել աղյուսակը
+	Design	Ձևավորում
+	Diagonal	Անկյունագիծ
+	Diamond	Շեղանկյուն
+	Dictate	Թելադրել
+	Different First Page	Առանձին առաջին էջ
+	Different Odd & Even Pages	Տարբեր զույգ և կենտ էջեր
+	Direct formatting	Ուղղակի ձևաչափում
+	Discord	Discord
+	Discord community	Discord համայնք
+	Display	Ցուցադրում
+	Display for Review	Ցուցադրում վերանայման համար
+	Distribute Columns	Հավասարաչափ բաշխել սյունակները
+	Distribute Rows	Հավասարաչափ բաշխել տողերը
+	Distributed	Բաշխված
+	Do Not Show in TOC	Չցուցադրել բովանդակության մեջ
+	Document End	Փաստաթղթի վերջը
+	Document Formatting	Փաստաթղթի ձևաչափում
+	Document Property	Փաստաթղթի հատկություն
+	Document Start	Փաստաթղթի սկիզբը
+	Document Text	Փաստաթղթի տեքստը
+	Document Title	Փաստաթղթի վերնագիրը
+	Documents you open will show up here.	Ձեր բացած փաստաթղթերը կհայտնվեն այստեղ։
+	Dot-dash	Կետագծիկավոր
+	Dotted	Կետավոր
+	Double	Կրկնակի
+	Double Spacing	Կրկնակի միջտողային տարածություն
+	Double Strikethrough	Կրկնակի վրագծում
+	Double Underline	Կրկնակի ընդգծում
+	Down	Ներքև
+	Draft	Սևագիր
+	Draw	Նկարել
+	Drawing Tools	Նկարչական գործիքներ
+	Drawing\nCanvas	Նկարչական\nկտավ
+	Drop Cap	Սկզբնատառ
+	Drops all formatting and pastes plain text.	Հեռացնում է ամբողջ ձևաչափումը և տեղադրում պարզ տեքստ։
+	Edit Comment	Խմբագրել մեկնաբանությունը
+	Edit Footer	Խմբագրել ստորագիրը
+	Edit Header	Խմբագրել վերնագիրը
+	Edit Recipient List	Խմբագրել ստացողների ցուցակը
+	Edit\nRecipient List	Խմբագրել\nստացողների ցուցակը
+	Edited	Խմբագրված
+	Editing	Խմբագրում
+	Editing header/footer	Վերնագրի/ստորագրի խմբագրում
+	Editing — edit the document directly	Խմբագրում — խմբագրեք փաստաթուղթն ուղղակիորեն
+	Editor	Խմբագիր
+	Effects	Էֆեկտներ
+	Emboss	Ռելիեֆ
+	Encrypt with Password	Փորագրված
+	English (United States)	Անգլերեն (ԱՄՆ)
+	Engrave	Խորացված
+	Enter page number:	Մուտքագրեք էջի համարը՝
+	Envelopes	Ծրարներ
+	Eraser	Ռետին
+	Even Page	Զույգ էջ
+	Every command is available to scripts and AI agents: run `wordcraft-cli mcp` for an MCP server, or start the app with `--control <port>` for the JSON control channel.	Յուրաքանչյուր հրաման հասանելի է սկրիպտներին և ԱԲ գործակալներին՝ գործարկեք `wordcraft-cli mcp`՝ MCP սերվերի համար, կամ բացեք ծրագիրը `--control <port>` պարամետրով՝ JSON կառավարման ալիքի համար։
+	Export	Արտահանել
+	Export PDF	Արտահանել PDF
+	Export Page as PNG	Արտահանել էջը որպես PNG
+	Export a copy to share (PDF, Word document)	Արտահանել պատճեն՝ կիսվելու համար (PDF, Word փաստաթուղթ)
+	Exported {path}	Արտահանված է՝ {path}
+	Extend Selection	Ընդլայնել ընտրությունը
+	Field	Դաշտ
+	File	Ֆայլ
+	Find	Գտնել
+	Find Next	Գտնել հաջորդը
+	Find Previous	Գտնել նախորդը
+	Find Recipient	Գտնել ստացողին
+	Find and Replace	Գտնել և փոխարինել
+	Find what:	Գտնել՝
+	Finish	Ավարտ
+	Finish & Merge	Ավարտել և միավորել
+	Finish &\nMerge	Ավարտել և\nմիավորել
+	First Column	Առաջին սյունակ
+	First commit	Առաջին կոմիթ
+	First line:	Առաջին տող՝
+	Fixed Column Width	Սյունակի ֆիքսված լայնություն
+	Focus	Կենտրոնացում
+	Font	Տառատեսակ
+	Font Color	Տառի գույնը
+	Font Dialog	«Տառատեսակ» պատուհան
+	Font Size	Տառաչափ
+	Font color:	Տառի գույնը՝
+	Font:	Տառատեսակ՝
+	Fonts	Տառատեսակներ
+	Footer	Ստորագիր
+	Footnote and Endnote	Ծանոթագրություն և վերջնական ծանոթագրություն
+	Footnotes	Ծանոթագրություններ
+	Format	Ձևաչափ
+	Format Page Numbers	Էջահամարների ձևաչափ
+	Format Page Numbers…	Էջահամարների ձևաչափ…
+	Format Painter	Ձևաչափի վրձին
+	Formatted Text	Ձևաչափված տեքստ
+	Formatting at Selection	Ընտրվածի ձևաչափումը
+	Formula	Բանաձև
+	General	Ընդհանուր
+	Go To	Անցնել
+	Go To (⌘⌥G)	Անցնել (⌘⌥G)
+	Go To…	Անցնել…
+	Go to	Անցնել
+	Grab bag	Տարբեր
+	Greeting Line	Ողջույնի տող
+	Greeting\nLine	Ողջույնի\nտող
+	Gridlines	Ցանցագծեր
+	Group	Խմբավորել
+	Grow Font 1 Point	Մեծացնել տառը 1 կետով
+	HTML Format	HTML ձևաչափ
+	Hanging Indent	Կախովի նահանջ
+	Header	Վերնագիր
+	Header & Footer	Վերնագիր և ստորագիր
+	Header Row	Վերնագրի տող
+	Header/Footer Position	Վերնագրի/ստորագրի դիրքը
+	Heading 1	Վերնագիր 1
+	Heading 2	Վերնագիր 2
+	Heading 3	Վերնագիր 3
+	Headings	Վերնագրեր
+	Heart	Սիրտ
+	Help	Օգնություն
+	Hidden	Թաքնված
+	Highlight Merge Fields	Ընդգծել միաձուլման դաշտերը
+	Highlight\nMerge Fields	Ընդգծել\nմիաձուլման դաշտերը
+	Highlighter	Մարկեր
+	Home	Գլխավոր
+	Horizontal	Հորիզոնական
+	Horizontal Line	Հորիզոնական գիծ
+	Hyphenation	Տողադարձ
+	Icons	Պատկերակներ
+	Ignore All	Բաց թողնել բոլորը
+	Illustrations	Նկարազարդումներ
+	Immersive	Ընկղմվող
+	Immersive Reader	Ընկղմվող ընթերցող
+	Immersive\nReader	Ընկղմվող\nընթերցող
+	In the margin	Լուսանցքում
+	Increase Font Size	Մեծացնել տառաչափը
+	Increase Indent	Մեծացնել նահանջը
+	Indent	Նահանջ
+	Indentation	Նահանջներ
+	Indents	Նահանջներ
+	Index	Առարկայական ցանկ
+	Info	Տեղեկություններ
+	Ink to\nMath	Ձեռագիր՝\nբանաձև
+	Ink to\nShape	Ձեռագիր՝\nպատկեր
+	Ink\nReplay	Վերարտադրել\nձեռագիրը
+	Insert	Ներդնել
+	Insert Above	Ներդնել վերևում
+	Insert Below	Ներդնել ներքևում
+	Insert Caption	Ներդնել մակագրություն
+	Insert Caption…	Ներդնել մակագրություն…
+	Insert Citation	Ներդնել մեջբերում
+	Insert Endnote	Ներդնել վերջնական ծանոթագրություն
+	Insert Footnote	Ներդնել ծանոթագրություն
+	Insert Hyperlink	Ներդնել հիպերհղում
+	Insert Index	Ներդնել առարկայական ցանկ
+	Insert Left	Ներդնել ձախից
+	Insert Merge Field	Ներդնել միաձուլման դաշտ
+	Insert Merge\nField	Ներդնել միաձուլման\nդաշտ
+	Insert Right	Ներդնել աջից
+	Insert Shapes	Ներդնել պատկերներ
+	Insert Table	Ներդնել աղյուսակ
+	Insert Table of Authorities	Ներդնել հղումների աղյուսակ
+	Insert Table of Figures	Ներդնել նկարազարդումների ցանկ
+	Insert Table…	Ներդնել աղյուսակ…
+	Insert\nAbove	Ներդնել\nվերևում
+	Insert\nCaption	Ներդնել\nմակագրություն
+	Insert\nCitation	Ներդնել\nմեջբերում
+	Insert\nFootnote	Ներդնել\nծանոթագրություն
+	Inside Borders	Ներքին եզրագծեր
+	Inspect Document	Ստուգել փաստաթուղթը
+	Inspect Styles at Selection	Ընտրվածի ոճերը
+	Interface language:	Միջերեսի լեզուն՝
+	Italic	Շեղ
+	Join the ArtCraft community on Discord	Միացեք ArtCraft համայնքին Discord-ում
+	Join us on Discord: discord.gg/artcraft	Միացեք մեզ Discord-ում՝ discord.gg/artcraft
+	Justify	Ըստ լայնության
+	Keep Lines Together	Չբաժանել տողերը
+	Keep Text Only	Պահել միայն տեքստը
+	Keep lines together	Չբաժանել տողերը
+	Keep with Next	Չանջատել հաջորդից
+	Keep with next	Չանջատել հաջորդից
+	Keeps the fonts and formatting of the copied text.	Պահպանում է պատճենված տեքստի տառատեսակները և ձևաչափումը։
+	Labels	Պիտակներ
+	Landscape	Լանդշաֆտային
+	Language	Լեզու
+	{language} (no dictionary)	{language} (բառարան չկա)
+	No spelling dictionary for {language} is installed, so it isn't checked. Lexicon looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	{language} լեզվի ուղղագրական բառարան տեղադրված չէ, ուստի տեքստը չի ստուգվում։ Lexicon-ը փնտրում է Hunspell {name} բառարանը WORDCRAFT_DICTIONARIES թղթապանակում և համակարգի սովորական վայրերում։
+	Lasso	Լասո
+	Last Column	Վերջին սյունակ
+	Last commit	Վերջին կոմիթ
+	Layout	Դասավորություն
+	Layout Summary	Դասավորության ամփոփում
+	Left	Ձախ
+	Left Border	Ձախ եզրագիծ
+	Left Margin	Ձախ լուսանցք
+	Left:	Ձախից՝
+	Letter	Նամակ
+	Line	Գիծ
+	Line Break	Տողի ընդհատում
+	Line End	Տողի վերջը
+	Line Numbers	Տողերի համարներ
+	Line Spacing	Միջտողային տարածություն
+	Line Spacing Options…	Միջտողային տարածության կարգավորումներ…
+	Line Start	Տողի սկիզբը
+	Line and Page Breaks	Տողերի և էջերի ընդհատումներ
+	Line and Paragraph Spacing	Տողերի և պարբերությունների տարածություն
+	Line delta	Տողերի փոփոխություն
+	Line spacing:	Միջտողային տարածություն՝
+	Lines	Տողեր
+	Lines added	Ավելացված տողեր
+	Lines deleted	Ջնջված տողեր
+	Link	Հղում
+	Link to Previous	Կապել նախորդին
+	Links	Հղումներ
+	Location: {path}	Տեղը՝ {path}
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.
+	Macros	Մակրոներ
+	Mailings	Նամակագրություն
+	Manage Sources	Կառավարել աղբյուրները
+	Many pages	Շատ էջեր
+	Margins	Լուսանցքներ
+	Mark Citation	Նշել մեջբերումը
+	Mark Entry	Նշել տարրը
+	Mark\nCitation	Նշել\nմեջբերումը
+	Mark\nEntry	Նշել\nտարրը
+	Markdown (*.md)	Markdown (*.md)
+	Match Fields	Համապատասխանեցնել դաշտերը
+	Match case	Հաշվի առնել ռեգիստրը
+	Matrix	Մատրից
+	Merge	Միավորել
+	Merge Cells	Միավորել բջիջները
+	Merge Formatting	Միավորել ձևաչափումը
+	Merged PRs	Ընդունված PR-ներ
+	Mirrored	Հայելային
+	Moderate	Չափավոր
+	Modify Style	Փոփոխել ոճը
+	Modify…	Փոփոխել…
+	More templates →	Այլ ձևանմուշներ →
+	Move or Resize	Տեղափոխել կամ փոխել չափը
+	Multilevel List	Բազմամակարդակ ցուցակ
+	Multilevel List Library	Բազմամակարդակ ցուցակների գրադարան
+	Article I.	Հոդված I.
+	Chapter 1	Գլուխ 1
+	Section 1.01	Բաժին 1.01
+	Multiple Pages	Մի քանի էջ
+	Name (A–Z)	Անուն (Ա–Ֆ)
+	Name:	Անուն՝
+	Narrow  {size} all	Նեղ  {size} բոլոր կողմերից
+	Navigation	Նավարկում
+	Navigation Pane	Նավարկման վահանակ
+	New	Նոր
+	New Comment	Նոր մեկնաբանություն
+	New Paragraph	Նոր պարբերություն
+	New Style…	Նոր ոճ…
+	New Window	Նոր պատուհան
+	New from Template	Նոր՝ ձևանմուշից
+	New\nComment	Նոր\nմեկնաբանություն
+	New\nWindow	Նոր\nպատուհան
+	Next	Հաջորդը
+	Next Change	Հաջորդ փոփոխությունը
+	Next Comment	Հաջորդ մեկնաբանությունը
+	Next Footnote	Հաջորդ ծանոթագրությունը
+	Next Page	Հաջորդ էջը
+	Next Record	Հաջորդ գրառումը
+	Next Section	Հաջորդ բաժինը
+	No Border	Առանց եզրագծի
+	No Color	Առանց գույնի
+	No Markup	Առանց նշումների
+	No Paragraph Space	Առանց պարբերությունների միջև տարածության
+	No contributor data was built into this copy.	Այս տարբերակում մասնակիցների տվյալներ ներառված չեն։
+	No document is open. Create a document or open one first.	Բաց փաստաթուղթ չկա։ Նախ ստեղծեք կամ բացեք փաստաթուղթ։
+	No model credits were built into this copy.	Այս տարբերակում մոդելների մասին տեղեկություններ ներառված չեն։
+	No templates match your search.	Ձեր որոնմանը համապատասխանող ձևանմուշներ չկան։
+	Nonbreaking Hyphen	Չբաժանվող գծիկ
+	Nonbreaking Space	Չբաժանվող բացատ
+	None	Ոչ մեկը
+	Normal  {size} all	Սովորական  {size} բոլոր կողմերից
+	Normal Style	Սովորական ոճ
+	Not available right now	Այս պահին հասանելի չէ
+	Not saved	Պահպանված չէ
+	Not saved yet	Դեռ պահպանված չէ
+	Nudge	Տեղաշարժել
+	Number of columns:	Սյունակների քանակը՝
+	Number of rows:	Տողերի քանակը՝
+	Numbering	Համարակալում
+	OK	Լավ
+	Object	Օբյեկտ
+	Odd Page	Կենտ էջ
+	Office 2003 Default	Office 2003 լռելյայն
+	One	Մեկ
+	One Page	Մեկ էջ
+	Only for the selected text	Միայն ընտրված տեքստի համար
+	Open	Բացել
+	OpenDocument Text (*.odt)	OpenDocument տեքստ (*.odt)
+	Optional Hyphen	Փափուկ տողադարձ
+	Options	Կարգավորումներ
+	Orientation	Կողմնորոշում
+	Outline	Կառուցվածք
+	Outline Level	Կառուցվածքի մակարդակ
+	Outside Borders	Արտաքին եզրագծեր
+	Oval	Օվալ
+	PDF document (*.pdf)	PDF փաստաթուղթ (*.pdf)
+	Page	Էջ
+	Page Background	Էջի ֆոն
+	Page Borders	Էջի եզրագծեր
+	Page Break	Էջի ընդհատում
+	Page Break Before	Նոր էջից
+	Page Breaks	Էջերի ընդհատումներ
+	Page Color	Էջի գույնը
+	Page Down	Էջ ներքև
+	Page Movement	Էջերի թերթում
+	Page Number	Էջի համար
+	Page Setup	Էջի կարգավորում
+	Page Up	Էջ վերև
+	Page Width	Էջի լայնությամբ
+	Page X of Y	Էջ X՝ Y-ից
+	Page break before	Նոր էջից
+	Page image (*.png)	Էջի պատկեր (*.png)
+	Page width	Էջի լայնությամբ
+	Page {page}	Էջ {page}
+	Page {page} of {pages}	Էջ {page}՝ {pages}-ից
+	Page\nBorders	Էջի\nեզրագծեր
+	Page\nColor	Էջի\nգույնը
+	Page\nNumber	Էջի\nհամար
+	Pages	Էջեր
+	Paragraph	Պարբերություն
+	Paragraph Details	Պարբերության մանրամասներ
+	Paragraph Down	Պարբերություն ներքև
+	Paragraph Settings	Պարբերության կարգավորումներ
+	Paragraph Spacing	Պարբերությունների տարածություն
+	Paragraph Up	Պարբերություն վերև
+	Paragraphs	Պարբերություններ
+	Paste	Տեղադրել
+	Paste (⌘V)	Տեղադրել (⌘V)
+	Paste Formatting	Տեղադրել ձևաչափումը
+	Paste Special	Հատուկ տեղադրում
+	Paste Special…	Հատուկ տեղադրում…
+	Paste as:	Տեղադրել որպես՝
+	Paste: Keep Text Only	Տեղադրել՝ միայն տեքստը
+	Paste: Merge Formatting	Տեղադրել՝ միավորել ձևաչափումը
+	Pen	Գրիչ
+	Pencil	Մատիտ
+	Picture Border	Նկարի եզրագիծ
+	Picture Format	Նկարի ձևաչափ
+	Picture Styles	Նկարների ոճեր
+	Pictures	Նկարներ
+	Plain text (*.txt)	Պարզ տեքստ (*.txt)
+	Portrait	Գրքային
+	Position	Դիրք
+	Preview Results	Արդյունքների նախադիտում
+	Preview\nResults	Արդյունքների\nնախադիտում
+	Previous	Նախորդը
+	Previous Change	Նախորդ փոփոխությունը
+	Previous Comment	Նախորդ մեկնաբանությունը
+	Previous Record	Նախորդ գրառումը
+	Previous Section	Նախորդ բաժինը
+	Print	Տպել
+	Print Layout	Տպման դասավորություն
+	Print\nLayout	Տպման\nդասավորություն
+	Proofing	Ուղղագրություն
+	Proofing Issues	Ուղղագրական դիտողություններ
+	Properties	Հատկություններ
+	Protect	Պաշտպանել
+	Protect Document	Պաշտպանել փաստաթուղթը
+	Quick Access Toolbar	Արագ մուտքի գործիքագոտի
+	Quick Parts	Արագ մասեր
+	Quick Tables	Արագ աղյուսակներ
+	Read Aloud	Կարդալ բարձրաձայն
+	Read Mode	Ընթերցման ռեժիմ
+	Read\nAloud	Կարդալ\nբարձրաձայն
+	Read\nMode	Ընթերցման\nռեժիմ
+	Reads the clipboard's rich text and keeps its formatting.	Վերցնում է սեղմատախտակի RTF տեքստը և պահպանում դրա ձևաչափումը։
+	Reads the clipboard's web content and keeps its formatting.	Վերցնում է սեղմատախտակի վեբ բովանդակությունը և պահպանում դրա ձևաչափումը։
+	Picture	Նկար
+	Pastes the clipboard's picture.	Տեղադրում է սեղմատախտակի նկարը։
+	Reading Highlight	Ընդգծել համընկնումները
+	Recent	Վերջինները
+	Record Macro	Ձայնագրել մակրո
+	Recover Unsaved Documents	Վերականգնել չպահպանված փաստաթղթերը
+	Rectangle	Ուղղանկյուն
+	Redo	Վերադարձնել
+	Reduce Hanging Indent	Փոքրացնել կախովի նահանջը
+	References	Հղումներ
+	Reject	Մերժել
+	Reject All Changes	Մերժել բոլոր փոփոխությունները
+	Reject Change	Մերժել փոփոխությունը
+	Relaxed	Ազատ
+	Remove Background	Հեռացնել ֆոնը
+	Remove Footer	Հեռացնել ստորագիրը
+	Remove Header	Հեռացնել վերնագիրը
+	Remove Hyperlink	Հեռացնել հիպերհղումը
+	Remove Space After Paragraph	Հեռացնել տարածությունը պարբերությունից հետո
+	Remove Table of Contents	Հեռացնել բովանդակությունը
+	Remove Watermark	Հեռացնել ջրանիշը
+	Reopen	Կրկին բացել
+	Repeat	Կրկնել
+	Repeat Header Rows	Կրկնել վերնագրի տողերը
+	Replace	Փոխարինել
+	Replace All	Փոխարինել բոլորը
+	Replace Document Text	Փոխարինել փաստաթղթի տեքստը
+	Replace with:	Փոխարինել՝
+	Replay	Վերարտադրել
+	Reply	Պատասխանել
+	Report	Հաշվետվություն
+	Research	Հետազոտություն
+	Researcher	Հետազոտող
+	Reset Picture	Վերակայել նկարը
+	Reset to Normal	Վերադառնալ «Սովորական»-ին
+	Resolve	Լուծել
+	Resolved	Լուծված
+	Restart Each Page	Վերսկսել յուրաքանչյուր էջում
+	Restart Each Section	Վերսկսել յուրաքանչյուր բաժնում
+	Restart at 1	Սկսել 1-ից
+	Restrict Editing	Սահմանափակել խմբագրումը
+	Restrict\nEditing	Սահմանափակել\nխմբագրումը
+	Result	Արդյունք
+	Results	Արդյունքներ
+	Reverse the order	Հակառակ հերթականությամբ
+	Reviewing	Վերանայում
+	Reviewing Pane	Վերանայման վահանակ
+	Reviewing — edits become suggestions	Վերանայում — խմբագրումները դառնում են առաջարկներ
+	Rich Text Format (*.rtf)	Rich Text Format (*.rtf)
+	Rich Text Format (RTF)	Rich Text Format (RTF)
+	Right	Աջ
+	Right Border	Աջ եզրագիծ
+	Right Margin	Աջ լուսանցք
+	Right-to-Left Text Direction	Տեքստի ուղղությունը՝ աջից ձախ
+	Left-to-Right Text Direction	Տեքստի ուղղությունը՝ ձախից աջ
+	Right:	Աջից՝
+	Rotate	Պտտել
+	Rounded Rectangle	Կլորացված ուղղանկյուն
+	Rows & Columns	Տողեր և սյունակներ
+	Ruler	Քանոն
+	Rules	Կանոններ
+	Résumé	Ինքնակենսագրություն
+	Save	Պահպանել
+	Save As	Պահպանել որպես
+	Save a copy in another format. Printing goes through a PDF you can print from any viewer.	Պահպանեք պատճենը այլ ձևաչափով։ Տպումը կատարվում է PDF-ի միջոցով, որը կարելի է տպել ցանկացած դիտիչից։
+	Save as Template	Պահպանել որպես ձևանմուշ
+	Saved	Պահպանված է
+	Search Commands	Որոնել հրամաններ
+	Search commands and help	Որոնել հրամաններ և օգնություն
+	Search document	Որոնել փաստաթղթում
+	Search for templates	Որոնել ձևանմուշներ
+	Section Breaks	Բաժինների ընդհատումներ
+	Section Properties	Բաժնի հատկություններ
+	Sections	Բաժիններ
+	Select	Ընտրել
+	Select All	Ընտրել բոլորը
+	Select Cell	Ընտրել բջիջը
+	Select Line	Ընտրել տողը
+	Select Objects	Ընտրել օբյեկտներ
+	Select Paragraph	Ընտրել պարբերությունը
+	Select Range	Ընտրել տիրույթը
+	Select Recipients	Ընտրել ստացողներին
+	Select Row	Ընտրել աղյուսակի տողը
+	Select Sentence	Ընտրել նախադասությունը
+	Select Table	Ընտրել աղյուսակը
+	Select Text	Ընտրել տեքստը
+	Select Text with Similar Formatting	Ընտրել նմանատիպ ձևաչափմամբ տեքստը
+	Select Word	Ընտրել բառը
+	Select\nRecipients	Ընտրել\nստացողներին
+	Selection	Ընտրություն
+	Selection Pane	Ընտրության վահանակ
+	Send Backward	Տեղափոխել հետ
+	Sentence case.	Ինչպես նախադասություններում։
+	Set Caret	Տեղադրել կուրսորը
+	Set Character Formatting	Սահմանել նիշերի ձևաչափումը
+	Set Numbering Value	Սահմանել համարակալման արժեքը
+	Set Paragraph Formatting	Սահմանել պարբերության ձևաչափումը
+	Set as Default	Սահմանել որպես լռելյայն
+	Shading	Ստվերագունում
+	Shadow	Ստվեր
+	Shape Fill	Պատկերի լցում
+	Shape Format	Պատկերի ձևաչափ
+	Shape Outline	Պատկերի ուրվագիծ
+	Shape Styles	Պատկերների ոճեր
+	Shapes	Պատկերներ
+	Share	Կիսվել
+	Shift+Tab	Shift+Tab
+	Show	Ցույց տալ
+	Show Comments	Ցույց տալ մեկնաբանությունները
+	Show Markup	Ցույց տալ նշումները
+	Show Notes	Ցույց տալ ծանոթագրությունները
+	Show all formatting marks	Ցույց տալ ձևաչափման բոլոր նշանները
+	Show rulers	Ցույց տալ քանոնները
+	Show the community button in the title bar	Ցույց տալ համայնքի կոճակը վերնագրի գոտում
+	Show/Hide ¶	Ցույց տալ/թաքցնել ¶
+	Show\nComments	Ցույց տալ\nմեկնաբանությունները
+	Shrink Font 1 Point	Փոքրացնել տառը 1 կետով
+	Side to Side	Կողք կողքի
+	Side\nto Side	Կողք\nկողքի
+	Signature Line	Ստորագրության տող
+	Single	Մեկական
+	Single Spacing	Մեկական միջտողային տարածություն
+	Size	Չափ
+	Size:	Չափ՝
+	Small Caps	Փոքր մեծատառեր
+	Small caps	Փոքր մեծատառեր
+	SmartArt	SmartArt
+	Sort	Տեսակավորել
+	Source code: github.com/Arthuralend/Lexicon	Սկզբնական կոդ՝ github.com/Arthuralend/Lexicon
+	WordCraft: github.com/storytold/wordcraft	WordCraft: github.com/storytold/wordcraft
+	Space before/after:	Տարածություն առաջ/հետո՝
+	Spacing	Տարածություն
+	Spacing (pt):	Տարածություն (կետ)՝
+	Kerning for fonts:	Տառատեսակների կեռնինգ՝
+	Points and above	կետ և ավելի
+	Speech	Խոսք
+	Spelling & Grammar	Ուղղագրություն և քերականություն
+	Spelling &\nGrammar	Ուղղագրություն և\nքերականություն
+	Spelling Suggestions	Ուղղագրական առաջարկներ
+	Split	Բաժանել
+	Split Cells	Բաժանել բջիջները
+	Split Table	Բաժանել աղյուսակը
+	Spreadsheet Table	Էլեկտրոնային աղյուսակ
+	Standard Colors	Ստանդարտ գույներ
+	Star	Աստղ
+	Start Mail Merge	Սկսել նամակների միաձուլումը
+	Start Mail\nMerge	Սկսել նամակների\nմիաձուլումը
+	Statistics	Վիճակագրություն
+	Status Bar	Կարգավիճակի գոտի
+	Strikethrough	Վրագծված
+	Studio cover	Studio շապիկ
+	Studio handbook (sample)	Studio ձեռնարկ (օրինակ)
+	Style	Ոճ
+	Style Inspector	Ոճերի տեսուչ
+	Style Set	Ոճերի հավաքածու
+	Style based on:	Հիմնված է ոճի վրա՝
+	Styles	Ոճեր
+	Styles Pane	Ոճերի վահանակ
+	Subscript	Ենթատող
+	Superscript	Վերտող
+	Switch Modes	Փոխել ռեժիմը
+	Switch\nModes	Փոխել\nռեժիմը
+	Symbol	Նշան
+	Symbols	Նշաններ
+	Synonyms	Հոմանիշներ
+	Tab	Tab
+	Table	Աղյուսակ
+	Table Column Width	Աղյուսակի սյունակի լայնությունը
+	Table Design	Աղյուսակի ձևավորում
+	Table Layout	Աղյուսակի դասավորություն
+	Table Properties	Աղյուսակի հատկություններ
+	Table Properties…	Աղյուսակի հատկություններ…
+	Table Row Height	Աղյուսակի տողի բարձրությունը
+	Table Style Options	Աղյուսակի ոճի կարգավորումներ
+	Table Styles	Աղյուսակի ոճեր
+	Table of Authorities	Հղումների աղյուսակ
+	Table of Contents	Բովանդակություն
+	Table of\nContents	Բովանդակություն
+	Tables	Աղյուսակներ
+	Tabs	Տաբուլյացիա
+	Tabular List	Աղյուսակային ցուցակ
+	Text	Տեքստ
+	Text Box	Տեքստային դաշտ
+	Text Direction	Տեքստի ուղղությունը
+	Text Effects	Տեքստային էֆեկտներ
+	Text Effects and Typography	Տեքստային էֆեկտներ և տպագրություն
+	Text Highlight Color	Տեքստի ընդգծման գույնը
+	Text Wrapping	Տեքստով շրջանցում
+	Text from File	Տեքստ ֆայլից
+	Text to display:	Ցուցադրվող տեքստը՝
+	Text:	Տեքստ՝
+	Text\nBox	Տեքստային\nդաշտ
+	Text\nDirection	Տեքստի\nուղղությունը
+	The clipboard is empty.	Սեղմատախտակը դատարկ է։
+	The new style takes the formatting of the current paragraph.	Նոր ոճը կստանա ընթացիկ պարբերության ձևաչափումը։
+	Theme Colors	Թեմայի գույներ
+	Theme Fonts	Թեմայի տառատեսակներ
+	Theme List	Թեմաների ցուցակ
+	Themes	Թեմաներ
+	Thesaurus	Թեզաուրուս
+	Thick	Հաստ
+	Three	Երեք
+	Tight	Խիտ
+	Top Border	Վերևի եզրագիծ
+	Top Margin	Վերևի լուսանցք
+	Top of Page	Էջի վերևում
+	Top:	Վերևից՝
+	Total Row	Ընդհանուրի տող
+	Track Changes	Հետևել փոփոխություններին
+	Track Changes: On	Փոփոխությունների հետևում՝ միացված
+	Tracking	Հետևում
+	Translate	Թարգմանել
+	Transparency	Թափանցիկություն
+	Triangle	Եռանկյուն
+	Two	Երկու
+	Type Text	Մուտքագրել տեքստ
+	Type a command, e.g. "insert table"	Մուտքագրեք հրաման, օրինակ՝ «ներդնել աղյուսակ»
+	UPPERCASE	ԲՈԼՈՐԸ ՄԵԾԱՏԱՌ
+	Underline	Ընդգծված
+	Underline Words Only	Ընդգծել միայն բառերը
+	Undo	Հետարկել
+	Undo {action}	Հետարկել՝ {action}
+	Unformatted Text	Չձևաչափված տեքստ
+	Up	Վերև
+	Update Field	Թարմացնել դաշտը
+	Update Index	Թարմացնել առարկայական ցանկը
+	Update Style to Match Selection	Թարմացնել ոճը՝ ըստ ընտրվածի
+	Update Table	Թարմացնել աղյուսակը
+	Update Table of Figures	Թարմացնել նկարազարդումների ցանկը
+	Update to Match	Թարմացնել՝ ըստ նմուշի
+	Update to Match Selection	Թարմացնել՝ ըստ ընտրվածի
+	User Name	Օգտանուն
+	User name:	Օգտանուն՝
+	Version History	Տարբերակների պատմություն
+	Version {version} ({build})	Տարբերակ {version} ({build})
+	Vertical	Ուղղահայաց
+	Vertical Alignment	Ուղղահայաց հավասարեցում
+	View	Տեսք
+	View Gridlines	Ցույց տալ ցանցագծերը
+	View State	Տեսքի վիճակը
+	Views	Դիտման ռեժիմներ
+	Voice	Ձայն
+	Watermark	Ջրանիշ
+	Wave	Ալիքաձև
+	Web Layout	Վեբ դասավորություն
+	Web\nLayout	Վեբ\nդասավորություն
+	Web page (*.html)	Վեբ էջ (*.html)
+	Whole page	Ամբողջ էջը
+	Whole words	Ամբողջական բառեր
+	Wide	Լայն
+	Widow/Orphan Control	Կախված տողերի արգելում
+	Widow/Orphan control	Կախված տողերի արգելում
+	Wildcards (regex)	Նիշերի ձևանմուշներ (regex)
+	Window	Պատուհան
+	Word Count	Բառերի քանակ
+	Word Left	Մեկ բառ ձախ
+	Word Right	Մեկ բառ աջ
+	Word document (*.docx)	Word փաստաթուղթ (*.docx)
+	WordArt	WordArt
+	Lexicon	Lexicon
+	Words	Բառեր
+	Words only	Միայն բառերը
+	Wrap Text	Տեքստով շրջանցում
+	Wrap\nText	Տեքստով\nշրջանցում
+	Write & Insert Fields	Գրել և ներդնել դաշտեր
+	Write a reply	Գրել պատասխան
+	Zoom	Մասշտաբ
+	Zoom In	Մեծացնել
+	Zoom Out	Փոքրացնել
+	development build	մշակման տարբերակ
+	lowercase	բոլորը փոքրատառ
+	{group} settings	{group}՝ կարգավորումներ
+	{key}+Click to follow link	{key}+սեղմում՝ հղումով անցնելու համար
+	{selected} of {words} words	Բառեր՝ {selected}՝ {words}-ից
+	{words} words	Բառեր՝ {words}
+	➕ New comment	➕ Նոր մեկնաբանություն
+	📂  Browse…	📂  Դիտել…
+	Equation	Հավասարում
+	Review	Վերանայում
+	Track\nChanges	Հետևել\nփոփոխություններին
+	Track\nChanges ✓	Հետևել\nփոփոխություններին ✓
+	Scroll ribbon left	Ոլորել ժապավենը ձախ
+	Scroll ribbon right	Ոլորել ժապավենը աջ
+	Apply Styles	Կիրառել ոճեր
+	Dark page (white text on black)	Մուգ էջ (սպիտակ տեքստ սևի վրա)
+	Show documents with their colours inverted, like View › Switch Modes. Saving, printing and PDFs are unchanged.	Ցույց տալ փաստաթղթերը շրջված գույներով, ինչպես «Տեսք › Փոխել ռեժիմը»։ Պահպանումը, տպումը և PDF-ները չեն փոխվում։
+	Only web (http, https) and email (mailto) links can be followed	Կարելի է անցնել միայն վեբ (http, https) և էլ. փոստի (mailto) հղումներով
+	Character Border	Նիշերի եզրագիծ
+	Direction:	Ուղղություն՝
+	Right-to-left	Աջից ձախ
+	Left-to-right	Ձախից աջ
+	Zotero	Zotero
+	Citations	Մեջբերումներ
+	Document	Փաստաթուղթ
+	Add/Edit\nCitation	Ավելացնել/խմբագրել\nմեջբերումը
+	Add\nNote	Ավելացնել\nնշում
+	Add/Edit\nBibliography	Ավելացնել/խմբագրել\nգրականության ցանկը
+	Refresh	Թարմացնել
+	Document\nPreferences	Փաստաթղթի\nկարգավորումներ
+	Unlink\nCitations	Անջատել\nմեջբերումները
+	Waiting for Zotero…	Սպասում է Zotero-ին…
+	Zotero: done	Zotero՝ պատրաստ է
+	Zotero: cancelled	Zotero՝ չեղարկված է
+	Yes	Այո
+	No	Ոչ
+	Move Past Citation	Անցնել մեջբերումից այն կողմ
+	Move Past\nCitation	Անցնել մեջբերումից\nայն կողմ
+	Next Sentence	Հաջորդ նախադասությունը
+	Previous Sentence	Նախորդ նախադասությունը
+	Next sentence	Հաջորդ նախադասությունը
+	Previous sentence	Նախորդ նախադասությունը
+	Play/Pause	Նվագարկել/դադար
+	Read Aloud Status	Բարձրաձայն ընթերցման վիճակը
+	Reading Speed	Ընթերցման արագություն
+	Skip Citations and Bibliography	Բաց թողնել մեջբերումները և գրականության ցանկը
+	Skip citations & bibliography	Բաց թողնել մեջբերումները և գրականությունը
+	Stop Reading	Դադարեցնել ընթերցումը
+	Don't read Zotero, Mendeley or EndNote citations and bibliographies	Չկարդալ Zotero, Mendeley կամ EndNote մեջբերումները և գրականության ցանկերը
+	Play	Նվագարկել
+	Pause	Դադար
+	Stop	Կանգ
+	Sentence	Նախադասություն
+	Paused	Դադարեցված է
+	Finished	Ավարտված է
+	Stopped	Կանգնեցված է
+	Speed	Արագություն
+	Normal speed	Սովորական արագություն
+	AutoSave documents you have saved in Lexicon	Ինքնապահպանել Lexicon-ում արդեն պահպանված փաստաթղթերը
+	AutoSave failed: {error}. Save the document to turn AutoSave back on.	Ինքնապահպանման սխալ՝ {error}։ Պահպանեք փաստաթուղթը՝ ինքնապահպանումը կրկին միացնելու համար։
+	Couldn't download {name}: {error}	Չհաջողվեց ներբեռնել {name}-ը՝ {error}
+	Do you want to save changes to {name}?	Պահպանե՞լ {name}-ի փոփոխությունները
+	Don't Save	Չպահպանել
+	That format doesn't keep everything, so the document is still open. Save it as a Word document (.docx) to go on.	Այս ձևաչափը ամեն ինչ չի պահպանում, ուստի փաստաթուղթը մնում է բաց։ Շարունակելու համար պահպանեք այն որպես Word փաստաթուղթ (.docx)։
+	Your changes will be lost if you don't save them.	Եթե չպահպանեք փոփոխությունները, դրանք կկորչեն։
+	Change Structure	Փոխել կառուցվածքը
+	Change to Display	Ցուցադրել առանձին տողով
+	Change to Inline	Ցուցադրել տողի մեջ
+	Conversions	Փոխարկումներ
+	Delete Back in Equation	Ջնջել հետ՝ հավասարման մեջ
+	Delete in Equation	Ջնջել հավասարման մեջ
+	Edit Equation	Խմբագրել հավասարումը
+	Enter in Equation	Նոր տող հավասարման մեջ
+	Equation Gallery	Հավասարումների պատկերասրահ
+	Equation Info	Տեղեկություններ հավասարման մասին
+	Equation Number	Հավասարման համար
+	Input Format	Մուտքագրման ձևաչափ
+	Insert Structure	Ներդնել կառուցվածք
+	Insert Symbol	Ներդնել նշան
+	Justification	Հավասարեցում
+	Leave Equation	Դուրս գալ հավասարումից
+	Move in Equation	Տեղաշարժ հավասարման մեջ
+	Normal Text	Սովորական տեքստ
+	Set Equation	Սահմանել հավասարումը
+	Structure Actions	Կառուցվածքի գործողություններ
+	Structures	Կառուցվածքներ
+	Tools	Գործիքներ
+	Type in Equation	Մուտքագրել հավասարման մեջ
+	Inline	Տողի մեջ
+	Number	Համար
+	Close Equation	Փակել հավասարումը
+	Insert New Equation	Ներդնել նոր հավասարում
+	Built-In	Ներկառուցված
+	Professional	Մասնագիտական
+	Linear	Գծային
+	Fraction	Կոտորակ
+	Script	Ինդեքս
+	Radical	Արմատ
+	Integral	Ինտեգրալ
+	Large\nOperator	Մեծ\nօպերատոր
+	Bracket	Փակագիծ
+	Function	Ֆունկցիա
+	Accent	Շեշտանշան
+	Limit and\nLog	Սահման և\nլոգարիթմ
+	Operator	Օպերատոր
+	Equation Options	Հավասարումների կարգավորումներ
+	All symbol sets	Նշանների բոլոր հավաքածուները
+	Send the document straight to the system print dialog, or save a copy in another format below.	Ուղարկեք փաստաթուղթն անմիջապես համակարգի տպման պատուհան կամ ստորև պահպանեք պատճենն այլ ձևաչափով։
+	Or save a copy in another format:	Կամ պահպանեք պատճենն այլ ձևաչափով՝
+	Opening print dialog…	Բացվում է տպման պատուհանը…
+	Print failed: {error}	Տպման սխալ՝ {error}
+	Couldn't open {path}: {error}	Չհաջողվեց բացել {path}-ը՝ {error}
+	Column Selection	Սյունակի ընտրություն
+	New Table Style	Աղյուսակի նոր ոճ
+	Modify Table Style	Փոփոխել աղյուսակի ոճը
+	New Table Style…	Աղյուսակի նոր ոճ…
+	Modify Table Style…	Փոփոխել աղյուսակի ոճը…
+	Apply formatting to:	Կիրառել ձևաչափումը՝
+	Whole Table	Ամբողջ աղյուսակը
+	Fill color:	Լցման գույնը՝
+	{count} items highlighted	Ընդգծված համընկնումներ՝ {count}
+	{n} pt	{n} կետ
+	Not {name}	Ոչ {name}
+	Level {n}	Մակարդակ {n}
+	Body Text	Հիմնական տեքստ
+	{n} lines	Բազմապատիկ {n}
+	At least {n}	Առնվազն {n}
+	Exactly {n}	Ճիշտ {n}
+	Centered	Կենտրոնում
+	Character spacing	Միջնիշային տարածություն
+	Don't add space between paragraphs of the same style	Չավելացնել տարածություն միևնույն ոճի պարբերությունների միջև
+	Don't hyphenate	Առանց տողադարձի
+	Double strikethrough	Կրկնակի վրագծում
+	Drop cap	Սկզբնատառ
+	First line	Առաջին տող
+	Font color	Տառի գույնը
+	Highlight	Գունային ընդգծում
+	Justified	Ըստ լայնության
+	Left indent	Ձախ նահանջ
+	Line spacing	Միջտողային տարածություն
+	Outline level	Կառուցվածքի մակարդակ
+	Raised/lowered	Բարձրացված/իջեցված
+	Right indent	Աջ նահանջ
+	Scale	Մասշտաբ
+	Space after	Տարածություն հետո
+	Space before	Տարածություն առաջ
+	Suppress line numbers	Առանց տողերի համարակալման
+	Underline color	Ընդգծման գույնը
+	Letters	Նամակներ
+	E-mail Messages	Էլ. փոստի հաղորդագրություններ
+	Directory	Տեղեկատու
+	Normal Word Document	Սովորական Word փաստաթուղթ
+	If…Then…Else…	Եթե…Ապա…Այլապես…
+	If…Then…Else	Եթե…Ապա…Այլապես
+	Merge Record #	Միաձուլման գրառման համար
+	Skip Record If…	Բաց թողնել գրառումը, եթե…
+	Skip Record If	Բաց թողնել գրառումը, եթե
+	Equals:	Հավասար է՝
+	Then insert:	Ապա ներդնել՝
+	Otherwise insert:	Այլապես ներդնել՝
+	Courtesy Title	Դիմելաձև
+	First Name	Անուն
+	Last Name	Ազգանուն
+	Company	Կազմակերպություն
+	Address	Հասցե
+	City	Քաղաք
+	State	Մարզ
+	Postal Code	Փոստային ինդեքս
+	Country	Երկիր
+	(not matched)	(համապատասխանություն չկա)
+	Leave a recipient out of the merge when a field has this value.	Բացառել ստացողին միաձուլումից, երբ դաշտն ունի այս արժեքը։
+	Insert one text or another, depending on a field's value.	Ներդնել մեկ կամ մյուս տեքստը՝ կախված դաշտի արժեքից։
+	Select recipients first to match their fields.	Նախ ընտրեք ստացողներին՝ նրանց դաշտերը համապատասխանեցնելու համար։
+	The recipient-list field that fills each part of an address block and greeting line.	Ստացողների ցուցակի դաշտը, որը լրացնում է հասցեի բլոկի և ողջույնի տողի յուրաքանչյուր մասը։
+	No errors found: every merge field is in the recipient list.	Սխալներ չեն գտնվել՝ միաձուլման բոլոր դաշտերը ստացողների ցուցակում են։
+	These merge fields aren't in the recipient list:	Միաձուլման այս դաշտերը ստացողների ցուցակում չկան՝
+	Add at least one field.	Ավելացրեք առնվազն մեկ դաշտ։
+	Add Field	Ավելացնել դաշտ
+	Every field needs a name.	Յուրաքանչյուր դաշտ պետք է անուն ունենա։
+	Field name	Դաշտի անունը
+	Field names must be different.	Դաշտերի անունները պետք է տարբեր լինեն։
+	Fields:	Դաշտեր՝
+	Field:	Դաշտ՝
+	Find:	Գտնել՝
+	New Entry	Նոր գրառում
+	Recipient List	Ստացողների ցուցակ
+	Recipients: {count}	Ստացողներ՝ {count}
+	Remove field	Հեռացնել դաշտը
+	Remove recipient	Հեռացնել ստացողին
+	Select recipients first to choose from their fields.	Նախ ընտրեք ստացողներին՝ նրանց դաշտերից ընտրելու համար։
+	Type a New List…	Մուտքագրել նոր ցուցակ…
+	Type at least one recipient.	Մուտքագրեք առնվազն մեկ ստացող։
+	Type the recipients, or load them from a file.	Մուտքագրեք ստացողներին կամ բեռնեք նրանց ֆայլից։
+	Use an Existing List…	Օգտագործել առկա ցուցակը…
+	Interface theme:	Միջերեսի թեման՝
+	Interface\nTheme	Միջերեսի\nթեման
+	Interface Theme	Միջերեսի թեման
+	Light	Բաց
+	Dark	Մուգ
+	Use system setting	Ինչպես համակարգում
+	A file dialog is already open.	Ֆայլի ընտրության պատուհանն արդեն բաց է։
+	Height:	Բարձրություն՝
+	Width:	Լայնություն՝
+	Row	Տող
+	Cell	Բջիջ
+	Preferred width:	Նախընտրելի լայնություն՝
+	Alignment:	Հավասարեցում՝
+	Indent from left:	Նահանջ ձախից՝
+	Specify height:	Նշել բարձրությունը՝
+	Exactly	Ճիշտ
+	At least	Առնվազն
+	Allow row to break across pages	Թույլատրել տողի տեղափոխումը հաջորդ էջ
+	Repeat as header row on each page	Կրկնել որպես վերնագրի տող յուրաքանչյուր էջում
+	Vertical alignment:	Ուղղահայաց հավասարեցում՝
+	Top	Վերևում
+	Bottom	Ներքևում
+	Alt text	Այլընտրանքային տեքստ
+	Alt:	Այլընտրանքային տեքստ՝
+	W:	Լ՝
+	H:	Բ՝
+	Reset	Վերակայել
+	Reset Crop	Վերակայել եզրերի կտրումը
+	Insert a new equation (Alt+=)	Ներդնել նոր հավասարում (Alt+=)
+	Leave the equation (Esc)	Դուրս գալ հավասարումից (Esc)
+	Preview	Նախադիտում
+	getartcraft.com/apps/wordcraft	getartcraft.com/apps/wordcraft
+	English (United Kingdom)	Անգլերեն (Միացյալ Թագավորություն)
+	Polish	Լեհերեն
+	Do Not Check Spelling or Grammar	Չստուգել ուղղագրությունը և քերականությունը
+	Possible spelling mistake	Հնարավոր ուղղագրական սխալ
+	Extra space	Ավելորդ բացատ
+	Capitalize the first word of a sentence	Նախադասության առաջին բառը գրեք մեծատառով
+	Remove the space before the punctuation	Հեռացրեք բացատը կետադրական նշանից առաջ
+	Use "an" before a vowel sound	Ձայնավոր հնչյունից առաջ գործածեք «an»
+	Use "a" before a consonant sound	Բաղաձայն հնչյունից առաջ գործածեք «a»
+	The spelling and grammar check is complete.	Ուղղագրության և քերականության ստուգումն ավարտված է։
+	Font…	Տառատեսակ…
+	Paragraph…	Պարբերություն…
+	Link…	Հղում…
+	Change Picture…	Փոխել նկարը…
+	Size and Crop…	Չափ և կտրում…
+	Insert Rows Above	Ներդնել տողեր վերևում
+	Insert Rows Below	Ներդնել տողեր ներքևում
+	Insert Columns to the Left	Ներդնել սյունակներ ձախից
+	Insert Columns to the Right	Ներդնել սյունակներ աջից
+	(picture or object)	(նկար կամ օբյեկտ)
+	A password is required to open this document.	Այս փաստաթուղթը բացելու համար գաղտնաբառ է պետք։
+	Add Object to Selection	Ավելացնել օբյեկտն ընտրությանը
+	Add space between Asian and Latin text	Բացատ ավելացնել ասիական և լատինական տեքստի միջև
+	Add space between Asian text and numbers	Բացատ ավելացնել ասիական տեքստի և թվերի միջև
+	Allow Latin text to wrap in the middle of a word	Թույլատրել լատինական տեքստի տեղափոխումը բառի մեջտեղում
+	Allow hanging punctuation	Թույլատրել կախովի կետադրությունը
+	Alphabetical	Այբբենական կարգով
+	Anyone can open this document. Encrypt it with a password to keep it private.	Այս փաստաթուղթը կարող է բացել ցանկացած մեկը։ Գաղտնագրեք այն գաղտնաբառով՝ պաշտպանելու համար։
+	Anyone who opens the document will need this password.	Փաստաթուղթը բացողին պետք կլինի այս գաղտնաբառը։
+	Apply Asian line-breaking rules (kinsoku)	Կիրառել ասիական տողադարձի կանոնները (kinsoku)
+	As Recommended	Ըստ առաջարկվածի
+	Asian Typography	Ասիական տպագրություն
+	AutoSave isn't available in the browser: it can't write to your files. Save downloads a copy.	Զննարկիչում ինքնապահպանումը հասանելի չէ՝ այն չի կարող գրել ձեր ֆայլերում։ «Պահպանել»-ը ներբեռնում է պատճենը։
+	AutoSave only keeps .docx, .odt and .rtf files; {name} can't keep all formatting. Save as .docx to turn on AutoSave.	Ինքնապահպանումն աշխատում է միայն .docx, .odt և .rtf ֆայլերի հետ, {name}-ը չի պահպանում ամբողջ ձևաչափումը։ Պահպանեք որպես .docx՝ ինքնապահպանումը միացնելու համար։
+	Based on: {style}	Հիմնված է՝ {style}
+	Browse…	Դիտել…
+	Built-in style	Ներկառուցված ոճ
+	Built-in styles can't be deleted.	Ներկառուցված ոճերը չեն կարող ջնջվել։
+	Change Password…	Փոխել գաղտնաբառը…
+	Character style	Նիշերի ոճ
+	Click an item to paste it.	Սեղմեք տարրի վրա՝ այն տեղադրելու համար։
+	Clipboard Items	Սեղմատախտակի տարրեր
+	Clipboard Pane	Սեղմատախտակի վահանակ
+	Color: {color}	Գույն՝ {color}
+	Compress punctuation at the start of a line	Սեղմել կետադրությունը տողի սկզբում
+	Confirm password:	Հաստատեք գաղտնաբառը՝
+	Delete Clipboard Item	Ջնջել սեղմատախտակի տարրը
+	Delete Table Style	Ջնջել աղյուսակի ոճը
+	Encrypt with Password…	Գաղտնագրել գաղտնաբառով…
+	Font: {font}	Տառատեսակ՝ {font}
+	Glow	Լուսարձակում
+	Glow Colors	Լուսարձակման գույներ
+	Hide from style lists	Թաքցնել ոճերի ցուցակներից
+	Indents and Spacing	Նահանջներ և տարածություններ
+	Keep the password somewhere safe: without it nobody, Lexicon included, can open the document. Leave both boxes empty to remove the password.	Պահեք գաղտնաբառն ապահով տեղում՝ առանց դրա ոչ ոք, այդ թվում Lexicon-ը, չի կարող բացել փաստաթուղթը։ Թողեք երկու դաշտերն էլ դատարկ՝ գաղտնաբառը հեռացնելու համար։
+	Line breaking	Տողադարձ
+	Linked style (paragraph and character)	Կապված ոճ (պարբերության և նիշերի)
+	Manage Styles	Կառավարել ոճերը
+	Manage Styles…	Կառավարել ոճերը…
+	No Glow	Առանց լուսարձակման
+	No Shadow	Առանց ստվերի
+	No Soft Edges	Առանց մեղմ եզրերի
+	Nothing collected yet. Items you copy or cut appear here.	Դեռ ոչինչ չկա։ Ձեր պատճենած կամ կտրած տարրերը կհայտնվեն այստեղ։
+	Offset: Bottom	Շեղում՝ ներքև
+	Offset: Bottom Left	Շեղում՝ ներքև ձախ
+	Offset: Bottom Right	Շեղում՝ ներքև աջ
+	Offset: Center	Շեղում՝ կենտրոն
+	Offset: Left	Շեղում՝ ձախ
+	Offset: Right	Շեղում՝ աջ
+	Offset: Top	Շեղում՝ վերև
+	Offset: Top Left	Շեղում՝ վերև ձախ
+	Offset: Top Right	Շեղում՝ վերև աջ
+	Paragraph style	Պարբերության ոճ
+	Password	Գաղտնաբառ
+	Password:	Գաղտնաբառ՝
+	Paste All	Տեղադրել բոլորը
+	Paste Clipboard Item	Տեղադրել սեղմատախտակի տարրը
+	Remove Password	Հեռացնել գաղտնաբառը
+	Save the document to turn on AutoSave	Պահպանեք փաստաթուղթը՝ ինքնապահպանումը միացնելու համար
+	Save the document to turn on AutoSave (a file you have only opened isn't rewritten until you save it)	Պահպանեք փաստաթուղթը՝ ինքնապահպանումը միացնելու համար (միայն բացված ֆայլը չի վերագրվում, քանի դեռ չեք պահպանել այն)
+	Shadow, glow and soft edges	Ստվեր, լուսարձակում և մեղմ եզրեր
+	Shape Effects	Պատկերի էֆեկտներ
+	Show in the Styles gallery	Ցույց տալ ոճերի պատկերասրահում
+	Show or Hide Style	Ցույց տալ կամ թաքցնել ոճը
+	Soft Edges	Մեղմ եզրեր
+	Sort order:	Տեսակավորման կարգը՝
+	Space after: {pt} pt	Տարածություն հետո՝ {pt} կետ
+	Space before: {pt} pt	Տարածություն առաջ՝ {pt} կետ
+	Table style	Աղյուսակի ոճ
+	That password isn't right. Check it (passwords are case-sensitive) and try again.	Գաղտնաբառը սխալ է։ Ստուգեք այն (մեծատառերը և փոքրատառերը տարբերվում են) և կրկին փորձեք։
+	The document will be saved with a password. Save it to protect it.	Փաստաթուղթը կպահպանվի գաղտնաբառով։ Պահպանեք այն՝ պաշտպանելու համար։
+	The password is removed. Save the document to keep the change.	Գաղտնաբառը հեռացված է։ Պահպանեք փաստաթուղթը՝ փոփոխությունը պահելու համար։
+	The passwords don't match.	Գաղտնաբառերը չեն համընկնում։
+	Ungroup	Ապախմբավորել
+	Weight	Հաստություն
+	{name} is protected with a password.	{name}-ը պաշտպանված է գաղտնաբառով։
+	{size} pt	{size} կետ
+	% of all commits	Բոլոր կոմիթների %
+	(All)	(Բոլորը)
+	(no style)	(առանց ոճի)
+	(none)	(ոչ մեկը)
+	(normal text)	(սովորական տեքստ)
+	1/4 Em Space	1/4 Em բացատ
+	3-D	Ծավալային
+	A mail merge field	Միաձուլման դաշտ
+	A numbered sequence (figures, tables…)	Համարակալված հաջորդականություն (նկարներ, աղյուսակներ…)
+	A table of contents	Բովանդակություն
+	AaBbYyZz	ԱաԲբՅյՖֆ
+	Add tab stop at:	Ավելացնել տաբուլյացիայի դիրք՝
+	Align Bottom Center	Ներքև՝ կենտրոնում
+	Align Bottom Left	Ներքև՝ ձախից
+	Align Bottom Right	Ներքև՝ աջից
+	Align Center	Կենտրոնում
+	Align Center Left	Կենտրոն՝ ձախից
+	Align Center Right	Կենտրոն՝ աջից
+	Align Top Center	Վերև՝ կենտրոնում
+	Align Top Left	Վերև՝ ձախից
+	Align Top Right	Վերև՝ աջից
+	Aligned at:	Հավասարեցված է՝
+	All	Բոլորը
+	Apply to:	Կիրառել՝
+	Atelier	Արվեստանոց
+	Balloons	Պղպջակներ
+	Bar	Գիծ
+	Between	Միջև
+	Borders and Shading	Եզրագծեր և ստվերագունում
+	Borders and Shading…	Եզրագծեր և ստվերագունում…
+	Bullet	Նշիչ
+	By author	Ըստ հեղինակի
+	Categories:	Կատեգորիաներ՝
+	Changed lines:	Փոփոխված տողեր՝
+	Character	Նիշ
+	Character code:	Նիշի կոդը՝
+	Click a border between two cells to merge them. Esc stops.	Սեղմեք երկու բջիջների միջև եզրագծի վրա՝ դրանք միավորելու համար։ Esc՝ ավարտել։
+	Click level to modify:	Ընտրեք փոփոխվող մակարդակը՝
+	Col #:	Սյունակ №՝
+	Color only	Միայն գույնը
+	Commits	Կոմիթներ
+	Copy of the text a bookmark marks	Էջանիշով նշված տեքստի պատճենը
+	Copyright	Հեղինակային իրավունքի նշան
+	Craft	Արհեստ
+	Custom	Հատուկ
+	Darkroom	Լուսանկարչական լաբորատորիա
+	Date and Time	Ամսաթիվ և ժամ
+	Date formats:	Ամսաթվի ձևաչափեր՝
+	Decimal	Տասնորդական
+	Default tab stops:	Լռելյայն տաբուլյացիա՝
+	Define New Multilevel List	Սահմանել նոր բազմամակարդակ ցուցակ
+	Define New Multilevel List…	Սահմանել նոր բազմամակարդակ ցուցակ…
+	Deletions:	Ջնջումներ՝
+	Description:	Նկարագրություն՝
+	Display name	Ցուցադրվող անունը
+	Document Information	Տեղեկություններ փաստաթղթի մասին
+	Document1	Փաստաթուղթ1
+	Dot dash	Կետագծիկ
+	Double Closing Quote	Փակող կրկնակի չակերտ
+	Double Opening Quote	Բացող կրկնակի չակերտ
+	Drag a rectangle to draw a table, or a line across cells to split them. Esc stops.	Քաշեք ուղղանկյուն՝ աղյուսակ նկարելու համար, կամ գիծ բջիջների վրայով՝ դրանք բաժանելու համար։ Esc՝ ավարտել։
+	Draw Ink	Նկարել ձեռքով
+	Draw Table	Նկարել աղյուսակ
+	Ellipsis	Բազմակետ
+	Em Dash	Երկար գծիկ
+	Em Space	Em բացատ
+	En Dash	Կարճ գծիկ
+	En Space	En բացատ
+	Enter formatting for number:	Մուտքագրեք համարի ձևաչափը՝
+	Equal column width	Հավասար լայնությամբ սյունակներ
+	Erase Ink	Ջնջել ձեռագիրը
+	Field Codes	Դաշտերի կոդեր
+	Field code:	Դաշտի կոդը՝
+	Field codes:	Դաշտերի կոդեր՝
+	Field name:	Դաշտի անունը՝
+	Field names:	Դաշտերի անունները՝
+	Field properties	Դաշտի հատկություններ
+	Field…	Դաշտ…
+	Fill	Լցում
+	First	Առաջին
+	Flip Horizontal	Շրջել հորիզոնական
+	Flip Vertical	Շրջել ուղղահայաց
+	Follow number with:	Համարից հետո՝
+	Format:	Ձևաչափ՝
+	Formatted	Ձևաչափված
+	Formatting	Ձևաչափում
+	Gallery	Պատկերասրահ
+	Hide Codes	Թաքցնել կոդերը
+	Hide Ink	Թաքցնել ձեռագիրը
+	Hide\nInk	Թաքցնել\nձեռագիրը
+	How many pages the whole document has	Քանի էջ ունի ամբողջ փաստաթուղթը
+	How many pages this section has	Քանի էջ ունի այս բաժինը
+	How many words the document holds	Քանի բառ է պարունակում փաստաթուղթը
+	Include level number from:	Ներառել մակարդակի համարը՝
+	Index and Tables	Ցանկեր և աղյուսակներ
+	Ink	Ձեռագիր
+	Insertions and Deletions	Ներդրումներ և ջնջումներ
+	Insertions:	Ներդրումներ՝
+	Interface size:	Միջերեսի չափը՝
+	Last	Վերջին
+	Leader	Լրացնող
+	Left border	Ձախ եզրագիծ
+	Legal style numbering	Իրավաբանական ոճի համարակալում
+	Line between	Բաժանարար գիծ
+	Lines +/−	Տողեր +/−
+	Link level to style:	Կապել մակարդակը ոճին՝
+	Links and References	Հղումներ և վկայակոչումներ
+	List Definition	Ցուցակի սահմանում
+	Mail Merge	Նամակների միաձուլում
+	Auto ({percent}%)	Ավտո ({percent}%)
+	Makes the ribbon, menus and dialogs larger or smaller. Auto follows your system's display scaling; 100% is one screen pixel per point. Document zoom is separate.	Մեծացնում կամ փոքրացնում է ժապավենը, ընտրացանկերը և երկխոսությունները։ «Ավտո»-ն հետևում է համակարգի էկրանի մասշտաբին, 100%-ը՝ մեկ պիքսել մեկ կետի համար։ Փաստաթղթի մասշտաբը կարգավորվում է առանձին։
+	Model	Մոդել
+	Mon	Երկ
+	More Columns…	Այլ սյունակներ…
+	More Symbols…	Այլ նշաններ…
+	Name	Անուն
+	Name of the file this document is saved as	Ֆայլի անունը, որով պահպանված է այս փաստաթուղթը
+	No-Width Non Break	Չբաժանվող զրո լայնությամբ նշան
+	No-Width Optional Break	Ընտրովի զրո լայնությամբ ընդհատում
+	North	Հյուսիս
+	Nothing	Ոչինչ
+	Number alignment:	Համարի հավասարեցումը՝
+	Number format	Համարի ձևաչափը
+	Number of the page the field sits on	Էջի համարը, որում գտնվում է դաշտը
+	Number of the section the field sits in	Բաժնի համարը, որում գտնվում է դաշտը
+	Number style for this level:	Այս մակարդակի համարակալման ոճը՝
+	Outside border	Արտաքին եզրագիծ
+	PRs	PR-ներ
+	Page Border	Էջի եզրագիծ
+	Page on which a bookmarked passage falls	Էջը, որում գտնվում է էջանիշով նշված հատվածը
+	Paragraph Mark	Պարբերության նշան
+	Pens	Գրիչներ
+	Pick a field from the list	Ընտրեք դաշտը ցուցակից
+	Preserve formatting during updates	Պահպանել ձևաչափումը թարմացնելիս
+	Presets	Նախադրվածներ
+	Real name	Իրական անունը
+	Recently used symbols:	Վերջերս օգտագործված նշաններ՝
+	Registered	Գրանցված ապրանքանիշ
+	Restart list after:	Վերսկսել ցուցակը՝
+	Right border	Աջ եզրագիծ
+	Rotate Left 90°	Պտտել ձախ 90°
+	Rotate Right 90°	Պտտել աջ 90°
+	Rotation	Պտույտ
+	Rotation:	Պտույտ՝
+	Section Mark	Բաժնի նշան
+	Sequence name:	Հաջորդականության անունը՝
+	Set	Սահմանել
+	Setting:	Տեսակ՝
+	Shortcut key:	Ստեղնաշարի դյուրանցում՝
+	Show all revisions inline	Ցույց տալ բոլոր փոփոխությունները տեքստում
+	Show only comments and formatting in balloons	Պղպջակներում ցույց տալ միայն մեկնաբանությունները և ձևաչափումը
+	Show revisions in balloons	Ցույց տալ փոփոխությունները պղպջակներում
+	Single Closing Quote	Փակող միակի չակերտ
+	Single Opening Quote	Բացող միակի չակերտ
+	Sketchbook	Էսքիզների գիրք
+	South	Հարավ
+	Space	Բացատ
+	Spacing:	Միջակայք՝
+	Special Characters	Հատուկ նշաններ
+	Start at:	Սկսել՝
+	Studio	Ստուդիա
+	Style:	Գծի տեսակը՝
+	Style: {style}	Ոճ՝ {style}
+	Subset:	Հավաքածու՝
+	Sum	Գումար
+	Tab character	Տաբուլյացիայի նշան
+	Tab stop position:	Տաբուլյացիայի դիրքը՝
+	Tab stops to be cleared:	Ջնջվող տաբուլյացիայի դիրքեր՝
+	Tabs…	Տաբուլյացիա…
+	Text indent at:	Տեքստի նահանջ՝
+	The date it is today	Այսօրվա ամսաթիվը
+	The document has no bookmarks yet.	Փաստաթղթում դեռ էջանիշներ չկան։
+	The time right now	Ներկայիս ժամը
+	Thickness	Հաստություն
+	This field has no options.	Այս դաշտը կարգավորումներ չունի։
+	This font has no characters to show.	Այս տառատեսակում ցուցադրելու նիշեր չկան։
+	This point forward	Այս կետից սկսած
+	This section	Այս բաժինը
+	Selected text	Ընտրված տեքստը
+	Title from the document properties	Վերնագիրը փաստաթղթի հատկություններից
+	Total	Ընդամենը
+	Track Changes Options	Փոփոխությունների հետևման կարգավորումներ
+	Track formatting	Հետևել ձևաչափմանը
+	Trademark	Ապրանքանիշ
+	Triple	Եռակի
+	Tue	Երք
+	Type the field's name and its switches, for example PAGE \\* roman.	Մուտքագրեք դաշտի անունը և դրա բանալիները, օրինակ՝ PAGE \\* roman։
+	Username	Օգտանուն
+	Version	Տարբերակ
+	Wed	Չրք
+	West	Արևմուտք
+	When this document was first created	Երբ է այս փաստաթուղթն առաջին անգամ ստեղծվել
+	When this document was most recently printed	Երբ է այս փաստաթուղթը վերջին անգամ տպվել
+	When this document was most recently saved	Երբ է այս փաստաթուղթը վերջին անգամ պահպանվել
+	Who the document properties name as author	Ում են փաստաթղթի հատկությունները նշում որպես հեղինակ
+	Whole document	Ամբողջ փաստաթուղթը
+	Width and spacing	Լայնություն և միջակայք
+	from Unicode (hex)	Յունիկոդ (տասնվեցական)
+	pt	կետ
+	{cols}×{rows} Table	{cols}×{rows} աղյուսակ
+	{contributors} contributors · {commits} commits	Մասնակիցներ՝ {contributors} · կոմիթներ՝ {commits}
+	Copyright Sign	Հեղինակային իրավունքի նշան
+	Edit Field Code	Խմբագրել դաշտի կոդը
+	Edit Field…	Խմբագրել դաշտը…
+	Insert Date Field	Ներդնել ամսաթվի դաշտ
+	Insert Page Field	Ներդնել էջի համարի դաշտ
+	Insert Time Field	Ներդնել ժամի դաշտ
+	Lock Fields	Կողպել դաշտերը
+	Next Field	Հաջորդ դաշտը
+	Previous Field	Նախորդ դաշտը
+	Registered Sign	Գրանցված ապրանքանիշի նշան
+	Reset Character Formatting	Վերակայել նիշերի ձևաչափումը
+	Reset Paragraph Formatting	Վերակայել պարբերության ձևաչափումը
+	Selected Fields	Ընտրված դաշտերը
+	Toggle Field Codes	Դաշտերի կոդեր/արժեքներ
+	Trademark Sign	Ապրանքանիշի նշան
+	Unlink Fields	Անջատել դաշտերի կապը
+	Unlock Fields	Ապակողպել դաշտերը
+	All Commands	Բոլոր հրամանները
+	Assign	Նշանակել
+	Choose a command	Ընտրեք հրաման
+	Choose a shortcut	Ընտրեք դյուրանցում
+	Commands:	Հրամաններ՝
+	Customize	Կարգավորել
+	Customize Keyboard	Ստեղնաշարի կարգավորում
+	Customize…	Կարգավորել…
+	Demote	Իջեցնել մակարդակը
+	Draw\nTable	Նկարել\nաղյուսակ
+	Go Back	Վերադառնալ
+	Keyboard shortcuts:	Ստեղնաշարի դյուրանցումներ՝
+	Keys for this command:	Այս հրամանի ստեղները՝
+	Move Paragraph Down	Տեղափոխել պարբերությունը ներքև
+	Move Paragraph Up	Տեղափոխել պարբերությունը վերև
+	New shortcut:	Նոր դյուրանցում՝
+	Not used by any command	Չի օգտագործվում որևէ հրամանի կողմից
+	Now used by {command}	Այժմ օգտագործվում է՝ {command}
+	Press a key combination	Սեղմեք ստեղների համակցություն
+	Promote	Բարձրացնել մակարդակը
+	Remove	Հեռացնել
+	Remove every custom shortcut and restore the built-in keys?	Հեռացնե՞լ բոլոր հատուկ դյուրանցումները և վերականգնել ներկառուցվածները
+	Reset All…	Վերակայել բոլորը…
+	Toggle Unicode Character	Փոխարկել Յունիկոդ նիշը
+	Type Character Code	Մուտքագրել նիշի կոդը
+	(Custom)	(Հատուկ)
+	<< Remove	<< Հեռացնել
+	Add >>	Ավելացնել >>
+	Add to Quick Access Toolbar	Ավելացնել արագ մուտքի գործիքագոտում
+	Customize Quick Access Toolbar…	Կարգավորել արագ մուտքի գործիքագոտին…
+	Customize Ribbon	Ժապավենի կարգավորում
+	Customize the Ribbon…	Կարգավորել ժապավենը…
+	More Commands…	Այլ հրամաններ…
+	New Group	Նոր խումբ
+	New Tab	Նոր ներդիր
+	Pick a custom group (New Group makes one)	Ընտրեք հատուկ խումբ («Նոր խումբ»-ը ստեղծում է այն)
+	Put the default commands back on the Quick Access Toolbar?	Վերադարձնե՞լ լռելյայն հրամանները արագ մուտքի գործիքագոտի
+	Remove every custom tab and group and show all tabs again?	Հեռացնե՞լ բոլոր հատուկ ներդիրները և խմբերը և կրկին ցույց տալ բոլոր ներդիրները
+	Remove from Quick Access Toolbar	Հեռացնել արագ մուտքի գործիքագոտուց
+	Hide Quick Access Toolbar	Թաքցնել արագ մուտքի գործիքագոտին
+	Show Quick Access Toolbar	Ցույց տալ արագ մուտքի գործիքագոտին
+	Rename…	Վերանվանել…
+	Reset…	Վերակայել…
+	Ribbon	Ժապավեն
+	Ribbon and Quick Access Toolbar:	Ժապավեն և արագ մուտքի գործիքագոտի՝
+	Ribbon tabs	Ժապավենի ներդիրներ
+	Align Text	Հավասարեցնել տեքստը
+	Apply	Կիրառել
+	Arrows	Սլաքներ
+	Base text:	Հիմնական տեքստ՝
+	Behind Text	Տեքստի հետևում
+	Below text	Տեքստի տակ
+	Both Sides	Երկու կողմից
+	Break Link	Խզել կապը
+	Canvas Member	Կտավի տարր
+	Choose the sheet that holds the recipients.	Ընտրեք ստացողներով թերթը։
+	Circle	Շրջան
+	Click the empty text box the text should continue in (Esc cancels)	Սեղմեք դատարկ տեքստային դաշտի վրա, որտեղ պետք է շարունակվի տեքստը (Esc՝ չեղարկել)
+	Communication	Կապ
+	Continuous numbering	Անընդհատ համարակալում
+	Convert Notes	Փոխարկել ծանոթագրությունները
+	Create Link	Ստեղծել կապ
+	Custom mark:	Հատուկ նշան՝
+	Distribute letters	Բաշխել տառերը
+	Distribute spacing	Բաշխել տարածությունը
+	Drawing Canvas	Նկարչական կտավ
+	Enclose Characters	Շրջանակել նիշերը
+	Enclosure	Շրջանակ
+	End of document	Փաստաթղթի վերջում
+	End of section	Բաժնի վերջում
+	Endnotes	Վերջնական ծանոթագրություններ
+	Endnotes to footnotes	Վերջնականները՝ սովորական ծանոթագրությունների
+	Enlarge symbol	Մեծացնել նշանը
+	Expand	Ընդլայնել
+	First row of data contains column headers	Տվյալների առաջին տողը պարունակում է սյունակների վերնագրերը
+	Fit	Ըստ չափի
+	Footnotes to endnotes	Սովորականները՝ վերջնական ծանոթագրությունների
+	Icon Color	Պատկերակի գույնը
+	In Front of Text	Տեքստի առջևում
+	In Line with Text	Տեքստի հետ նույն տողում
+	Largest Only	Միայն ամենամեծ կողմից
+	Left Only	Միայն ձախից
+	Location	Տեղադրություն
+	Middle	Միջնամաս
+	Moved from	Տեղափոխված է՝ որտեղից
+	Moved to	Տեղափոխված է՝ ուր
+	Nature	Բնություն
+	New Drawing Canvas	Նոր նկարչական կտավ
+	No icons match your search.	Ձեր որոնմանը համապատասխանող պատկերակներ չկան։
+	Not linked: click a text box	Կապված չէ՝ սեղմեք տեքստային դաշտի վրա
+	Office	Գրասենյակ
+	Offset (pt):	Շեղում (կետ)՝
+	People	Մարդիկ
+	Phonetic Guide	Հնչյունական ուղեցույց
+	Recolor a one-color picture, such as an icon	Վերաներկել միագույն նկարը, օրինակ՝ պատկերակը
+	Right (vertical)	Աջից (ուղղահայաց)
+	Right Only	Միայն աջից
+	Right-to-Left Section	Աջից ձախ բաժին
+	Right-to-Left Table	Աջից ձախ աղյուսակ
+	Rotate all text 270°	Պտտել ամբողջ տեքստը 270°
+	Rotate all text 90°	Պտտել ամբողջ տեքստը 90°
+	Ruby text:	Ռուբի տեքստ՝
+	Scale Drawing	Մասշտաբավորել նկարը
+	Search icons	Որոնել պատկերակներ
+	Section direction:	Բաժնի ուղղությունը՝
+	Shrink text	Փոքրացնել տեքստը
+	Size (pt):	Չափ (կետ)՝
+	Square	Քառակուսի
+	Stacked	Իրար վրա
+	Swap footnotes and endnotes	Փոխանակել ծանոթագրությունները և վերջնական ծանոթագրությունները
+	Table direction:	Աղյուսակի ուղղությունը՝
+	Technology	Տեխնոլոգիաներ
+	Through	Միջով
+	Top and Bottom	Վերևից և ներքևից
+	Transport	Տրանսպորտ
+	Weather	Եղանակ
+	Wrap Text Sides	Շրջանցման կողմերը
+	Characters per line:	Նիշեր տողում՝
+	Document Grid	Փաստաթղթի ցանց
+	Lines and characters	Տողեր և նիշեր
+	Lines only	Միայն տողեր
+	Lines per page:	Տողեր էջում՝
+	No grid	Առանց ցանցի
+	Text snaps to characters	Տեքստը կապվում է նիշերին
+	A, B, C, …	A, B, C, …
+	Above the item	Տարրի վերևում
+	Accessed on	Դիմելու ամսաթիվը
+	Accessibility Pane	Մատչելիության վահանակ
+	Add New Source…	Ավելացնել նոր աղբյուր…
+	Add Pen	Ավելացնել գրիչ
+	Add line numbering	Ավելացնել տողերի համարակալում
+	Add the chapter number	Ավելացնել գլխի համարը
+	Add to Document	Ավելացնել փաստաթղթին
+	Add\nPen	Ավելացնել\nգրիչ
+	Address labels	Հասցեի պիտակներ
+	Alt Text Pane	Այլընտրանքային տեքստի վահանակ
+	Alt\nText	Այլընտրանքային\nտեքստ
+	Arabic	Արաբական
+	Atmosphere	Մթնոլորտ
+	Auto	Ավտո
+	Automatically hyphenate document	Ավտոմատ տողադարձ փաստաթղթում
+	Below the item	Տարրի տակ
+	Book	Գիրք
+	Book title	Գրքի վերնագիրը
+	Caption	Մակագրություն
+	Caption Numbering	Մակագրությունների համարակալում
+	Caption text	Մակագրության տեքստը
+	Caption:	Մակագրություն՝
+	Chapter in a book	Գրքի գլուխ
+	Chapters begin at:	Գլուխները սկսվում են՝
+	Chinese (Simplified)	Չինարեն (պարզեցված)
+	Chinese (Traditional)	Չինարեն (ավանդական)
+	Collect entries from:	Հավաքել գրառումները՝
+	Column:	Սյունակ՝
+	Columns:	Սյունակներ՝
+	Conference	Համաժողով
+	Conference paper	Զեկուցում համաժողովում
+	Container Title	Աղբյուրի անվանումը
+	Convert to Shapes	Փոխարկել պատկերների
+	Count by:	Քայլ՝
+	Create Source	Ստեղծել աղբյուր
+	Cross-reference:	Խաչաձև հղում՝
+	Custom Table of Contents…	Հատուկ բովանդակություն…
+	Czech	Չեխերեն
+	DOI	DOI
+	Danish	Դանիերեն
+	Day	Օր
+	Decorative objects only add visual interest: screen readers skip them.	Դեկորատիվ օբյեկտները միայն զարդարում են փաստաթուղթը՝ էկրանի ընթերցիչները բաց են թողնում դրանք։
+	Delete Label	Ջնջել պիտակը
+	Delete Selected Ink	Ջնջել ընտրված ձեռագիրը
+	Delivery address:	Առաքման հասցե՝
+	Describe what this object shows, for people who can't see it.	Նկարագրեք, թե ինչ է ցույց տալիս այս օբյեկտը, այն մարդկանց համար, ովքեր չեն տեսնում այն։
+	Describe what this table shows, for people who can't see it.	Նկարագրեք, թե ինչ է ցույց տալիս այս աղյուսակը, այն մարդկանց համար, ովքեր չեն տեսնում այն։
+	Detect language automatically	Ավտոմատ որոշել լեզուն
+	Do not check spelling or grammar	Չստուգել ուղղագրությունը և քերականությունը
+	Dutch	Նիդեռլանդերեն
+	Edit Source	Խմբագրել աղբյուրը
+	Edition	Հրատարակություն
+	Edit…	Խմբագրել…
+	Entry marked.	Գրառումը նշված է։
+	Envelope size:	Ծրարի չափը՝
+	Errors ({n})	Սխալներ ({n})
+	Estonian	Էստոներեն
+	Example: {sample}	Օրինակ՝ {sample}
+	Figure	Նկար
+	Film	Ֆիլմ
+	Finnish	Ֆիններեն
+	Forward	Առաջ
+	French (France)	Ֆրանսերեն (Ֆրանսիա)
+	From text:	Տեքստից՝
+	Full page of the same label	Միևնույն պիտակի ամբողջ էջ
+	German (Germany)	Գերմաներեն (Գերմանիա)
+	Greek	Հունարեն
+	Heading styles (levels 1–{n})	Վերնագրերի ոճեր (1–{n} մակարդակներ)
+	Heading {n}	Վերնագիր {n}
+	Hebrew	Եբրայերեն
+	Hyphenate at:	Տողադարձել՝
+	Hyphenate words in CAPS	Տողադարձել ՄԵԾԱՏԱՌ բառերը
+	Hyphenation Options…	Տողադարձի կարգավորումներ…
+	Hyphenation zone:	Տողադարձի գոտի՝
+	I, II, III, …	I, II, III, …
+	Include page numbers	Ներառել էջերի համարները
+	Indented	Աստիճանաձև նահանջով
+	Ink Replay	Ձեռագրի վերարտադրում
+	Ink to Shape	Ձեռագիրը՝ պատկերի
+	Institution	Հաստատություն
+	Ionosphere	Իոնոլորտ
+	Issue	Համար
+	Italian	Իտալերեն
+	Croatian	Խորվաթերեն
+	Indonesian	Ինդոնեզերեն
+	Japanese	Ճապոներեն
+	Journal	Ամսագիր
+	Korean	Կորեերեն
+	Label:	Պիտակ՝
+	Lasso Select	Լասոյով ընտրություն
+	Last, First; Last, First	Ազգանուն, Անուն; Ազգանուն, Անուն
+	Leave the label out of the caption	Չներառել պիտակը մակագրության մեջ
+	Letter headings	Տառային վերնագրեր
+	Levels:	Մակարդակներ՝
+	Limit consecutive hyphens to:	Իրար հաջորդող տողադարձերի առավելագույն քանակը՝
+	Line Numbering Options…	Տողերի համարակալման կարգավորումներ…
+	Link entries to their headings	Կապել գրառումները իրենց վերնագրերին
+	Made from the author and year when empty	Եթե դատարկ է, կազմվում է հեղինակից և տարեթվից
+	Magazine or newspaper article	Ամսագրի կամ թերթի հոդված
+	Main entry:	Հիմնական գրառում՝
+	Manual Hyphenation	Ձեռքով տողադարձ
+	Manual hyphenation is complete.	Ձեռքով տողադարձն ավարտված է։
+	Manual…	Ձեռքով…
+	Mark	Նշել
+	Mark All	Նշել բոլորը
+	Mark Entry…	Նշել գրառումը…
+	Mark Index Entry	Նշել ցանկի տարրը
+	Mark as decorative	Նշել որպես դեկորատիվ
+	Mark selected text as:	Նշել ընտրված տեքստը որպես՝
+	Mesosphere	Մեզոլորտ
+	Month	Ամիս
+	Move Selected Ink	Տեղափոխել ընտրված ձեռագիրը
+	New Document	Նոր փաստաթուղթ
+	New Label	Նոր պիտակ
+	New Label…	Նոր պիտակ…
+	New…	Նոր…
+	No accessibility issues found.	Մատչելիության խնդիրներ չեն գտնվել։
+	No limit	Առանց սահմանափակման
+	No sources yet.	Աղբյուրներ դեռ չկան։
+	Norwegian (Bokmål)	Նորվեգերեն (բուկմոլ)
+	Numbering:	Համարակալում՝
+	Numbering…	Համարակալում…
+	Omit	Բաց թողնել
+	One label per recipient	Մեկ պիտակ յուրաքանչյուր ստացողի համար
+	Options…	Կարգավորումներ…
+	Other	Այլ
+	Other styles and their TOC level:	Այլ ոճեր և դրանց մակարդակը բովանդակության մեջ՝
+	Outline levels	Կառուցվածքի մակարդակներ
+	Page number style	Էջահամարների ոճը
+	Page numbers at the right margin	Էջահամարները աջ լուսանցքում
+	Page title	Էջի վերնագիրը
+	Pages of bookmark:	Էջանիշի էջերը՝
+	Periodical	Պարբերական հրատարակություն
+	Portuguese (Brazil)	Պորտուգալերեն (Բրազիլիա)
+	Portuguese (Portugal)	Պորտուգալերեն (Պորտուգալիա)
+	Position:	Դիրք՝
+	Publisher	Հրատարակիչ
+	Recolor Selected Ink	Վերաներկել ընտրված ձեռագիրը
+	Remove Pen	Հեռացնել գրիչը
+	Return address labels	Վերադարձի հասցեի պիտակներ
+	Return address:	Վերադարձի հասցե՝
+	Rewind	Հետ փաթաթել
+	Row:	Տող՝
+	Run-in	Շարունակական
+	Russian	Ռուսերեն
+	See	Տես
+	Select a picture, shape, chart or table to describe it.	Ընտրեք նկար, պատկեր, գծապատկեր կամ աղյուսակ՝ այն նկարագրելու համար։
+	Separator:	Բաժանարար՝
+	Serbian (Cyrillic)	Սերբերեն (կիրիլիցա)
+	Serbian (Latin)	Սերբերեն (լատինատառ)
+	Set As Default	Սահմանել որպես լռելյայն
+	Shipping labels	Առաքման պիտակներ
+	Show every bibliography field	Ցույց տալ գրականության բոլոր դաշտերը
+	Single label	Մեկ պիտակ
+	Site name	Կայքի անվանումը
+	Source Manager	Աղբյուրների կառավարիչ
+	Source type:	Աղբյուրի տեսակը՝
+	Sources in this document:	Այս փաստաթղթի աղբյուրները՝
+	Spanish (Mexico)	Իսպաներեն (Մեքսիկա)
+	Spanish (Spain)	Իսպաներեն (Իսպանիա)
+	Stroke {n} of {total}	Գիծ {n}՝ {total}-ից
+	Styles:	Ոճեր՝
+	Subentry:	Ենթագրառում՝
+	Swedish	Շվեդերեն
+	TC entry fields	TC գրառումների դաշտեր
+	Tab leader:	Տաբուլյացիայի լրացնող՝
+	Table of Contents Options	Բովանդակության կարգավորումներ
+	Table of Contents Styles	Բովանդակության ոճեր
+	Tag	Պիտակ
+	This page	Այս էջը
+	Tips ({n})	Խորհուրդներ ({n})
+	Title	Վերնագիր
+	Title:	Վերնագիր՝
+	Turkish	Թուրքերեն
+	Type:	Տեսակ՝
+	URL	URL
+	Ukrainian	Ուկրաիներեն
+	View Alt Text…	Դիտել այլընտրանքային տեքստը…
+	Volume	Հատոր
+	Warnings ({n})	Զգուշացումներ ({n})
+	Website	Վեբ կայք
+	Year	Տարի
+	a, b, c, …	a, b, c, …
+	i, ii, iii, …	i, ii, iii, …
+	{language} is now the document's default language.	{language}-ն այժմ փաստաթղթի լռելյայն լեզուն է։
+	{n} entries marked.	Նշված գրառումներ՝ {n}։
+	0 or More Characters	0 կամ ավելի նիշ
+	1. Formatting restrictions	1. Ձևաչափման սահմանափակումներ
+	2. Editing restrictions	2. Խմբագրման սահմանափակումներ
+	3. Start enforcement	3. Միացնել պաշտպանությունը
+	<< Less	<< Պակաս
+	Above Chart	Գծապատկերի վերևում
+	Accent Gradient	Շեշտի գրադիենտ
+	Accent with Reflection	Շեշտ՝ արտացոլմամբ
+	Accent {n}	Շեշտ {n}
+	Add Chart Element	Ավելացնել գծապատկերի տարր
+	Add Font…	Ավելացնել տառատեսակ…
+	Add Row	Ավելացնել տող
+	Add Series	Ավելացնել շարք
+	Add Shape	Ավելացնել պատկեր
+	Add\nShape	Ավելացնել\nպատկեր
+	Added Fonts	Ավելացված տառատեսակներ
+	All Levels	Բոլոր մակարդակները
+	All files	Բոլոր ֆայլերը
+	All pages	Բոլոր էջերը
+	All pages in the range	Տիրույթի բոլոր էջերը
+	Allow line breaks	Թույլատրել տողի ընդհատումներ
+	Animate the caret (it glides and fades)	Անիմացիոն կուրսոր (սահուն տեղաշարժվում և մարում է)
+	Animation	Անիմացիա
+	Animation effects:	Անիմացիոն էֆեկտներ՝
+	Another file	Այլ ֆայլ
+	Any Character	Ցանկացած նիշ
+	Any Digit	Ցանկացած թվանշան
+	Any Letter	Ցանկացած տառ
+	Apply as you type	Կիրառել մուտքագրելիս
+	Arch Down	Կամար ներքև
+	Arch Up	Կամար վերև
+	Area	Մակերեսներով
+	As you type	Մուտքագրելիս
+	Asian text font:	Ասիական տեքստի տառատեսակ՝
+	Attach Template	Կցել ձևանմուշ
+	Attach…	Կցել…
+	AutoCorrect	Ինքնաուղղում
+	AutoFormat As You Type	Ինքնաձևաչափում մուտքագրելիս
+	AutoSave writes your changes to the file a moment after you stop typing.	Ինքնապահպանումը գրում է փոփոխությունները ֆայլում՝ մուտքագրումը դադարեցնելուց անմիջապես հետո։
+	Automatic bulleted lists	Ավտոմատ նշիչավոր ցուցակներ
+	Automatic numbered lists	Ավտոմատ համարակալված ցուցակներ
+	Automatically Update Document Styles	Ավտոմատ թարմացնել փաստաթղթի ոճերը
+	Automatically update document styles	Ավտոմատ թարմացնել փաստաթղթի ոճերը
+	Basic Cycle	Պարզ ցիկլ
+	Basic List	Պարզ ցուցակ
+	Basic Matrix	Պարզ մատրից
+	Basic Process	Պարզ գործընթաց
+	Basic Pyramid	Պարզ բուրգ
+	Basic Radial	Պարզ ճառագայթային
+	Basic Venn	Պարզ Վեննի դիագրամ
+	Beginning of Word	Բառի սկիզբ
+	Blue:	Կապույտ՝
+	Border lines	Եզրագծի գծեր
+	Browse in Lexicon…	Դիտել Lexicon-ում…
+	Building Block Gallery Content Control	Բովանդակության կառավարման տարր՝ բլոկների պատկերասրահ
+	Can't be deleted	Չի կարող ջնջվել
+	Capitalize first letter of sentences	Նախադասությունների առաջին տառը՝ մեծատառ
+	Capitalize first letter of table cells	Աղյուսակի բջիջների առաջին տառը՝ մեծատառ
+	Capitalize names of days	Շաբաթվա օրերի անունները՝ մեծատառով
+	Caret Character	Ներդրման նշան (^)
+	Case changes	Ռեգիստրի փոփոխություններ
+	Categories	Կատեգորիաներ
+	Category {n}	Կատեգորիա {n}
+	Centimeters	Սանտիմետրեր
+	Change Chart Type	Փոխել գծապատկերի տեսակը
+	Change Colors	Փոխել գույները
+	Change Layout	Փոխել դասավորությունը
+	Change\nChart Type	Փոխել գծապատկերի\nտեսակը
+	Change\nColors	Փոխել\nգույները
+	Character in Range	Նիշ տիրույթից
+	Character level	Նիշերի մակարդակում
+	Chart Design	Գծապատկերի ձևավորում
+	Chart Layouts	Գծապատկերի դասավորություններ
+	Chart Title	Գծապատկերի վերնագիր
+	Check Box Content Control	Բովանդակության կառավարման տարր՝ նշավանդակ
+	Check spelling as you type	Ստուգել ուղղագրությունը մուտքագրելիս
+	Checked styles are allowed:	Թույլատրված են նշված ոճերը՝
+	Checked symbol	Նշված վանդակի նշան
+	Chevron Down	Շևրոն ներքև
+	Chevron Up	Շևրոն վերև
+	Choose List Item	Ընտրել ցուցակի տարրը
+	Click to switch back to inserting	Սեղմեք՝ ներդրման ռեժիմին վերադառնալու համար
+	Clipboard Contents	Սեղմատախտակի բովանդակությունը
+	Close Outline View	Փակել կառուցվածքի ռեժիմը
+	Close Outline\nView	Փակել կառուցվածքի\nռեժիմը
+	Clustered Bar	Խմբավորված գոտիներ
+	Clustered Column	Խմբավորված սյունակներ
+	Collapse	Ծալել
+	Collate copies	Դասավորել ըստ պատճենների
+	Color model:	Գունային մոդել՝
+	Colorful	Գունավոր
+	Colors:	Գույներ՝
+	Combine Documents	Միավորել փաստաթղթերը
+	Combo Box Content Control	Բովանդակության կառավարման տարր՝ համակցված դաշտ
+	Comments beside each page and tracked changes in PDFs, prints and images; a comment list at the end of web pages, Markdown and text.	Մեկնաբանություններ յուրաքանչյուր էջի կողքին և հետևվող փոփոխություններ PDF-ներում, տպման և պատկերներում, մեկնաբանությունների ցուցակ՝ վեբ էջերի, Markdown-ի և տեքստի վերջում։
+	Compare Documents	Համեմատել փաստաթղթերը
+	Compared: {changes} changes	Համեմատված է՝ {changes} փոփոխություն
+	Comparing with another file needs the desktop app.	Այլ ֆայլի հետ համեմատելու համար անհրաժեշտ է համակարգչային ծրագիրը։
+	Comparison settings	Համեմատման կարգավորումներ
+	Connect Shapes	Միացնել պատկերները
+	Content Control Properties	Բովանդակության կառավարման տարրի հատկություններ
+	Content Control at Selection	Բովանդակության կառավարման տարր ընտրվածում
+	Contents can't be edited	Բովանդակությունը չի կարող խմբագրվել
+	Controls	Կառավարման տարրեր
+	Copies	Պատճեններ
+	Copy Styles	Պատճենել ոճերը
+	Create Graphic	Ստեղծել գրաֆիկա
+	Current	Ընթացիկ
+	Current page	Ընթացիկ էջը
+	Curved Arrow Connector	Կոր միացնող գիծ՝ սլաքով
+	Curved Connector	Կոր միացնող գիծ
+	Custom dictionary	Օգտատիրոջ բառարան
+	Custom range	Հատուկ տիրույթ
+	Cycle	Ցիկլ
+	Dark with Shadow	Մուգ՝ ստվերով
+	Data Labels	Տվյալների պիտակներ
+	Date Picker Content Control	Բովանդակության կառավարման տարր՝ ամսաթվի ընտրիչ
+	Date format	Ամսաթվի ձևաչափ
+	Deflate	Սեղմում
+	Deleted	Ջնջված
+	Demote to Body Text	Իջեցնել մինչև հիմնական տեքստ
+	Design Mode	Կառուցողի ռեժիմ
+	Detach Template	Անջատել ձևանմուշը
+	Developer	Մշակող
+	Display text	Ցուցադրվող տեքստը
+	Document template:	Փաստաթղթի ձևանմուշ՝
+	Documents	Փաստաթղթեր
+	Don't capitalize after:	Մեծատառ չդնել հետո՝
+	Doughnut	Օղակաձև
+	Drop-Down List Content Control	Բովանդակության կառավարման տարր՝ բացվող ցուցակ
+	Edit Data	Խմբագրել տվյալները
+	Edit Items	Խմբագրել տարրերը
+	Edit\nData	Խմբագրել\nտվյալները
+	Editing in this document is restricted.	Այս փաստաթղթի խմբագրումը սահմանափակված է։
+	Elbow Arrow Connector	Անկյունային միացնող գիծ՝ սլաքով
+	Elbow Connector	Անկյունային միացնող գիծ
+	End of Word	Բառի վերջ
+	Even pages only	Միայն զույգ էջերը
+	Every change is recorded as a tracked change.	Յուրաքանչյուր փոփոխություն գրանցվում է որպես հետևվող փոփոխություն։
+	Everyone	Բոլորը
+	Exceptions (optional)	Բացառություններ (ըստ ցանկության)
+	Exceptions…	Բացառություններ…
+	Expand or Collapse Heading	Բացել կամ ծալել վերնագիրը
+	Expression	Արտահայտություն
+	Extend Selection by Units	Ընդլայնել ընտրությունն ըստ միավորների
+	Fields	Դաշտեր
+	File name:	Ֆայլի անունը՝
+	Filling in forms	Ձևաթղթերի լրացում
+	Find Next Editable Region	Գտնել հաջորդ խմբագրելի տիրույթը
+	Find What Expression	Գտնված արտահայտությունը
+	Find What Text	Որոնվող տեքստը
+	Fix Position on Page	Ամրացնել դիրքն էջում
+	Footnotes and endnotes	Ծանոթագրություններ և վերջնական ծանոթագրություններ
+	Formatting exceptions	Ձևաչափման բացառություններ
+	Formatting marks	Ձևաչափման նշաններ
+	Formatting, case changes, white space and tables are compared; the other settings are kept for later.	Համեմատվում են ձևաչափումը, ռեգիստրի փոփոխությունները, բացատները և աղյուսակները, մյուս կարգավորումները պահվում են հետագայի համար։
+	Fractions (1/2) as fraction characters (½)	Կոտորակները (1/2)՝ կոտորակի նշաններով (½)
+	Graphic	Գրաֆիկա
+	Green:	Կանաչ՝
+	Headers and footers	Վերնագրեր և ստորագրեր
+	Hex:	Hex՝
+	Hidden text	Թաքնված տեքստ
+	Hide White Space	Թաքցնել դատարկ տարածքը էջերի միջև
+	Hierarchy	Հիերարխիա
+	Hollow	Սնամեջ
+	Home folder	Գլխավոր թղթապանակ
+	Hue:	Երանգ՝
+	Hyphens (--) as dashes (—)	Գծիկները (--)՝ գծով (—)
+	Ignore punctuation characters	Անտեսել կետադրական նշանները
+	Ignore web and file addresses	Բաց թողնել վեբ և ֆայլերի հասցեները
+	Ignore white-space characters	Անտեսել բացատները
+	Ignore words in capitals	Բաց թողնել մեծատառ բառերը
+	Ignore words with numbers	Բաց թողնել թվերով բառերը
+	In equations, typing a name after a backslash replaces it with its symbol.	Բանաձևերում հակադարձ շեղ գծից հետո անունը փոխարինվում է իր նշանով։
+	Inches	Դյույմեր
+	Inflate	Ուռուցիկ
+	Initials:	Սկզբնատառեր՝
+	Insert Chart	Ներդնել գծապատկեր
+	Insert SmartArt	Ներդնել SmartArt
+	Inside:	Ներսում՝
+	Interface	Միջերես
+	Interface language	Միջերեսի լեզուն
+	Internet addresses as links	Ինտերնետ հասցեները՝ հղումներով
+	Label changes with:	Նշել փոփոխությունները՝
+	Latin text font:	Լատինական տեքստի տառատեսակ՝
+	Layouts	Դասավորություններ
+	Legend	Լեգենդ
+	Light with Outline	Բաց՝ ուրվագծով
+	Limit formatting to a selection of styles	Սահմանափակել ձևաչափումը ընտրված ոճերով
+	List	Ցուցակ
+	List entries	Ցուցակի տարրեր
+	Lum:	Պայծառություն՝
+	Manual Line Break	Տողի ընդհատում
+	Manual Page Break	Էջի ընդհատում
+	Mark grammar errors as you type	Նշել քերականական սխալները մուտքագրելիս
+	Match prefix	Բառի սկիզբը
+	Match suffix	Բառի վերջը
+	Math AutoCorrect	Մաթեմատիկական ինքնաուղղում
+	Measurement units:	Չափման միավորներ՝
+	Millimeters	Միլիմետրեր
+	Mirror indents	Հայելային նահանջներ
+	More >>	Ավելին >>
+	More Colors…	Այլ գույներ…
+	Move Down	Տեղափոխել ներքև
+	Move Up	Տեղափոխել վերև
+	Move with Text	Տեղաշարժել տեքստի հետ
+	Moves	Տեղափոխումներ
+	Moved from:	Տեղափոխված է՝ որտեղից՝
+	Moved to:	Տեղափոխված է՝ ուր՝
+	New comments and tracked changes are recorded under this name and these initials.	Նոր մեկնաբանությունները և փոփոխությունները գրանցվում են այս անունով և սկզբնատառերով։
+	New document	Նոր փաստաթուղթ
+	New word	Նոր բառ
+	No Fill	Առանց լցման
+	No Outline	Առանց ուրվագծի
+	No Reflection	Առանց արտացոլման
+	No Transform	Առանց ձևափոխման
+	No changes (read only)	Առանց փոփոխությունների (միայն ընթերցում)
+	No words yet. Add to Dictionary on a misspelled word puts it here.	Բառեր դեռ չկան։ Սխալ բառի վրա «Ավելացնել բառարանում» հրամանն այն տեղադրում է այստեղ։
+	Not	Ոչ
+	Num Occurrences	Համընկնումների քանակը
+	Odd pages only	Միայն կենտ էջերը
+	Off	Անջատված
+	On	Միացված
+	On: the caret glides to its new place when you type or use the arrow keys, and its blink fades. Off: it jumps and blinks on and off.	Միացված՝ մուտքագրելիս կամ սլաքներով ստեղները սեղմելիս կուրսորը սահուն տեղափոխվում է նոր տեղ, և նրա թարթումը մարում է։ Անջատված՝ այն ցատկում է և թարթում։
+	One line per item. Enter adds an item.	Մեկ տող յուրաքանչյուր տարրի համար։ Enter-ը ավելացնում է տարր։
+	Only allow this kind of editing:	Թույլատրել միայն խմբագրման այս տեսակը՝
+	Only comments can be added, except in regions marked editable.	Կարելի է միայն մեկնաբանություններ ավելացնել, բացառությամբ խմբագրելի նշված տիրույթների։
+	Only form fields can be filled in.	Կարելի է լրացնել միայն ձևաթղթերի դաշտերը։
+	Only the allowed styles can be applied.	Կարելի է կիրառել միայն թույլատրված ոճերը։
+	Open a file with Lexicon's own browser when the system file dialog doesn't appear.	Բացել ֆայլը Lexicon-ի ներկառուցված դիտարկիչով, երբ համակարգային ֆայլի պատուհանը չի հայտնվում։
+	Ordinals (1st) as superscript	Դասական թվականները (1st)՝ վերտողով
+	Organizer	Կազմակերպիչ
+	Organizer…	Կազմակերպիչ…
+	Original document	Բնօրինակ փաստաթուղթ
+	Outline State	Կառուցվածքի վիճակը
+	Outline Tools	Կառուցվածքի գործիքներ
+	Outlining	Կառուցվածք
+	Outside:	Դրսում՝
+	Overtype	Փոխարինում
+	Overtype (typing replaces the characters after the caret)	Փոխարինում (մուտքագրվող տեքստը փոխարինում է կուրսորից հետո եկող նիշերը)
+	Show alignment guides when moving pictures and shapes	Ցույց տալ հավասարեցման ուղեցույցները նկարներն ու պատկերները տեղափոխելիս
+	Moved objects snap to the page's edges and centre, the margins and other objects. Hold Alt to move freely.	Տեղափոխվող օբյեկտները կպչում են էջի եզրերին ու կենտրոնին, լուսանցքներին և այլ օբյեկտներին։ Ազատ տեղափոխելու համար սեղմած պահեք Alt-ը։
+	Page display	Էջի ցուցադրում
+	Pages like 1-3, 5	Էջեր, օրինակ՝ 1-3, 5
+	Paragraph Character	Պարբերության նշան
+	Paragraph marks	Պարբերության նշաններ
+	Personalize	Անհատականացում
+	Picas	Պիկաներ
+	Picture Content Control	Բովանդակության կառավարման տարր՝ նկար
+	Pie	Կլոր
+	Placeholder text	Տեղապահ տեքստ
+	Plain Text Content Control	Բովանդակության կառավարման տարր՝ պարզ տեքստ
+	Points	Կետեր
+	Previous 1 or More	Նախորդը 1 կամ ավելի անգամ
+	Previous Page	Նախորդ էջը
+	Print Markup	Տպել նշումները
+	Print the page color	Տպել էջի գույնը
+	Print to PDF	Տպել PDF-ով
+	Printing	Տպում
+	Process	Գործընթաց
+	Promote to Heading 1	Բարձրացնել մինչև Վերնագիր 1
+	Proofing language	Ուղղագրության ստուգման լեզուն
+	Put the caret in a content control first.	Նախ տեղադրեք կուրսորը բովանդակության կառավարման տարրում։
+	Pyramid	Բուրգ
+	Recent Colors	Վերջին գույները
+	Recent documents to show:	Ցուցադրվող վերջին փաստաթղթերը՝
+	Recipient lists	Ստացողների ցուցակներ
+	Red:	Կարմիր՝
+	Reflection	Արտացոլում
+	Regular expressions	Կանոնավոր արտահայտություններ
+	Relationship	Կապ
+	Remove Added Font	Հեռացնել ավելացված տառատեսակը
+	Load System Installed Fonts…	Բեռնել համակարգում տեղադրված տառատեսակները…
+	All system fonts are already available.	Համակարգի բոլոր տառատեսակներն արդեն հասանելի են։
+	Local font access is not supported by your browser.	Ձեր զննարկիչը չի աջակցում տեղային տառատեսակների հասանելիությունը։
+	Local font access was denied.	Տեղային տառատեսակների հասանելիությունը մերժվել է։
+	Loaded {count} system fonts.	Բեռնված համակարգային տառատեսակներ՝ {count}։
+	Remove Content Control	Հեռացնել բովանդակության կառավարման տարրը
+	Remove row	Հեռացնել տողը
+	Remove series	Հեռացնել շարքը
+	Remove the control once edited	Հեռացնել կառավարման տարրը խմբագրելուց հետո
+	Rename Style	Վերանվանել ոճը
+	Repeating Section Content Control	Բովանդակության կառավարման տարր՝ կրկնվող բաժին
+	Replace as you type	Փոխարինել մուտքագրելիս
+	Replace text as you type	Փոխարինել տեքստը մուտքագրելիս
+	Replace:	Փոխարինել՝
+	Reset Graphic	Վերակայել գրաֆիկան
+	Reset\nGraphic	Վերակայել\nգրաֆիկան
+	Resize Table by Dragging	Փոխել աղյուսակի չափը քաշելով
+	Select Column	Ընտրել աղյուսակի սյունակը
+	Select Table Cells by Clicking	Ընտրել աղյուսակի բջիջները սեղմելով
+	Insert Row or Column by Clicking	Ներդնել տող կամ սյունակ սեղմելով
+	Move Table by Dragging	Տեղափոխել աղյուսակը քաշելով
+	AutoFit Column by Double-Clicking	Սյունակի ինքնահարմարեցում կրկնակի սեղմումով
+	Revised document	Վերանայված փաստաթուղթ
+	Rich Text Content Control	Բովանդակության կառավարման տարր՝ ձևաչափված տեքստ
+	Sat:	Հագեցվածություն՝
+	Save documents	Փաստաթղթերի պահպանում
+	Save these pages as PDF…	Պահպանել այս էջերը որպես PDF…
+	Scatter	Կետային
+	Search Options	Որոնման կարգավորումներ
+	Section Break	Բաժնի ընդհատում
+	Section Character	Բաժնի նշան
+	Select Heading and Content	Ընտրել վերնագիրը և բովանդակությունը
+	Select text, then tick who can still edit it.	Ընտրեք տեքստը, ապա նշեք, թե ով կարող է այն խմբագրել։
+	Selected pages	Ընտրված էջերը
+	Series name	Շարքի անունը
+	Series {n}	Շարք {n}
+	Set Date	Սահմանել ամսաթիվը
+	Settings…	Կարգավորումներ…
+	Show All Levels	Ցույց տալ բոլոր մակարդակները
+	Show First Line Only	Ցույց տալ միայն առաջին տողը
+	Show Level	Ցույց տալ մակարդակը
+	Show Level 1	Ցույց տալ 1-ին մակարդակը
+	Show Level 2	Ցույց տալ 2-րդ մակարդակը
+	Show Level 3	Ցույց տալ 3-րդ մակարդակը
+	Show Level 4	Ցույց տալ 4-րդ մակարդակը
+	Show Level 5	Ցույց տալ 5-րդ մակարդակը
+	Show Level 6	Ցույց տալ 6-րդ մակարդակը
+	Show Level 7	Ցույց տալ 7-րդ մակարդակը
+	Show Level 8	Ցույց տալ 8-րդ մակարդակը
+	Show Level 9	Ցույց տալ 9-րդ մակարդակը
+	Show Text Formatting	Ցույց տալ տեքստի ձևաչափումը
+	Show changes at:	Ցույց տալ փոփոխությունները՝
+	Show changes in:	Ցույց տալ փոփոխությունները՝
+	Show the mini toolbar when text is selected	Ցույց տալ մինի գործիքագոտին տեքստն ընտրելիս
+	Showing the first {count} items.	Ցուցադրված են առաջին {count} տարրերը։
+	Shows a tree: each item below the item it belongs to.	Ցույց է տալիս ծառ՝ յուրաքանչյուր տարր այն տարրի տակ, որին պատկանում է։
+	Shows items around a central idea: the first item is the centre.	Ցույց է տալիս տարրերը կենտրոնական գաղափարի շուրջ՝ առաջին տարրը կենտրոնում է։
+	Shows items of equal weight as blocks in rows.	Ցույց է տալիս հավասարազոր տարրերը որպես բլոկներ տողերով։
+	Shows overlapping ideas as overlapping circles.	Ցույց է տալիս համընկնող գաղափարները որպես համընկնող շրջաններ։
+	Shows parts of a whole as quadrants.	Ցույց է տալիս ամբողջի մասերը որպես քառորդներ։
+	Shows parts that build on each other, largest at the bottom.	Ցույց է տալիս մեկը մյուսի վրա հենվող մասերը, ամենամեծը՝ ներքևում։
+	Shows steps in order, left to right, with arrows between them.	Ցույց է տալիս քայլերը հերթականությամբ՝ ձախից աջ, նրանց միջև սլաքներով։
+	Shows steps that repeat, around a circle.	Ցույց է տալիս կրկնվող քայլերը շրջանաձև։
+	Slant Down	Թեքություն ներքև
+	Slant Up	Թեքություն վերև
+	Smart quotes instead of straight quotes	Խելացի չակերտներ ուղիղների փոխարեն
+	SmartArt Design	SmartArt ձևավորում
+	SmartArt Styles	SmartArt ոճեր
+	Smooth scrolling and zooming, and menus and buttons that fade in. Off shows every change at once.	Սահուն ոլորում և մասշտաբավորում, ինչպես նաև ընտրացանկերի ու կոճակների սահուն հայտնվում։ «Անջատված»-ը ցույց է տալիս յուրաքանչյուր փոփոխություն միանգամից։
+	Soft Glow	Մեղմ լուսարձակում
+	Solid Accent	Միաձույլ շեշտ
+	Spaces	Բացատներ
+	Special	Հատուկ
+	Spelling	Ուղղագրություն
+	Spelling and grammar are checked in English (United States).	Ուղղագրությունը և քերականությունը ստուգվում են անգլերենով (ԱՄՆ)։
+	Stacked Bar	Կուտակված գոտիներ
+	Stacked Column	Կուտակված սյունակներ
+	Standard	Ստանդարտ
+	Start Enforcing Protection	Միացնել պաշտպանությունը
+	Stop Protection	Անջատել պաշտպանությունը
+	Straight Arrow Connector	Ուղիղ միացնող գիծ՝ սլաքով
+	Straight Connector	Ուղիղ միացնող գիծ
+	Tab Character	Տաբուլյացիայի նշան
+	Tab characters	Տաբուլյացիայի նշաններ
+	Templates	Ձևանմուշներ
+	Templates and Add-ins	Ձևանմուշներ և հավելումներ
+	Text Fill	Տեքստի լցում
+	Text Outline	Տեքստի ուրվագիծ
+	Text Pane	Տեքստի վահանակ
+	Text boxes	Տեքստային դաշտեր
+	The document is read only, except for regions marked editable.	Փաստաթուղթը միայն ընթերցման համար է, բացառությամբ խմբագրելի նշված տիրույթների։
+	The password is optional; without it anyone can stop the protection.	Գաղտնաբառը պարտադիր չէ, առանց դրա ցանկացած մեկը կարող է անջատել պաշտպանությունը։
+	The printer, two-sided printing and pages per sheet are chosen in that dialog.	Տպիչը, երկկողմանի տպումը և թերթում էջերի քանակն ընտրվում են այդ պատուհանում։
+	The system file dialog isn't available, so Lexicon shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Համակարգային ֆայլի պատուհանը հասանելի չէ, ուստի Lexicon-ը ցույց է տալիս իր սեփականը։ Համակարգայինն ստանալու համար տեղադրեք ֆայլի ընտրության պորտալ (օրինակ՝ xdg-desktop-portal-gtk) կամ zenity։
+	These marks show even when Show/Hide ¶ is off.	Այս նշանները երևում են, նույնիսկ երբ «Ցույց տալ/թաքցնել ¶»-ն անջատված է։
+	This document	Այս փաստաթուղթը
+	This folder can't be read: {error}	Չհաջողվեց կարդալ թղթապանակը՝ {error}
+	This password type isn't supported.	Այս տեսակի գաղտնաբառը չի աջակցվում։
+	Today	Այսօր
+	Toggle Check Box	Փոխարկել նշավանդակը
+	Tracked changes	Հետևվող փոփոխություններ
+	Transform	Ձևափոխում
+	Triangle Down	Եռանկյուն ներքև
+	Triangle Up	Եռանկյուն վերև
+	Type	Տեսակ
+	Type the categories down the side and a column of values per series.	Մուտքագրեք կատեգորիաները ուղղահայաց և արժեքների սյունակ յուրաքանչյուր շարքի համար։
+	Type the password to stop the protection.	Մուտքագրեք գաղտնաբառը՝ պաշտպանությունն անջատելու համար։
+	Typing replaces selected text	Մուտքագրումը փոխարինում է ընտրված տեքստը
+	Unchecked symbol	Չնշված վանդակի նշան
+	Up one level	Մեկ մակարդակ վերև
+	Update Styles from Template	Թարմացնել ոճերը ձևանմուշից
+	Update fields before printing	Թարմացնել դաշտերը տպելուց առաջ
+	Use the Insert key to switch overtype on and off	Insert ստեղնով միացնել և անջատել փոխարինման ռեժիմը
+	Use wildcards	Օգտագործել ձևանմուշային նիշեր
+	Value	Արժեք
+	Visual effects	Տեսողական էֆեկտներ
+	Warm Gradient with Outline	Տաք գրադիենտ՝ ուրվագծով
+	White Space	Բացատային նշան
+	White space	Բացատներ
+	With:	Ինչով՝
+	Word XML Document (*.xml)	Word XML փաստաթուղթ (*.xml)
+	Word 2003 XML Document (*.xml)	Word 2003 XML փաստաթուղթ (*.xml)
+	Word document	Word փաստաթուղթ
+	Word level	Բառերի մակարդակում
+	WordArt Styles	WordArt ոճեր
+	Your system doesn't report an animation setting, so animation effects stay on.	Ձեր համակարգը չի հաղորդում անիմացիայի կարգավորումը, ուստի անիմացիոն էֆեկտները մնում են միացված։
+	Your system has animation effects turned off.	Ձեր համակարգում անիմացիոն էֆեկտներն անջատված են։
+	Your system has animation effects turned on.	Ձեր համակարգում անիմացիոն էֆեկտները միացված են։
+	{count} of {total} pages will print	Կտպվի {count} էջ {total}-ից
+	{name} already exists. Choose Save again to replace it.	{name}-ն արդեն գոյություն ունի։ Այն փոխարինելու համար կրկին ընտրեք «Պահպանել»։
+	{name} wasn't found.	{name}-ը չի գտնվել։
+	“{text}” ({row}, {series}) isn't a number.	«{text}»-ը ({row}, {series}) թիվ չէ։
+	Undo Actions	Հետարկել գործողությունները
+	Undo History	Հետարկման պատմություն
+	Undo 1 Action	Հետարկել 1 գործողություն
+	Undo {n} Actions	Հետարկել {n} գործողություն
+	Start-up	Գործարկում
+	Show the Start screen when Lexicon starts	Ցույց տալ մեկնարկային էկրանը Lexicon-ը գործարկելիս
+	On: Lexicon opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Միացված՝ Lexicon-ը բացվում է «Ֆայլ › Գլխավոր» էջով՝ դատարկ փաստաթղթով, ձևանմուշներով և վերջին փաստաթղթերով։ Անջատված՝ բացվում է դատարկ փաստաթուղթ։
+	Couldn't make Lexicon the default: {error}	Չհաջողվեց Lexicon-ը դարձնել լռելյայն՝ {error}
+	In Default apps, choose Lexicon for the document types you want it to open.	«Լռելյայն ծրագրեր» բաժնում ընտրեք Lexicon-ը այն փաստաթղթերի տեսակների համար, որոնք ուզում եք, որ այն բացի։
+	Make Lexicon the default for Word documents…	Դարձնել Lexicon-ը Word փաստաթղթերի լռելյայն ծրագիր…
+	Opens .docx, .doc, .rtf and .odt files and Word templates with Lexicon from now on.	Այսուհետ .docx, .doc, .rtf և .odt ֆայլերը և Word ձևանմուշները կբացվեն Lexicon-ով։
+	Opens Settings › Default apps, where you choose Lexicon for .docx and the other document types.	Բացում է «Կարգավորումներ › Լռելյայն ծրագրեր», որտեղ ընտրում եք Lexicon-ը .docx-ի և փաստաթղթերի մյուս տեսակների համար։
+	To open Word documents with Lexicon by default: select one in Finder, choose File › Get Info, pick Lexicon under Open with, then click Change All.	Word փաստաթղթերը լռելյայն Lexicon-ով բացելու համար՝ ընտրեք փաստաթուղթը Finder-ում, ընտրեք «File › Get Info», «Open with» բաժնում ընտրեք Lexicon-ը, ապա սեղմեք «Change All»։
+	Lexicon is now the default app for Word documents.	Lexicon-ն այժմ Word փաստաթղթերի լռելյայն ծրագիրն է։
+	Numerals:	Թվանշաններ՝
+	Numerals	Թվանշաններ
+	Hindi	Հինդի
+	Context	Համատեքստ
+	System	Համակարգային
+	Odd Banded Rows	Կենտ շերտավոր տողեր
+	Even Banded Rows	Զույգ շերտավոր տողեր
+	Odd Banded Columns	Կենտ շերտավոր սյունակներ
+	Even Banded Columns	Զույգ շերտավոր սյունակներ
+	Top Left Cell	Վերին ձախ բջիջ
+	Top Right Cell	Վերին աջ բջիջ
+	Bottom Left Cell	Ստորին ձախ բջիջ
+	Bottom Right Cell	Ստորին աջ բջիջ
+	Inside Horizontal Border	Ներքին հորիզոնական եզրագիծ
+	Inside Vertical Border	Ներքին ուղղահայաց եզրագիծ
+	Filter Recipients	Զտել ստացողներին
+	Sort Recipients	Դասավորել ստացողներին
+	Filter and Sort	Զտում և դասավորում
+	And	Եվ
+	Or	Կամ
+	Comparison	Համեմատություն
+	Compare to	Համեմատել
+	Add Condition	Ավելացնել պայման
+	Remove condition	Հեռացնել պայմանը
+	Sort by	Դասավորել ըստ
+	Then by	Այնուհետև ըստ
+	Ascending	Աճման կարգով
+	Descending	Նվազման կարգով
+	Equal to	Հավասար է
+	Not equal to	Հավասար չէ
+	Less than	Փոքր է
+	Greater than	Մեծ է
+	Less than or equal	Փոքր կամ հավասար
+	Greater than or equal	Մեծ կամ հավասար
+	Is blank	Դատարկ է
+	Is not blank	Դատարկ չէ
+	Contains	Պարունակում է
+	Does not contain	Չի պարունակում
+	{count} of {total} recipients will be merged.	Կմիաձուլվի {count} ստացող {total}-ից։
+	Find in list:	Գտնել ցուցակում՝
+	Any field	Ցանկացած դաշտ
+	Matches: {count}	Համընկնումներ՝ {count}
+	Show only records that will be merged	Ցույց տալ միայն միաձուլվող գրառումները
+	Book Title	Գրքի վերնագիր
+	Category	Կատեգորիա
+	Contributors	Մասնակիցներ
+	Emphasis	Ընդգծում
+	Endnote Reference	Վերջնական ծանոթագրության հղում
+	Endnote Text	Վերջնական ծանոթագրության տեքստ
+	Footnote Reference	Ծանոթագրության հղում
+	Footnote Text	Ծանոթագրության տեքստ
+	Hyperlink	Հիպերհղում
+	Intense Emphasis	Ուժեղ ընդգծում
+	Intense Quote	Ընդգծված մեջբերում
+	Intense Reference	Ուժեղ հղում
+	Keywords	Բանալի բառեր
+	No Spacing	Առանց տարածության
+	Quote	Մեջբերում
+	Strong	Խիստ
+	Subject	Թեմա
+	Subtitle	Ենթավերնագիր
+	Subtle Emphasis	Թույլ ընդգծում
+	Subtle Reference	Թույլ հղում
+	TOC Heading	Բովանդակության վերնագիր
+	TOC {n}	Բովանդակություն {n}
+	List Paragraph	Ցուցակի պարբերություն
+	Models	Մոդելներ
+	Show KeyTips (Alt or F10)	Ցույց տալ ստեղների հուշումները (Alt կամ F10)
+	Reading	Ընթերցում
+	Reading Column Width	Ընթերցման սյունակի լայնությունը
+	Reading Line Spacing	Ընթերցման միջտողային տարածությունը
+	Reading Text Size	Ընթերցման տեքստի չափը
+	Correct TWo INitial CApitals	Ուղղել ԵՐկու ՍԿզբնական ՄԵծատառերը
+	Correct accidental usage of cAPS LOCK key	Ուղղել cAPS LOCK ստեղնի պատահական օգտագործումը
+	Region:	Տարածաշրջան՝
+	Automatic ({region})	Ավտոմատ ({region})
+	Text of the nearest paragraph with a given style (running headers)	Տվյալ ոճով մոտակա պարբերության տեքստը (կենդանի վերնագրեր)
+	Style name:	Ոճի անունը՝
+	Take the last match on the page	Վերցնել էջի վերջին համընկնումը
+	Show its list number	Ցույց տալ դրա համարը ցուցակում
+	Show its number relative to this field	Ցույց տալ դրա համարն այս դաշտի նկատմամբ
+	Show its number with all higher levels	Ցույց տալ դրա համարը բոլոր բարձր մակարդակներով
+	Number only, without the label's words	Միայն համարը՝ առանց պիտակի բառերի
+	Add whether it is above or below	Ավելացնել՝ վերևում է, թե ներքևում
+	AaBbCcDd	ԱաԲբԳգԴդ
+	Annotation Reference	Ծանոթության հղում
+	Annotation Subject	Ծանոթության թեմա
+	Annotation Text	Ծանոթության տեքստ
+	Body text in a short paragraph to show spacing.	Հիմնական տեքստ կարճ պարբերությունում՝ տարածությունները ցույց տալու համար։
+	Default Paragraph Font	Պարբերության լռելյայն տառատեսակ
+	Envelope Address	Ծրարի հասցե
+	Envelope Return	Վերադարձի հասցե
+	Index Heading	Առարկայական ցանկի վերնագիր
+	Index {n}	Առարկայական ցանկ {n}
+	Line Number	Տողի համար
+	Normal	Սովորական
+	Normal Indent	Սովորական նահանջ
+	Normal Table	Սովորական աղյուսակ
+	Table Grid	Աղյուսակի ցանց
+	Table of Figures	Նկարազարդումների ցանկ
+preview	Title	Օրինակ
+	TOA Heading	Հղումների աղյուսակի վերնագիր
+	Good evening	Բարի երեկո
+	Good morning	Բարի առավոտ
+	Good afternoon	Բարի օր
+	tOGGLE cASE	փՈԽԵԼ ռԵԳԻՍՏՐԸ
+	Change to Level 1	Անցնել 1-ին մակարդակ
+	Change to Level 2	Անցնել 2-րդ մակարդակ
+	Change to Level 3	Անցնել 3-րդ մակարդակ
+	Change to Level 4	Անցնել 4-րդ մակարդակ
+	Change to Level 5	Անցնել 5-րդ մակարդակ
+	Level 1	Մակարդակ 1
+	Level 2	Մակարդակ 2
+	Level 3	Մակարդակ 3
+	ASAP	ՇՏԱՊ
+	CONFIDENTIAL	ԳԱՂՏՆԻ
+	DO NOT COPY	ՉՊԱՏՃԵՆԵԼ
+	DRAFT	ՍԵՎԱԳԻՐ
+	SAMPLE	ՆՄՈՒՇ
+	URGENT	ՇՏԱՊ!
+	Plain Table 1	Պարզ աղյուսակ 1
+	Grid Table 1 Light	Ցանցային աղյուսակ 1՝ բաց
+	Grid Table 4 – Blue	Ցանցային աղյուսակ 4 — կապույտ
+	Grid Table 4 – Green	Ցանցային աղյուսակ 4 — կանաչ
+	Grid Table 4 – Orange	Ցանցային աղյուսակ 4 — նարնջագույն
+	Grid Table 4 – Purple	Ցանցային աղյուսակ 4 — մանուշակագույն
+	List Table 3 – Blue	Ցուցակային աղյուսակ 3 — կապույտ
+	List Table 3 – Green	Ցուցակային աղյուսակ 3 — կանաչ
+	List Table 3 – Orange	Ցուցակային աղյուսակ 3 — նարնջագույն
+	List Table 3 – Purple	Ցուցակային աղյուսակ 3 — մանուշակագույն
+	Convert between built-up and linear form	Փոխարկել մասնագիտական և գծային տեսքերի միջև
+	Justification of a display equation	Առանձին հավասարման հավասարեցում
+	Number the equation; the number sits at the right margin (or type # then the number)	Համարակալել հավասարումը, համարը գտնվում է աջ լուսանցքում (կամ մուտքագրեք # և համարը)
+	Show the equation in the line of text	Ցույց տալ հավասարումը տեքստի տողում
+	Show the equation on a line of its own	Ցույց տալ հավասարումը առանձին տողում
+	Type equations in LaTeX	Մուտքագրել հավասարումները LaTeX-ով
+	Type equations in the linear format (UnicodeMath)	Մուտքագրել հավասարումները գծային ձևաչափով (UnicodeMath)
+	Type normal (non-math) text in the equation	Մուտքագրել սովորական (ոչ մաթեմատիկական) տեքստ հավասարման մեջ
+	Sides of a right triangle	Ուղղանկյուն եռանկյան կողմերը
+	Circle area from its radius	Շրջանի մակերեսը ըստ շառավղի
+	Roots of ax²+bx+c	ax²+bx+c-ի արմատները
+	Binomial expansion of (x+a)ⁿ	(x+a)ⁿ-ի երկանդամ վերլուծությունը
+	Power series of (1+x)ⁿ	(1+x)ⁿ-ի աստիճանային շարքը
+	Euler's identity	Էյլերի նույնությունը
+	Derivative as a limit	Ածանցյալը որպես սահման
+	Exponential series	Էքսպոնենտի շարքը
+	Integral of e^(−x²)	e^(−x²)-ի ինտեգրալը
+	Sine and cosine series of f(x)	f(x)-ի Ֆուրիեի շարքը
+	Sum or difference of sines	Սինուսների գումարը կամ տարբերությունը
+	Sum of cosines	Կոսինուսների գումարը
+	Normal probability density	Նորմալ բաշխման խտությունը
+	Bayes' rule	Բայեսի բանաձևը
+	Accents	Շեշտանշաններ
+	Basic Math	Հիմնական մաթեմատիկական
+	Boxed Formulas	Շրջանակված բանաձևեր
+	Cases and Stacks	Համակարգեր և սյունակներ
+	Common Accent Objects	Հաճախ օգտագործվող շեշտանշանավոր օբյեկտներ
+	Common Brackets	Հաճախ օգտագործվող փակագծեր
+	Common Fractions	Հաճախ օգտագործվող կոտորակներ
+	Common Functions	Հաճախ օգտագործվող ֆունկցիաներ
+	Common Large Operators	Հաճախ օգտագործվող մեծ օպերատորներ
+	Common Operator Structures	Հաճախ օգտագործվող օպերատորների կառուցվածքներ
+	Common Operators	Հաճախ օգտագործվող օպերատորներ
+	Common Radicals	Հաճախ օգտագործվող արմատներ
+	Common Subscripts and Superscripts	Հաճախ օգտագործվող ինդեքսներ
+	Contour Integrals	Եզրագծային ինտեգրալներ
+	Differentials	Դիֆերենցիալներ
+	Dots	Բազմակետեր
+	Empty Matrices	Դատարկ մատրիցներ
+	Functions	Ֆունկցիաներ
+	Geometry	Երկրաչափություն
+	Greek Letters	Հունական տառեր
+	Hyperbolic Functions	Հիպերբոլական ֆունկցիաներ
+	Identity Matrices	Միավոր մատրիցներ
+	Integrals	Ինտեգրալներ
+	Inverse Functions	Հակադարձ ֆունկցիաներ
+	Inverse Hyperbolic Functions	Հակադարձ հիպերբոլական ֆունկցիաներ
+	Letter-Like Symbols	Տառանման նշաններ
+	Matrices with Brackets	Փակագծերով մատրիցներ
+	Negated Relations	Հարաբերությունների ժխտումներ
+	Operator Structures	Օպերատորների կառուցվածքներ
+	Operators	Օպերատորներ
+	Other Large Operators	Այլ մեծ օպերատորներ
+	Overbars and Underbars	Վերևի և ներքևի գծեր
+	Products and Coproducts	Արտադրյալներ և համաարտադրյալներ
+	Radicals	Արմատներ
+	Scripts	Ինդեքսներ
+	Single Brackets	Միակի փակագծեր
+	Sparse Matrices	Նոսր մատրիցներ
+	Subscripts and Superscripts	Ստորին և վերին ինդեքսներ
+	Summations	Գումարներ
+	Trigonometric Functions	Եռանկյունաչափական ֆունկցիաներ
+	Unions and Intersections	Միավորումներ և հատումներ
+	1×2 Empty Matrix	1×2 դատարկ մատրից
+	1×3 Empty Matrix	1×3 դատարկ մատրից
+	2×1 Empty Matrix	2×1 դատարկ մատրից
+	2×2 Empty Matrix	2×2 դատարկ մատրից
+	2×3 Empty Matrix	2×3 դատարկ մատրից
+	3×1 Empty Matrix	3×1 դատարկ մատրից
+	3×2 Empty Matrix	3×2 դատարկ մատրից
+	3×3 Empty Matrix	3×3 դատարկ մատրից
+	2×2 Determinant	2×2 որոշիչ
+	2×2 Identity Matrix	2×2 միավոր մատրից
+	2×2 Identity Matrix (sparse)	2×2 միավոր մատրից (նոսր)
+	3×3 Identity Matrix	3×3 միավոր մատրից
+	3×3 Identity Matrix (sparse)	3×3 միավոր մատրից (նոսր)
+	2×2 Matrix in Brackets	2×2 մատրից քառակուսի փակագծերում
+	2×2 Matrix in Double Bars	2×2 մատրից կրկնակի ուղղահայաց գծերում
+	2×2 Matrix in Parentheses	2×2 մատրից կլոր փակագծերում
+	n×n Identity Matrix	n×n միավոր մատրից
+	n×n Matrix	n×n մատրից
+	A xor B	A բացառող ԿԱՄ B
+	Absolute value cases	Դեպքերով հավասարում
+	Acute	Սուր շեշտ
+	Angle Brackets	Անկյունային փակագծեր
+	Angle Brackets with Separator	Անկյունային փակագծեր՝ բաժանարարով
+	Angle Brackets with Two Separators	Անկյունային փակագծեր՝ երկու բաժանարարով
+	Baseline Dots	Բազային գծի բազմակետ
+	Binomial Coefficient	Երկանդամ գործակից
+	Binomial Coefficient (angle)	Երկանդամ գործակից (անկյունային)
+	Binomial Coefficient with Angle Brackets	Երկանդամ գործակից անկյունային փակագծերում
+	Boxed Formula	Շրջանակված բանաձև
+	Boxed Formula (example)	Շրջանակված բանաձև (օրինակ)
+	Braces	Ձևավոր փակագծեր
+	Braces with Separator	Ձևավոր փակագծեր՝ բաժանարարով
+	Brackets	Քառակուսի փակագծեր
+	Brackets with Separators	Փակագծեր՝ բաժանարարներով
+	Breve	Բրևիս
+	Cases (Three Conditions)	Համակարգ (երեք պայման)
+	Cases (Two Conditions)	Համակարգ (երկու պայման)
+	Ceiling	Վերև կլորացում
+	Change in y over change in x	y-ի աճը x-ի աճի նկատմամբ
+	Check	Նշիչ ✓
+	Circled Dot	Կետ շրջանում
+	Circled Plus	Գումարած շրջանում
+	Circled Times	Բազմապատկում շրջանում
+	Colon Equal	Երկու կետ հավասար
+	Contour Integral	Եզրագծային ինտեգրալ
+	Contour Integral with Limits	Եզրագծային ինտեգրալ՝ սահմաններով
+	Contour Integral with Stacked Limits	Եզրագծային ինտեգրալ՝ վերև-ներքև սահմաններով
+	Coproduct	Համաարտադրյալ
+	Coproduct with Limits	Համաարտադրյալ՝ սահմաններով
+	Coproduct with Lower Limit	Համաարտադրյալ՝ ստորին սահմանով
+	Coproduct with Subscript-Superscript Limits	Համաարտադրյալ՝ ինդեքսային սահմաններով
+	Cosecant Function	Կոսեկանս
+	Cosine 2x	Կոսինուս 2x
+	Cosine Function	Կոսինուս
+	Cotangent Function	Կոտանգենս
+	Cube Root	Խորանարդ արմատ
+	Delta Equal To	Դելտան հավասար է
+	Delta over arrow	Դելտա սլաքի վրա
+	Diagonal Dots	Անկյունագծային բազմակետ
+	Differential	Դիֆերենցիալ
+	Differential theta	Դիֆերենցիալ թետա
+	Differential x	Դիֆերենցիալ x
+	Differential y	Դիֆերենցիալ y
+	Dot	Կետ
+	Double Bar	Կրկնակի գիծ
+	Double Dot	Երկու կետ
+	Double Integral	Կրկնակի ինտեգրալ
+	Double Integral with Limits	Կրկնակի ինտեգրալ՝ սահմաններով
+	Double Integral with Stacked Limits	Կրկնակի ինտեգրալ՝ վերև-ներքև սահմաններով
+	Double Left Arrow with Text Above	Կրկնակի սլաք ձախ՝ տեքստով վերևում
+	Double Left Arrow with Text Below	Կրկնակի սլաք ձախ՝ տեքստով ներքևում
+	Double Left Right Arrow with Text Above	Կրկնակի երկկողմանի սլաք՝ տեքստով վերևում
+	Double Left Right Arrow with Text Below	Կրկնակի երկկողմանի սլաք՝ տեքստով ներքևում
+	Double Right Arrow with Text Above	Կրկնակի սլաք աջ՝ տեքստով վերևում
+	Double Right Arrow with Text Below	Կրկնակի սլաք աջ՝ տեքստով ներքևում
+	Double Square Brackets	Կրկնակի քառակուսի փակագծեր
+	Double Vertical Bars	Կրկնակի ուղղահայաց գծեր
+	Double summation	Կրկնակի գումար
+	Equal Equal	Հավասար հավասար
+	Equal by Definition	Հավասար՝ ըստ սահմանման
+	Exponential	Էքսպոնենտ
+	Floor	Ներքև կլորացում
+	Grave	Բութ շեշտ
+	Grouping Character Above	Խմբավորող նշան վերևում
+	Grouping Character Below	Խմբավորող նշան ներքևում
+	Hat	Գլխարկ
+	Hyperbolic Cosecant Function	Հիպերբոլական կոսեկանս
+	Hyperbolic Cosine Function	Հիպերբոլական կոսինուս
+	Hyperbolic Cotangent Function	Հիպերբոլական կոտանգենս
+	Hyperbolic Secant Function	Հիպերբոլական սեկանս
+	Hyperbolic Sine Function	Հիպերբոլական սինուս
+	Hyperbolic Tangent Function	Հիպերբոլական տանգենս
+	Hypotenuse	Ներքնաձիգ
+	Integral with Limits	Ինտեգրալ՝ սահմաններով
+	Integral with Stacked Limits	Ինտեգրալ՝ վերև-ներքև սահմաններով
+	Intersection	Հատում
+	Intersection with Limits	Հատում՝ սահմաններով
+	Intersection with Lower Limit	Հատում՝ ստորին սահմանով
+	Intersection with Subscript-Superscript Limits	Հատում՝ ինդեքսային սահմաններով
+	Inverse Cosecant Function	Արկկոսեկանս
+	Inverse Cosine Function	Արկկոսինուս
+	Inverse Cotangent Function	Արկկոտանգենս
+	Inverse Hyperbolic Cosecant Function	Հակադարձ հիպերբոլական կոսեկանս
+	Inverse Hyperbolic Cosine Function	Հակադարձ հիպերբոլական կոսինուս
+	Inverse Hyperbolic Cotangent Function	Հակադարձ հիպերբոլական կոտանգենս
+	Inverse Hyperbolic Secant Function	Հակադարձ հիպերբոլական սեկանս
+	Inverse Hyperbolic Sine Function	Հակադարձ հիպերբոլական սինուս
+	Inverse Hyperbolic Tangent Function	Հակադարձ հիպերբոլական տանգենս
+	Inverse Secant Function	Արկսեկանս
+	Inverse Sine Function	Արկսինուս
+	Inverse Tangent Function	Արկտանգենս
+	Left Arrow with Text Above	Սլաք ձախ՝ տեքստով վերևում
+	Left Arrow with Text Below	Սլաք ձախ՝ տեքստով ներքևում
+	Left Bracket Twice	Երկու ձախ քառակուսի փակագիծ
+	Left Right Arrow Above	Երկկողմանի սլաք վերևում
+	Left Right Arrow with Text Above	Երկկողմանի սլաք՝ տեքստով վերևում
+	Left Right Arrow with Text Below	Երկկողմանի սլաք՝ տեքստով ներքևում
+	Left Subscript-Superscript	Ձախ ստորին և վերին ինդեքսներ
+	Leftwards Arrow Above	Ձախ սլաք վերևում
+	Leftwards Harpoon Above	Ձախ հարպուն վերևում
+	Limit	Սահման
+	Limit Example	Սահմանի օրինակ
+	Linear Fraction	Գծային կոտորակ
+	Logarithm	Լոգարիթմ
+	Logarithm with Base	Լոգարիթմ՝ հիմքով
+	Logical AND	Տրամաբանական ԵՎ
+	Logical AND with Limits	Տրամաբանական ԵՎ՝ սահմաններով
+	Logical OR	Տրամաբանական ԿԱՄ
+	Logical OR with Limits	Տրամաբանական ԿԱՄ՝ սահմաններով
+	Maximum	Առավելագույն
+	Maximum Example	Առավելագույնի օրինակ
+	Measured By	Չափման միավոր
+	Midline Dots	Միջին գծի բազմակետ
+	Minimum	Նվազագույն
+	Minus Equal	Հանած հավասար
+	Natural Logarithm	Բնական լոգարիթմ
+	One half	Մեկ երկրորդ
+	Outward Brackets	Արտաքին քառակուսի փակագծեր
+	Overbar	Գիծ վերևում
+	Overbrace	Ձևավոր փակագիծ վերևում
+	Parentheses	Կլոր փակագծեր
+	Parentheses with Separator	Կլոր փակագծեր՝ բաժանարարով
+	Partial Differential	Մասնական դիֆերենցիալ
+	Pi Over 2	Պի բաժանած 2
+	Plus Equal	Գումարած հավասար
+	Product	Արտադրյալ
+	Product of A	A-ի արտադրյալ
+	Product with Limits	Արտադրյալ՝ սահմաններով
+	Product with Lower Limit	Արտադրյալ՝ ստորին սահմանով
+	Product with Subscript-Superscript Limits	Արտադրյալ՝ ինդեքսային սահմաններով
+	Quadratic Root	Քառակուսի հավասարման արմատ
+	Radical with Degree	Արմատ՝ աստիճանով
+	Right Arrow with Text Above	Սլաք աջ՝ տեքստով վերևում
+	Right Arrow with Text Below	Սլաք աջ՝ տեքստով ներքևում
+	Right Bracket Twice	Երկու աջ քառակուսի փակագիծ
+	Rightwards Arrow Above	Աջ սլաք վերևում
+	Rightwards Harpoon Above	Աջ հարպուն վերևում
+	Secant Function	Սեկանս
+	Sine Function	Սինուս
+	Sine theta	Սինուս թետա
+	Single Left Angle	Միակի ձախ անկյունային փակագիծ
+	Single Left Bar	Միակի ձախ գիծ
+	Single Left Brace	Միակի ձախ ձևավոր փակագիծ
+	Single Left Bracket	Միակի ձախ քառակուսի փակագիծ
+	Single Left Parenthesis	Միակի ձախ կլոր փակագիծ
+	Single Right Brace	Միակի աջ ձևավոր փակագիծ
+	Single Right Bracket	Միակի աջ քառակուսի փակագիծ
+	Single Right Parenthesis	Միակի աջ կլոր փակագիծ
+	Skewed Fraction	Թեք կոտորակ
+	Small change	Փոքր աճ
+	Square Root	Քառակուսի արմատ
+	Square Root with Degree	Քառակուսի արմատ՝ աստիճանով
+	Square Union	Քառակուսի միավորում
+	Stack Object	Իրար վրա դրված օբյեկտ
+	Stack Object (Three)	Իրար վրա դրված օբյեկտ (երեք)
+	Stacked Fraction	Ուղղահայաց կոտորակ
+	Stacked, no bar	Իրար վրա, առանց գծի
+	Subscript-Superscript	Ստորին և վերին ինդեքսներ
+	Summation	Գումար
+	Summation from 0 to n	Գումար 0-ից n
+	Summation over binomials	Երկանդամ գործակիցների գումար
+	Summation with Limits	Գումար՝ սահմաններով
+	Summation with Lower Limit	Գումար՝ ստորին սահմանով
+	Summation with Subscript Limit	Գումար՝ ինդեքսային սահմանով
+	Summation with Subscript-Superscript Limits	Գումար՝ ինդեքսային սահմաններով
+	Surface Integral	Մակերևութային ինտեգրալ
+	Surface Integral with Limits	Մակերևութային ինտեգրալ՝ սահմաններով
+	Surface Integral with Stacked Limits	Մակերևութային ինտեգրալ՝ վերև-ներքև սահմաններով
+	Tangent Function	Տանգենս
+	Tangent formula	Տանգենսի բանաձև
+	Text over Colon Equal	Տեքստ երկու կետ հավասարի վրա
+	Text over Equal	Տեքստ հավասարի նշանի վրա
+	Tilde	Տիլդա
+	Triple Dot	Երեք կետ
+	Triple Integral	Եռակի ինտեգրալ
+	Triple Integral with Limits	Եռակի ինտեգրալ՝ սահմաններով
+	Triple Integral with Stacked Limits	Եռակի ինտեգրալ՝ վերև-ներքև սահմաններով
+	Underbar	Գիծ ներքևում
+	Underbrace	Ձևավոր փակագիծ ներքևում
+	Union	Միավորում
+	Union of intersections	Հատումների միավորում
+	Union with Limits	Միավորում՝ սահմաններով
+	Union with Lower Limit	Միավորում՝ ստորին սահմանով
+	Union with Plus	Միավորում՝ գումարածով
+	Union with Subscript-Superscript Limits	Միավորում՝ ինդեքսային սահմաններով
+	Up Diagonal Dots	Անկյունագծային բազմակետ վերև
+	Vector A	A վեկտոր
+	Vector AB	AB վեկտոր
+	Vertical Bars	Ուղղահայաց գծեր
+	Vertical Dots	Ուղղահայաց բազմակետ
+	Volume Integral	Ծավալային ինտեգրալ
+	Volume Integral with Limits	Ծավալային ինտեգրալ՝ սահմաններով
+	Volume Integral with Stacked Limits	Ծավալային ինտեգրալ՝ վերև-ներքև սահմաններով
+	Yields	Ելք
+	x bar	x գծով
+	All - Linear	Բոլորը — գծային
+	All - Professional	Բոլորը — մասնագիտական
+	Current - Linear	Ընթացիկը — գծային
+	Current - Professional	Ընթացիկը — մասնագիտական
+	Centered as Group	Կենտրոնում՝ որպես խումբ
+	✓ None	✓ Ոչ մեկը
+	Change to Level 6	Անցնել 6-րդ մակարդակ
+	Change to Level 7	Անցնել 7-րդ մակարդակ
+	Change to Level 8	Անցնել 8-րդ մակարդակ
+	Change to Level 9	Անցնել 9-րդ մակարդակ
+	Level 4	Մակարդակ 4
+	Level 5	Մակարդակ 5
+	Level 6	Մակարդակ 6
+	Level 7	Մակարդակ 7
+	Level 8	Մակարդակ 8
+	Level 9	Մակարդակ 9
+	Typing	Մուտքագրում
+	Search	Որոնում
+	Title Bar	Վերնագրի գոտի
+	Copy to	Պատճենել՝
+	Rename Document	Վերանվանել փաստաթուղթը
+	Document name	Փաստաթղթի անունը
+	Rename	Վերանվանել
+	Account	Հաշիվ
+	Privacy Options	Գաղտնիության կարգավորումներ
+	Trust Center	Վստահության կենտրոն
+	Privacy for this document	Այս փաստաթղթի գաղտնիությունը
+	Remove my name from comments, changes and file properties when saving	Պահպանելիս հեռացնել իմ անունը մեկնաբանություններից, փոփոխություններից և ֆայլի հատկություններից
+	Leave out the date and time of comments and tracked changes when saving	Պահպանելիս չներառել մեկնաբանությունների և փոփոխությունների ամսաթիվը և ժամը
+	The document you are editing keeps the names and dates; only the saved file leaves them out.	Խմբագրվող փաստաթուղթը պահում է անունները և ամսաթվերը, դրանք բացակայում են միայն պահպանված ֆայլում։
+	Privacy Settings	Գաղտնիության կարգավորումներ
+	Waiting for the save to finish…	Սպասում է պահպանման ավարտին…
+	Saving {name} was cancelled, so it is still open and nothing was lost.	{name}-ի պահպանումը չեղարկվեց, ուստի այն դեռ բաց է, և ոչինչ չի կորել։
+	Paper	Թուղթ
+	Paper size:	Թղթի չափը՝
+	Custom size	Հատուկ չափ
+	More Paper Sizes…	Թղթի այլ չափեր…
+	The margins don't fit on a page this size; make the margins smaller first.	Լուսանցքները չեն տեղավորվում այս չափի էջում, նախ փոքրացրեք լուսանցքները։
+	Full Screen	Լիաէկրան
+	Full\nScreen	Լիաէկրան
+	Use the browser's full screen (F11)	Օգտագործեք զննարկիչի լիաէկրան ռեժիմը (F11)
+	{name}   {height} × {width} in	{name}   {height} × {width} դյույմ
+	{name}   {height} × {width} mm	{name}   {height} × {width} մմ
+	{width} × {height} mm	{width} × {height} մմ
+	{kind}, {columns} × {rows}, {size} ({paper})	{kind}, {columns} × {rows}, {size} ({paper})
+	Researcher needs an online service; Lexicon keeps your documents offline.	Հետազոտողին անհրաժեշտ է առցանց ծառայություն, իսկ Lexicon-ը ձեր փաստաթղթերը պահում է անցանց։
+	These settings will be used for new documents.	Այս կարգավորումները կօգտագործվեն նոր փաստաթղթերի համար։
+	can't split at the first row	հնարավոր չէ բաժանել առաջին տողով
+	select two or more cells to merge	ընտրեք երկու կամ ավելի բջիջ՝ միավորելու համար
+	there is no ink to replay	վերարտադրելու ձեռագիր չկա
+	there's no citation after the caret	կուրսորից հետո մեջբերում չկա
+	this item is already at the top level	այս տարրն արդեն վերին մակարդակում է
+	Envelope #10	Ծրար №10
+	Envelope DL	Ծրար DL
+	Reading Mode	Ընթերցման ռեժիմ
+	Column width	Սյունակի լայնությունը
+	Text size	Տեքստի չափը
+	Edit Document	Խմբագրել փաստաթուղթը
+	Go to what:	Անցնել՝
+	Type +2 or -1 to move from the page you are on.	Մուտքագրեք +2 կամ -1՝ ընթացիկ էջից տեղափոխվելու համար։
+	Suggested	Առաջարկվող
+	Set Proofing Language…	Ընտրել ուղղագրության ստուգման լեզուն…
+	Language Preferences…	Լեզվի կարգավորումներ…
+	APA	APA
+	Chicago	Chicago
+	GB/T 7714	GB/T 7714
+	GOST (name sort)	GOST (ըստ ազգանվան)
+	GOST (title sort)	GOST (ըստ վերնագրի)
+	Harvard (Anglia)	Harvard (Anglia)
+	IEEE	IEEE
+	ISO 690 (author-date)	ISO 690 (հեղինակ–ամսաթիվ)
+	ISO 690 (numerical)	ISO 690 (թվային)
+	MLA	MLA
+	SIST02	SIST02
+	Turabian	Turabian
+	Large	Մեծ
+	Limit and	Սահման և
+	Log	Լոգարիթմ
+	Printer	Տպիչ
+	Select a printer	Ընտրեք տպիչ
+	Refresh printers	Թարմացնել տպիչները
+	Two-sided printing	Երկկողմանի տպում
+	Printer default	Տպիչի լռելյայն
+	One-sided	Միակողմանի
+	Two-sided: long edge	Երկկողմանի՝ երկար եզր
+	Two-sided: short edge	Երկկողմանի՝ կարճ եզր
+	Grayscale	Մոխրագույնի երանգներ
+	Finding printers…	Տպիչների որոնում…
+	No printers found. Configure a system printer or export a PDF.	Տպիչներ չեն գտնվել։ Կարգավորեք համակարգային տպիչ կամ արտահանեք PDF։
+	Printer discovery failed.	Չհաջողվեց գտնել տպիչները։
+	Submitting print job…	Տպման առաջադրանքն ուղարկվում է…
+	Print job submitted.	Տպման առաջադրանքն ուղարկված է։
+	Print job submitted: {receipt}	Տպման առաջադրանքն ուղարկված է՝ {receipt}
+	Print failed: the printing worker stopped.	Տպումը ձախողվեց՝ տպման գործընթացը կանգ առավ։
+	Print settings	Տպման կարգավորումներ
+	Submit print job	Ուղարկել տպման առաջադրանքը
+	For which item:	Որ տարրի համար՝
+	Heading	Վերնագիր
+	Heading text	Վերնագրի տեքստը
+	Insert reference to:	Ներդնել հղում՝
+	Reference type:	Հղման տեսակը՝
+	Dictionaries	Բառարաններ
+	Dictionaries folder:	Բառարանների թղթապանակ՝
+	Not set: the system's usual places	Նշված չէ՝ համակարգի սովորական վայրերը
+	Hunspell .aff and .dic files here (pl_PL, pt_BR, it_IT, hr_HR, tr_TR) are used before the system's.	Այստեղի Hunspell .aff և .dic ֆայլերը (pl_PL, pt_BR, it_IT, hr_HR, tr_TR) օգտագործվում են համակարգայիններից առաջ։
+	{language}: {file}	{language}՝ {file}
+	{language}: no dictionary found	{language}՝ բառարան չի գտնվել
+	Recover	Վերականգնել
+	Mirror margins	Հայելային լուսանցքներ
+	Existing File or Web Page	Առկա ֆայլ կամ վեբ էջ
+	Link to:	Կապել՝
+	Place in This Document	Տեղ այս փաստաթղթում
+	Column {n}	Սյունակ {n}
+	Header row	Վերնագրի տող
+	No header row	Առանց վերնագրի տողի
+	My list has	Իմ ցուցակն ունի
+	Formula:	Բանաձև՝
+	Paste function:	Ներդնել ֆունկցիա՝
+	Narrow	Նեղ
+	Medium	Միջին
+	Merge cells before split	Միավորել բջիջները բաժանելուց առաջ
+	Table size	Աղյուսակի չափը
+	AutoFit behavior	Ինքնահարմարեցման վարքագիծ
+	Initial column width:	Սյունակի սկզբնական լայնությունը՝
+	AutoFit to contents	Հարմարեցնել ըստ բովանդակության
+	AutoFit to window	Հարմարեցնել ըստ պատուհանի
+	Separate text at	Բաժանել տեքստը՝
+	Commas	Ստորակետերով
+	Other:	Այլ՝
+	The number must be between 1 and {max}.	Թիվը պետք է լինի 1-ից {max}։
+	The measurement must be between {min} and {max}.	Չափը պետք է լինի {min}-ից {max}։
+	Recently Used Fonts	Վերջերս օգտագործված տառատեսակներ
+	All Fonts	Բոլոր տառատեսակները
+	Spike	Խոզուկ
+	Insert Spike	Ներդնել խոզուկից
+	Added 1 font	Ավելացվել է 1 տառատեսակ
+	Added {n} fonts	Ավելացվել է {n} տառատեսակ
+	{added}; {count} couldn't be read: {names}	{added}, չհաջողվեց կարդալ {count}-ը՝ {names}
+	{names} and {n} more	{names} և ևս {n}
+	{added}; {n} skipped (limit {max})	{added}, բաց է թողնվել {n} (սահմանը՝ {max})
+	nothing is selected	ոչինչ ընտրված չէ
+	select a picture or shape first	նախ ընտրեք նկար կամ պատկեր
+	select recipients first	նախ ընտրեք ստացողներին
+	select two or more pictures or shapes first (Shift+click)	նախ ընտրեք երկու կամ ավելի նկար կամ պատկեր (Shift+սեղմում)
+	text boxes can't go inside a text box	տեքստային դաշտը չի կարող լինել տեքստային դաշտի ներսում
+	the cursor isn't in a table	կուրսորը աղյուսակում չէ
+	{name} options	{name}՝ կարգավորումներ
+	Dropped	Տեքստում
+	In margin	Լուսանցքում
+	Drop Cap Options…	Սկզբնատառի կարգավորումներ…
+	Lines to drop:	Բարձրությունը տողերով՝
+	Distance from text:	Հեռավորությունը տեքստից՝
+	Distance from text	Հեռավորությունը տեքստից
+	the paragraph is empty	պարբերությունը դատարկ է
+	the paragraph starts with a space	պարբերությունը սկսվում է բացատով
+	Lock aspect ratio	Պահպանել համամասնությունները
+	Relative to original picture size	Նկարի սկզբնական չափի նկատմամբ
+	Original size	Սկզբնական չափը
+	{width} × {height} pixels	{width} × {height} պիքսել
+	Type a size in any unit, such as 5 cm or 300 px. The other side follows, so the picture keeps its proportions.	Մուտքագրեք չափը ցանկացած միավորով, օրինակ՝ 5 cm կամ 300 px։ Մյուս կողմը կփոխվի համապատասխանաբար, և նկարը կպահպանի իր համամասնությունները։
+	Import…	Ներմուծել…
+	Armenian	Հայերեն
+	Georgian	Վրացերեն
+	Azerbaijani	Ադրբեջաներեն

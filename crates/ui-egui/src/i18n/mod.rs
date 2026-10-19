@@ -52,7 +52,7 @@ pub struct LangInfo {
 }
 
 /// The registry. English first: it is the fallback and the source language.
-pub static LANGUAGES: [LangInfo; 23] = [
+pub static LANGUAGES: [LangInfo; 26] = [
     LangInfo { code: "en", name: "English", source: "", prefer_hans: false, editing_lang: None, catalog: OnceLock::new() },
     // Simplified Chinese; `zh`, `zh-CN`, `zh-SG` and `zh-Hans-*` resolve here (see `candidates`).
     LangInfo {
@@ -165,6 +165,32 @@ pub static LANGUAGES: [LangInfo; 23] = [
     LangInfo { code: "sv", name: "Svenska", source: include_str!("sv.tsv"), prefer_hans: false, editing_lang: None, catalog: OnceLock::new() },
     // Croatian; `hr`, `hr-HR` and `hr_HR.UTF-8` resolve here.
     LangInfo { code: "hr", name: "Hrvatski", source: include_str!("hr.tsv"), prefer_hans: false, editing_lang: None, catalog: OnceLock::new() },
+    // Lexicon: Armenian, Georgian and Azerbaijani (Latin script), each proofed with a bundled
+    // dictionary, so new documents are written in the interface's language.
+    LangInfo {
+        code: "hy",
+        name: "Հայերեն",
+        source: include_str!("hy.tsv"),
+        prefer_hans: false,
+        editing_lang: Some("hy-AM"),
+        catalog: OnceLock::new(),
+    },
+    LangInfo {
+        code: "ka",
+        name: "ქართული",
+        source: include_str!("ka.tsv"),
+        prefer_hans: false,
+        editing_lang: Some("ka-GE"),
+        catalog: OnceLock::new(),
+    },
+    LangInfo {
+        code: "az",
+        name: "Azərbaycan dili",
+        source: include_str!("az.tsv"),
+        prefer_hans: false,
+        editing_lang: Some("az-Latn-AZ"),
+        catalog: OnceLock::new(),
+    },
 ];
 
 impl LangInfo {
