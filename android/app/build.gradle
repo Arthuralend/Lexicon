@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'io.github.arthuralend.lexicon'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'io.github.arthuralend.lexicon'
+        minSdk 26
+        // 35 would force edge-to-edge drawing under the system bars, which the app doesn't inset for yet.
+        targetSdk 34
+        versionCode Integer.parseInt(System.getenv('LEXICON_VERSION_CODE') ?: '1')
+        versionName System.getenv('LEXICON_VERSION_NAME') ?: '0.8.0'
+    }
+
+    signingConfigs {
+        // A key kept in the repository, so every build signs alike and installs over the last.
+        // It is public: anyone can sign with it. For store releases, sign with a private key
+        // through the LEXICON_KEYSTORE* environment variables instead.
+        lexicon {
+            storeFile file(System.getenv('LEXICON_KEYSTORE') ?: 'lexicon.keystore')
+            storePassword System.getenv('LEXICON_KEYSTORE_PASSWORD') ?: 'lexicon'
+            keyAlias System.getenv('LEXICON_KEY_ALIAS') ?: 'lexicon'
+            keyPassword System.getenv('LEXICON_KEY_PASSWORD') ?: 'lexicon'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.lexicon
+        }
+        debug {
+            signingConfig signingConfigs.lexicon
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    packaging {
+        // Compressed native library: a much smaller download.
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
+}

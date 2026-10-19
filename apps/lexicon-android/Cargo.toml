@@ -1,0 +1,29 @@
+[package]
+name = "lexicon-android"
+description = "Lexicon for Android (eframe on a NativeActivity; packaged by the Gradle project in android/)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+# Not `[lints] workspace = true`: the JNI entry points need `#[unsafe(no_mangle)]` and raw JNI
+# handles, which the workspace's `unsafe_code = "forbid"` rules out. The unsafe stays in `jni.rs`.
+
+[lib]
+# `liblexicon.so`, the name `android/app/src/main/AndroidManifest.xml` loads.
+name = "lexicon"
+crate-type = ["cdylib"]
+
+[target.'cfg(target_os = "android")'.dependencies]
+wordcraft-engine = { workspace = true }
+wordcraft-ui-egui = { workspace = true }
+wordcraft-proof = { workspace = true }
+wordcraft-control-key = { workspace = true }
+egui = { workspace = true }
+eframe = { workspace = true, features = ["default_fonts", "wgpu", "android-native-activity"] }
+# Same version as eframe's, so it is built once; the `AndroidApp` handle comes from here.
+winit = { version = "0.30", default-features = false, features = ["android-native-activity"] }
+log = { workspace = true }
+serde_json = { workspace = true }
+android_logger = { version = "0.15", default-features = false }
+jni = "0.21"

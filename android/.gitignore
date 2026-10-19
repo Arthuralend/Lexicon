@@ -1,0 +1,6 @@
+.gradle/
+build/
+app/build/
+local.properties
+# Built by cargo-ndk (see .github/workflows/android.yml)
+app/src/main/jniLibs/
