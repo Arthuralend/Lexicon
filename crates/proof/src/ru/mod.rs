@@ -53,13 +53,26 @@ pub fn dictionary() -> Arc<AffixDict> {
     slot.get_or_insert(loaded).clone()
 }
 
+/// Lexicon bundles LibreOffice's `ru_RU` dictionary (BSD licence, `assets/spelling/README_ru_RU.txt`),
+/// so Russian is checked out of the box, on Android and the web too.
+const BUNDLED_AFF: &str = include_str!("../../../../assets/spelling/ru_RU.aff");
+const BUNDLED_DIC: &str = include_str!("../../../../assets/spelling/ru_RU.dic");
+
 fn load_installed() -> AffixDict {
-    let Some((aff, dic)) = crate::hunspell::find(NAMES) else {
-        log::info!("Russian spelling: no Hunspell ru_RU dictionary installed");
-        return AffixDict::default();
-    };
-    crate::hunspell::load(&aff, &dic).unwrap_or_else(|e| {
-        log::warn!("Russian spelling: {e}");
+    // An installed dictionary wins (it may be newer); the bundled one covers the rest.
+    if let Some((aff, dic)) = crate::hunspell::find(NAMES) {
+        match crate::hunspell::load(&aff, &dic) {
+            Ok(d) => return d,
+            Err(e) => log::warn!("Russian spelling: {e}; using the bundled dictionary"),
+        }
+    }
+    load_bundled()
+}
+
+/// The bundled `ru_RU` dictionary.
+pub fn load_bundled() -> AffixDict {
+    AffixDict::from_hunspell(BUNDLED_AFF, BUNDLED_DIC, &["Hunspell dictionary ru_RU (bundled)"]).unwrap_or_else(|e| {
+        log::warn!("Russian spelling: the bundled dictionary failed to load: {e}");
         AffixDict::default()
     })
 }

@@ -1,4 +1,4 @@
-//! WordCraft proofing, per language. A run's language (its BCP 47 tag) picks the tools through
+//! Lexicon proofing, per language. A run's language (its BCP 47 tag) picks the tools through
 //! [`ProofLang`]; the `*_in` functions take it, the older English-only ones remain.
 //!
 //! - **English** ([`ProofLang::En`]; also text with no language): spelling against the
@@ -630,6 +630,7 @@ fn enclosing_token(text: &str, a: usize, b: usize) -> (usize, usize, bool) {
 /// classification of the word's enclosing token, from [`enclosing_token`].
 fn spelling_issue(text: &str, a: usize, b: usize, lang: ProofLang, opts: &Options, internet: bool) -> Option<Issue> {
     let w = text.get(a..b)?;
+    let lang = by_script(w, lang);
     // A word with a Vietnamese-only letter (a name like Nguyễn in English text) isn't English.
     if (opts.ignore_internet && internet) || (lang == ProofLang::En && vi::is_vietnamese_word(w)) || is_correct_in_with(w, lang, opts) {
         return None;
@@ -646,6 +647,22 @@ fn spelling_issue(text: &str, a: usize, b: usize, lang: ProofLang, opts: &Option
         _ => "Possible spelling mistake",
     };
     Some(Issue { start: a, end: b, kind: IssueKind::Spelling, message: message.into(), suggestions: Vec::new(), lang })
+}
+
+/// The language to check `word` in when it is marked `lang`: Lexicon checks Russian and English
+/// together, so a word written only in Cyrillic in English text is checked as Russian, and a word
+/// written only in Latin letters in Russian text as English (Word guesses the language the same
+/// way). Other languages keep their own dictionary.
+pub fn by_script(word: &str, lang: ProofLang) -> ProofLang {
+    let mut letters = word.chars().filter(|c| c.is_alphabetic()).peekable();
+    if letters.peek().is_none() {
+        return lang;
+    }
+    match lang {
+        ProofLang::En if letters.all(ru::is_cyrillic) => ProofLang::Ru,
+        ProofLang::Ru if letters.all(|c| c.is_ascii_alphabetic()) => ProofLang::En,
+        _ => lang,
+    }
 }
 
 /// Is `word` spelled correctly in `lang`? Always true in a language without a dictionary.
@@ -687,7 +704,7 @@ pub fn suggest_in(word: &str, max: usize, lang: ProofLang) -> Vec<String> {
 
 /// Grammar issues in a paragraph of text in `lang`: the English rules, the Polish ones
 /// ([`pl::grammar`]), the Portuguese ones ([`pt::grammar`]), the Italian ones ([`it::grammar`]),
-/// the Turkish ones ([`tr::grammar`]), Czech and Indonesian generic checks ([`cs::grammar`], [`id::grammar`]), or none for a language WordCraft doesn't proof.
+/// the Turkish ones ([`tr::grammar`]), Czech and Indonesian generic checks ([`cs::grammar`], [`id::grammar`]), or none for a language Lexicon doesn't proof.
 pub fn check_grammar_in(text: &str, lang: ProofLang) -> Vec<Issue> {
     grammar_in(text, lang, true)
 }
@@ -1109,6 +1126,29 @@ mod tests {
         assert!(words.len() > 100);
         assert!(words.windows(2).all(|p| p[0] < p[1]), "not sorted / duplicate");
         assert!(words.iter().all(|w| w.chars().all(|c| c.is_lowercase() || c == '\'' || c == '-')), "not lowercase");
+    }
+
+    /// Lexicon: Russian and English are checked together, whichever language the text is marked,
+    /// against the bundled Russian dictionary when none is installed.
+    #[test]
+    fn russian_and_english_are_checked_together() {
+        let bundled = ru::load_bundled();
+        assert!(!bundled.is_empty());
+        assert!(ru::is_correct_with(&bundled, "молоко"));
+        assert!(!ru::is_correct_with(&bundled, "малако"));
+        assert_eq!(by_script("молоко", ProofLang::En), ProofLang::Ru);
+        assert_eq!(by_script("milk", ProofLang::Ru), ProofLang::En);
+        assert_eq!(by_script("iPhone-ом", ProofLang::Ru), ProofLang::Ru);
+        assert_eq!(by_script("молоко", ProofLang::Pl), ProofLang::Pl);
+        assert_eq!(by_script("2024", ProofLang::En), ProofLang::En);
+        // Other tests share the global Russian dictionary through the synthetic test one.
+        ru::test_dict::install();
+        let t = "Новый дом и красный дамм and a bottel of milk.";
+        for lang in [ProofLang::En, ProofLang::Ru] {
+            let v = check_text_with(t, &[(0..t.len(), lang)], &Options::default(), false, false);
+            let bad: Vec<(&str, ProofLang)> = v.iter().map(|i| (&t[i.start..i.end], i.lang)).collect();
+            assert_eq!(bad, vec![("дамм", ProofLang::Ru), ("bottel", ProofLang::En)], "{lang:?}");
+        }
     }
 
     #[test]
