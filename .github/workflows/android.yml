@@ -69,6 +69,19 @@ jobs:
           name: lexicon-apk
           path: Lexicon-*.apk
 
+      # The newest build of a branch push, always at
+      # https://github.com/<owner>/<repo>/releases/download/latest/Lexicon.apk
+      - name: Publish latest build
+        if: github.event_name == 'push' && !startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp Lexicon-*.apk Lexicon.apk
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest Lexicon.apk --target "$GITHUB_SHA" --prerelease \
+            --title "Lexicon — последняя сборка (${{ steps.version.outputs.name }})" \
+            --notes "Последняя сборка Lexicon для Android (arm64, Android 8.0+). Скачайте Lexicon.apk на телефон и откройте; разрешите установку из этого источника, когда телефон спросит."
+
       - name: Publish release
         if: startsWith(github.ref, 'refs/tags/v')
         env:

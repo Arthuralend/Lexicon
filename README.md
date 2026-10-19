@@ -21,10 +21,8 @@ Lexicon основан на [WordCraft](https://github.com/storytold/wordcraft) 
 
 ## Установка на Android
 
-1. Откройте вкладку [Actions](https://github.com/Arthuralend/Lexicon/actions/workflows/android.yml),
-   выберите последний успешный запуск и скачайте артефакт **lexicon-apk** (или возьмите APK
-   на странице [Releases](https://github.com/Arthuralend/Lexicon/releases), если там есть выпуск).
-2. Распакуйте zip, скопируйте `Lexicon-….apk` на телефон и откройте его. Разрешите установку из
+1. Скачайте APK на телефон по прямой ссылке: **https://github.com/Arthuralend/Lexicon/releases/download/latest/Lexicon.apk** — там всегда последняя сборка.
+2. Откройте скачанный `Lexicon.apk`. Разрешите установку из
    этого источника, когда телефон спросит.
 3. При первом запуске Lexicon попросит доступ к файлам — тогда документы можно открывать и
    сохранять в папках «Документы» и «Загрузки». Без доступа документы хранятся в папке
