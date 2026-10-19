@@ -1,4 +1,4 @@
-//! WordCraft fonts: the font database (bundled OFL families + user/system fonts), vertical
+//! Lexicon fonts: the font database (bundled OFL families + user/system fonts), vertical
 //! metrics, glyph outlines and OpenType shaping.
 //!
 //! Shaping here is style-agnostic: [`shape`] turns a string in one face into glyph ids, clusters

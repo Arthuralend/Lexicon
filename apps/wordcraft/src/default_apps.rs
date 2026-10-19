@@ -1,11 +1,11 @@
-//! File › Options › General › Make WordCraft the default for Word documents (#295).
+//! File › Options › General › Make Lexicon the default for Word documents (#295).
 //!
-//! The installers register WordCraft for Word, RTF and ODT files without taking over the
+//! The installers register Lexicon for Word, RTF and ODT files without taking over the
 //! defaults (`packaging/windows/wordcraft.wxs`, the `.desktop` file's `MimeType=`, `Info.plist`).
 //! This is the button that makes it the default when the user asks:
-//! - **Windows** doesn't let apps set defaults: it opens Settings › Default apps on WordCraft's
-//!   page (`ms-settings:defaultapps?registeredAppMachine=WordCraft`; Windows 10 ignores the query
-//!   and shows the Default apps list), where the user picks WordCraft per type.
+//! - **Windows** doesn't let apps set defaults: it opens Settings › Default apps on Lexicon's
+//!   page (`ms-settings:defaultapps?registeredAppMachine=Lexicon`; Windows 10 ignores the query
+//!   and shows the Default apps list), where the user picks Lexicon per type.
 //! - **Linux and BSD**: `xdg-mime default ai.storyteller.wordcraft.desktop <types>` for
 //!   [`WORD_MIME_TYPES`], which writes the user's `mimeapps.list`. Only when the desktop entry is
 //!   installed (deb, rpm, Flatpak; a bare AppImage has none), and not from inside the Flatpak
@@ -34,9 +34,9 @@ pub fn hook() -> Option<Hook> {
 #[cfg(any(all(unix, not(target_os = "macos")), test))]
 const DESKTOP_ID: &str = "ai.storyteller.wordcraft.desktop";
 
-/// The types the button makes WordCraft the default for on Linux and BSD: Word documents and
+/// The types the button makes Lexicon the default for on Linux and BSD: Word documents and
 /// templates (also macro-enabled and legacy), RTF and ODT. The same set the Windows installer
-/// lists under WordCraft's Capabilities; Markdown and plain text are only offered under Open With.
+/// lists under Lexicon's Capabilities; Markdown and plain text are only offered under Open With.
 /// Every one is in the `.desktop` file's `MimeType=` (a test checks).
 #[cfg(any(all(unix, not(target_os = "macos")), test))]
 const WORD_MIME_TYPES: &[&str] = &[
@@ -82,9 +82,9 @@ fn application_dirs(data_home: Option<&str>, data_dirs: Option<&str>, home: Opti
 mod windows {
     use wordcraft_ui_egui::DefaultApp;
 
-    /// Settings › Default apps, on the page of the app registered as `WordCraft` under
+    /// Settings › Default apps, on the page of the app registered as `Lexicon` under
     /// `HKLM\Software\RegisteredApplications` (the MSI writes it).
-    const SETTINGS_URI: &str = "ms-settings:defaultapps?registeredAppMachine=WordCraft";
+    const SETTINGS_URI: &str = "ms-settings:defaultapps?registeredAppMachine=Lexicon";
 
     pub(super) fn open_default_apps() -> Result<DefaultApp, String> {
         open::that_detached(SETTINGS_URI).map_err(|e| format!("couldn't open Settings: {e}"))?;
@@ -106,7 +106,7 @@ mod xdg {
     pub(super) fn make_default() -> Result<DefaultApp, String> {
         if std::env::var_os("FLATPAK_ID").is_some() || std::path::Path::new("/.flatpak-info").exists() {
             return Err(
-                "the Flatpak sandbox can't change default apps; choose WordCraft under Open With in your file manager or system settings".into()
+                "the Flatpak sandbox can't change default apps; choose Lexicon under Open With in your file manager or system settings".into()
             );
         }
         let var = |k: &str| std::env::var(k).ok();
