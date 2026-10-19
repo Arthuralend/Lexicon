@@ -47,7 +47,7 @@
 	<< Less	<< Manje
 	<< Remove	<< Ukloni
 	A file dialog is already open.	Dijaloški okvir za datoteke već je otvoren.
-	A free, open-source word processor written from scratch in Rust.\nPart of the Crafting Apps from the ArtCraft team.	Besplatan program za obradu teksta otvorenog koda, napisan od nule u Rustu.\nDio paketa Crafting Apps tima ArtCraft.
+	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	Besplatan program za obradu teksta otvorenog koda napisan u Rustu, s provjerom pravopisa na ruskom i engleskom.\nTemelji se na WordCraftu tima ArtCraft.
 	A mail merge field	Polje za spajanje pošte
 	A numbered sequence (figures, tables…)	Numerirani niz (slike, tablice…)
 	A password is required to open this document.	Za otvaranje ovog dokumenta potrebna je lozinka.
@@ -1280,7 +1280,7 @@ template	Letter	Pismo
 	Logical OR	Logičko ILI
 	Logical OR with Limits	Logičko ILI s granicama
 	Lum:	Svjetl.:
-	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team and the Lexicon contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team i doprinositelji projekta Lexicon.
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.
 	MLA	MLA
 	Macros	Makronaredbe
 	Made from the author and year when empty	Izrađuje se iz autora i godine kada je prazno
@@ -2056,7 +2056,8 @@ template	Letter	Pismo
 	Sort	Sortiraj
 	Sort order:	Redoslijed sortiranja:
 	Source Manager	Upravitelj izvora
-	Source code: github.com/storytold/wordcraft	Izvorni kôd: github.com/storytold/wordcraft
+	Source code: github.com/Arthuralend/Lexicon	Izvorni kôd: github.com/Arthuralend/Lexicon
+	WordCraft: github.com/storytold/wordcraft	WordCraft: github.com/storytold/wordcraft
 	Source type:	Vrsta izvora:
 	Sources in this document:	Izvori u ovom dokumentu:
 	South	Jug

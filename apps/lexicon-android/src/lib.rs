@@ -23,9 +23,9 @@ mod keyboard;
 
 use std::path::{Path, PathBuf};
 
+use winit::platform::android::activity::AndroidApp;
 use wordcraft_engine::Session;
 use wordcraft_ui_egui::{FileDialogAnswer, FileDialogRequest, Services, UiState, WordApp};
-use winit::platform::android::activity::AndroidApp;
 
 /// Shared storage, browsed when the user lets Lexicon manage files.
 const SHARED_STORAGE: &str = "/storage/emulated/0";
@@ -78,7 +78,8 @@ fn android_main(app: AndroidApp) {
 fn setup_folders(app: &AndroidApp) -> Option<PathBuf> {
     let internal = app.internal_data_path();
     let external = app.external_data_path();
-    let home = if std::fs::read_dir(SHARED_STORAGE).is_ok() { Some(PathBuf::from(SHARED_STORAGE)) } else { external.clone().or_else(|| internal.clone()) };
+    let home =
+        if std::fs::read_dir(SHARED_STORAGE).is_ok() { Some(PathBuf::from(SHARED_STORAGE)) } else { external.clone().or_else(|| internal.clone()) };
     // SAFETY: called at the very start of `android_main`, before this process's Rust code starts
     // any other thread that could read the environment.
     unsafe {

@@ -17,7 +17,7 @@
 
 	(no suggestions)	(nincs javaslat)
 	1.5 Line Spacing	1,5-es sorköz
-	A free, open-source word processor written from scratch in Rust.\nPart of the Crafting Apps from the ArtCraft team.	Ingyenes, nyílt forráskódú szövegszerkesztő, az alapoktól Rustban írva.\nA Crafting Apps családba tartozik, az ArtCraft csapatától.
+	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	Ingyenes, nyílt forráskódú szövegszerkesztő Rust nyelven, orosz és angol helyesírás-ellenőrzéssel.\nAz ArtCraft csapat WordCraft programján alapul.
 	AaBbCcDd	AaÁáBbCc
 	About	Névjegy
 	About Lexicon	A Lexicon névjegye
@@ -435,7 +435,7 @@
 	Merge Formatting	Formázás összefésülése
 	Merged PRs	Beolvasztott PR-ek
 	Mirrored	Tükrözött
-	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team and the Lexicon contributors.	MIT vagy Apache-2.0. Copyright (c) 2026 ArtCraft Team és a Lexicon közreműködői.
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.
 	Moderate	Mérsékelt
 	Modify Style	Stílus módosítása
 	Modify…	Módosítás…
@@ -692,7 +692,8 @@
 	Small caps	Kiskapitális
 	SmartArt	SmartArt
 	Sort	Rendezés
-	Source code: github.com/storytold/wordcraft	Forráskód: github.com/storytold/wordcraft
+	Source code: github.com/Arthuralend/Lexicon	Forráskód: github.com/Arthuralend/Lexicon
+	WordCraft: github.com/storytold/wordcraft	WordCraft: github.com/storytold/wordcraft
 	Space before/after:	Térköz előtte/utána:
 	Spacing	Térköz
 	Spacing (pt):	Térköz (pt):

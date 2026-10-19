@@ -3,7 +3,7 @@
 	(no style)	(스타일 없음)
 	(no suggestions)	(제안 없음)
 	1.5 Line Spacing	1.5줄 간격
-	A free, open-source word processor written from scratch in Rust.\nPart of the Crafting Apps from the ArtCraft team.	Rust로 처음부터 새로 만든 무료 오픈 소스 워드 프로세서입니다.\nArtCraft 팀의 Crafting Apps 제품군에 속합니다.
+	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	Rust로 작성된 무료 오픈 소스 워드 프로세서로, 러시아어와 영어 맞춤법 검사를 지원합니다.\nArtCraft 팀의 WordCraft를 기반으로 합니다.
 	About	정보
 	About Lexicon	Lexicon 정보
 	Accept	수락
@@ -556,7 +556,7 @@
 	Merge Formatting	서식 병합
 	Merged PRs	병합된 PR
 	Mirrored	좌우 대칭
-	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team and the Lexicon contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team and the Lexicon contributors.
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.
 	Moderate	보통
 	Modify Style	스타일 수정
 	Modify…	수정…
@@ -835,7 +835,8 @@
 	Small caps	작은 대문자
 	SmartArt	SmartArt
 	Sort	정렬
-	Source code: github.com/storytold/wordcraft	소스 코드: github.com/storytold/wordcraft
+	Source code: github.com/Arthuralend/Lexicon	소스 코드: github.com/Arthuralend/Lexicon
+	WordCraft: github.com/storytold/wordcraft	WordCraft: github.com/storytold/wordcraft
 	Space	공백
 	Space before/after:	앞/뒤 간격:
 	Spacing	간격

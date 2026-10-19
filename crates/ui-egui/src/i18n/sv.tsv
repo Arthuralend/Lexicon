@@ -17,7 +17,7 @@
 	(no style)	(ingen stil)
 	(no suggestions)	(inga förslag)
 	1.5 Line Spacing	Radavstånd 1,5
-	A free, open-source word processor written from scratch in Rust.\nPart of the Crafting Apps from the ArtCraft team.	En gratis ordbehandlare med öppen källkod, skriven från grunden i Rust.\nEn del av Crafting Apps från ArtCraft-teamet.
+	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	En kostnadsfri ordbehandlare med öppen källkod skriven i Rust, med rysk och engelsk stavningskontroll.\nBaserad på WordCraft från ArtCraft-teamet.
 	About	Om
 	About Lexicon	Om Lexicon
 	Accept	Acceptera
@@ -548,7 +548,7 @@
 	Link to Previous	Länka till föregående
 	Links	Länkar
 	Location: {path}	Plats: {path}
-	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team and the Lexicon contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft-teamet och Lexicons bidragsgivare.
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.
 	Macros	Makron
 	Mailings	Utskick
 	Make Lexicon the default for Word documents…	Gör Lexicon till standardprogram för Word-dokument…
@@ -858,7 +858,8 @@
 	Small caps	Kapitäler
 	SmartArt	SmartArt
 	Sort	Sortera
-	Source code: github.com/storytold/wordcraft	Källkod: github.com/storytold/wordcraft
+	Source code: github.com/Arthuralend/Lexicon	Källkod: github.com/Arthuralend/Lexicon
+	WordCraft: github.com/storytold/wordcraft	WordCraft: github.com/storytold/wordcraft
 	Space	Blanksteg
 	Space before/after:	Avstånd före/efter:
 	Spacing	Avstånd

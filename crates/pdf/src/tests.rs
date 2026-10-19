@@ -136,19 +136,9 @@ fn exports_pages_text_and_structure() {
     assert_eq!(pdf.pages().len(), lay.pages.len());
     let text = extract_text(&bytes);
     let all = squash(&text.concat());
-    for w in [
-        "Introduction",
-        "Hello Lexicon,",
-        "bold words",
-        "website",
-        "Details",
-        "alpha item",
-        "beta item",
-        "Cell00",
-        "Cell11",
-        "Second page",
-        "DRAFT",
-    ] {
+    for w in
+        ["Introduction", "Hello Lexicon,", "bold words", "website", "Details", "alpha item", "beta item", "Cell00", "Cell11", "Second page", "DRAFT"]
+    {
         assert!(all.contains(w), "{w:?} missing from {all:?}");
     }
     assert!(squash(&text[0]).contains("Hello Lexicon, bold words and a website back to top"), "{:?}", text[0]);

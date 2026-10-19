@@ -14,7 +14,7 @@
 
 	(no suggestions)	(öneri yok)
 	1.5 Line Spacing	1,5 Satır Aralığı
-	A free, open-source word processor written from scratch in Rust.\nPart of the Crafting Apps from the ArtCraft team.	Rust ile sıfırdan yazılmış ücretsiz, açık kaynak bir kelime işlemci.\nArtCraft ekibinin Crafting Apps ailesinin bir parçası.
+	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	Rust ile yazılmış, Rusça ve İngilizce yazım denetimli, ücretsiz ve açık kaynaklı bir kelime işlemci.\nArtCraft ekibinin WordCraft uygulamasına dayanır.
 	AaBbCcDd	AaBbCcÇç
 	About	Hakkında
 	About Lexicon	Lexicon Hakkında
@@ -435,7 +435,7 @@
 	Merge Formatting	Biçimlendirmeyi Birleştir
 	Merged PRs	Birleştirilen PR'lar
 	Mirrored	Aynalı
-	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team and the Lexicon contributors.	MIT OR Apache-2.0. Telif hakkı (c) 2026 ArtCraft ekibi ve Lexicon'a katkıda bulunanlar.
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.
 	Moderate	Orta
 	Modify Style	Stili Değiştir
 	Modify…	Değiştir…
@@ -698,7 +698,8 @@
 	Small caps	Küçük büyük harf
 	SmartArt	SmartArt
 	Sort	Sırala
-	Source code: github.com/storytold/wordcraft	Kaynak kod: github.com/storytold/wordcraft
+	Source code: github.com/Arthuralend/Lexicon	Kaynak kod: github.com/Arthuralend/Lexicon
+	WordCraft: github.com/storytold/wordcraft	WordCraft: github.com/storytold/wordcraft
 	Space before/after:	Önce/sonra boşluk:
 	Spacing	Aralık
 	Spacing (pt):	Aralık (pt):

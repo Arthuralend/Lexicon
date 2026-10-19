@@ -352,7 +352,7 @@ fn reading_layout_reflows_into_viewport_height_pages_without_changing_print_layo
 
 #[test]
 fn hit_and_caret_agree() {
-    let d = Document::from_text("Hello world, this is Lexicon.\nSecond paragraph here.");
+    let d = Document::from_text("Hello world, this is WordCraft.\nSecond paragraph here.");
     let l = lay(&d);
     for off in [0, 5, 12, 31] {
         let pos = Pos::body(0, off);

@@ -84,7 +84,12 @@ pub extern "system" fn Java_io_github_arthuralend_lexicon_LexiconActivity_native
 }
 
 #[unsafe(no_mangle)]
-pub extern "system" fn Java_io_github_arthuralend_lexicon_LexiconActivity_nativeKey(_env: JNIEnv, _class: JClass, code: jint, shift: jni::sys::jboolean) {
+pub extern "system" fn Java_io_github_arthuralend_lexicon_LexiconActivity_nativeKey(
+    _env: JNIEnv,
+    _class: JClass,
+    code: jint,
+    shift: jni::sys::jboolean,
+) {
     if let Some(k) = android_key(code) {
         push(key(k, shift != 0));
     }
