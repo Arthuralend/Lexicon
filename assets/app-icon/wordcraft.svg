@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 <!-- Lexicon app icon, drawn for this repository (tools/icons.py). -->
-<rect width="512" height="512" rx="112" fill="#2B47B5"/>
-<path d="M146,96H312L376,160V406a10,10 0 0 1 -10,10H146a10,10 0 0 1 -10,-10V106a10,10 0 0 1 10,-10z" fill="#FFFFFF"/>
-<path d="M312,96V150a10,10 0 0 0 10,10H376z" fill="#C9D3F5"/>
-<rect x="166" y="190" width="180" height="24" rx="6" fill="#2B47B5"/><rect x="166" y="240" width="180" height="24" rx="6" fill="#2B47B5"/><rect x="166" y="290" width="120" height="24" rx="6" fill="#2B47B5"/>
-<polyline points="166,350 186,366 206,350 226,366 246,350 266,366 286,350" fill="none" stroke="#E03131" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4C6EF5"/><stop offset="1" stop-color="#23308C"/></linearGradient></defs>
+<rect width="512" height="512" rx="112" fill="url(#g)"/>
+<rect x="156" y="84" width="84" height="300" rx="42" fill="#FFFFFF"/>
+<rect x="156" y="300" width="208" height="84" rx="42" fill="#FFFFFF"/>
+<polyline points="164,424 196,444 228,424 260,444 292,424 324,444 356,424" fill="none" stroke="#FF5A5F" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
