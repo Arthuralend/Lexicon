@@ -27,6 +27,9 @@ use winit::platform::android::activity::AndroidApp;
 use wordcraft_engine::Session;
 use wordcraft_ui_egui::{FileDialogAnswer, FileDialogRequest, Services, UiState, WordApp};
 
+/// Behind the status and navigation bars (their icons are light).
+const SYSTEM_BARS: egui::Color32 = egui::Color32::from_rgb(0x1E, 0x2A, 0x5A);
+
 /// Shared storage, browsed when the user lets Lexicon manage files.
 const SHARED_STORAGE: &str = "/storage/emulated/0";
 
@@ -160,12 +163,20 @@ impl eframe::App for Shell {
     }
 
     fn raw_input_hook(&mut self, _ctx: &egui::Context, raw: &mut egui::RawInput) {
+        self.keyboard.fix_hardware_text(&mut raw.events);
         raw.events.extend(keyboard::take_events());
         self.app.raw_input_hook(raw);
     }
 
     fn ui(&mut self, ui: &mut egui::Ui, _frame: &mut eframe::Frame) {
-        self.app.ui(ui);
+        // The app draws under the status bar, the navigation bar and the keyboard: keep its
+        // interface in the part they leave free, and paint behind the bars.
+        let full = ui.max_rect();
+        let inner = keyboard::safe_area(full, ui.ctx().pixels_per_point());
+        if inner != full {
+            ui.painter().rect_filled(full, 0.0, SYSTEM_BARS);
+        }
+        ui.scope_builder(egui::UiBuilder::new().max_rect(inner), |ui| self.app.ui(ui));
         // The caret is in the document or a text field: the on-screen keyboard is wanted.
         let wants = ui.ctx().output(|o| o.ime.is_some());
         let tapped = ui.ctx().input(|i| i.pointer.any_click());

@@ -8,15 +8,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Insets;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
 import android.text.InputType;
+import android.view.InputDevice;
+import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
 import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
@@ -50,6 +54,8 @@ public class LexiconActivity extends NativeActivity {
 
     static native void nativeKey(int keyCode, boolean shift);
 
+    static native void nativeInsets(int left, int top, int right, int bottom);
+
     private KeyboardView input;
     /** The user went to grant file access: restart once it is granted. */
     private boolean awaitingFileAccess;
@@ -59,7 +65,44 @@ public class LexiconActivity extends NativeActivity {
         super.onCreate(savedInstanceState);
         input = new KeyboardView(this);
         addContentView(input, new ViewGroup.LayoutParams(1, 1));
+        // The native surface covers the whole window, under the status bar, the navigation bar
+        // and the keyboard: tell Rust how much of it they take.
+        View decor = getWindow().getDecorView();
+        decor.setOnApplyWindowInsetsListener((v, insets) -> {
+            reportInsets(insets);
+            return v.onApplyWindowInsets(insets);
+        });
+        decor.requestApplyInsets();
         askForFileAccess();
+    }
+
+    private static void reportInsets(WindowInsets insets) {
+        if (Build.VERSION.SDK_INT >= 30) {
+            Insets i = insets.getInsets(WindowInsets.Type.systemBars() | WindowInsets.Type.displayCutout() | WindowInsets.Type.ime());
+            nativeInsets(i.left, i.top, i.right, i.bottom);
+        } else {
+            nativeInsets(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom());
+        }
+    }
+
+    /**
+     * Called from Rust: the text a hardware keyboard's key types in the layout active now, or
+     * null when there is no hardware keyboard or the key types nothing. (The native side keeps the
+     * layout from the first key press, so a layout switch wouldn't reach the app otherwise.)
+     */
+    public String keyText(int keyCode, boolean shift) {
+        int meta = shift ? KeyEvent.META_SHIFT_ON : 0;
+        for (int id : InputDevice.getDeviceIds()) {
+            InputDevice device = InputDevice.getDevice(id);
+            if (device == null || device.isVirtual() || device.getKeyboardType() != InputDevice.KEYBOARD_TYPE_ALPHABETIC) {
+                continue;
+            }
+            int c = device.getKeyCharacterMap().get(keyCode, meta);
+            if (c != 0 && (c & KeyCharacterMap.COMBINING_ACCENT) == 0) {
+                return new String(Character.toChars(c));
+            }
+        }
+        return null;
     }
 
     /** Called from Rust on its own thread. */

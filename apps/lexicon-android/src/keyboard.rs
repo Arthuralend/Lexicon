@@ -14,6 +14,7 @@
 //! [`Keyboard::update`] shows the keyboard (through `LexiconActivity.showKeyboard`) while egui
 //! wants text input and hides it when it stops.
 
+use std::sync::atomic::{AtomicI32, Ordering};
 use std::sync::{Mutex, OnceLock};
 
 use jni::JNIEnv;
@@ -156,17 +157,148 @@ impl Keyboard {
     }
 
     fn call_activity(&self, show: bool) -> Result<(), String> {
-        // SAFETY: android-activity hands out the process's JavaVM and a global reference to the
-        // activity, both valid while the app runs; `JObject` doesn't release the reference.
-        let vm = unsafe { jni::JavaVM::from_raw(self.app.vm_as_ptr().cast()) }.map_err(|e| e.to_string())?;
-        let mut env = vm.attach_current_thread_permanently().map_err(|e| e.to_string())?;
-        let activity = unsafe { JObject::from_raw(self.app.activity_as_ptr().cast()) };
-        let result = env.call_method(&activity, "showKeyboard", "(Z)V", &[JValue::Bool(u8::from(show))]);
-        if result.is_err() {
-            // A Java exception must be cleared before the next JNI call.
-            let _ = env.exception_describe();
-            let _ = env.exception_clear();
-        }
-        result.map(|_| ()).map_err(|e| e.to_string())
+        with_activity(&self.app, |env, activity| env.call_method(activity, "showKeyboard", "(Z)V", &[JValue::Bool(u8::from(show))]).map(|_| ()))
     }
+
+    /// Text typed on a hardware keyboard, looked up again in the keyboard's current layout.
+    ///
+    /// android-activity keeps each keyboard's character map from its first key press, so after
+    /// the user switches the layout (Russian to English, Ctrl+Space…) winit still sends the
+    /// letters of the first one. For each key press winit turned into text, the activity looks the
+    /// key up in the layout that is active now (`LexiconActivity.keyText`).
+    pub fn fix_hardware_text(&self, events: &mut [egui::Event]) {
+        let mut pressed: Option<(egui::Key, egui::Modifiers)> = None;
+        for e in events.iter_mut() {
+            match e {
+                egui::Event::Key { physical_key, key, pressed: true, modifiers, .. } => pressed = Some((physical_key.unwrap_or(*key), *modifiers)),
+                egui::Event::Text(text) => {
+                    if let Some((k, m)) = pressed.take()
+                        && let Some(code) = android_keycode(k)
+                        && let Some(now) = self.key_text(code, m.shift)
+                        && now != *text
+                    {
+                        // Caps Lock (which egui doesn't report) still capitalises.
+                        let caps = !m.shift && text.chars().any(char::is_uppercase) && !text.chars().any(char::is_lowercase);
+                        *text = if caps { now.to_uppercase() } else { now };
+                    }
+                }
+                _ => pressed = None,
+            }
+        }
+    }
+
+    fn key_text(&self, code: jint, shift: bool) -> Option<String> {
+        let mut out = None;
+        let result = with_activity(&self.app, |env, activity| {
+            let v = env.call_method(activity, "keyText", "(IZ)Ljava/lang/String;", &[JValue::Int(code), JValue::Bool(u8::from(shift))])?.l()?;
+            if !v.is_null() {
+                let s = JString::from(v);
+                out = env.get_string(&s).ok().map(String::from);
+            }
+            Ok(())
+        });
+        if let Err(e) = result {
+            log::warn!("keyboard: {e}");
+        }
+        out.filter(|s| !s.is_empty() && s.chars().all(|c| !c.is_control()))
+    }
+}
+
+/// Run `f` with a JNI environment and the activity.
+fn with_activity(app: &AndroidApp, f: impl FnOnce(&mut JNIEnv, &JObject) -> jni::errors::Result<()>) -> Result<(), String> {
+    // SAFETY: android-activity hands out the process's JavaVM and a global reference to the
+    // activity, both valid while the app runs; `JObject` doesn't release the reference.
+    let vm = unsafe { jni::JavaVM::from_raw(app.vm_as_ptr().cast()) }.map_err(|e| e.to_string())?;
+    let mut env = vm.attach_current_thread_permanently().map_err(|e| e.to_string())?;
+    let activity = unsafe { JObject::from_raw(app.activity_as_ptr().cast()) };
+    let result = f(&mut env, &activity);
+    if result.is_err() {
+        // A Java exception must be cleared before the next JNI call.
+        let _ = env.exception_describe();
+        let _ = env.exception_clear();
+    }
+    result.map_err(|e| e.to_string())
+}
+
+/// The Android `KeyEvent.KEYCODE_*` of a key that types a character.
+fn android_keycode(key: egui::Key) -> Option<jint> {
+    use egui::Key as K;
+    let letters = [
+        K::A,
+        K::B,
+        K::C,
+        K::D,
+        K::E,
+        K::F,
+        K::G,
+        K::H,
+        K::I,
+        K::J,
+        K::K,
+        K::L,
+        K::M,
+        K::N,
+        K::O,
+        K::P,
+        K::Q,
+        K::R,
+        K::S,
+        K::T,
+        K::U,
+        K::V,
+        K::W,
+        K::X,
+        K::Y,
+        K::Z,
+    ];
+    let digits = [K::Num0, K::Num1, K::Num2, K::Num3, K::Num4, K::Num5, K::Num6, K::Num7, K::Num8, K::Num9];
+    if let Some(i) = letters.iter().position(|k| *k == key) {
+        return jint::try_from(i).ok().map(|i| 29 + i);
+    }
+    if let Some(i) = digits.iter().position(|k| *k == key) {
+        return jint::try_from(i).ok().map(|i| 7 + i);
+    }
+    Some(match key {
+        K::Backtick => 68,
+        K::Minus => 69,
+        K::Equals => 70,
+        K::OpenBracket => 71,
+        K::CloseBracket => 72,
+        K::Backslash => 73,
+        K::Semicolon => 74,
+        K::Quote => 75,
+        K::Slash => 76,
+        K::Comma => 55,
+        K::Period => 56,
+        _ => return None,
+    })
+}
+
+/// The system bars', the display cutout's and the on-screen keyboard's insets in physical pixels
+/// (left, top, right, bottom), as `LexiconActivity` last reported them.
+static INSETS: [AtomicI32; 4] = [AtomicI32::new(0), AtomicI32::new(0), AtomicI32::new(0), AtomicI32::new(0)];
+
+#[unsafe(no_mangle)]
+pub extern "system" fn Java_io_github_arthuralend_lexicon_LexiconActivity_nativeInsets(
+    _env: JNIEnv,
+    _class: JClass,
+    left: jint,
+    top: jint,
+    right: jint,
+    bottom: jint,
+) {
+    for (slot, v) in INSETS.iter().zip([left, top, right, bottom]) {
+        slot.store(v.max(0), Ordering::Relaxed);
+    }
+    if let Some(ctx) = CONTEXT.get() {
+        ctx.request_repaint();
+    }
+}
+
+/// The part of `full` (the window, in points) that the system bars and the keyboard leave free.
+pub fn safe_area(full: egui::Rect, pixels_per_point: f32) -> egui::Rect {
+    let [l, t, r, b] = INSETS.each_ref().map(|v| v.load(Ordering::Relaxed) as f32 / pixels_per_point.max(0.1));
+    let inner = egui::Rect::from_min_max(egui::pos2(full.min.x + l, full.min.y + t), egui::pos2(full.max.x - r, full.max.y - b));
+    // Insets that leave next to nothing are wrong (a report from a moment of rotation): ignore them.
+    if inner.width() < 120.0 || inner.height() < 120.0 { full } else { inner }
 }
