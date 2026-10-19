@@ -39,6 +39,14 @@ pub enum ProofLang {
     /// `id_ID` dictionary, dictionary-driven suggestions and generic checks with Indonesian
     /// messages. Hyphenation keeps the fallback English patterns.
     Id,
+    /// Armenian (`hy`, `hy-AM`; ISO 639-2 `hye`/`arm`): Lexicon's bundled dictionary
+    /// ([`crate::bundled::HY`]) and dictionary-driven suggestions. No grammar or hyphenation yet.
+    Hy,
+    /// Georgian (`ka`, `ka-GE`; `kat`/`geo`): Lexicon's bundled dictionary ([`crate::bundled::KA`]).
+    Ka,
+    /// Azerbaijani, Latin script (`az`, `az-AZ`, `az-Latn-AZ`; `aze`): Lexicon's bundled
+    /// dictionary ([`crate::bundled::AZ`]).
+    Az,
     /// A language without proofing tools here (`fr-FR`, `ja-JP`, `x-none`…). Like Word without
     /// the language's proofing tools: no spelling or grammar marks, so its words are never
     /// flagged as English misspellings. Hyphenation keeps using the English patterns, as before
@@ -48,8 +56,20 @@ pub enum ProofLang {
 
 impl ProofLang {
     /// Every language with a spelling dictionary, in display order.
-    pub const PROOFED: [ProofLang; 9] =
-        [ProofLang::En, ProofLang::Pl, ProofLang::Pt, ProofLang::It, ProofLang::Hr, ProofLang::Tr, ProofLang::Ru, ProofLang::Cs, ProofLang::Id];
+    pub const PROOFED: [ProofLang; 12] = [
+        ProofLang::En,
+        ProofLang::Pl,
+        ProofLang::Pt,
+        ProofLang::It,
+        ProofLang::Hr,
+        ProofLang::Tr,
+        ProofLang::Ru,
+        ProofLang::Cs,
+        ProofLang::Id,
+        ProofLang::Hy,
+        ProofLang::Ka,
+        ProofLang::Az,
+    ];
 
     /// The proofing language of a BCP 47 tag (`pl-PL`, `en_GB`, `PL`…). Only the primary subtag
     /// counts. No tag (or an empty one) is English, Lexicon's default editing language.
@@ -76,6 +96,12 @@ impl ProofLang {
             ProofLang::Cs
         } else if primary.eq_ignore_ascii_case("id") || primary.eq_ignore_ascii_case("ind") || primary.eq_ignore_ascii_case("in") {
             ProofLang::Id
+        } else if ["hy", "hye", "arm"].iter().any(|c| primary.eq_ignore_ascii_case(c)) {
+            ProofLang::Hy
+        } else if ["ka", "kat", "geo"].iter().any(|c| primary.eq_ignore_ascii_case(c)) {
+            ProofLang::Ka
+        } else if ["az", "aze"].iter().any(|c| primary.eq_ignore_ascii_case(c)) && !tag.to_ascii_lowercase().contains("cyrl") {
+            ProofLang::Az
         } else {
             ProofLang::Other
         }
@@ -94,6 +120,9 @@ impl ProofLang {
             ProofLang::Ru => "ru",
             ProofLang::Cs => "cs",
             ProofLang::Id => "id",
+            ProofLang::Hy => "hy",
+            ProofLang::Ka => "ka",
+            ProofLang::Az => "az",
             ProofLang::Other => "",
         }
     }

@@ -44,6 +44,7 @@
 
 pub mod affix;
 pub mod bg;
+pub mod bundled;
 pub mod cs;
 pub mod dict;
 pub mod hr;
@@ -151,6 +152,10 @@ pub fn set_dictionaries_folder(dir: Option<std::path::PathBuf>) {
     hr::reload_dictionary();
     tr::reload_dictionary();
     id::reload_dictionary();
+    ru::reload_dictionary();
+    bundled::HY.reload();
+    bundled::KA.reload();
+    bundled::AZ.reload();
     DICTIONARY_GENERATION.fetch_add(1, Ordering::Relaxed);
 }
 
@@ -644,23 +649,42 @@ fn spelling_issue(text: &str, a: usize, b: usize, lang: ProofLang, opts: &Option
         ProofLang::Ru => "Возможна орфографическая ошибка",
         ProofLang::Cs => "Možná pravopisná chyba",
         ProofLang::Id => "Kemungkinan salah eja",
+        ProofLang::Hy => "Հնարավոր ուղղագրական սխալ",
+        ProofLang::Ka => "შესაძლო ორთოგრაფიული შეცდომა",
+        ProofLang::Az => "Mümkün orfoqrafiya xətası",
         _ => "Possible spelling mistake",
     };
     Some(Issue { start: a, end: b, kind: IssueKind::Spelling, message: message.into(), suggestions: Vec::new(), lang })
 }
 
-/// The language to check `word` in when it is marked `lang`: Lexicon checks Russian and English
-/// together, so a word written only in Cyrillic in English text is checked as Russian, and a word
-/// written only in Latin letters in Russian text as English (Word guesses the language the same
-/// way). Other languages keep their own dictionary.
+/// The language to check `word` in when it is marked `lang`. Lexicon checks several languages
+/// together, by each word's script (Word guesses the language the same way):
+///
+/// - a word written only in Armenian letters is Armenian, only in Georgian ones Georgian;
+/// - a word only in Cyrillic in English, Armenian, Georgian or Azerbaijani text is Russian;
+/// - a Latin word with `ə` (a letter only Azerbaijani uses) in English, Russian, Armenian or
+///   Georgian text is Azerbaijani;
+/// - a word only in plain Latin letters in Russian, Armenian or Georgian text is English.
+///
+/// Other languages keep their own dictionary.
 pub fn by_script(word: &str, lang: ProofLang) -> ProofLang {
-    let mut letters = word.chars().filter(|c| c.is_alphabetic()).peekable();
-    if letters.peek().is_none() {
+    let letters: Vec<char> = word.chars().filter(|c| c.is_alphabetic()).collect();
+    if letters.is_empty() {
         return lang;
     }
+    let all = |f: fn(char) -> bool| letters.iter().all(|c| f(*c));
+    if all(bundled::is_armenian) {
+        return ProofLang::Hy;
+    }
+    if all(bundled::is_georgian) {
+        return ProofLang::Ka;
+    }
+    let latin = |c: char| c < '\u{0250}' || matches!(c, 'ə' | 'Ə') || ('\u{1E00}'..='\u{1EFF}').contains(&c);
+    let azerbaijani = letters.iter().any(|c| matches!(c, 'ə' | 'Ə')) && all(latin);
     match lang {
-        ProofLang::En if letters.all(ru::is_cyrillic) => ProofLang::Ru,
-        ProofLang::Ru if letters.all(|c| c.is_ascii_alphabetic()) => ProofLang::En,
+        ProofLang::En | ProofLang::Hy | ProofLang::Ka | ProofLang::Az if all(ru::is_cyrillic) => ProofLang::Ru,
+        ProofLang::En | ProofLang::Ru | ProofLang::Hy | ProofLang::Ka if azerbaijani => ProofLang::Az,
+        ProofLang::Ru | ProofLang::Hy | ProofLang::Ka if all(|c| c.is_ascii_alphabetic()) => ProofLang::En,
         _ => lang,
     }
 }
@@ -682,6 +706,9 @@ pub fn is_correct_in_with(word: &str, lang: ProofLang, opts: &Options) -> bool {
         ProofLang::Ru => accepted_by_options(word, opts) || ru::is_correct(word),
         ProofLang::Cs => accepted_by_options(word, opts) || cs::is_correct(word),
         ProofLang::Id => accepted_by_options(word, opts) || id::is_correct(word),
+        ProofLang::Hy => accepted_by_options(word, opts) || bundled::HY.is_correct(word),
+        ProofLang::Ka => accepted_by_options(word, opts) || bundled::KA.is_correct(word),
+        ProofLang::Az => accepted_by_options(word, opts) || bundled::AZ.is_correct(word),
         ProofLang::Bg | ProofLang::Other => true,
     }
 }
@@ -698,6 +725,9 @@ pub fn suggest_in(word: &str, max: usize, lang: ProofLang) -> Vec<String> {
         ProofLang::Ru => ru::suggest(word, max),
         ProofLang::Cs => cs::suggest(word, max),
         ProofLang::Id => id::suggest(word, max),
+        ProofLang::Hy => bundled::HY.suggest(word, max),
+        ProofLang::Ka => bundled::KA.suggest(word, max),
+        ProofLang::Az => bundled::AZ.suggest(word, max),
         ProofLang::Bg | ProofLang::Other => Vec::new(),
     }
 }
@@ -723,7 +753,8 @@ fn grammar_in(text: &str, lang: ProofLang, capital_first: bool) -> Vec<Issue> {
         // Czech has no sentence-capital rule, so a list item needs no exception.
         ProofLang::Cs => cs::grammar::check(text),
         ProofLang::Id => id::grammar::check(text),
-        ProofLang::Bg | ProofLang::Other => Vec::new(),
+        // No grammar rules for Lexicon's bundled languages yet.
+        ProofLang::Hy | ProofLang::Ka | ProofLang::Az | ProofLang::Bg | ProofLang::Other => Vec::new(),
     }
 }
 
@@ -1149,6 +1180,24 @@ mod tests {
             let bad: Vec<(&str, ProofLang)> = v.iter().map(|i| (&t[i.start..i.end], i.lang)).collect();
             assert_eq!(bad, vec![("дамм", ProofLang::Ru), ("bottel", ProofLang::En)], "{lang:?}");
         }
+    }
+
+    /// Lexicon: Armenian, Georgian and Azerbaijani words are checked against the bundled
+    /// dictionaries whichever language the text is marked.
+    #[test]
+    fn armenian_georgian_and_azerbaijani_are_checked_by_script() {
+        assert_eq!(by_script("գիրք", ProofLang::En), ProofLang::Hy);
+        assert_eq!(by_script("წიგნი", ProofLang::Ru), ProofLang::Ka);
+        assert_eq!(by_script("Azərbaycan", ProofLang::En), ProofLang::Az);
+        assert_eq!(by_script("kitab", ProofLang::Az), ProofLang::Az);
+        assert_eq!(by_script("молоко", ProofLang::Hy), ProofLang::Ru);
+        assert_eq!(by_script("book", ProofLang::Ka), ProofLang::En);
+        let t = "Հայաստան գիռք საქართველო საქართვლო Azərbaycan Azərbaycn";
+        let v = check_text_with(t, &[(0..t.len(), ProofLang::En)], &Options::default(), false, false);
+        let bad: Vec<(&str, ProofLang)> = v.iter().map(|i| (&t[i.start..i.end], i.lang)).collect();
+        assert_eq!(bad, vec![("գիռք", ProofLang::Hy), ("საქართვლო", ProofLang::Ka), ("Azərbaycn", ProofLang::Az)]);
+        assert!(suggest_in("Azərbaycn", 6, ProofLang::Az).contains(&"Azərbaycan".to_string()));
+        assert!(suggest_in("საქართვლო", 6, ProofLang::Ka).contains(&"საქართველო".to_string()));
     }
 
     #[test]

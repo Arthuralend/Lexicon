@@ -769,6 +769,9 @@ pub fn system_font_dirs() -> Vec<std::path::PathBuf> {
                 }
             }
         }
+    } else if cfg!(target_os = "android") {
+        // Noto for every script the system supports (Armenian, Georgian, Arabic, CJK…), Roboto.
+        dirs.extend(["/system/fonts", "/product/fonts", "/system/product/fonts"].map(Into::into));
     } else if cfg!(windows) {
         let root = std::env::var_os("WINDIR").map(std::path::PathBuf::from).unwrap_or_else(|| "C:\\Windows".into());
         dirs.push(root.join("Fonts"));
