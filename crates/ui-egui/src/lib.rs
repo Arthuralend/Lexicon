@@ -173,6 +173,26 @@ pub struct Services {
     pub make_default_app: Option<Box<dyn Fn() -> Result<DefaultApp, String>>>,
 }
 
+/// Armenian and Georgian letters the interface must draw ([`WordApp::ensure_script_fonts`]).
+const SCRIPT_SAMPLE: &str = "ԱաՄմՔքև აბგდჰ";
+
+/// Installed families with Armenian or Georgian letters, small enough to lend the interface, best
+/// first: macOS (Noto Sans Armenian and Georgian, Mshtakan), Windows (Segoe UI, Sylfaen), Linux
+/// and Android (Noto, DejaVu). Without them the general fallback can pick Arial Unicode MS, too
+/// large for the interface ([`theme::faces_for_preedit`]), and the menus showed boxes.
+const SCRIPT_UI_FAMILIES: &[&str] = &["Noto Sans Armenian", "Noto Sans Georgian", "Mshtakan", "Segoe UI", "Sylfaen", "DejaVu Sans", "Noto Sans"];
+
+/// The installed face to draw interface character `c` (Armenian or Georgian) with.
+fn script_ui_face(c: char) -> Option<std::sync::Arc<wordcraft_fonts::FontFace>> {
+    let db = wordcraft_fonts::FontDb::global();
+    SCRIPT_UI_FAMILIES
+        .iter()
+        .filter(|fam| db.has_family(fam))
+        .map(|fam| db.face(fam, "Regular"))
+        .find(|f| f.covers(c) && f.data().len() <= 16 << 20)
+        .or_else(|| db.fallback_for(c, u32::MAX))
+}
+
 /// Does `text` hold Armenian or Georgian letters, which the interface faces lack?
 pub(crate) fn needs_script_fonts(text: &str) -> bool {
     text.chars().any(|c| matches!(c, '\u{0531}'..='\u{058F}' | '\u{FB13}'..='\u{FB17}' | '\u{10A0}'..='\u{10FF}' | '\u{1C90}'..='\u{1CBF}' | '\u{2D00}'..='\u{2D2F}'))
@@ -558,6 +578,8 @@ pub struct WordApp {
     comment_fonts_for: Option<(u64, u64)>,
     /// Whether the Armenian and Georgian interface fallbacks were looked up ([`Self::ensure_script_fonts`]).
     script_fonts_done: bool,
+    /// Lookups [`Self::ensure_script_fonts`] has made.
+    script_font_tries: u8,
     /// Armenian or Georgian text reached the interface (typed, pasted, or offered as a spelling
     /// suggestion), so its fonts are needed ([`Self::ensure_script_fonts`]).
     pub(crate) want_script_fonts: bool,
@@ -691,6 +713,7 @@ impl WordApp {
             want_system_cjk: false,
             comment_fonts_for: None,
             script_fonts_done: false,
+            script_font_tries: 0,
             want_script_fonts: false,
             fonts_frames: 0,
             applied_theme: None,
@@ -1924,20 +1947,25 @@ impl WordApp {
 
     /// Lexicon: the interface faces have no Armenian or Georgian letters, which its Armenian and
     /// Georgian interfaces need, and so do spelling suggestions in the context menu and text typed
-    /// or pasted into dialogs in those scripts ([`Self::want_script_fonts`]). Borrow the document
-    /// fonts' faces for them once, as the caption does.
+    /// or pasted into dialogs in those scripts ([`Self::want_script_fonts`]). Borrow installed
+    /// faces for them ([`script_ui_face`]). A lookup that leaves letters uncovered (the font scan
+    /// not finished yet) is tried again on the next request, a few times at most.
     fn ensure_script_fonts(&mut self, lang: i18n::Lang) {
         let wanted = self.want_script_fonts || matches!(lang.code(), "hy" | "ka") || cfg!(target_os = "android");
         if self.script_fonts_done || !wanted {
             return;
         }
-        self.script_fonts_done = true;
-        let new = theme::faces_for_preedit("ԱաՄմՔք აბგდჰ", &self.canvas.ime_faces, theme::caption_char_covered, |c| {
-            wordcraft_fonts::FontDb::global().fallback_for(c, u32::MAX)
-        });
+        self.want_script_fonts = false;
+        self.script_font_tries = self.script_font_tries.saturating_add(1);
+        let new = theme::faces_for_preedit(SCRIPT_SAMPLE, &self.canvas.ime_faces, theme::caption_char_covered, script_ui_face);
         if !new.is_empty() {
             self.canvas.ime_faces.extend(new);
             self.styled = false;
+        }
+        let covered = SCRIPT_SAMPLE.chars().filter(|c| !c.is_whitespace()).all(|c| self.canvas.ime_faces.iter().any(|f| f.covers(c)));
+        self.script_fonts_done = covered || self.script_font_tries >= 3;
+        if !covered {
+            log::warn!("interface: no installed font has all Armenian and Georgian letters (try {})", self.script_font_tries);
         }
     }
 
@@ -2110,6 +2138,8 @@ impl WordApp {
         if !self.styled || lang.prefers_hans() != self.fonts_hans || lang.prefers_korean() != self.fonts_korean || system_cjk != self.fonts_system_cjk
         {
             theme::install_fonts_language_extra(ctx, lang.prefers_hans(), lang.prefers_korean(), system_cjk, &self.canvas.ime_faces);
+            // The fonts apply from the next frame: draw it, so an open menu doesn't keep its boxes.
+            ctx.request_repaint();
             self.fonts_hans = lang.prefers_hans();
             self.fonts_korean = lang.prefers_korean();
             self.fonts_system_cjk = system_cjk;
@@ -2828,6 +2858,16 @@ mod tests {
         hy.run("caret.left", json!({})).unwrap();
         crate::canvas::context_suggestions(&mut hy);
         assert!(hy.want_script_fonts, "{:?}", hy.canvas.context_issue);
+        // The menu then borrows an installed face small enough for the interface (macOS showed
+        // boxes when the only face found was Arial Unicode MS, too large to lend).
+        hy.ensure_script_fonts(i18n::Lang::from_pref("en"));
+        assert!(!hy.want_script_fonts, "the request is answered");
+        if wordcraft_fonts::FontDb::global().has_family("DejaVu Sans") {
+            assert!(hy.script_fonts_done);
+            for c in ['Ա', 'ք', 'ა'] {
+                assert!(hy.canvas.ime_faces.iter().any(|f| f.covers(c) && f.data().len() <= 16 << 20), "{c}");
+            }
+        }
         let mut typed = app();
         let mut raw = egui::RawInput { events: vec![egui::Event::Text("ա".into())], ..Default::default() };
         typed.raw_input_hook(&mut raw);

@@ -85,6 +85,10 @@ pub fn script_fallbacks(c: char) -> &'static [&'static str] {
         Script::Thai => &["Leelawadee UI", "Leelawadee", "Tahoma", "Thonburi", "Noto Sans Thai", "Noto Serif Thai"],
         Script::Lao => &["Leelawadee UI", "Lao UI", "Noto Sans Lao", "Noto Serif Lao", "Lao Sangam MN"],
         Script::Tamil | Script::Telugu | Script::Kannada | Script::Malayalam | Script::Gujarati | Script::Gurmukhi | Script::Oriya => &["Nirmala UI"],
+        // Lexicon: small fonts made for the script before the large Arial Unicode MS (macOS ships
+        // Noto Sans Armenian/Georgian and Mshtakan; Windows Sylfaen and Segoe UI).
+        Script::Armenian => &["Noto Sans Armenian", "Mshtakan", "Sylfaen", "Segoe UI", "Noto Serif Armenian", "DejaVu Sans"],
+        Script::Georgian => &["Noto Sans Georgian", "Sylfaen", "Segoe UI", "Noto Serif Georgian", "DejaVu Sans"],
         _ => &[],
     }
 }
@@ -108,6 +112,14 @@ pub fn fallback_rank(c: char, family: &str) -> usize {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn armenian_and_georgian_prefer_their_own_fonts() {
+        assert_eq!(script_fallbacks('Ա').first(), Some(&"Noto Sans Armenian"));
+        assert!(script_fallbacks('ք').contains(&"Mshtakan"));
+        assert_eq!(script_fallbacks('ა').first(), Some(&"Noto Sans Georgian"));
+        assert!(!script_fallbacks('ა').contains(&"Arial Unicode MS"), "too large for the interface");
+    }
 
     #[test]
     fn runs_split_by_script_and_neutrals_join_their_neighbours() {
