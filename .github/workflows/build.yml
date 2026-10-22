@@ -10,7 +10,7 @@ name: Build
 
 on:
   push:
-    branches: [main, "claude/**"]
+    branches: [main, "claude/**", "codex/lexicon-mint"]
     tags: ["v*"]
   pull_request:
   workflow_dispatch:
@@ -152,6 +152,8 @@ jobs:
           The builds are not signed by Apple or Microsoft: Windows SmartScreen and macOS Gatekeeper warn on first launch (see README)."
           if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
             gh release create "$GITHUB_REF_NAME" rel/* --title "Lexicon $GITHUB_REF_NAME" --notes "$notes"
+          elif [[ "$GITHUB_REF_NAME" == codex/lexicon-mint ]]; then
+            gh release create "lexicon-preview-${GITHUB_SHA::7}" rel/* --target "$GITHUB_SHA" --prerelease --title "Lexicon — LuSoft preview ($NAME)" --notes "$notes"
           else
             gh release delete latest --yes --cleanup-tag || true
             gh release create latest rel/* --target "$GITHUB_SHA" --prerelease --title "Lexicon — последняя сборка ($NAME)" --notes "$notes"

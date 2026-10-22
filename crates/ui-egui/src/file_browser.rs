@@ -264,6 +264,7 @@ impl WordApp {
             .clone()
             .filter(|d| d.is_dir())
             .or_else(|| self.session.path.as_ref().and_then(|p| p.parent()).map(Path::to_path_buf).filter(|d| d.is_dir()))
+            .or_else(|| self.services.file_browser_home.clone().filter(|d| d.is_dir()))
             .or_else(home)
             .or_else(|| std::env::current_dir().ok())
             .unwrap_or_else(|| PathBuf::from("/"));

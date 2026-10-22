@@ -15,6 +15,7 @@ mod apple_events;
 mod clipboard;
 mod control_server;
 mod default_apps;
+mod dictation;
 mod file_dialogs;
 #[cfg(any(target_os = "windows", target_os = "macos", test))]
 mod graphics;
@@ -240,6 +241,7 @@ fn write_prefs(path: &std::path::Path, bytes: &[u8]) -> std::io::Result<()> {
 fn services(file_dialog: file_dialogs::Hook, ctx: &egui::Context) -> Services {
     Services {
         file_dialog: Some(file_dialog),
+        dictation: dictation::hook(),
         printers: Some(print::discover()),
         print_native: Some(print::submit()),
         clipboard_picture: Some(Box::new(clipboard::picture)),

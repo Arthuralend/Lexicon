@@ -72,6 +72,7 @@ pub struct CanvasState {
     /// The last primary press on the page (time, screen point, clicks in a row), to count
     /// double- and triple-presses as they go down (egui reports them on release).
     last_press: Option<(f64, Pos2, u8)>,
+    header_click_document: Option<u64>,
     /// A drag after a double-click, triple-click or Ctrl/⌘+click: the unit it extends by, the
     /// unit first selected, and the last position the pointer hit.
     unit_drag: Option<UnitDrag>,
@@ -229,6 +230,7 @@ impl Default for CanvasState {
             dragging: false,
             column_drag: None,
             last_press: None,
+            header_click_document: None,
             unit_drag: None,
             last_highlight: "yellow".into(),
             last_font_color: "C00000".into(),
@@ -2367,7 +2369,11 @@ fn mouse(app: &mut WordApp, ui: &Ui, resp: &egui::Response, rects: &[Rect], layo
     } else {
         None
     };
-    if resp.double_clicked() {
+    let prior_canvas_click = app.canvas.header_click_document == Some(app.session.document_id());
+    if resp.clicked() {
+        app.canvas.header_click_document = Some(app.session.document_id());
+    }
+    if resp.double_clicked() && prior_canvas_click {
         // Also from another header/footer: with Different First Page on, page 1's header is not
         // the one being edited on page 2 (#2826).
         if let Some((shown, header)) = hf_zone
@@ -4294,8 +4300,24 @@ mod tests {
         assert!(page.header_story.is_none() && page.footer_story.is_none());
         let (x, top, bottom) = (page.body.x + 20.0, page.body.y / 2.0, (page.body.bottom() + page.h) / 2.0);
         let body = page_to_screen(h.state_mut(), 0, x, page.body.y + 6.0).expect("body on screen");
-        // Top margin: a new header, the caret in it, typing goes there.
+        // A click carried across a new document must not count as a header double-click.
         let at = page_to_screen(h.state_mut(), 0, x, top).expect("top margin on screen");
+        h.event(Event::PointerMoved(at));
+        h.event(Event::PointerButton { pos: at, button: PointerButton::Primary, pressed: true, modifiers: Default::default() });
+        h.step();
+        h.event(Event::PointerButton { pos: at, button: PointerButton::Primary, pressed: false, modifiers: Default::default() });
+        h.step();
+        let replacement = h.state().session.doc.clone();
+        h.state_mut().session.set_document(replacement);
+        h.event(Event::PointerButton { pos: at, button: PointerButton::Primary, pressed: true, modifiers: Default::default() });
+        h.step();
+        h.event(Event::PointerButton { pos: at, button: PointerButton::Primary, pressed: false, modifiers: Default::default() });
+        h.step();
+        assert_eq!(h.state().session.sel.focus.story, StoryRef::Body);
+        for _ in 0..40 {
+            h.step();
+        }
+        // A deliberate double-click in this document still enters its header.
         double_click(&mut h, at);
         assert_eq!(kind(&h), Some(PartKind::Header), "editing a new header");
         let header = h.state().session.sel.focus.story;

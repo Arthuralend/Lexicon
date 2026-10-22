@@ -19,6 +19,7 @@
 #![cfg(target_os = "android")]
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic, clippy::unimplemented, clippy::todo, clippy::unreachable)]
 
+mod dictation;
 mod keyboard;
 
 use std::path::{Path, PathBuf};
@@ -28,7 +29,7 @@ use wordcraft_engine::Session;
 use wordcraft_ui_egui::{FileDialogAnswer, FileDialogRequest, Services, UiState, WordApp};
 
 /// Behind the status and navigation bars (their icons are light).
-const SYSTEM_BARS: egui::Color32 = egui::Color32::from_rgb(0x1E, 0x2A, 0x5A);
+const SYSTEM_BARS: egui::Color32 = egui::Color32::from_rgb(0x25, 0x2A, 0x35);
 
 /// Shared storage, browsed when the user lets Lexicon manage files.
 const SHARED_STORAGE: &str = "/storage/emulated/0";
@@ -77,21 +78,16 @@ fn android_main(app: AndroidApp) {
 }
 
 /// Point the settings folder (`$XDG_CONFIG_HOME/wordcraft`) at the app's private storage and the
-/// home folder the file browser starts in at shared storage (or the app's own folder). Runs first
+/// file browser receives its start folder explicitly through Services. Runs first
 /// thing, before eframe starts its threads. Returns the settings folder.
 fn setup_folders(app: &AndroidApp) -> Option<PathBuf> {
     let internal = app.internal_data_path();
     let external = app.external_data_path();
-    let home =
-        if std::fs::read_dir(SHARED_STORAGE).is_ok() { Some(PathBuf::from(SHARED_STORAGE)) } else { external.clone().or_else(|| internal.clone()) };
     // SAFETY: called at the very start of `android_main`, before this process's Rust code starts
     // any other thread that could read the environment.
     unsafe {
         if let Some(dir) = &internal {
             std::env::set_var("XDG_CONFIG_HOME", dir);
-        }
-        if let Some(dir) = &home {
-            std::env::set_var("HOME", dir);
         }
     }
     if let Some(dir) = external.as_deref().map(|d| d.join("Documents")) {
@@ -103,7 +99,7 @@ fn setup_folders(app: &AndroidApp) -> Option<PathBuf> {
     {
         log::warn!("settings: cannot create {}: {e}", dir.display());
     }
-    log::info!("home {home:?}, settings {settings:?}");
+    log::info!("settings {settings:?}");
     settings
 }
 
@@ -112,6 +108,12 @@ fn setup_folders(app: &AndroidApp) -> Option<PathBuf> {
 fn services(android: &AndroidApp) -> Services {
     let clip = android.clone();
     Services {
+        dictation: Some(dictation::hook(android.clone())),
+        file_browser_home: if std::fs::read_dir(SHARED_STORAGE).is_ok() {
+            Some(PathBuf::from(SHARED_STORAGE))
+        } else {
+            android.external_data_path().or_else(|| android.internal_data_path())
+        },
         clipboard_text: Some(Box::new(move || keyboard::clipboard(&clip))),
         file_dialog: Some(Box::new(|_req: FileDialogRequest| {
             let (tx, rx) = std::sync::mpsc::channel::<FileDialogAnswer>();

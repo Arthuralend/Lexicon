@@ -13,6 +13,7 @@ use crate::{CmdError, CmdResult, CommandSpec, Session, p};
 
 pub fn specs() -> Vec<CommandSpec> {
     vec![
+        CommandSpec::new("tools.dictate", "Dictate", "Home › Voice", dictate).pure(),
         CommandSpec::new("review.readAloud", "Read Aloud", "Review › Speech", read_aloud)
             .key("Mod+Alt+Space")
             .params(r#"{"skipCitations"?: bool}"#)
@@ -28,6 +29,12 @@ pub fn specs() -> Vec<CommandSpec> {
         CommandSpec::new("readAloud.status", "Read Aloud Status", "Review › Speech", status).pure(),
         CommandSpec::new("caret.pastCitation", "Move Past Citation", "Zotero › Citations", past_citation).pure(),
     ]
+}
+
+/// Hosts perform recognition; headless callers receive a request, never a microphone prompt.
+fn dictate(s: &mut Session, _v: &Value) -> CmdResult {
+    s.ui_requests.push(serde_json::json!({"open": "dictation"}));
+    Ok(serde_json::json!({"requested": "dictation"}))
 }
 
 /// Start reading from the caret (or the selection); while reading, pause or carry on.

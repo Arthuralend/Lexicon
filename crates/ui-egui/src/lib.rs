@@ -25,6 +25,7 @@ pub mod a11y_pane;
 pub mod async_saves;
 pub mod autoscroll;
 pub mod backstage;
+pub mod brand;
 pub mod canvas;
 pub mod caret_glide;
 pub mod chrome;
@@ -49,6 +50,7 @@ pub mod dialogs_ribbon;
 pub mod dialogs_smart_art;
 pub mod dialogs_table_style;
 pub mod dialogs_templates;
+pub mod dictation;
 pub mod equation_tab;
 /// The built-in file browser, for desktops without a system file dialog (#576).
 #[cfg(not(target_arch = "wasm32"))]
@@ -96,6 +98,10 @@ pub use file_dialogs::{FileDialogAnswer, FileDialogRequest, open_filters};
 /// Platform services injected by the host (file dialogs, file I/O).
 #[derive(Default)]
 pub struct Services {
+    /// Explicit initial directory for the built-in file browser (Android).
+    pub file_browser_home: Option<std::path::PathBuf>,
+    /// Native speech recognition, started only after an explicit microphone click.
+    pub dictation: Option<dictation::Hook>,
     /// Desktop: discover configured printers on a worker.
     pub printers: Option<printing::Discover>,
     /// Desktop: submit the PDF with the chosen settings on a worker.
@@ -522,6 +528,7 @@ fn migrate_units(v: &mut Value) {
 
 /// The application.
 pub struct WordApp {
+    pub(crate) dictation: Option<dictation::Capture>,
     pub session: Session,
     pub ui: UiState,
     pub services: Services,
@@ -684,6 +691,7 @@ impl WordApp {
             wordcraft_engine::set_system_locale(&tag);
         }
         WordApp {
+            dictation: None,
             session,
             ui: UiState::default(),
             services,
@@ -1431,6 +1439,11 @@ impl WordApp {
         }
         if let Some(what) = req.get("open").and_then(Value::as_str) {
             match what {
+                "dictation" => {
+                    if let Err(e) = dictation::start(self) {
+                        self.status(e);
+                    }
+                }
                 "openFile" => self.open_dialog(),
                 "saveAs" => {
                     self.save_as_dialog();
@@ -2301,6 +2314,7 @@ impl WordApp {
         }
         content_controls::popup(self, &ctx);
         dialogs::show(self, &ctx);
+        dictation::show(self, &ctx);
         #[cfg(not(target_arch = "wasm32"))]
         file_browser::show(self, &ctx);
         colors::show(self, &ctx);
@@ -6731,7 +6745,7 @@ mod tests {
     #[test]
     fn interface_theme_migrates_and_survives_a_restart() {
         use theme::Appearance;
-        for (saved, want) in [(r#"{"dark": false}"#, Appearance::Light), (r#"{"dark": true}"#, Appearance::Dark), ("{}", Appearance::System)] {
+        for (saved, want) in [(r#"{"dark": false}"#, Appearance::Light), (r#"{"dark": true}"#, Appearance::Dark), ("{}", Appearance::Dark)] {
             let mut a = app();
             a.apply_prefs(serde_json::from_str(saved).unwrap());
             assert_eq!(a.ui.theme, want, "{saved}");
@@ -6745,7 +6759,7 @@ mod tests {
         assert_eq!(b.ui.theme, Appearance::System);
         // An unknown saved value keeps the rest of the preferences.
         let odd: UiState = serde_json::from_str(r#"{"theme": "sepia", "tab": "Insert"}"#).unwrap();
-        assert_eq!((odd.theme, odd.tab.as_str()), (Appearance::System, "Insert"));
+        assert_eq!((odd.theme, odd.tab.as_str()), (Appearance::Dark, "Insert"));
     }
 
     /// #1861: the registered Interface Theme command drives the same setting as Options:

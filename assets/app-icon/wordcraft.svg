@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-<!-- Lexicon app icon, drawn for this repository (tools/icons.py). -->
-<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4C6EF5"/><stop offset="1" stop-color="#23308C"/></linearGradient></defs>
-<rect width="512" height="512" rx="112" fill="url(#g)"/>
-<rect x="156" y="84" width="84" height="300" rx="42" fill="#FFFFFF"/>
-<rect x="156" y="300" width="208" height="84" rx="42" fill="#FFFFFF"/>
-<polyline points="164,424 196,444 228,424 260,444 292,424 324,444 356,424" fill="none" stroke="#FF5A5F" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+<circle cx="256" cy="256" r="248" fill="#282D39"/>
+<g fill="none" stroke="#BFF3F2" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+<path d="M186 172H278L320 214V334H186Z M278 172V214H320 M226 222V292H274"/>
+<path d="M166 269C52 248 132 128 322 126 M344 226C451 241 402 379 160 374"/>
+<circle cx="340" cy="126" r="18"/><circle cx="142" cy="374" r="18"/>
+</g></svg>
