@@ -132,17 +132,15 @@ pub fn show(app: &mut WordApp, ui: &mut Ui) {
                 }
             }
             ui.with_layout(egui::Layout::bottom_up(egui::Align::Min), |ui| {
-                {
-                    let (label, id) = ("About", "about");
-                    let (r, resp) = ui.allocate_exact_size(vec2(200.0, 32.0), Sense::click());
-                    resp.widget_info(|| egui::WidgetInfo::labeled(egui::WidgetType::Button, ui.is_enabled(), tl!(label)));
-                    if resp.hovered() {
-                        ui.painter().rect_filled(r.shrink2(vec2(8.0, 2.0)), 7.0, t.hover);
-                    }
-                    ui.painter().text(pos2(r.min.x + 22.0, r.center().y), Align2::LEFT_CENTER, tl!(label), regular(13.0), t.text);
-                    if resp.clicked() {
-                        app.dialog = crate::dialogs::Dialog::open(id, app);
-                    }
+                let (label, id) = ("About", "about");
+                let (r, resp) = ui.allocate_exact_size(vec2(200.0, 32.0), Sense::click());
+                resp.widget_info(|| egui::WidgetInfo::labeled(egui::WidgetType::Button, ui.is_enabled(), tl!(label)));
+                if resp.hovered() {
+                    ui.painter().rect_filled(r.shrink2(vec2(8.0, 2.0)), 7.0, t.hover);
+                }
+                ui.painter().text(pos2(r.min.x + 22.0, r.center().y), Align2::LEFT_CENTER, tl!(label), regular(13.0), t.text);
+                if resp.clicked() {
+                    app.dialog = crate::dialogs::Dialog::open(id, app);
                 }
             });
         });
