@@ -89,8 +89,7 @@ fn shorten_long_flags(aff: &str, dic: &str) -> Result<(String, String), String> 
         let cs: Vec<char> = flags.chars().collect();
         // A dangling last character (`BMT/N` in the Azerbaijani list) is skipped, as Hunspell does.
         let mut out = String::new();
-        for pair in cs.chunks_exact(2) {
-            let (Some(&a), Some(&b)) = (pair.first(), pair.get(1)) else { continue };
+        for &[a, b] in cs.as_chunks::<2>().0 {
             let next = ids.len();
             let c = match ids.get(&(a, b)) {
                 Some(c) => *c,
