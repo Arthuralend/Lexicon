@@ -839,8 +839,7 @@ mod tests {
         h.run_steps(4);
         h.get_by_label("Save").click();
         h.run_steps(4);
-        assert!(!h.state().ui.backstage);
-        assert!(h.state().file_dialog_open());
+        assert_eq!(h.state().ui.backstage_page, "saveAs");
         assert_eq!(shown.get(), 0, "no native Save As dialog");
         assert!(!h.state().file_dialog_open());
     }
