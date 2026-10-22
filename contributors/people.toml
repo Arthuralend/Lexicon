@@ -163,3 +163,8 @@ sync_github_name = true
 
 [people.maxm11]
 real_name = "Max Murphy"
+
+[people.Arthuralend]
+real_name = "Arthur Stepanian"
+display_name = "LuSoft"
+consent_source = "Owner requested LuSoft and CEO Arthur Stepanian attribution in the Lexicon redesign chat, 2026-10-22."

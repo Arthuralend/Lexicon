@@ -2686,20 +2686,14 @@ fn body(app: &mut WordApp, ui: &mut Ui, d: &mut Dialog) -> bool {
                     ui.label(egui::RichText::new(tl!("Lexicon")).font(semibold(22.0)));
                     let build = option_env!("WORDCRAFT_BUILD_SHA").map(|s| s.get(..8).unwrap_or(s)).unwrap_or(tl!("development build"));
                     ui.label(crate::i18n::fmt(tl!("Version {version} ({build})"), &[("version", env!("CARGO_PKG_VERSION")), ("build", build)]));
-                    ui.label(tl!(
-                        "A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team."
-                    ));
-                    ui.add_space(6.0);
+                    ui.label(egui::RichText::new("LuSoft").font(semibold(18.0)));
+                    ui.label("CEO Arthur Stepanian");
+                    ui.add_space(8.0);
                     ui.hyperlink_to(tl!("Source code: github.com/Arthuralend/Lexicon"), "https://github.com/Arthuralend/Lexicon");
-                    ui.hyperlink_to(tl!("WordCraft: github.com/storytold/wordcraft"), "https://github.com/storytold/wordcraft");
-                    ui.add_space(6.0);
-                    ui.label(
-                        egui::RichText::new(tl!(
-                            "MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors."
-                        ))
-                        .small()
-                        .weak(),
-                    );
+                    ui.collapsing(tl!("Licenses"), |ui| {
+                        ui.label("MIT OR Apache-2.0");
+                        ui.label("Based on WordCraft. Copyright (c) 2026 ArtCraft Team, WordCraft and Lexicon contributors.");
+                    });
                 }
             }
             let (ok, cancel) = buttons(ui, tl!("Close"));

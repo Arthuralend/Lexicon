@@ -278,7 +278,7 @@ pub fn add_paste(app: &AndroidApp, events: &mut Vec<egui::Event>) {
 }
 
 /// Run `f` with a JNI environment and the activity.
-fn with_activity(app: &AndroidApp, f: impl FnOnce(&mut JNIEnv, &JObject) -> jni::errors::Result<()>) -> Result<(), String> {
+pub(crate) fn with_activity(app: &AndroidApp, f: impl FnOnce(&mut JNIEnv, &JObject) -> jni::errors::Result<()>) -> Result<(), String> {
     // SAFETY: android-activity hands out the process's JavaVM and a global reference to the
     // activity, both valid while the app runs; `JObject` doesn't release the reference.
     let vm = unsafe { jni::JavaVM::from_raw(app.vm_as_ptr().cast()) }.map_err(|e| e.to_string())?;

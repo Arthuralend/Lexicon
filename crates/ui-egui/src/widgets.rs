@@ -177,6 +177,9 @@ pub fn enabled(app: &WordApp, id: &str) -> bool {
     if !app.has_document() && !crate::works_without_document(id) {
         return false;
     }
+    if id == "tools.dictate" && app.services.dictation.is_none() {
+        return false;
+    }
     match app.session.registry.get(id) {
         Some(s) => (s.enabled)(&app.session).is_none(),
         // Zotero: one command at a time, and only in the desktop app.
@@ -197,9 +200,9 @@ pub(crate) fn bg(ui: &Ui, r: Rect, resp: &Response, checked: bool, t: &Tokens) {
     } else {
         return;
     };
-    ui.painter().rect_filled(r, CornerRadius::same(4), fill);
+    ui.painter().rect_filled(r, CornerRadius::same(7), fill);
     if checked {
-        ui.painter().rect_stroke(r, CornerRadius::same(4), Stroke::new(1.0, t.accent.linear_multiply(0.5)), egui::StrokeKind::Inside);
+        ui.painter().rect_stroke(r, CornerRadius::same(7), Stroke::new(1.0, t.accent.linear_multiply(0.5)), egui::StrokeKind::Inside);
     }
 }
 
@@ -1197,7 +1200,7 @@ pub fn icon_button(ui: &mut Ui, icon: &str, tip: &str) -> Response {
     let t = Tokens::get(ui.ctx());
     let (r, resp) = ui.allocate_exact_size(vec2(22.0, 22.0), Sense::click());
     let st = drawn_state(ui, &resp, false);
-    ui.painter().rect_filled(r, CornerRadius::same(4), st.fill);
+    ui.painter().rect_filled(r, CornerRadius::same(7), st.fill);
     icons::paint(ui.painter(), Rect::from_center_size(r.center(), vec2(14.0, 14.0)), icon, t.icon, t.accent);
     resp.on_hover_text(tip)
 }

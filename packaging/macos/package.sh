@@ -109,6 +109,32 @@ sed -e "s/@VERSION@/$VERSION/g" -e "s/@SHORT_VERSION@/$SHORT_VERSION/g" \
 plutil -lint "$APP/Contents/Info.plist"
 printf 'APPL????' >"$APP/Contents/PkgInfo"
 
+# Native speech bridge: each architecture is compiled on the build machine.
+SPEECH_APP="$APP/Contents/MacOS/LexiconSpeech.app"
+mkdir -p "$SPEECH_APP/Contents/MacOS"
+speech_inputs=()
+for target in "${TARGETS[@]}"; do
+  cpu="${target%%-*}"
+  [ "$cpu" = aarch64 ] && cpu=arm64
+  xcrun swiftc -swift-version 5 -target "$cpu-apple-macos11.0" "$HERE/Speech.swift" -o "$WORK/bin/speech-$cpu"
+  speech_inputs+=("$WORK/bin/speech-$cpu")
+done
+lipo -create -output "$SPEECH_APP/Contents/MacOS/LexiconSpeech" "${speech_inputs[@]}"
+cat > "$SPEECH_APP/Contents/Info.plist" <<'PLIST'
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>CFBundleIdentifier</key><string>io.github.arthuralend.lexicon.speech</string>
+<key>CFBundleName</key><string>Lexicon Dictation</string>
+<key>CFBundleExecutable</key><string>LexiconSpeech</string>
+<key>CFBundlePackageType</key><string>APPL</string>
+<key>LSUIElement</key><true/>
+<key>NSMicrophoneUsageDescription</key><string>Lexicon uses your microphone only when you start dictation.</string>
+<key>NSSpeechRecognitionUsageDescription</key><string>Lexicon converts your speech into document text. Speech may be processed by Apple.</string>
+</dict></plist>
+PLIST
+sign --options runtime --entitlements "$HERE/entitlements.plist" "$SPEECH_APP"
+
 # codesign --strict rejects extended attributes such as com.apple.FinderInfo or a resource fork
 # ("Finder information, or similar detritus not allowed"); a source file copied in can carry them.
 # Clear them before signing; nothing after this point may write xattrs onto the bundle (#525).

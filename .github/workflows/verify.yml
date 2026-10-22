@@ -1,0 +1,36 @@
+name: Verify Lexicon
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: macos-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install stable --profile minimal --component rustfmt --component clippy
+      - run: rustup target add wasm32-unknown-unknown
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: lexicon-verification
+      - run: cargo xtask ci
+      - name: Render both themes
+        if: always()
+        run: |
+          mkdir -p previews
+          cat > previews/script.jsonl <<'JSON'
+          {"empty":true}
+          {"method":"engine.execute","params":{"command":"text.insert","params":{"text":"Lexicon — пространство для ваших идей"}}}
+          {"method":"engine.execute","params":{"command":"ui.theme","params":{"value":"dark"}}}
+          {"shot":"previews/dark.png"}
+          {"method":"engine.execute","params":{"command":"ui.theme","params":{"value":"light"}}}
+          {"shot":"previews/light.png"}
+          JSON
+          cargo run -p wordcraft-ui-egui --example ui_shot -- previews/script.jsonl
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lexicon-theme-previews
+          path: previews/*.png

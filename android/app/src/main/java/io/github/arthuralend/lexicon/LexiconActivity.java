@@ -64,6 +64,45 @@ public class LexiconActivity extends NativeActivity {
 
     static native void nativeInsets(int left, int top, int right, int bottom);
 
+    static native void nativeDictation(long id, String text, boolean error);
+    private int speechRequest;
+    private long speechId;
+
+    public void startDictation(String language, long id) {
+        runOnUiThread(() -> {
+            speechId = id;
+            speechRequest = 0x4000 + (int)(id % 0x3fff);
+            Intent intent = new Intent(android.speech.RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+            intent.putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE_MODEL, android.speech.RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE, language);
+            intent.putExtra(android.speech.RecognizerIntent.EXTRA_MAX_RESULTS, 1);
+            intent.putExtra(android.speech.RecognizerIntent.EXTRA_PROMPT, "Lexicon");
+            try { startActivityForResult(intent, speechRequest); }
+            catch (ActivityNotFoundException | SecurityException e) {
+                speechId = 0;
+                nativeDictation(id, "Speech recognition is unavailable. Enable a speech recognition service in Android Settings.", true);
+            }
+        });
+    }
+
+    public void cancelDictation(long id) {
+        runOnUiThread(() -> {
+            if (speechId == id) { finishActivity(speechRequest); speechId = 0; }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode != speechRequest || speechId == 0) return;
+        long id = speechId;
+        speechId = 0;
+        java.util.ArrayList<String> results = data == null ? null : data.getStringArrayListExtra(android.speech.RecognizerIntent.EXTRA_RESULTS);
+        if (resultCode == RESULT_OK && results != null && !results.isEmpty()) {
+            nativeDictation(id, results.get(0), false);
+        } else { nativeDictation(id, "Speech recognition cancelled or no speech detected.", true); }
+    }
+
     private KeyboardView input;
     /** The user went to grant file access: restart once it is granted. */
     private boolean awaitingFileAccess;

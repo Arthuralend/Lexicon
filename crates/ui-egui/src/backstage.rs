@@ -3,7 +3,7 @@
 use egui::{Align2, Rect, Sense, Stroke, Ui, pos2, vec2};
 use serde_json::json;
 
-use crate::theme::{APP_COLOR, Tokens, medium, regular, semibold};
+use crate::theme::{Tokens, medium, regular, semibold};
 use crate::{WordApp, icons};
 
 /// The side menu: page id, label and icon (#1714).
@@ -32,6 +32,7 @@ fn back_chevron_c(band_min_x: f32, center_y: f32, fullscreen: bool, content_left
 pub fn show(app: &mut WordApp, ui: &mut Ui) {
     let t = Tokens::get(ui.ctx());
     let recovery = app.ui.backstage_page == "recover";
+    let t = if recovery { Tokens::dark() } else { t };
     // No document open (#1129): only the pages that open or create one, and Options.
     let has_document = app.has_document();
     if !has_document && !works_without_document(&app.ui.backstage_page) {
@@ -42,7 +43,7 @@ pub fn show(app: &mut WordApp, ui: &mut Ui) {
         .exact_size(200.0)
         // Fixed width, as in Word: without this egui shows a resize handle that does nothing (#502).
         .resizable(false)
-        .frame(egui::Frame::NONE.fill(if recovery { egui::Color32::BLACK } else { APP_COLOR }).inner_margin(egui::Margin {
+        .frame(egui::Frame::NONE.fill(if recovery { egui::Color32::BLACK } else { t.panel }).inner_margin(egui::Margin {
             left: 0,
             right: 0,
             top: if mac { 0 } else { 12 },
@@ -60,7 +61,7 @@ pub fn show(app: &mut WordApp, ui: &mut Ui) {
                 // The chevron's stroke starts at the content edge.
                 let c = back_chevron_c(band.min.x, band.center().y, app.session.view.full_screen, app.mac_titlebar.content_left);
                 let resp = ui.interact(Rect::from_center_size(c, vec2(22.0, band.height())), ui.id().with("backstage_back"), Sense::click());
-                icons::paint(ui.painter(), Rect::from_center_size(c, vec2(18.0, 18.0)), "chevronLeft", egui::Color32::WHITE, egui::Color32::WHITE);
+                icons::paint(ui.painter(), Rect::from_center_size(c, vec2(18.0, 18.0)), "chevronLeft", t.text, t.text);
                 resp
             } else {
                 let (r, resp) = ui.allocate_exact_size(vec2(200.0, 40.0), Sense::click());
@@ -68,8 +69,8 @@ pub fn show(app: &mut WordApp, ui: &mut Ui) {
                     ui.painter(),
                     Rect::from_center_size(pos2(r.min.x + 26.0, r.center().y), vec2(18.0, 18.0)),
                     "chevronLeft",
-                    egui::Color32::WHITE,
-                    egui::Color32::WHITE,
+                    t.text,
+                    t.text,
                 );
                 resp
             };
@@ -86,11 +87,11 @@ pub fn show(app: &mut WordApp, ui: &mut Ui) {
                 resp.widget_info(|| egui::WidgetInfo::labeled(egui::WidgetType::Button, on, tl!(label)));
                 let active = app.ui.backstage_page == id;
                 if active {
-                    ui.painter().rect_filled(r, 0.0, egui::Color32::from_white_alpha(46));
+                    ui.painter().rect_filled(r.shrink2(vec2(8.0, 2.0)), 7.0, t.checked);
                 } else if on && resp.hovered() {
-                    ui.painter().rect_filled(r, 0.0, egui::Color32::from_white_alpha(26));
+                    ui.painter().rect_filled(r.shrink2(vec2(8.0, 2.0)), 7.0, t.hover);
                 }
-                let ink = if on { egui::Color32::WHITE } else { egui::Color32::from_white_alpha(110) };
+                let ink = if on { t.text } else { t.text_disabled };
                 icons::paint(ui.painter(), Rect::from_center_size(pos2(r.min.x + 31.0, r.center().y), vec2(18.0, 18.0)), icon, ink, ink);
                 ui.painter().text(
                     pos2(r.min.x + 52.0, r.center().y),
@@ -117,7 +118,9 @@ pub fn show(app: &mut WordApp, ui: &mut Ui) {
                             }
                         }
                         "saveAs" => {
-                            app.ui.backstage_page = "saveAs".into();
+                            app.ui.backstage = false;
+                            app.canvas.want_focus = true;
+                            let _ = app.run("file.saveAs", json!({}));
                         }
                         // Not a page: `file.close` asks Save / Don't Save / Cancel first when there
                         // are unsaved changes, and Cancel leaves the Backstage where it was.
@@ -129,19 +132,15 @@ pub fn show(app: &mut WordApp, ui: &mut Ui) {
                 }
             }
             ui.with_layout(egui::Layout::bottom_up(egui::Align::Min), |ui| {
-                for (label, id) in [("About", "about"), ("Discord community", "discord")] {
+                for (label, id) in [("About", "about")] {
                     let (r, resp) = ui.allocate_exact_size(vec2(200.0, 32.0), Sense::click());
                     resp.widget_info(|| egui::WidgetInfo::labeled(egui::WidgetType::Button, ui.is_enabled(), tl!(label)));
                     if resp.hovered() {
-                        ui.painter().rect_filled(r, 0.0, egui::Color32::from_white_alpha(26));
+                        ui.painter().rect_filled(r.shrink2(vec2(8.0, 2.0)), 7.0, t.hover);
                     }
-                    ui.painter().text(pos2(r.min.x + 22.0, r.center().y), Align2::LEFT_CENTER, tl!(label), regular(13.0), egui::Color32::WHITE);
+                    ui.painter().text(pos2(r.min.x + 22.0, r.center().y), Align2::LEFT_CENTER, tl!(label), regular(13.0), t.text);
                     if resp.clicked() {
-                        if id == "discord" {
-                            let _ = app.run("ui.discord", json!({}));
-                        } else {
-                            app.dialog = crate::dialogs::Dialog::open("about", app);
-                        }
+                        app.dialog = crate::dialogs::Dialog::open(id, app);
                     }
                 }
             });
@@ -840,7 +839,8 @@ mod tests {
         h.run_steps(4);
         h.get_by_label("Save").click();
         h.run_steps(4);
-        assert_eq!(h.state().ui.backstage_page, "saveAs");
+        assert!(!h.state().ui.backstage);
+        assert!(h.state().file_dialog_open());
         assert_eq!(shown.get(), 0, "no native Save As dialog");
         assert!(!h.state().file_dialog_open());
     }
@@ -927,7 +927,7 @@ mod tests {
     }
 
     #[test]
-    fn backstage_save_as_sidebar_opens_save_as_page() {
+    fn backstage_save_as_sidebar_opens_picker_directly() {
         let mut a = WordApp::new(wordcraft_engine::Session::new(wordcraft_doc::Document::new()), Services::default());
         a.run("ui.backstage", json!({"value": true, "page": "home"})).unwrap();
         let mut h = egui_kittest::Harness::builder().with_size(egui::vec2(1440.0, 900.0)).build_ui_state(
@@ -941,6 +941,7 @@ mod tests {
         h.run_steps(4);
         h.get_by_label("Save As").click();
         h.run_steps(4);
-        assert_eq!(h.state().ui.backstage_page, "saveAs");
+        assert!(!h.state().ui.backstage);
+        assert!(h.state().file_dialog_open());
     }
 }
