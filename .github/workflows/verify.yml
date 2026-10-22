@@ -15,9 +15,9 @@ jobs:
       - uses: Swatinem/rust-cache@v2
         with:
           key: lexicon-verification
+          cache-on-failure: true
       - run: cargo xtask ci
       - name: Render both themes
-        if: always()
         run: |
           mkdir -p previews
           cat > previews/script.jsonl <<'JSON'
