@@ -65,7 +65,11 @@ jobs:
         env:
           LEXICON_VERSION_NAME: ${{ needs.version.outputs.name }}
           LEXICON_VERSION_CODE: ${{ github.run_number }}
-        run: gradle --no-daemon assembleRelease
+        # The licence texts (with their copyright notices) travel inside the APK.
+        run: |
+          mkdir -p app/src/main/assets
+          cp ../LICENSE-MIT ../LICENSE-APACHE app/src/main/assets/
+          gradle --no-daemon assembleRelease
       - run: |
           mkdir -p out
           cp android/app/build/outputs/apk/release/app-release.apk "out/Lexicon-${{ needs.version.outputs.name }}.apk"

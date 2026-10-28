@@ -110,11 +110,13 @@ pub fn page(app: &mut WordApp, ui: &mut Ui) {
     let t = Tokens::get(ui.ctx());
     ui.label(RichText::new(tl!("Options")).font(semibold(26.0)));
     ui.add_space(16.0);
-    let current = if PANES.contains(&app.ui.options_pane.as_str()) { app.ui.options_pane.clone() } else { "general".to_string() };
+    // Lexicon: no Agents pane.
+    let shown = PANES.into_iter().filter(|p| *p != "agents");
+    let current = if shown.clone().any(|p| p == app.ui.options_pane) { app.ui.options_pane.clone() } else { "general".to_string() };
     ui.horizontal_top(|ui| {
         ui.vertical(|ui| {
             ui.set_width(170.0);
-            for id in PANES {
+            for id in shown {
                 let label = tl!(pane_label(id));
                 let active = current == id;
                 let (r, resp) = ui.allocate_exact_size(vec2(170.0, 30.0), egui::Sense::click());
@@ -145,7 +147,6 @@ pub fn page(app: &mut WordApp, ui: &mut Ui) {
                 "language" => language(app, ui),
                 "accessibility" => accessibility(app, ui),
                 "advanced" => advanced(app, ui),
-                "agents" => agents(ui),
                 _ => general(app, ui),
             }
         });
@@ -548,11 +549,6 @@ fn advanced(app: &mut WordApp, ui: &mut Ui) {
     });
 }
 
-fn agents(ui: &mut Ui) {
-    section(ui, "Agents");
-    ui.label(tl!("Every command is available to scripts and AI agents: run `wordcraft-cli mcp` for an MCP server, or start the app with `--control <port>` for the JSON control channel."));
-}
-
 /// Interface theme: Light, Dark, or follow the system's appearance (#115).
 fn theme_picker(app: &mut WordApp, ui: &mut Ui) {
     use crate::theme::Appearance;
@@ -777,7 +773,7 @@ mod tests {
                 for selected in ["general", "accessibility"] {
                     h.state_mut().run("file.options", json!({"pane": selected})).unwrap();
                     h.run_steps(4);
-                    for id in wordcraft_engine::cmd::options::PANES {
+                    for id in wordcraft_engine::cmd::options::PANES.into_iter().filter(|p| *p != "agents") {
                         let label = crate::i18n::tr(crate::i18n::Lang::from_pref(language), super::pane_label(id));
                         let node =
                             h.query_all_by_label(label).find(|n| n.accesskit_node().toggled().is_some()).expect("pane has its full accessible name");
@@ -829,7 +825,7 @@ mod tests {
                         .rect();
                     // Both ends of the row, including its empty left inset, stay clickable.
                     for x in [row.left() + 2.0, row.right() - 2.0] {
-                        h.state_mut().run("file.options", json!({"pane": "agents"})).unwrap();
+                        h.state_mut().run("file.options", json!({"pane": "advanced"})).unwrap();
                         h.hover_at(egui::pos2(x, row.center().y));
                         h.run_steps(4);
                         let t = crate::theme::Tokens::get(&h.ctx);

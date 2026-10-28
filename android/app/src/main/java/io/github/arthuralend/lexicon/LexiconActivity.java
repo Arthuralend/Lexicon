@@ -300,13 +300,19 @@ public class LexiconActivity extends NativeActivity {
     }
 
     private void listen(String lang) {
+        // The system's speech screen first (Google, Samsung…): it shows the microphone, works on
+        // most phones and tablets, and needs nothing of this app's window. Without one, the
+        // recognition service directly.
+        Intent screen = speechIntent(lang);
+        screen.putExtra(RecognizerIntent.EXTRA_PROMPT, dictateLang.equals("ru") ? "Говорите…" : dictateLang.equals("hy") ? "Խոսեք…" : "Speak now…");
+        try {
+            startActivityForResult(screen, DICTATE_ACTIVITY);
+            return;
+        } catch (ActivityNotFoundException | SecurityException e) {
+            // fall through to the service
+        }
         if (!SpeechRecognizer.isRecognitionAvailable(this)) {
-            // No recognition service: the recogniser's own screen, when there is one.
-            try {
-                startActivityForResult(speechIntent(lang), DICTATE_ACTIVITY);
-            } catch (ActivityNotFoundException e) {
-                toast("none");
-            }
+            toast("none");
             return;
         }
         if (recognizer == null) {
@@ -343,8 +349,12 @@ public class LexiconActivity extends NativeActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == DICTATE_ACTIVITY && resultCode == RESULT_OK && data != null) {
-            commitSpeech(data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS));
+        if (requestCode == DICTATE_ACTIVITY) {
+            if (resultCode == RESULT_OK && data != null) {
+                commitSpeech(data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS));
+            } else if (resultCode != RESULT_CANCELED) {
+                toast("error");
+            }
         }
     }
 

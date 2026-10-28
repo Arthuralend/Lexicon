@@ -17,14 +17,14 @@ pub enum Appearance {
     Light,
     Dark,
     System,
-    /// Lexicon's default: dark navy, almost black.
-    #[default]
+    /// Dark navy, almost black.
     Midnight,
     /// Dark, on black.
     Black,
     /// Light, on white.
     White,
-    /// Dark blue.
+    /// Dark blue: Lexicon's default.
+    #[default]
     Navy,
     /// Light blue.
     Sky,
@@ -37,13 +37,13 @@ pub enum Appearance {
 impl Appearance {
     /// In menu order.
     pub const ALL: [Appearance; 10] = [
+        Appearance::Navy,
         Appearance::Midnight,
         Appearance::System,
         Appearance::Light,
         Appearance::Dark,
         Appearance::Black,
         Appearance::White,
-        Appearance::Navy,
         Appearance::Sky,
         Appearance::Burgundy,
         Appearance::Forest,
@@ -55,7 +55,9 @@ impl Appearance {
             Appearance::Light => "light",
             Appearance::Dark => "dark",
             Appearance::System => "system",
-            Appearance::Midnight => "midnight",
+            // Not "midnight": that was saved as the default by one earlier build, and now reads as
+            // the new default, Navy.
+            Appearance::Midnight => "night",
             Appearance::Black => "black",
             Appearance::White => "white",
             Appearance::Navy => "navy",
@@ -504,7 +506,7 @@ impl Tokens {
         Appearance::ALL.into_iter().filter_map(Appearance::palette).collect()
     }
 
-    /// Lexicon's default: dark navy, almost black.
+    /// Dark navy, almost black.
     pub fn midnight() -> Self {
         Tokens {
             title_bar: rgb(0x0B1020),
@@ -1095,12 +1097,13 @@ mod tests {
     }
 
     /// Lexicon: the engine's `view.interfaceTheme` accepts exactly the themes the interface has,
-    /// and the default is Midnight.
+    /// and the default is Dark Blue.
     #[test]
     fn every_theme_is_known_to_the_engine() {
         let codes: Vec<&str> = super::Appearance::ALL.iter().map(|a| a.code()).collect();
         assert_eq!(codes, wordcraft_engine::cmd::view::INTERFACE_THEMES);
-        assert_eq!(super::Appearance::default(), super::Appearance::Midnight);
+        assert_eq!(super::Appearance::default(), super::Appearance::Navy);
+        assert_eq!(super::Appearance::from(String::from("midnight")), super::Appearance::Navy);
         for a in super::Appearance::ALL {
             assert_eq!(super::Appearance::from_code(a.code()), Some(a));
         }

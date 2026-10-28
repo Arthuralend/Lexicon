@@ -279,8 +279,10 @@ pub fn show(app: &mut WordApp, ui: &mut Ui) {
     // Format) may be stored while the selection moved away, and a tab may have been hidden.
     let user_tabs = app.session.ribbon.tabs().into_owned();
     let mut tabs: Vec<(String, bool)> = vec![("File".to_string(), false)];
-    // Lexicon: no Developer or Help tab; the Excel tab comes last.
-    tabs.extend(user_tabs.iter().filter(|e| !e.hidden && !matches!(e.name.as_str(), "Developer" | "Help")).map(|e| (e.name.clone(), e.custom)));
+    // Lexicon: no Developer, Zotero or Help tab; the Excel tab comes last.
+    tabs.extend(
+        user_tabs.iter().filter(|e| !e.hidden && !matches!(e.name.as_str(), "Developer" | "Zotero" | "Help")).map(|e| (e.name.clone(), e.custom)),
+    );
     tabs.push(("Excel".to_string(), false));
     for ct in contextual_tabs(&app.session) {
         if ct == "Outlining" {

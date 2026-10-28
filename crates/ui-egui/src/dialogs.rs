@@ -2670,36 +2670,19 @@ fn body(app: &mut WordApp, ui: &mut Ui, d: &mut Dialog) -> bool {
         }
         Dialog::About { tab } => {
             ui.set_width(660.0);
-            ui.horizontal(|ui| {
-                for (i, l) in ["About", "Contributors", "Models"].into_iter().enumerate() {
-                    let i = i as u8;
-                    if ui.selectable_label(*tab == i, tl!(l)).clicked() {
-                        *tab = i;
-                    }
-                }
-            });
-            ui.separator();
-            match *tab {
-                1 => crate::credits::contributors_ui(ui),
-                2 => crate::credits::models_ui(ui),
-                _ => {
+            // Lexicon: the About page alone (the credits tabs listed the upstream project's people).
+            *tab = 0;
+            {
+                {
                     ui.label(egui::RichText::new(tl!("Lexicon")).font(semibold(22.0)));
                     let build = option_env!("WORDCRAFT_BUILD_SHA").map(|s| s.get(..8).unwrap_or(s)).unwrap_or(tl!("development build"));
                     ui.label(crate::i18n::fmt(tl!("Version {version} ({build})"), &[("version", env!("CARGO_PKG_VERSION")), ("build", build)]));
-                    ui.label(tl!(
-                        "A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team."
-                    ));
+                    ui.label(tl!("A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani."));
                     ui.add_space(6.0);
                     ui.hyperlink_to(tl!("Source code: github.com/Arthuralend/Lexicon"), "https://github.com/Arthuralend/Lexicon");
-                    ui.hyperlink_to(tl!("WordCraft: github.com/storytold/wordcraft"), "https://github.com/storytold/wordcraft");
                     ui.add_space(6.0);
-                    ui.label(
-                        egui::RichText::new(tl!(
-                            "MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors."
-                        ))
-                        .small()
-                        .weak(),
-                    );
+                    // The licence texts, with their copyright notices, ship with the app.
+                    ui.label(egui::RichText::new(tl!("Free software under the MIT or Apache-2.0 licence.")).small().weak());
                 }
             }
             let (ok, cancel) = buttons(ui, tl!("Close"));

@@ -1374,8 +1374,20 @@ impl WordApp {
             return Ok(json!({"closed": false}));
         }
         self.execute("file.new", json!({}))?;
-        self.no_document = Some(self.session.document_id());
+        // Lexicon: closing the last document leaves a blank one, as Word does. On the Mac the
+        // window goes to the Dock (Cmd+W there doesn't empty the window); elsewhere File › Home
+        // offers New, Open and the recent documents. An empty window whose ribbon is greyed out
+        // left nothing to click (the Help tab, which stayed on, is gone).
         self.ui.backstage = false;
+        if cfg!(target_os = "macos") {
+            if let Some(ctx) = &self.ctx {
+                ctx.send_viewport_cmd(egui::ViewportCommand::Minimized(true));
+            }
+            return Ok(json!({"closed": true, "minimized": true}));
+        }
+        self.no_document = Some(self.session.document_id());
+        self.ui.backstage = true;
+        self.ui.backstage_page = "home".into();
         Ok(json!({"closed": true}))
     }
 
@@ -2948,6 +2960,43 @@ mod tests {
 
     fn app() -> WordApp {
         WordApp::new(Session::new(wordcraft_doc::Document::new()), Services::default())
+    }
+
+    /// Lexicon: Home › Dictate reaches the platform's speech service with the interface language,
+    /// and says what to do where there is none.
+    #[test]
+    fn dictate_starts_the_platform_speech_service() {
+        let asked = std::rc::Rc::new(std::cell::RefCell::new(Vec::<String>::new()));
+        let seen = asked.clone();
+        let services = Services {
+            dictate: Some(Box::new(move |lang: &str| {
+                seen.borrow_mut().push(lang.to_string());
+                Ok(())
+            })),
+            ..Default::default()
+        };
+        let mut a = WordApp::new(Session::new(wordcraft_doc::Document::new()), services);
+        a.ui.language = "ru".into();
+        assert!(widgets::enabled(&a, "tools.dictate"), "the ribbon button is live");
+        a.run("tools.dictate", json!({})).unwrap();
+        assert_eq!(asked.borrow().as_slice(), ["ru"]);
+        let mut plain = app();
+        plain.run("tools.dictate", json!({})).unwrap();
+        assert!(plain.status_msg.as_ref().is_some_and(|(m, _)| !m.is_empty()), "a hint where nothing can listen");
+    }
+
+    /// Lexicon: closing the last document never leaves a window with nothing to click.
+    #[test]
+    fn closing_the_last_document_keeps_the_app_usable() {
+        let mut a = app();
+        a.run("text.insert", json!({"text": "x"})).unwrap();
+        a.session.dirty = false;
+        a.run("file.close", json!({})).unwrap();
+        if cfg!(target_os = "macos") {
+            assert!(a.has_document(), "a blank document behind the minimized window");
+        } else {
+            assert!(a.ui.backstage && a.ui.backstage_page == "home", "File › Home offers New and Open");
+        }
     }
 
     #[test]
@@ -4904,7 +4953,10 @@ mod tests {
         a.run("file.close", json!({})).unwrap();
         a.run("ui.saveChanges", json!({"answer": "dontSave"})).unwrap();
         assert!(!a.quit_requested, "the window stays");
-        assert!(!a.has_document() && !a.session.dirty && !a.ui.backstage, "no document, no page");
+        assert!(
+            !a.has_document() && !a.session.dirty && a.ui.backstage && a.ui.backstage_page == "home",
+            "no document: File › Home offers New and Open"
+        );
         assert!(a.close_requested(), "closing the empty window asks nothing");
         a.run("file.close", json!({})).unwrap();
         assert!(!a.quit_requested && !a.has_document(), "nothing left to close");
@@ -6769,11 +6821,11 @@ mod tests {
     }
 
     /// #115: the old dark-mode switch migrates to Light/Dark; a saved System stays System, no saved
-    /// theme is Lexicon's Midnight, and the old key is never written back.
+    /// theme is Lexicon's Dark Blue, and the old key is never written back.
     #[test]
     fn interface_theme_migrates_and_survives_a_restart() {
         use theme::Appearance;
-        for (saved, want) in [(r#"{"dark": false}"#, Appearance::Light), (r#"{"dark": true}"#, Appearance::Dark), ("{}", Appearance::Midnight)] {
+        for (saved, want) in [(r#"{"dark": false}"#, Appearance::Light), (r#"{"dark": true}"#, Appearance::Dark), ("{}", Appearance::Navy)] {
             let mut a = app();
             a.apply_prefs(serde_json::from_str(saved).unwrap());
             assert_eq!(a.ui.theme, want, "{saved}");
@@ -6787,7 +6839,7 @@ mod tests {
         assert_eq!(b.ui.theme, Appearance::System);
         // An unknown saved value keeps the rest of the preferences.
         let odd: UiState = serde_json::from_str(r#"{"theme": "sepia", "tab": "Insert"}"#).unwrap();
-        assert_eq!((odd.theme, odd.tab.as_str()), (Appearance::Midnight, "Insert"));
+        assert_eq!((odd.theme, odd.tab.as_str()), (Appearance::Navy, "Insert"));
     }
 
     /// #1861: the registered Interface Theme command drives the same setting as Options:

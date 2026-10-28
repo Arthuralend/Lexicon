@@ -103,6 +103,7 @@ cp "$WORK/bin/wordcraft" "$APP/Contents/MacOS/Lexicon"
 cp "$ROOT/assets/app-icon/wordcraft.icns" "$APP/Contents/Resources/Lexicon.icns"
 # Licences of the embedded craft-fonts fonts (only when built with CRAFT_FONTS_DIR).
 copy_font_licences "$APP/Contents/Resources"
+cp "$ROOT/LICENSE-MIT" "$ROOT/LICENSE-APACHE" "$APP/Contents/Resources/"
 # The app's name in Finder, the Dock and the menu bar: Лексикон in Russian, Լեքսիկոն in Armenian.
 for loc in "en:Lexicon" "ru:Лексикон" "hy:Լեքսիկոն"; do
   mkdir -p "$APP/Contents/Resources/${loc%%:*}.lproj"
