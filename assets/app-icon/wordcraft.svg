@@ -1,8 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 <!-- Lexicon app icon, drawn for this repository (tools/icons.py). -->
-<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4C6EF5"/><stop offset="1" stop-color="#23308C"/></linearGradient></defs>
-<rect width="512" height="512" rx="112" fill="url(#g)"/>
-<rect x="156" y="84" width="84" height="300" rx="42" fill="#FFFFFF"/>
-<rect x="156" y="300" width="208" height="84" rx="42" fill="#FFFFFF"/>
-<polyline points="164,424 196,444 228,424 260,444 292,424 324,444 356,424" fill="none" stroke="#FF5A5F" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<defs><linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E4E9F1"/></linearGradient><linearGradient id="g0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7AA6F7"/><stop offset="1" stop-color="#4A7CEB"/></linearGradient><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBFCFE"/><stop offset="1" stop-color="#ECF0F6"/></linearGradient><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6F9BF2"/><stop offset="1" stop-color="#6F9BF2"/></linearGradient><linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6F9BF2"/><stop offset="1" stop-color="#6F9BF2"/></linearGradient><linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6F9BF2"/><stop offset="1" stop-color="#6F9BF2"/></linearGradient><linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6F9BF2"/><stop offset="1" stop-color="#6F9BF2"/></linearGradient><linearGradient id="g6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4F86F0"/><stop offset="1" stop-color="#2F63D8"/></linearGradient><linearGradient id="g7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2F5EDA"/><stop offset="1" stop-color="#163696"/></linearGradient></defs>
+<rect width="512" height="512" rx="112" fill="url(#t)"/>
+<rect x="186" y="112" width="238" height="264" rx="24" fill="url(#g0)"/>
+<rect x="226" y="146" width="220" height="262" rx="20" fill="url(#g1)"/>
+<rect x="306" y="206" width="108" height="16" rx="8" fill="url(#g2)"/>
+<rect x="306" y="246" width="108" height="16" rx="8" fill="url(#g3)"/>
+<rect x="306" y="286" width="108" height="16" rx="8" fill="url(#g4)"/>
+<rect x="306" y="326" width="78" height="16" rx="8" fill="url(#g5)"/>
+<rect x="64" y="176" width="86" height="216" rx="20" fill="url(#g6)"/>
+<rect x="84" y="140" width="216" height="236" rx="28" fill="url(#g7)"/>
+<polygon points="158,190 260,190 260,324 226,324 226,224 192,224 191,256 187,284 178,304 164,318 144,325 126,326 126,296 138,292 148,282 154,264 157,234" fill="#FFFFFF"/>
 </svg>

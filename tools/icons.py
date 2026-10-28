@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Draw Lexicon's app icon and write every file the desktop builds use (needs Pillow).
 
-The artwork, original to Lexicon: a white geometric L with a red spelling squiggle under its
-foot, on a blue gradient tile. It is drawn here in code and also written as
+The artwork, original to Lexicon (from the owner's sketch): a page with lines of text behind a
+blue tile carrying the letter Л, on a light tile. It is drawn here in code and also written as
 assets/app-icon/wordcraft.svg and as Android's adaptive-icon foreground
 (android/app/src/main/res/drawable/ic_launcher_foreground.xml). The file names keep
 WordCraft's, so the build scripts and packaging find them unchanged.
@@ -18,75 +18,90 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DIR = os.path.join(ROOT, "assets", "app-icon")
 APP_ID = "ai.storyteller.wordcraft"
 
-TOP = (0x4C, 0x6E, 0xF5, 255)  # the tile's gradient, top to bottom
-BOTTOM = (0x23, 0x30, 0x8C, 255)
-WHITE = (255, 255, 255, 255)
-RED = (0xFF, 0x5A, 0x5F, 255)
-SHADOW = (0x10, 0x18, 0x50, 90)
-
-# Geometry on a 512 grid: a geometric L (a round-capped stem and foot) with the spelling
-# squiggle under its foot.
+# The artwork on a 512 grid, back to front. "rrect": (box, radius, top colour, bottom colour);
+# "poly": (points, colour).
 TILE_R = 112
-STEM = (156, 84, 240, 384)
-FOOT = (156, 300, 364, 384)
-BAR_R = 42
-SQUIGGLE = [(164 + 32 * i, 430 + (14 if i % 2 else -6)) for i in range(7)]
-SQUIGGLE_W = 18
+TILE = ((0xFF, 0xFF, 0xFF), (0xE4, 0xE9, 0xF1))
+BACKGROUND = "#EEF2F8"  # Android's adaptive-icon background
+LETTER = [(x + 8, y - 6) for x, y in [(150, 196), (252, 196), (252, 330), (218, 330), (218, 230), (184, 230), (183, 262), (179, 290), (170, 310), (156, 324), (136, 331), (118, 332), (118, 302), (130, 298), (140, 288), (146, 270), (149, 240)]]
+SHAPES = [
+    ("rrect", (186, 112, 424, 376), 24, (0x7A, 0xA6, 0xF7), (0x4A, 0x7C, 0xEB)),  # the page behind
+    ("rrect", (226, 146, 446, 408), 20, (0xFB, 0xFC, 0xFE), (0xEC, 0xF0, 0xF6)),  # the page
+    ("rrect", (306, 206, 414, 222), 8, (0x6F, 0x9B, 0xF2), (0x6F, 0x9B, 0xF2)),
+    ("rrect", (306, 246, 414, 262), 8, (0x6F, 0x9B, 0xF2), (0x6F, 0x9B, 0xF2)),
+    ("rrect", (306, 286, 414, 302), 8, (0x6F, 0x9B, 0xF2), (0x6F, 0x9B, 0xF2)),
+    ("rrect", (306, 326, 384, 342), 8, (0x6F, 0x9B, 0xF2), (0x6F, 0x9B, 0xF2)),
+    ("rrect", (64, 176, 150, 392), 20, (0x4F, 0x86, 0xF0), (0x2F, 0x63, 0xD8)),  # the tab behind the tile
+    ("rrect", (84, 140, 300, 376), 28, (0x2F, 0x5E, 0xDA), (0x16, 0x36, 0x96)),  # the letter tile
+    ("poly", LETTER, (0xFF, 0xFF, 0xFF), None, None),
+]
+SHADOWED = {1, 7}  # the page and the letter tile cast soft shadows
 
 
-def squiggle_points():
-    return SQUIGGLE
+def hexc(c):
+    return "#%02X%02X%02X" % c
 
 
 def svg():
-    def bar(b):
-        x0, y0, x1, y1 = b
-        return f'<rect x="{x0}" y="{y0}" width="{x1 - x0}" height="{y1 - y0}" rx="{BAR_R}" fill="#FFFFFF"/>'
-
-    pts = " ".join(f"{x},{y}" for x, y in squiggle_points())
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-<!-- Lexicon app icon, drawn for this repository (tools/icons.py). -->
-<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4C6EF5"/><stop offset="1" stop-color="#23308C"/></linearGradient></defs>
-<rect width="512" height="512" rx="{TILE_R}" fill="url(#g)"/>
-{bar(STEM)}
-{bar(FOOT)}
-<polyline points="{pts}" fill="none" stroke="#FF5A5F" stroke-width="{SQUIGGLE_W}" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-"""
+    defs = [f'<linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{hexc(TILE[0])}"/><stop offset="1" stop-color="{hexc(TILE[1])}"/></linearGradient>']
+    body = [f'<rect width="512" height="512" rx="{TILE_R}" fill="url(#t)"/>']
+    for i, (kind, geo, a, b, c) in enumerate(SHAPES):
+        if kind == "rrect":
+            x0, y0, x1, y1 = geo
+            defs.append(f'<linearGradient id="g{i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{hexc(b)}"/><stop offset="1" stop-color="{hexc(c)}"/></linearGradient>')
+            body.append(f'<rect x="{x0}" y="{y0}" width="{x1 - x0}" height="{y1 - y0}" rx="{a}" fill="url(#g{i})"/>')
+        else:
+            pts = " ".join(f"{x},{y}" for x, y in geo)
+            body.append(f'<polygon points="{pts}" fill="{hexc(a)}"/>')
+    return (
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">\n'
+        "<!-- Lexicon app icon, drawn for this repository (tools/icons.py). -->\n"
+        f"<defs>{''.join(defs)}</defs>\n" + "\n".join(body) + "\n</svg>\n"
+    )
 
 
 def android_foreground():
     """The adaptive icon's foreground (108 dp, content inside the 66 dp safe zone)."""
-    s = 0.165
+    s = 0.17
 
     def m(v):
-        return round(54 + (v - 256) * s, 2)
+        return round(54 + (v - 262) * s, 2)
 
-    def bar(b):
-        x0, y0, x1, y1 = (m(v) for v in b)
-        r = round(BAR_R * s, 2)
-        return (
-            f"M{x0 + r},{y0}H{round(x1 - r, 2)}A{r},{r} 0 0 1 {x1},{round(y0 + r, 2)}V{round(y1 - r, 2)}"
-            f"A{r},{r} 0 0 1 {round(x1 - r, 2)},{y1}H{round(x0 + r, 2)}A{r},{r} 0 0 1 {x0},{round(y1 - r, 2)}"
-            f"V{round(y0 + r, 2)}A{r},{r} 0 0 1 {round(x0 + r, 2)},{y0}z"
-        )
-
-    pts = squiggle_points()
-    sq = f"M{m(pts[0][0])},{m(pts[0][1])}" + "".join(f"L{m(x)},{m(y)}" for x, y in pts[1:])
+    paths = []
+    for kind, geo, a, b, c in SHAPES:
+        if kind == "rrect":
+            x0, y0, x1, y1 = (m(v) for v in geo)
+            r = round(a * s, 2)
+            d = (
+                f"M{round(x0 + r, 2)},{y0}H{round(x1 - r, 2)}A{r},{r} 0 0 1 {x1},{round(y0 + r, 2)}V{round(y1 - r, 2)}"
+                f"A{r},{r} 0 0 1 {round(x1 - r, 2)},{y1}H{round(x0 + r, 2)}A{r},{r} 0 0 1 {x0},{round(y1 - r, 2)}"
+                f"V{round(y0 + r, 2)}A{r},{r} 0 0 1 {round(x0 + r, 2)},{y0}z"
+            )
+            mid = tuple((p + q) // 2 for p, q in zip(b, c))
+        else:
+            d = "M" + "L".join(f"{m(x)},{m(y)}" for x, y in geo) + "z"
+            mid = a
+        paths.append(f'    <path android:fillColor="{hexc(mid)}" android:pathData="{d}" />')
+    body = "\n".join(paths)
     return f"""<?xml version="1.0" encoding="utf-8"?>
-<!-- Lexicon's icon, drawn for this repository (generated by tools/icons.py): a geometric L with a
-     red spelling squiggle under its foot. -->
+<!-- Lexicon's icon, drawn for this repository (generated by tools/icons.py): a page with lines
+     of text and a blue tile with the letter Л. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <path android:fillColor="#FFFFFF" android:pathData="{bar(STEM)}" />
-    <path android:fillColor="#FFFFFF" android:pathData="{bar(FOOT)}" />
-    <path android:strokeColor="#FF5A5F" android:strokeWidth="{round(SQUIGGLE_W * s, 2)}" android:strokeLineCap="round" android:strokeLineJoin="round"
-        android:pathData="{sq}" />
+{body}
 </vector>
 """
+
+
+def gradient(w, h, top, bottom):
+    g = Image.new("RGBA", (1, 256))
+    for y in range(256):
+        t = y / 255
+        g.putpixel((0, y), tuple(round(a + (b - a) * t) for a, b in zip(top, bottom)) + (255,))
+    return g.resize((max(1, w), max(1, h)))
 
 
 def draw(size, body=1.0):
@@ -99,34 +114,28 @@ def draw(size, body=1.0):
     def p(x, y):
         return (off + x * scale, off + y * scale)
 
-    # The tile: a vertical gradient cut to a rounded square.
-    grad = Image.new("RGBA", (1, 512))
-    for y in range(512):
-        t = y / 511
-        grad.putpixel((0, y), tuple(round(a + (b - a) * t) for a, b in zip(TOP, BOTTOM)))
-    grad = grad.resize((max(1, round(512 * scale)), max(1, round(512 * scale))))
-    mask = Image.new("L", grad.size, 0)
-    ImageDraw.Draw(mask).rounded_rectangle([0, 0, grad.size[0] - 1, grad.size[1] - 1], radius=TILE_R * scale, fill=255)
     img = Image.new("RGBA", (big, big), (0, 0, 0, 0))
-    img.paste(grad, (round(off), round(off)), mask)
 
-    def letter(d, dx, dy, fill):
-        for x0, y0, x1, y1 in (STEM, FOOT):
-            d.rounded_rectangle([p(x0 + dx, y0 + dy), p(x1 + dx, y1 + dy)], radius=BAR_R * scale, fill=fill)
+    def fill_rrect(target, box, r, top, bottom):
+        (x0, y0), (x1, y1) = p(box[0], box[1]), p(box[2], box[3])
+        w, h = round(x1 - x0), round(y1 - y0)
+        mask = Image.new("L", (w, h), 0)
+        ImageDraw.Draw(mask).rounded_rectangle([0, 0, w - 1, h - 1], radius=r * scale, fill=255)
+        target.paste(gradient(w, h, top, bottom), (round(x0), round(y0)), mask)
 
-    # A soft shadow under the letter, then the letter and the squiggle.
-    shadow = Image.new("RGBA", (big, big), (0, 0, 0, 0))
-    letter(ImageDraw.Draw(shadow), 0, 10, SHADOW)
-    shadow = shadow.filter(ImageFilter.GaussianBlur(10 * scale))
-    img = Image.alpha_composite(img, Image.composite(shadow, Image.new("RGBA", (big, big), (0, 0, 0, 0)), img.getchannel("A")))
-    d = ImageDraw.Draw(img)
-    letter(d, 0, 0, WHITE)
-    pts = [p(x, y) for x, y in squiggle_points()]
-    w = max(1, round(SQUIGGLE_W * scale))
-    d.line(pts, fill=RED, width=w, joint="curve")
-    for x, y in (pts[0], pts[-1]):
-        r = w / 2
-        d.ellipse([x - r, y - r, x + r, y + r], fill=RED)
+    fill_rrect(img, (0, 0, 512, 512), TILE_R, *TILE)
+    tile_alpha = img.getchannel("A")
+    for i, (kind, geo, a, b, c) in enumerate(SHAPES):
+        if i in SHADOWED:
+            sh = Image.new("RGBA", (big, big), (0, 0, 0, 0))
+            x0, y0, x1, y1 = geo
+            ImageDraw.Draw(sh).rounded_rectangle([p(x0, y0 + 10), p(x1, y1 + 10)], radius=a * scale, fill=(0x10, 0x20, 0x50, 70))
+            sh = sh.filter(ImageFilter.GaussianBlur(12 * scale))
+            img = Image.alpha_composite(img, Image.composite(sh, Image.new("RGBA", (big, big), (0, 0, 0, 0)), tile_alpha))
+        if kind == "rrect":
+            fill_rrect(img, geo, a, b, c)
+        else:
+            ImageDraw.Draw(img).polygon([p(x, y) for x, y in geo], fill=a + (255,))
     return img.resize((size, size), Image.LANCZOS)
 
 
