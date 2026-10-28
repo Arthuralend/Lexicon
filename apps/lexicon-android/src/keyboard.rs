@@ -246,6 +246,14 @@ pub fn set_clipboard(app: &AndroidApp, text: &str) {
     }
 }
 
+/// Home › Dictate: the system's speech recognition in `lang`; the words arrive as committed text.
+pub fn start_dictation(app: &AndroidApp, lang: &str) -> Result<(), String> {
+    with_activity(app, |env, activity| {
+        let s = env.new_string(lang)?;
+        env.call_method(activity, "startDictation", "(Ljava/lang/String;)V", &[JValue::Object(&s)]).map(|_| ())
+    })
+}
+
 /// The text on the system clipboard (Paste), if any.
 pub fn clipboard(app: &AndroidApp) -> Option<String> {
     let mut out = None;

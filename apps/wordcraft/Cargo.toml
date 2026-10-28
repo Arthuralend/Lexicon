@@ -47,6 +47,9 @@ objc2-foundation = { version = "0.3", default-features = false, features = ["std
 # Closing the window must quit through NSApplication rather than by dropping the NSWindow
 # inside the AppKit run loop (see `schedule_macos_terminate`).
 dispatch2 = "0.3"
+# Lexicon: Home › Dictate starts the system's Dictation through the patched winit
+# (vendor/winit, `platform::macos::start_dictation`).
+winit = { version = "0.30", default-features = false }
 
 [target.'cfg(all(unix, not(target_os = "macos")))'.dependencies]
 winit = { version = "0.30", default-features = false, features = ["x11"] }

@@ -2704,3 +2704,27 @@ template	Letter	Lettre
 	Armenian	Arménien
 	Georgian	Géorgien
 	Azerbaijani	Azerbaïdjanais
+	Midnight	Minuit
+	Black	Noir
+	White	Blanc
+	Dark Blue	Bleu foncé
+	Light Blue	Bleu clair
+	Burgundy and Beige	Bordeaux et beige
+	Forest	Forêt
+	Excel	Excel
+	New Sheet	Nouvelle feuille
+	Totals Row	Ligne de total
+	AutoSum	Somme automatique
+	Average	Moyenne
+	Count	Nombre
+	Max	Max
+	Min	Min
+	Calculation	Calcul
+	Calculate Now	Calculer maintenant
+	Put the caret in a table cell first.	Placez d'abord le curseur dans une cellule de tableau.
+	The caret isn't in a table cell.	Le curseur n'est pas dans une cellule de tableau.
+	Type a formula, e.g. =SUM(B2:B5)	Saisissez une formule, p. ex. =SUM(B2:B5)
+	Listening… Speak now; your words appear at the caret.	Écoute… Parlez ; le texte apparaît au curseur.
+	Press the Windows logo key + H to dictate with Windows voice typing.	Appuyez sur Windows + H pour dicter avec la saisie vocale de Windows.
+	Press the Fn key twice (or Edit › Start Dictation) and turn on Dictation in System Settings › Keyboard.	Appuyez deux fois sur Fn (ou Édition › Démarrer la dictée) et activez la dictée dans Réglages Système › Clavier.
+	Voice typing isn't available on this system.	La saisie vocale n'est pas disponible sur ce système.

@@ -48,6 +48,9 @@ fn android_main(app: AndroidApp) {
             let region = wordcraft_ui_egui::i18n::system_region();
             let mut session = Session::new(wordcraft_engine::blank_document(&region));
             session.system_region = region;
+            // New documents start with a 1 cm first-line indent.
+            session.new_first_line_indent = Some(wordcraft_engine::NEW_FIRST_LINE_INDENT);
+            wordcraft_engine::set_first_line_indent(&mut session.doc, wordcraft_engine::NEW_FIRST_LINE_INDENT);
             let mut app = WordApp::new(session, services(&android));
             let stored = settings.as_deref().and_then(|dir| std::fs::read(dir.join("ui.json")).ok());
             if let Some(ui) = stored.as_deref().and_then(UiState::from_json) {
@@ -111,8 +114,10 @@ fn setup_folders(app: &AndroidApp) -> Option<PathBuf> {
 /// Paste reads the system clipboard through the activity.
 fn services(android: &AndroidApp) -> Services {
     let clip = android.clone();
+    let mic = android.clone();
     Services {
         clipboard_text: Some(Box::new(move || keyboard::clipboard(&clip))),
+        dictate: Some(Box::new(move |lang: &str| keyboard::start_dictation(&mic, lang))),
         file_dialog: Some(Box::new(|_req: FileDialogRequest| {
             let (tx, rx) = std::sync::mpsc::channel::<FileDialogAnswer>();
             let _ = tx.send(Err("Android has no system file dialog".into()));

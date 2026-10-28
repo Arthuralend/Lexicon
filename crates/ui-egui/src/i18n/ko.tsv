@@ -2546,3 +2546,27 @@ preview	Title	제목
 	Armenian	아르메니아어
 	Georgian	조지아어
 	Azerbaijani	아제르바이잔어
+	Midnight	미드나이트
+	Black	검정
+	White	흰색
+	Dark Blue	진한 파랑
+	Light Blue	연한 파랑
+	Burgundy and Beige	버건디와 베이지
+	Forest	숲
+	Excel	Excel
+	New Sheet	새 시트
+	Totals Row	요약 행
+	AutoSum	자동 합계
+	Average	평균
+	Count	개수
+	Max	최대
+	Min	최소
+	Calculation	계산
+	Calculate Now	지금 계산
+	Put the caret in a table cell first.	먼저 커서를 표 셀에 두세요.
+	The caret isn't in a table cell.	커서가 표 셀에 없습니다.
+	Type a formula, e.g. =SUM(B2:B5)	수식 입력(예: =SUM(B2:B5))
+	Listening… Speak now; your words appear at the caret.	듣는 중… 말하면 커서 위치에 입력됩니다.
+	Press the Windows logo key + H to dictate with Windows voice typing.	Windows 로고 키 + H를 눌러 Windows 음성 입력으로 받아쓰세요.
+	Press the Fn key twice (or Edit › Start Dictation) and turn on Dictation in System Settings › Keyboard.	Fn 키를 두 번 누르고(또는 편집 › 받아쓰기 시작) 시스템 설정 › 키보드에서 받아쓰기를 켜세요.
+	Voice typing isn't available on this system.	이 시스템에서는 음성 입력을 사용할 수 없습니다.

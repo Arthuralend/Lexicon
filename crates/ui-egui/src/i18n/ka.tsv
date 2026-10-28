@@ -2673,3 +2673,27 @@ preview	Title	ნიმუში
 	Armenian	სომხური
 	Georgian	ქართული
 	Azerbaijani	აზერბაიჯანული
+	Midnight	შუაღამე
+	Black	შავი
+	White	თეთრი
+	Dark Blue	მუქი ლურჯი
+	Light Blue	ღია ლურჯი
+	Burgundy and Beige	ბორდო და ბეჟი
+	Forest	ტყე
+	Excel	ექსელი
+	New Sheet	ახალი ცხრილი
+	Totals Row	ჯამის სტრიქონი
+	AutoSum	ავტოჯამი
+	Average	საშუალო
+	Count	რაოდენობა
+	Max	მაქსიმუმი
+	Min	მინიმუმი
+	Calculation	გამოთვლა
+	Calculate Now	გადათვლა
+	Put the caret in a table cell first.	ჯერ კურსორი ცხრილის უჯრაში ჩადეთ.
+	The caret isn't in a table cell.	კურსორი ცხრილის უჯრაში არ არის.
+	Type a formula, e.g. =SUM(B2:B5)	შეიყვანეთ ფორმულა, მაგ. =SUM(B2:B5)
+	Listening… Speak now; your words appear at the caret.	ვუსმენ… ილაპარაკეთ, ტექსტი კურსორთან გამოჩნდება.
+	Press the Windows logo key + H to dictate with Windows voice typing.	დააჭირეთ Windows + H, რომ Windows-ის ხმოვანი შეყვანით იკარნახოთ.
+	Press the Fn key twice (or Edit › Start Dictation) and turn on Dictation in System Settings › Keyboard.	დააჭირეთ Fn ორჯერ (ან რედაქტირება › კარნახის დაწყება) და ჩართეთ კარნახი სისტემის პარამეტრებში › კლავიატურა.
+	Voice typing isn't available on this system.	ხმოვანი შეყვანა ამ სისტემაში მიუწვდომელია.

@@ -50,6 +50,7 @@ pub mod dialogs_smart_art;
 pub mod dialogs_table_style;
 pub mod dialogs_templates;
 pub mod equation_tab;
+pub mod excel;
 /// The built-in file browser, for desktops without a system file dialog (#576).
 #[cfg(not(target_arch = "wasm32"))]
 pub mod file_browser;
@@ -171,6 +172,10 @@ pub struct Services {
     /// `xdg-mime`. `None` (web, macOS) hides the button; macOS shows how to do it in Finder
     /// instead. An error means nothing changed.
     pub make_default_app: Option<Box<dyn Fn() -> Result<DefaultApp, String>>>,
+    /// Lexicon: Home › Dictate. Start the platform's speech recognition for the language tag
+    /// given; the recognised words arrive as text input. An error (empty for none in particular)
+    /// shows the fallback hint.
+    pub dictate: Option<Box<dyn Fn(&str) -> Result<(), String>>>,
 }
 
 /// Armenian and Georgian letters the interface must draw ([`WordApp::ensure_script_fonts`]).
@@ -578,6 +583,8 @@ pub struct WordApp {
     comment_fonts_for: Option<(u64, u64)>,
     /// Whether the Armenian and Georgian interface fallbacks were looked up ([`Self::ensure_script_fonts`]).
     script_fonts_done: bool,
+    /// Lexicon: the Excel tab's formulas and formula bar.
+    pub(crate) excel: excel::ExcelState,
     /// Lookups [`Self::ensure_script_fonts`] has made.
     script_font_tries: u8,
     /// Armenian or Georgian text reached the interface (typed, pasted, or offered as a spelling
@@ -713,6 +720,7 @@ impl WordApp {
             want_system_cjk: false,
             comment_fonts_for: None,
             script_fonts_done: false,
+            excel: Default::default(),
             script_font_tries: 0,
             want_script_fonts: false,
             fonts_frames: 0,
@@ -1413,6 +1421,22 @@ impl WordApp {
         }
     }
 
+    /// Home › Dictate: the platform's speech recognition in the interface language, or how to
+    /// dictate where Lexicon can't start it.
+    fn start_dictation(&mut self) {
+        let lang = i18n::Lang::from_pref(&self.ui.language).code().to_string();
+        let started = self.services.dictate.as_ref().map(|f| f(&lang));
+        match started {
+            Some(Ok(())) => self.status(tl!("Listening… Speak now; your words appear at the caret.")),
+            Some(Err(e)) if !e.is_empty() => self.status(e),
+            _ if cfg!(windows) => self.status(tl!("Press the Windows logo key + H to dictate with Windows voice typing.")),
+            _ if cfg!(target_os = "macos") => {
+                self.status(tl!("Press the Fn key twice (or Edit › Start Dictation) and turn on Dictation in System Settings › Keyboard."))
+            }
+            _ => self.status(tl!("Voice typing isn't available on this system.")),
+        }
+    }
+
     /// Requests commands make of the UI (open a dialog…).
     fn handle_request(&mut self, req: &Value) {
         // Ctrl+F: type straight into the Navigation pane's search box (#712).
@@ -1425,6 +1449,9 @@ impl WordApp {
             && let Some(a) = theme::Appearance::from_code(name)
         {
             self.ui.theme = a;
+        }
+        if req.get("dictate").is_some() {
+            self.start_dictation();
         }
         if req.get("toggle").and_then(Value::as_str) == Some("interfaceTheme") {
             self.ui.theme = if self.ui_is_dark() { theme::Appearance::Light } else { theme::Appearance::Dark };
@@ -1492,6 +1519,9 @@ impl WordApp {
     /// Commands that live in the UI layer.
     fn ui_command(&mut self, id: &str, p: &Value) -> Option<Result<Value, String>> {
         let s = |k: &str| p.get(k).and_then(Value::as_str);
+        if id.starts_with("ui.excel.") {
+            return Some(excel::command(self, id, p));
+        }
         Some(Ok(match id {
             "ui.tab" => {
                 let tab = s("tab").unwrap_or("Home").to_string();
@@ -1591,7 +1621,12 @@ impl WordApp {
                 if let Some(v) = s("value") {
                     match theme::Appearance::from_code(v) {
                         Some(a) => self.ui.theme = a,
-                        None => return Some(Err(format!("unknown theme {v:?}; use light, dark or system"))),
+                        None => {
+                            return Some(Err(format!(
+                                "unknown theme {v:?}; use one of {}",
+                                wordcraft_engine::cmd::view::INTERFACE_THEMES.join(", ")
+                            )));
+                        }
                     }
                 }
                 json!({"theme": self.ui.theme.code(), "dark": self.ui_is_dark()})
@@ -2018,6 +2053,7 @@ impl WordApp {
         self.ensure_comment_fonts();
         self.ensure_script_fonts(lang);
         self.install_ui_fonts(ctx, lang);
+        excel::update(self);
         if let Some(answer) = self.desktop_theme.take_change() {
             self.desktop_dark = Some(answer);
         }
@@ -2292,6 +2328,12 @@ impl WordApp {
             chrome::title_bar(self, ui);
             if !self.session.view.focus_mode {
                 ribbon::show(self, ui);
+                if self.ui.tab == "Excel" {
+                    egui::Panel::top("formula_bar")
+                        .exact_size(32.0)
+                        .frame(egui::Frame::NONE.fill(t.ribbon).inner_margin(egui::Margin::symmetric(10, 4)).stroke(egui::Stroke::new(1.0, t.border)))
+                        .show(ui, |ui| excel::formula_bar(self, ui));
+                }
                 chrome::status_bar(self, ui);
                 panes::show(self, ui);
             }
@@ -2313,9 +2355,9 @@ impl WordApp {
             ctx.open_url(egui::OpenUrl::new_tab(url));
         }
         let title = if self.has_document() {
-            format!("{}{} - Lexicon", self.title_stem(), if self.session.dirty { " •" } else { "" })
+            format!("{}{} - {}", self.title_stem(), if self.session.dirty { " •" } else { "" }, tl!("Lexicon"))
         } else {
-            "Lexicon".to_string()
+            tl!("Lexicon").to_string()
         };
         if title != self.sent_title {
             ctx.send_viewport_cmd(egui::ViewportCommand::Title(title.clone()));
@@ -6726,12 +6768,12 @@ mod tests {
         assert!(!a.ui.backstage);
     }
 
-    /// #115: the old dark-mode switch migrates to Light/Dark; a saved System stays System, and the
-    /// old key is never written back.
+    /// #115: the old dark-mode switch migrates to Light/Dark; a saved System stays System, no saved
+    /// theme is Lexicon's Midnight, and the old key is never written back.
     #[test]
     fn interface_theme_migrates_and_survives_a_restart() {
         use theme::Appearance;
-        for (saved, want) in [(r#"{"dark": false}"#, Appearance::Light), (r#"{"dark": true}"#, Appearance::Dark), ("{}", Appearance::System)] {
+        for (saved, want) in [(r#"{"dark": false}"#, Appearance::Light), (r#"{"dark": true}"#, Appearance::Dark), ("{}", Appearance::Midnight)] {
             let mut a = app();
             a.apply_prefs(serde_json::from_str(saved).unwrap());
             assert_eq!(a.ui.theme, want, "{saved}");
@@ -6745,7 +6787,7 @@ mod tests {
         assert_eq!(b.ui.theme, Appearance::System);
         // An unknown saved value keeps the rest of the preferences.
         let odd: UiState = serde_json::from_str(r#"{"theme": "sepia", "tab": "Insert"}"#).unwrap();
-        assert_eq!((odd.theme, odd.tab.as_str()), (Appearance::System, "Insert"));
+        assert_eq!((odd.theme, odd.tab.as_str()), (Appearance::Midnight, "Insert"));
     }
 
     /// #1861: the registered Interface Theme command drives the same setting as Options:

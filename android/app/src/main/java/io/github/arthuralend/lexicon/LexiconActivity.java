@@ -21,6 +21,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
+import android.speech.RecognitionListener;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
+import android.widget.Toast;
+import java.util.ArrayList;
 import android.text.InputType;
 import android.view.InputDevice;
 import android.view.KeyCharacterMap;
@@ -251,9 +256,124 @@ public class LexiconActivity extends NativeActivity {
         }
     }
 
+    // Home › Dictate -------------------------------------------------------------------------
+
+    private static final int DICTATE_PERMISSION = 2;
+    private static final int DICTATE_ACTIVITY = 3;
+    private SpeechRecognizer recognizer;
+    private String dictateLang = "";
+
+    /** Called from Rust: listen for speech in `lang` ("ru", "hy", "en"…) and type the words. */
+    public void startDictation(final String lang) {
+        runOnUiThread(() -> {
+            dictateLang = lang == null ? "" : lang;
+            if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[] {Manifest.permission.RECORD_AUDIO}, DICTATE_PERMISSION);
+                return;
+            }
+            listen(dictateLang);
+        });
+    }
+
+    private Intent speechIntent(String lang) {
+        Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        String tag = speechTag(lang);
+        if (!tag.isEmpty()) {
+            i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, tag);
+            i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE, tag);
+        }
+        i.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1);
+        return i;
+    }
+
+    private static String speechTag(String lang) {
+        switch (lang) {
+            case "ru": return "ru-RU";
+            case "hy": return "hy-AM";
+            case "ka": return "ka-GE";
+            case "az": return "az-AZ";
+            case "en": return "en-US";
+            case "uk": return "uk-UA";
+            default: return lang.replace('_', '-');
+        }
+    }
+
+    private void listen(String lang) {
+        if (!SpeechRecognizer.isRecognitionAvailable(this)) {
+            // No recognition service: the recogniser's own screen, when there is one.
+            try {
+                startActivityForResult(speechIntent(lang), DICTATE_ACTIVITY);
+            } catch (ActivityNotFoundException e) {
+                toast("none");
+            }
+            return;
+        }
+        if (recognizer == null) {
+            recognizer = SpeechRecognizer.createSpeechRecognizer(this);
+            recognizer.setRecognitionListener(new RecognitionListener() {
+                @Override public void onReadyForSpeech(Bundle params) { toast("listen"); }
+                @Override public void onBeginningOfSpeech() {}
+                @Override public void onRmsChanged(float rmsdB) {}
+                @Override public void onBufferReceived(byte[] buffer) {}
+                @Override public void onEndOfSpeech() {}
+                @Override public void onError(int error) {
+                    toast(error == SpeechRecognizer.ERROR_NO_MATCH || error == SpeechRecognizer.ERROR_SPEECH_TIMEOUT ? "nomatch" : "error");
+                }
+                @Override public void onResults(Bundle results) { commitSpeech(results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)); }
+                @Override public void onPartialResults(Bundle partialResults) {}
+                @Override public void onEvent(int eventType, Bundle params) {}
+            });
+        }
+        try {
+            recognizer.startListening(speechIntent(lang));
+        } catch (RuntimeException e) {
+            toast("error");
+        }
+    }
+
+    private void commitSpeech(ArrayList<String> words) {
+        if (words == null || words.isEmpty() || words.get(0) == null || words.get(0).isEmpty()) {
+            toast("nomatch");
+            return;
+        }
+        nativeCommit(words.get(0) + " ");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == DICTATE_ACTIVITY && resultCode == RESULT_OK && data != null) {
+            commitSpeech(data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS));
+        }
+    }
+
+    /** A short message in the dictation language (Russian, Armenian or English). */
+    private void toast(String what) {
+        boolean ru = dictateLang.equals("ru") || dictateLang.equals("uk");
+        boolean hy = dictateLang.equals("hy");
+        String text;
+        switch (what) {
+            case "listen": text = ru ? "Говорите…" : hy ? "Խոսեք…" : "Speak now…"; break;
+            case "nomatch": text = ru ? "Речь не распознана" : hy ? "Խոսքը չճանաչվեց" : "No speech recognised"; break;
+            case "mic": text = ru ? "Нужен доступ к микрофону" : hy ? "Անհրաժեշտ է խոսափողի թույլտվություն" : "Microphone access is needed"; break;
+            case "none": text = ru ? "Распознавание речи недоступно на этом устройстве" : hy ? "Խոսքի ճանաչումը հասանելի չէ" : "Speech recognition isn't available on this device"; break;
+            default: text = ru ? "Ошибка распознавания речи" : hy ? "Խոսքի ճանաչման սխալ" : "Speech recognition failed"; break;
+        }
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] results) {
         super.onRequestPermissionsResult(requestCode, permissions, results);
+        if (requestCode == DICTATE_PERMISSION) {
+            if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+                listen(dictateLang);
+            } else {
+                toast("mic");
+            }
+            return;
+        }
         if (awaitingFileAccess && hasFileAccess()) {
             awaitingFileAccess = false;
             restart();

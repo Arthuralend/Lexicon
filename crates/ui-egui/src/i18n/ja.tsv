@@ -2292,3 +2292,27 @@
 	Armenian	アルメニア語
 	Georgian	ジョージア語
 	Azerbaijani	アゼルバイジャン語
+	Midnight	ミッドナイト
+	Black	ブラック
+	White	ホワイト
+	Dark Blue	ダーク ブルー
+	Light Blue	ライト ブルー
+	Burgundy and Beige	バーガンディとベージュ
+	Forest	フォレスト
+	Excel	Excel
+	New Sheet	新しいシート
+	Totals Row	集計行
+	AutoSum	オート SUM
+	Average	平均
+	Count	個数
+	Max	最大
+	Min	最小
+	Calculation	計算
+	Calculate Now	今すぐ計算
+	Put the caret in a table cell first.	先にカーソルを表のセルに置いてください。
+	The caret isn't in a table cell.	カーソルが表のセルにありません。
+	Type a formula, e.g. =SUM(B2:B5)	数式を入力 (例: =SUM(B2:B5))
+	Listening… Speak now; your words appear at the caret.	聞き取り中… 話すとカーソル位置に入力されます。
+	Press the Windows logo key + H to dictate with Windows voice typing.	Windows ロゴ キー + H を押すと、Windows の音声入力で入力できます。
+	Press the Fn key twice (or Edit › Start Dictation) and turn on Dictation in System Settings › Keyboard.	Fn キーを 2 回押す (または「編集」›「音声入力を開始」) と入力でき、「システム設定」›「キーボード」で音声入力をオンにします。
+	Voice typing isn't available on this system.	このシステムでは音声入力を利用できません。

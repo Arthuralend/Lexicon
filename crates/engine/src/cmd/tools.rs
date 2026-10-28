@@ -418,6 +418,13 @@ pub fn specs() -> Vec<CommandSpec> {
         })
         .key("F4")
         .pure(),
+        // Lexicon: Dictate asks the front end to start the platform's speech recognition; the
+        // words then arrive as typed text.
+        CommandSpec::new("tools.dictate", "Dictate", "Home › Voice", |s, _| {
+            s.ui_requests.push(json!({"dictate": true}));
+            Ok(json!({"dictate": true}))
+        })
+        .pure(),
         CommandSpec::new("tools.recordMacro", "Record Macro", "View › Macros", |s, v| match s.recording.take() {
             Some((name, steps)) => {
                 let n = steps.len();

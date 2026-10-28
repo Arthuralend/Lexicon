@@ -2326,3 +2326,27 @@
 	Armenian	Armeenia
 	Georgian	Gruusia
 	Azerbaijani	Aserbaidžaani
+	Midnight	Kesköö
+	Black	Must
+	White	Valge
+	Dark Blue	Tumesinine
+	Light Blue	Helesinine
+	Burgundy and Beige	Burgundia ja beež
+	Forest	Mets
+	Excel	Excel
+	New Sheet	Uus leht
+	Totals Row	Kokkuvõtterida
+	AutoSum	Automaatsumma
+	Average	Keskmine
+	Count	Arv
+	Max	Max
+	Min	Min
+	Calculation	Arvutus
+	Calculate Now	Arvuta kohe
+	Put the caret in a table cell first.	Pange kursor esmalt tabeli lahtrisse.
+	The caret isn't in a table cell.	Kursor ei ole tabeli lahtris.
+	Type a formula, e.g. =SUM(B2:B5)	Sisestage valem, nt =SUM(B2:B5)
+	Listening… Speak now; your words appear at the caret.	Kuulan… Rääkige, sõnad ilmuvad kursori kohale.
+	Press the Windows logo key + H to dictate with Windows voice typing.	Vajutage Windows + H, et dikteerida Windowsi häälsisestusega.
+	Press the Fn key twice (or Edit › Start Dictation) and turn on Dictation in System Settings › Keyboard.	Vajutage kaks korda Fn-klahvi (või Redigeeri › Alusta dikteerimist) ja lülitage dikteerimine sisse: Süsteemiseaded › Klaviatuur.
+	Voice typing isn't available on this system.	Selles süsteemis pole häälsisestus saadaval.

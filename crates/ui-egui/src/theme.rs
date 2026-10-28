@@ -16,13 +16,38 @@ pub const APP_INK: Color32 = Color32::from_rgb(0x2B, 0x47, 0xB5);
 pub enum Appearance {
     Light,
     Dark,
-    #[default]
     System,
+    /// Lexicon's default: dark navy, almost black.
+    #[default]
+    Midnight,
+    /// Dark, on black.
+    Black,
+    /// Light, on white.
+    White,
+    /// Dark blue.
+    Navy,
+    /// Light blue.
+    Sky,
+    /// Burgundy on beige.
+    Burgundy,
+    /// Dark green.
+    Forest,
 }
 
 impl Appearance {
     /// In menu order.
-    pub const ALL: [Appearance; 3] = [Appearance::System, Appearance::Light, Appearance::Dark];
+    pub const ALL: [Appearance; 10] = [
+        Appearance::Midnight,
+        Appearance::System,
+        Appearance::Light,
+        Appearance::Dark,
+        Appearance::Black,
+        Appearance::White,
+        Appearance::Navy,
+        Appearance::Sky,
+        Appearance::Burgundy,
+        Appearance::Forest,
+    ];
 
     /// The value used in `ui.json` and by the `ui.theme` command.
     pub fn code(self) -> &'static str {
@@ -30,6 +55,13 @@ impl Appearance {
             Appearance::Light => "light",
             Appearance::Dark => "dark",
             Appearance::System => "system",
+            Appearance::Midnight => "midnight",
+            Appearance::Black => "black",
+            Appearance::White => "white",
+            Appearance::Navy => "navy",
+            Appearance::Sky => "sky",
+            Appearance::Burgundy => "burgundy",
+            Appearance::Forest => "forest",
         }
     }
 
@@ -43,25 +75,47 @@ impl Appearance {
             Appearance::Light => "Light",
             Appearance::Dark => "Dark",
             Appearance::System => "Use system setting",
+            Appearance::Midnight => "Midnight",
+            Appearance::Black => "Black",
+            Appearance::White => "White",
+            Appearance::Navy => "Dark Blue",
+            Appearance::Sky => "Light Blue",
+            Appearance::Burgundy => "Burgundy and Beige",
+            Appearance::Forest => "Forest",
         }
+    }
+
+    /// The palette of a fixed theme; `None` for `System`, which follows the OS.
+    pub fn palette(self) -> Option<Tokens> {
+        Some(match self {
+            Appearance::System => return None,
+            Appearance::Light => Tokens::light(),
+            Appearance::Dark => Tokens::dark(),
+            Appearance::Midnight => Tokens::midnight(),
+            Appearance::Black => Tokens::black(),
+            Appearance::White => Tokens::white(),
+            Appearance::Navy => Tokens::navy(),
+            Appearance::Sky => Tokens::sky(),
+            Appearance::Burgundy => Tokens::burgundy(),
+            Appearance::Forest => Tokens::forest(),
+        })
     }
 
     /// Whether the interface is dark, given the OS appearance egui reports (`Context::system_theme`).
     /// `System` falls back to light when the OS reports none.
     pub fn is_dark(self, system: Option<egui::Theme>) -> bool {
-        match self {
-            Appearance::Light => false,
-            Appearance::Dark => true,
-            Appearance::System => system == Some(egui::Theme::Dark),
+        match self.palette() {
+            Some(t) => t.dark,
+            None => system == Some(egui::Theme::Dark),
         }
     }
 
     /// The egui theme preference: `System` stays automatic rather than resolving to a fixed theme.
     pub fn preference(self) -> egui::ThemePreference {
-        match self {
-            Appearance::Light => egui::ThemePreference::Light,
-            Appearance::Dark => egui::ThemePreference::Dark,
-            Appearance::System => egui::ThemePreference::System,
+        match self.palette() {
+            Some(t) if t.dark => egui::ThemePreference::Dark,
+            Some(_) => egui::ThemePreference::Light,
+            None => egui::ThemePreference::System,
         }
     }
 }
@@ -227,6 +281,16 @@ impl From<Animations> for String {
     fn from(a: Animations) -> Self {
         a.code().to_string()
     }
+}
+
+/// `0xRRGGBB` as a colour.
+const fn rgb(v: u32) -> Color32 {
+    Color32::from_rgb((v >> 16) as u8, (v >> 8) as u8, v as u8)
+}
+
+/// Where [`apply`] keeps the fixed theme's palette for [`Tokens::get`].
+fn palette_id() -> egui::Id {
+    egui::Id::new("lexicon-palette")
 }
 
 /// Every colour the UI uses; widgets never hard-code colours.
@@ -425,8 +489,233 @@ impl Tokens {
             on_close: Color32::WHITE,
         }
     }
+    /// The palette [`apply`] installed (a fixed theme), else the light or dark one egui shows.
     pub fn get(ctx: &egui::Context) -> Tokens {
-        if ctx.global_style().visuals.dark_mode { Tokens::dark() } else { Tokens::light() }
+        let dark = ctx.global_style().visuals.dark_mode;
+        match ctx.data(|d| d.get_temp::<Tokens>(palette_id())) {
+            Some(t) if t.dark == dark => t,
+            _ if dark => Tokens::dark(),
+            _ => Tokens::light(),
+        }
+    }
+
+    /// Every fixed palette (for tests and previews).
+    pub fn all_palettes() -> Vec<Tokens> {
+        Appearance::ALL.into_iter().filter_map(Appearance::palette).collect()
+    }
+
+    /// Lexicon's default: dark navy, almost black.
+    pub fn midnight() -> Self {
+        Tokens {
+            title_bar: rgb(0x0B1020),
+            ribbon: rgb(0x111A2E),
+            tab_strip: rgb(0x0B1020),
+            canvas: rgb(0x070B16),
+            panel: rgb(0x0F1729),
+            border: rgb(0x1E2A44),
+            border_strong: rgb(0x34466C),
+            text: rgb(0xE6EAF2),
+            text_dim: rgb(0xA9B4C8),
+            icon: rgb(0xC8D1E0),
+            hover: rgb(0x1B2640),
+            pressed: rgb(0x24314F),
+            checked: rgb(0x22345E),
+            accent: rgb(0x6F9BFF),
+            accent_text: rgb(0x9DBBFF),
+            on_accent: rgb(0x0B1020),
+            input: rgb(0x0C1424),
+            input_border: rgb(0x5D6F95),
+            group_label: rgb(0x96A2B8),
+            ruler: rgb(0x1E2840),
+            ruler_margin: rgb(0x111827),
+            ruler_tick: rgb(0xB8C2D6),
+            status_bar: rgb(0x0B1020),
+            balloon: rgb(0x16203A),
+            markup_area: rgb(0x0D1424),
+            markup_edge: rgb(0x2A3654),
+            menu: rgb(0x131D33),
+            selection: Color32::from_rgba_unmultiplied(0x6F, 0x9B, 0xFF, 0x55),
+            resolved_text: rgb(0x8EE6B5),
+            ..Tokens::dark()
+        }
+    }
+
+    /// Dark, on black.
+    pub fn black() -> Self {
+        Tokens {
+            title_bar: rgb(0x000000),
+            ribbon: rgb(0x0A0A0A),
+            tab_strip: rgb(0x000000),
+            canvas: rgb(0x050505),
+            panel: rgb(0x0D0D0D),
+            border: rgb(0x222222),
+            border_strong: rgb(0x3A3A3A),
+            hover: rgb(0x1C1C1C),
+            pressed: rgb(0x262626),
+            checked: rgb(0x2A2F3A),
+            input: rgb(0x0A0A0A),
+            ruler: rgb(0x1A1A1A),
+            ruler_margin: rgb(0x0A0A0A),
+            status_bar: rgb(0x000000),
+            balloon: rgb(0x151515),
+            markup_area: rgb(0x050505),
+            markup_edge: rgb(0x2A2A2A),
+            menu: rgb(0x111111),
+            ..Tokens::dark()
+        }
+    }
+
+    /// Light, on white (as Word 2024 for Mac looks).
+    pub fn white() -> Self {
+        Tokens {
+            title_bar: rgb(0xFFFFFF),
+            ribbon: rgb(0xFFFFFF),
+            tab_strip: rgb(0xFFFFFF),
+            canvas: rgb(0xEDEDED),
+            panel: rgb(0xFFFFFF),
+            border: rgb(0xE5E5E5),
+            hover: rgb(0xEEEEEE),
+            pressed: rgb(0xE0E0E0),
+            status_bar: rgb(0xF7F7F7),
+            markup_area: rgb(0xF5F5F5),
+            ..Tokens::light()
+        }
+    }
+
+    /// Dark blue.
+    pub fn navy() -> Self {
+        Tokens {
+            title_bar: rgb(0x14213D),
+            ribbon: rgb(0x1B2A4A),
+            tab_strip: rgb(0x14213D),
+            canvas: rgb(0x0F1A30),
+            panel: rgb(0x192745),
+            border: rgb(0x2A3C62),
+            border_strong: rgb(0x40578A),
+            text: rgb(0xEAF0FA),
+            text_dim: rgb(0xB3C0D8),
+            icon: rgb(0xD0DAEC),
+            hover: rgb(0x243659),
+            pressed: rgb(0x2E4470),
+            checked: rgb(0x293F6C),
+            accent: rgb(0x7AA8FF),
+            accent_text: rgb(0xA5C4FF),
+            on_accent: rgb(0x0B1530),
+            input: rgb(0x13203A),
+            input_border: rgb(0x6A80AE),
+            group_label: rgb(0xA2B1CC),
+            ruler: rgb(0x26385F),
+            ruler_margin: rgb(0x18264A),
+            ruler_tick: rgb(0xC6D2E8),
+            status_bar: rgb(0x14213D),
+            balloon: rgb(0x1E2F52),
+            markup_area: rgb(0x132038),
+            markup_edge: rgb(0x2F4470),
+            menu: rgb(0x1D2D50),
+            selection: Color32::from_rgba_unmultiplied(0x7A, 0xA8, 0xFF, 0x55),
+            resolved_text: rgb(0x8EE6B5),
+            ..Tokens::dark()
+        }
+    }
+
+    /// Light blue.
+    pub fn sky() -> Self {
+        Tokens {
+            title_bar: rgb(0xDCE8F8),
+            ribbon: rgb(0xEEF4FC),
+            tab_strip: rgb(0xDCE8F8),
+            canvas: rgb(0xD5E2F3),
+            panel: rgb(0xF3F7FD),
+            border: rgb(0xC9D8EE),
+            border_strong: rgb(0xA9BEDD),
+            text: rgb(0x14243C),
+            text_dim: rgb(0x435673),
+            icon: rgb(0x2A3E5E),
+            hover: rgb(0xD6E4F7),
+            pressed: rgb(0xC3D5F0),
+            checked: rgb(0xC6D8F5),
+            accent: rgb(0x2F64C8),
+            accent_text: rgb(0x1E4FA8),
+            input_border: rgb(0x5E7598),
+            group_label: rgb(0x4E6283),
+            ruler_margin: rgb(0xC9D8EE),
+            ruler_tick: rgb(0x435673),
+            status_bar: rgb(0xDCE8F8),
+            markup_area: rgb(0xE8F0FA),
+            markup_edge: rgb(0xC9D8EE),
+            selection: Color32::from_rgba_unmultiplied(0x2F, 0x64, 0xC8, 0x44),
+            ..Tokens::light()
+        }
+    }
+
+    /// Burgundy on beige.
+    pub fn burgundy() -> Self {
+        Tokens {
+            title_bar: rgb(0xEFE3D3),
+            ribbon: rgb(0xF8F0E5),
+            tab_strip: rgb(0xEFE3D3),
+            canvas: rgb(0xE6D8C6),
+            panel: rgb(0xFBF5EC),
+            border: rgb(0xE0D0BC),
+            border_strong: rgb(0xCBB59A),
+            text: rgb(0x2E1A1E),
+            text_dim: rgb(0x654848),
+            icon: rgb(0x5A2A35),
+            hover: rgb(0xEDDCC8),
+            pressed: rgb(0xE2CCB2),
+            checked: rgb(0xEFD9DC),
+            accent: rgb(0x8C1D3A),
+            accent_text: rgb(0x7A1832),
+            input: rgb(0xFFFDF9),
+            input_border: rgb(0x85695A),
+            group_label: rgb(0x735852),
+            ruler: rgb(0xFFFBF5),
+            ruler_margin: rgb(0xE3D3BF),
+            ruler_tick: rgb(0x654848),
+            status_bar: rgb(0xEFE3D3),
+            balloon: rgb(0xFFFBF5),
+            markup_area: rgb(0xF2E8DA),
+            markup_edge: rgb(0xDCCAB4),
+            menu: rgb(0xFFFBF5),
+            selection: Color32::from_rgba_unmultiplied(0x8C, 0x1D, 0x3A, 0x40),
+            ..Tokens::light()
+        }
+    }
+
+    /// Dark green.
+    pub fn forest() -> Self {
+        Tokens {
+            title_bar: rgb(0x0F1E17),
+            ribbon: rgb(0x15291F),
+            tab_strip: rgb(0x0F1E17),
+            canvas: rgb(0x0B1611),
+            panel: rgb(0x132519),
+            border: rgb(0x22402F),
+            border_strong: rgb(0x356049),
+            text: rgb(0xE6F2EA),
+            text_dim: rgb(0xA9C4B3),
+            icon: rgb(0xC9DECF),
+            hover: rgb(0x1D3828),
+            pressed: rgb(0x264733),
+            checked: rgb(0x24503A),
+            accent: rgb(0x4CC38A),
+            accent_text: rgb(0x7FDCAE),
+            on_accent: rgb(0x08140E),
+            input: rgb(0x0E1C14),
+            input_border: rgb(0x55836A),
+            group_label: rgb(0x98B5A3),
+            ruler: rgb(0x1C3727),
+            ruler_margin: rgb(0x122419),
+            ruler_tick: rgb(0xBCD3C4),
+            status_bar: rgb(0x0F1E17),
+            balloon: rgb(0x183022),
+            markup_area: rgb(0x0E1C14),
+            markup_edge: rgb(0x2A4C38),
+            menu: rgb(0x17301F),
+            selection: Color32::from_rgba_unmultiplied(0x4C, 0xC3, 0x8A, 0x50),
+            resolved_text: rgb(0x8EE6B5),
+            ..Tokens::dark()
+        }
     }
 }
 
@@ -705,8 +994,21 @@ fn tracked_job(text: &str, font: &FontId, tracking: f32, color: Color32) -> egui
 /// Setting a concrete theme for `System` would pin the native window too, and macOS then stops
 /// reporting appearance changes (#311).
 pub fn apply(ctx: &egui::Context, appearance: Appearance) {
-    ctx.set_visuals_of(egui::Theme::Light, visuals(&Tokens::light()));
-    ctx.set_visuals_of(egui::Theme::Dark, visuals(&Tokens::dark()));
+    // A fixed theme's palette is egui's style for its side (light or dark); the other side keeps
+    // the plain palette.
+    let palette = appearance.palette();
+    let light = palette.filter(|t| !t.dark).unwrap_or_else(Tokens::light);
+    let dark = palette.filter(|t| t.dark).unwrap_or_else(Tokens::dark);
+    ctx.set_visuals_of(egui::Theme::Light, visuals(&light));
+    ctx.set_visuals_of(egui::Theme::Dark, visuals(&dark));
+    ctx.data_mut(|d| match palette {
+        Some(t) => {
+            d.insert_temp(palette_id(), t);
+        }
+        None => {
+            d.remove::<Tokens>(palette_id());
+        }
+    });
     ctx.all_styles_mut(|s| {
         s.spacing.item_spacing = egui::vec2(6.0, 4.0);
         s.spacing.button_padding = egui::vec2(8.0, 3.0);
@@ -792,10 +1094,22 @@ mod tests {
         (x.max(y) + 0.05) / (x.min(y) + 0.05)
     }
 
+    /// Lexicon: the engine's `view.interfaceTheme` accepts exactly the themes the interface has,
+    /// and the default is Midnight.
+    #[test]
+    fn every_theme_is_known_to_the_engine() {
+        let codes: Vec<&str> = super::Appearance::ALL.iter().map(|a| a.code()).collect();
+        assert_eq!(codes, wordcraft_engine::cmd::view::INTERFACE_THEMES);
+        assert_eq!(super::Appearance::default(), super::Appearance::Midnight);
+        for a in super::Appearance::ALL {
+            assert_eq!(super::Appearance::from_code(a.code()), Some(a));
+        }
+    }
+
     /// #1885: the ✕ on a window's close box reads on its hover and pressed reds in both themes.
     #[test]
     fn close_box_glyph_reads_on_its_reds() {
-        for t in [super::Tokens::light(), super::Tokens::dark()] {
+        for t in super::Tokens::all_palettes() {
             for (name, bg) in [("close_hover", t.close_hover), ("close_pressed", t.close_pressed)] {
                 let r = contrast(t.on_close, bg);
                 assert!(r >= 4.5, "dark={}: on_close on {name} is {r:.2}:1", t.dark);
@@ -807,7 +1121,7 @@ mod tests {
     /// on the accent and on its hover shade, in both themes.
     #[test]
     fn on_accent_reads_on_the_accent() {
-        for t in [super::Tokens::light(), super::Tokens::dark()] {
+        for t in super::Tokens::all_palettes() {
             for (name, bg) in [("accent", t.accent), ("hover", t.accent_text)] {
                 let r = contrast(t.on_accent, bg);
                 assert!(r >= 4.5, "dark={}: on_accent on {name} is {r:.2}:1", t.dark);
@@ -818,7 +1132,7 @@ mod tests {
     /// #657: text field and combo outlines reach 3:1 against the field and everything it sits on.
     #[test]
     fn input_borders_reach_three_to_one() {
-        for t in [super::Tokens::light(), super::Tokens::dark()] {
+        for t in super::Tokens::all_palettes() {
             for (name, bg) in [("input", t.input), ("ribbon", t.ribbon), ("panel", t.panel), ("menu", t.menu), ("title bar", t.title_bar)] {
                 let r = contrast(t.input_border, bg);
                 assert!(r >= 3.0, "dark={}: input_border on {name} is {r:.2}:1", t.dark);
@@ -831,7 +1145,7 @@ mod tests {
     #[test]
     fn ruler_text_area_is_lighter_than_its_margins() {
         let lum = |c: egui::Color32| contrast(c, egui::Color32::BLACK);
-        for t in [super::Tokens::light(), super::Tokens::dark()] {
+        for t in super::Tokens::all_palettes() {
             assert!(lum(t.ruler) > lum(t.ruler_margin), "dark={}: ruler text area is darker than its margins", t.dark);
             let r = contrast(t.ruler_tick, t.ruler);
             assert!(r >= 4.5, "dark={}: ruler numbers on the text area are {r:.2}:1", t.dark);
@@ -843,7 +1157,7 @@ mod tests {
     /// on the card, and the author stripes and borders 3:1 on the card and the markup area.
     #[test]
     fn comment_balloons_are_readable() {
-        for t in [super::Tokens::light(), super::Tokens::dark()] {
+        for t in super::Tokens::all_palettes() {
             for (name, card) in [("card", t.balloon), ("selected card", t.checked)] {
                 for (what, fg) in [("text", t.text), ("dim text", t.text_dim), ("resolved label", t.resolved_text)] {
                     let r = contrast(fg, card);

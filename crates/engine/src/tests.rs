@@ -4614,7 +4614,7 @@ fn interface_theme_queues_a_front_end_request_and_rejects_junk() {
     assert_eq!(r["value"], "toggle");
     assert_eq!(s.ui_requests.last().unwrap()["toggle"], "interfaceTheme");
     assert_eq!(s.dirty, dirty);
-    for bad in [json!({"value": "midnight"}), json!({"value": 3})] {
+    for bad in [json!({"value": "midnight-blue"}), json!({"value": 3})] {
         assert!(s.run("view.interfaceTheme", &bad).is_err(), "{bad}");
     }
 }
@@ -8489,5 +8489,22 @@ fn rtf_list_round_trip_keeps_text() {
         let bytes = crate::io::save_bytes("x.rtf", &s.doc).unwrap();
         let d = crate::io::open_bytes("x.rtf", &bytes).unwrap();
         assert_eq!(d.plain_text(StoryRef::Body), "first\nsecond", "{cmd}");
+    }
+}
+
+/// Lexicon: new documents start with a 1 cm first-line indent when the app asks for one, and
+/// the paragraphs typed after the first carry it on; Word's none stays the default otherwise.
+#[test]
+fn new_documents_take_the_apps_first_line_indent() {
+    let mut s = s();
+    assert_eq!(s.blank_document().para(StoryRef::Body, &wordcraft_doc::Path(vec![0])).and_then(|p| p.props.indent_first), None);
+    s.new_first_line_indent = Some(crate::NEW_FIRST_LINE_INDENT);
+    run(&mut s, "file.new", json!({}));
+    run(&mut s, "text.insert", json!({"text": "One"}));
+    run(&mut s, "text.newParagraph", json!({}));
+    run(&mut s, "text.insert", json!({"text": "Two"}));
+    for path in s.doc.para_paths(StoryRef::Body) {
+        let p = s.doc.para(StoryRef::Body, &path).unwrap();
+        assert!((p.props.indent_first.unwrap_or(0.0) - 28.3465).abs() < 0.01, "{:?}", p.props.indent_first);
     }
 }

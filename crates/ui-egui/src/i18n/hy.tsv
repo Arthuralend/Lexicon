@@ -16,7 +16,7 @@
 	1.5 Line Spacing	1,5 միջտողային տարածություն
 	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	Անվճար, բաց կոդով տեքստային խմբագիր՝ գրված Rust-ով, ռուսերեն և անգլերեն ուղղագրությամբ։\nՀիմնված է ArtCraft թիմի WordCraft-ի վրա։
 	About	Ծրագրի մասին
-	About Lexicon	Lexicon-ի մասին
+	About Lexicon	Լեքսիկոն-ի մասին
 	Accept	Ընդունել
 	Accept All Changes	Ընդունել բոլոր փոփոխությունները
 	Accept This Change	Ընդունել այս փոփոխությունը
@@ -374,7 +374,7 @@
 	Landscape	Լանդշաֆտային
 	Language	Լեզու
 	{language} (no dictionary)	{language} (բառարան չկա)
-	No spelling dictionary for {language} is installed, so it isn't checked. Lexicon looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	{language} լեզվի ուղղագրական բառարան տեղադրված չէ, ուստի տեքստը չի ստուգվում։ Lexicon-ը փնտրում է Hunspell {name} բառարանը WORDCRAFT_DICTIONARIES թղթապանակում և համակարգի սովորական վայրերում։
+	No spelling dictionary for {language} is installed, so it isn't checked. Lexicon looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	{language} լեզվի ուղղագրական բառարան տեղադրված չէ, ուստի տեքստը չի ստուգվում։ Լեքսիկոն-ը փնտրում է Hunspell {name} բառարանը WORDCRAFT_DICTIONARIES թղթապանակում և համակարգի սովորական վայրերում։
 	Lasso	Լասո
 	Last Column	Վերջին սյունակ
 	Last commit	Վերջին կոմիթ
@@ -820,7 +820,7 @@
 	Word Right	Մեկ բառ աջ
 	Word document (*.docx)	Word փաստաթուղթ (*.docx)
 	WordArt	WordArt
-	Lexicon	Lexicon
+	Lexicon	Լեքսիկոն
 	Words	Բառեր
 	Words only	Միայն բառերը
 	Wrap Text	Տեքստով շրջանցում
@@ -888,7 +888,7 @@
 	Stopped	Կանգնեցված է
 	Speed	Արագություն
 	Normal speed	Սովորական արագություն
-	AutoSave documents you have saved in Lexicon	Ինքնապահպանել Lexicon-ում արդեն պահպանված փաստաթղթերը
+	AutoSave documents you have saved in Lexicon	Ինքնապահպանել Լեքսիկոն-ում արդեն պահպանված փաստաթղթերը
 	AutoSave failed: {error}. Save the document to turn AutoSave back on.	Ինքնապահպանման սխալ՝ {error}։ Պահպանեք փաստաթուղթը՝ ինքնապահպանումը կրկին միացնելու համար։
 	Couldn't download {name}: {error}	Չհաջողվեց ներբեռնել {name}-ը՝ {error}
 	Do you want to save changes to {name}?	Պահպանե՞լ {name}-ի փոփոխությունները
@@ -1110,7 +1110,7 @@
 	Glow Colors	Լուսարձակման գույներ
 	Hide from style lists	Թաքցնել ոճերի ցուցակներից
 	Indents and Spacing	Նահանջներ և տարածություններ
-	Keep the password somewhere safe: without it nobody, Lexicon included, can open the document. Leave both boxes empty to remove the password.	Պահեք գաղտնաբառն ապահով տեղում՝ առանց դրա ոչ ոք, այդ թվում Lexicon-ը, չի կարող բացել փաստաթուղթը։ Թողեք երկու դաշտերն էլ դատարկ՝ գաղտնաբառը հեռացնելու համար։
+	Keep the password somewhere safe: without it nobody, Lexicon included, can open the document. Leave both boxes empty to remove the password.	Պահեք գաղտնաբառն ապահով տեղում՝ առանց դրա ոչ ոք, այդ թվում Լեքսիկոն-ը, չի կարող բացել փաստաթուղթը։ Թողեք երկու դաշտերն էլ դատարկ՝ գաղտնաբառը հեռացնելու համար։
 	Line breaking	Տողադարձ
 	Linked style (paragraph and character)	Կապված ոճ (պարբերության և նիշերի)
 	Manage Styles	Կառավարել ոճերը
@@ -1736,7 +1736,7 @@
 	Beginning of Word	Բառի սկիզբ
 	Blue:	Կապույտ՝
 	Border lines	Եզրագծի գծեր
-	Browse in Lexicon…	Դիտել Lexicon-ում…
+	Browse in Lexicon…	Դիտել Լեքսիկոն-ում…
 	Building Block Gallery Content Control	Բովանդակության կառավարման տարր՝ բլոկների պատկերասրահ
 	Can't be deleted	Չի կարող ջնջվել
 	Capitalize first letter of sentences	Նախադասությունների առաջին տառը՝ մեծատառ
@@ -1912,7 +1912,7 @@
 	Only comments can be added, except in regions marked editable.	Կարելի է միայն մեկնաբանություններ ավելացնել, բացառությամբ խմբագրելի նշված տիրույթների։
 	Only form fields can be filled in.	Կարելի է լրացնել միայն ձևաթղթերի դաշտերը։
 	Only the allowed styles can be applied.	Կարելի է կիրառել միայն թույլատրված ոճերը։
-	Open a file with Lexicon's own browser when the system file dialog doesn't appear.	Բացել ֆայլը Lexicon-ի ներկառուցված դիտարկիչով, երբ համակարգային ֆայլի պատուհանը չի հայտնվում։
+	Open a file with Lexicon's own browser when the system file dialog doesn't appear.	Բացել ֆայլը Լեքսիկոն-ի ներկառուցված դիտարկիչով, երբ համակարգային ֆայլի պատուհանը չի հայտնվում։
 	Ordinals (1st) as superscript	Դասական թվականները (1st)՝ վերտողով
 	Organizer	Կազմակերպիչ
 	Organizer…	Կազմակերպիչ…
@@ -2048,7 +2048,7 @@
 	The document is read only, except for regions marked editable.	Փաստաթուղթը միայն ընթերցման համար է, բացառությամբ խմբագրելի նշված տիրույթների։
 	The password is optional; without it anyone can stop the protection.	Գաղտնաբառը պարտադիր չէ, առանց դրա ցանկացած մեկը կարող է անջատել պաշտպանությունը։
 	The printer, two-sided printing and pages per sheet are chosen in that dialog.	Տպիչը, երկկողմանի տպումը և թերթում էջերի քանակն ընտրվում են այդ պատուհանում։
-	The system file dialog isn't available, so Lexicon shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Համակարգային ֆայլի պատուհանը հասանելի չէ, ուստի Lexicon-ը ցույց է տալիս իր սեփականը։ Համակարգայինն ստանալու համար տեղադրեք ֆայլի ընտրության պորտալ (օրինակ՝ xdg-desktop-portal-gtk) կամ zenity։
+	The system file dialog isn't available, so Lexicon shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Համակարգային ֆայլի պատուհանը հասանելի չէ, ուստի Լեքսիկոն-ը ցույց է տալիս իր սեփականը։ Համակարգայինն ստանալու համար տեղադրեք ֆայլի ընտրության պորտալ (օրինակ՝ xdg-desktop-portal-gtk) կամ zenity։
 	These marks show even when Show/Hide ¶ is off.	Այս նշանները երևում են, նույնիսկ երբ «Ցույց տալ/թաքցնել ¶»-ն անջատված է։
 	This document	Այս փաստաթուղթը
 	This folder can't be read: {error}	Չհաջողվեց կարդալ թղթապանակը՝ {error}
@@ -2092,15 +2092,15 @@
 	Undo 1 Action	Հետարկել 1 գործողություն
 	Undo {n} Actions	Հետարկել {n} գործողություն
 	Start-up	Գործարկում
-	Show the Start screen when Lexicon starts	Ցույց տալ մեկնարկային էկրանը Lexicon-ը գործարկելիս
-	On: Lexicon opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Միացված՝ Lexicon-ը բացվում է «Ֆայլ › Գլխավոր» էջով՝ դատարկ փաստաթղթով, ձևանմուշներով և վերջին փաստաթղթերով։ Անջատված՝ բացվում է դատարկ փաստաթուղթ։
-	Couldn't make Lexicon the default: {error}	Չհաջողվեց Lexicon-ը դարձնել լռելյայն՝ {error}
-	In Default apps, choose Lexicon for the document types you want it to open.	«Լռելյայն ծրագրեր» բաժնում ընտրեք Lexicon-ը այն փաստաթղթերի տեսակների համար, որոնք ուզում եք, որ այն բացի։
-	Make Lexicon the default for Word documents…	Դարձնել Lexicon-ը Word փաստաթղթերի լռելյայն ծրագիր…
-	Opens .docx, .doc, .rtf and .odt files and Word templates with Lexicon from now on.	Այսուհետ .docx, .doc, .rtf և .odt ֆայլերը և Word ձևանմուշները կբացվեն Lexicon-ով։
-	Opens Settings › Default apps, where you choose Lexicon for .docx and the other document types.	Բացում է «Կարգավորումներ › Լռելյայն ծրագրեր», որտեղ ընտրում եք Lexicon-ը .docx-ի և փաստաթղթերի մյուս տեսակների համար։
-	To open Word documents with Lexicon by default: select one in Finder, choose File › Get Info, pick Lexicon under Open with, then click Change All.	Word փաստաթղթերը լռելյայն Lexicon-ով բացելու համար՝ ընտրեք փաստաթուղթը Finder-ում, ընտրեք «File › Get Info», «Open with» բաժնում ընտրեք Lexicon-ը, ապա սեղմեք «Change All»։
-	Lexicon is now the default app for Word documents.	Lexicon-ն այժմ Word փաստաթղթերի լռելյայն ծրագիրն է։
+	Show the Start screen when Lexicon starts	Ցույց տալ մեկնարկային էկրանը Լեքսիկոն-ը գործարկելիս
+	On: Lexicon opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Միացված՝ Լեքսիկոն-ը բացվում է «Ֆայլ › Գլխավոր» էջով՝ դատարկ փաստաթղթով, ձևանմուշներով և վերջին փաստաթղթերով։ Անջատված՝ բացվում է դատարկ փաստաթուղթ։
+	Couldn't make Lexicon the default: {error}	Չհաջողվեց Լեքսիկոն-ը դարձնել լռելյայն՝ {error}
+	In Default apps, choose Lexicon for the document types you want it to open.	«Լռելյայն ծրագրեր» բաժնում ընտրեք Լեքսիկոն-ը այն փաստաթղթերի տեսակների համար, որոնք ուզում եք, որ այն բացի։
+	Make Lexicon the default for Word documents…	Դարձնել Լեքսիկոն-ը Word փաստաթղթերի լռելյայն ծրագիր…
+	Opens .docx, .doc, .rtf and .odt files and Word templates with Lexicon from now on.	Այսուհետ .docx, .doc, .rtf և .odt ֆայլերը և Word ձևանմուշները կբացվեն Լեքսիկոն-ով։
+	Opens Settings › Default apps, where you choose Lexicon for .docx and the other document types.	Բացում է «Կարգավորումներ › Լռելյայն ծրագրեր», որտեղ ընտրում եք Լեքսիկոն-ը .docx-ի և փաստաթղթերի մյուս տեսակների համար։
+	To open Word documents with Lexicon by default: select one in Finder, choose File › Get Info, pick Lexicon under Open with, then click Change All.	Word փաստաթղթերը լռելյայն Լեքսիկոն-ով բացելու համար՝ ընտրեք փաստաթուղթը Finder-ում, ընտրեք «File › Get Info», «Open with» բաժնում ընտրեք Լեքսիկոն-ը, ապա սեղմեք «Change All»։
+	Lexicon is now the default app for Word documents.	Լեքսիկոն-ն այժմ Word փաստաթղթերի լռելյայն ծրագիրն է։
 	Numerals:	Թվանշաններ՝
 	Numerals	Թվանշաններ
 	Hindi	Հինդի
@@ -2554,7 +2554,7 @@ preview	Title	Օրինակ
 	{name}   {height} × {width} mm	{name}   {height} × {width} մմ
 	{width} × {height} mm	{width} × {height} մմ
 	{kind}, {columns} × {rows}, {size} ({paper})	{kind}, {columns} × {rows}, {size} ({paper})
-	Researcher needs an online service; Lexicon keeps your documents offline.	Հետազոտողին անհրաժեշտ է առցանց ծառայություն, իսկ Lexicon-ը ձեր փաստաթղթերը պահում է անցանց։
+	Researcher needs an online service; Lexicon keeps your documents offline.	Հետազոտողին անհրաժեշտ է առցանց ծառայություն, իսկ Լեքսիկոն-ը ձեր փաստաթղթերը պահում է անցանց։
 	These settings will be used for new documents.	Այս կարգավորումները կօգտագործվեն նոր փաստաթղթերի համար։
 	can't split at the first row	հնարավոր չէ բաժանել առաջին տողով
 	select two or more cells to merge	ընտրեք երկու կամ ավելի բջիջ՝ միավորելու համար
@@ -2673,3 +2673,27 @@ preview	Title	Օրինակ
 	Armenian	Հայերեն
 	Georgian	Վրացերեն
 	Azerbaijani	Ադրբեջաներեն
+	Midnight	Կեսգիշեր
+	Black	Սև
+	White	Սպիտակ
+	Dark Blue	Մուգ կապույտ
+	Light Blue	Բաց կապույտ
+	Burgundy and Beige	Բորդո և բեժ
+	Forest	Անտառ
+	Excel	Էքսել
+	New Sheet	Նոր աղյուսակ
+	Totals Row	Ընդհանուրի տող
+	AutoSum	Ինքնագումար
+	Average	Միջին
+	Count	Քանակ
+	Max	Առավելագույն
+	Min	Նվազագույն
+	Calculation	Հաշվարկ
+	Calculate Now	Վերահաշվել
+	Put the caret in a table cell first.	Նախ կուրսորը տեղադրեք աղյուսակի բջջում։
+	The caret isn't in a table cell.	Կուրսորը աղյուսակի բջջում չէ։
+	Type a formula, e.g. =SUM(B2:B5)	Մուտքագրեք բանաձև, օրինակ =SUM(B2:B5)
+	Listening… Speak now; your words appear at the caret.	Լսում եմ… Խոսեք, տեքստը կհայտնվի կուրսորի մոտ։
+	Press the Windows logo key + H to dictate with Windows voice typing.	Սեղմեք Windows + H՝ Windows-ի ձայնային մուտքագրմամբ թելադրելու համար։
+	Press the Fn key twice (or Edit › Start Dictation) and turn on Dictation in System Settings › Keyboard.	Սեղմեք Fn ստեղնը երկու անգամ (կամ Խմբագրել › Սկսել թելադրանքը) և միացրեք թելադրանքը Համակարգի կարգավորումներ › Ստեղնաշար բաժնում։
+	Voice typing isn't available on this system.	Ձայնային մուտքագրումը հասանելի չէ այս համակարգում։

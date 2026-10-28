@@ -103,6 +103,11 @@ cp "$WORK/bin/wordcraft" "$APP/Contents/MacOS/Lexicon"
 cp "$ROOT/assets/app-icon/wordcraft.icns" "$APP/Contents/Resources/Lexicon.icns"
 # Licences of the embedded craft-fonts fonts (only when built with CRAFT_FONTS_DIR).
 copy_font_licences "$APP/Contents/Resources"
+# The app's name in Finder, the Dock and the menu bar: Лексикон in Russian, Լեքսիկոն in Armenian.
+for loc in "en:Lexicon" "ru:Лексикон" "hy:Լեքսիկոն"; do
+  mkdir -p "$APP/Contents/Resources/${loc%%:*}.lproj"
+  printf 'CFBundleDisplayName = "%s";\nCFBundleName = "%s";\n' "${loc#*:}" "${loc#*:}" > "$APP/Contents/Resources/${loc%%:*}.lproj/InfoPlist.strings"
+done
 sed -e "s/@VERSION@/$VERSION/g" -e "s/@SHORT_VERSION@/$SHORT_VERSION/g" \
   -e "s/@BUILD_SHA@/${WORDCRAFT_BUILD_SHA:-unknown}/g" \
   "$HERE/Info.plist.in" >"$APP/Contents/Info.plist"

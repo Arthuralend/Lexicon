@@ -2293,3 +2293,27 @@
 	Armenian	亞美尼亞語
 	Georgian	喬治亞語
 	Azerbaijani	亞塞拜然語
+	Midnight	午夜
+	Black	黑色
+	White	白色
+	Dark Blue	深藍
+	Light Blue	淺藍
+	Burgundy and Beige	酒紅與米色
+	Forest	森林
+	Excel	Excel
+	New Sheet	新增表格
+	Totals Row	合計列
+	AutoSum	自動加總
+	Average	平均值
+	Count	計數
+	Max	最大值
+	Min	最小值
+	Calculation	計算
+	Calculate Now	立即計算
+	Put the caret in a table cell first.	請先將游標放在表格儲存格中。
+	The caret isn't in a table cell.	游標不在表格儲存格中。
+	Type a formula, e.g. =SUM(B2:B5)	輸入公式，例如 =SUM(B2:B5)
+	Listening… Speak now; your words appear at the caret.	正在聆聽… 請說話，文字會出現在游標處。
+	Press the Windows logo key + H to dictate with Windows voice typing.	按 Windows 標誌鍵 + H，使用 Windows 語音輸入進行聽寫。
+	Press the Fn key twice (or Edit › Start Dictation) and turn on Dictation in System Settings › Keyboard.	按兩次 Fn 鍵（或「編輯」›「開始聽寫」），並在「系統設定」›「鍵盤」中開啟聽寫。
+	Voice typing isn't available on this system.	此系統不支援語音輸入。

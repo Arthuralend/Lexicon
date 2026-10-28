@@ -244,6 +244,9 @@ fn services(file_dialog: file_dialogs::Hook, ctx: &egui::Context) -> Services {
         print_native: Some(print::submit()),
         clipboard_picture: Some(Box::new(clipboard::picture)),
         make_default_app: default_apps::hook(),
+        // Home › Dictate: the system's Dictation on macOS (the words arrive as typed text).
+        #[cfg(target_os = "macos")]
+        dictate: Some(Box::new(|_lang: &str| if winit::platform::macos::start_dictation() { Ok(()) } else { Err(String::new()) })),
         animations_enabled: Some(animations::hook(ctx)),
         clipboard_text: Some(Box::new(clipboard::text)),
         clipboard_html: Some(Box::new(clipboard::html)),
@@ -424,6 +427,11 @@ fn main() -> eframe::Result {
             let (file_dialog, dialogs) = file_dialogs::hook(&cc.egui_ctx);
             let mut session = Session::new(doc);
             session.system_region = region;
+            // Lexicon: new documents start with a 1 cm first-line indent.
+            session.new_first_line_indent = Some(wordcraft_engine::NEW_FIRST_LINE_INDENT);
+            if !sample {
+                wordcraft_engine::set_first_line_indent(&mut session.doc, wordcraft_engine::NEW_FIRST_LINE_INDENT);
+            }
             let mut app = WordApp::new(session, services(file_dialog, &cc.egui_ctx));
             load_prefs(&mut app);
             load_user_dictionary(&mut app);

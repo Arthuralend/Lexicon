@@ -529,3 +529,21 @@ pub enum OptionAsAlt {
     #[default]
     None,
 }
+
+/// Lexicon: start the system's Dictation, as Edit › Start Dictation does. The words then arrive
+/// in the focused window as text input (`Ime::Commit`). `false` off the main thread or when no
+/// responder handled the action.
+pub fn start_dictation() -> bool {
+    use objc2::runtime::AnyObject;
+    use objc2::{msg_send, sel};
+    use objc2_app_kit::NSApplication;
+    use objc2_foundation::MainThreadMarker;
+    let Some(mtm) = MainThreadMarker::new() else {
+        return false;
+    };
+    let app = NSApplication::sharedApplication(mtm);
+    let none: Option<&AnyObject> = None;
+    // SAFETY: `sendAction:to:from:` takes a selector and two optional objects and returns BOOL;
+    // a nil target sends the action along the responder chain.
+    unsafe { msg_send![&app, sendAction: sel!(startDictation:), to: none, from: none] }
+}

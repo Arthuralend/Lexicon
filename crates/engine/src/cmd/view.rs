@@ -13,6 +13,10 @@ fn toggle(s: &mut Session, v: &Value, f: fn(&mut crate::ViewState) -> &mut bool)
     Ok(json!({"value": *f(&mut s.view)}))
 }
 
+/// The interface themes the front end knows (Lexicon adds its own palettes to light, dark and
+/// system).
+pub const INTERFACE_THEMES: [&str; 10] = ["midnight", "system", "light", "dark", "black", "white", "navy", "sky", "burgundy", "forest"];
+
 pub fn specs() -> Vec<CommandSpec> {
     vec![
         CommandSpec::new("view.marks", "Show/Hide ¶", "Home › Paragraph", |s, v| {
@@ -80,15 +84,15 @@ pub fn specs() -> Vec<CommandSpec> {
                 Ok(json!({"value": "toggle"}))
             }
             Some(Value::String(name)) => match name.as_str() {
-                "light" | "dark" | "system" => {
+                n if INTERFACE_THEMES.contains(&n) => {
                     s.ui_requests.push(json!({"interfaceTheme": name}));
                     Ok(json!({"value": name}))
                 }
-                _ => Err(CmdError::Params("interface theme: light|dark|system".into())),
+                _ => Err(CmdError::Params(format!("interface theme: {}", INTERFACE_THEMES.join("|")))),
             },
-            _ => Err(CmdError::Params("interface theme: light|dark|system".into())),
+            _ => Err(CmdError::Params(format!("interface theme: {}", INTERFACE_THEMES.join("|")))),
         })
-        .params(r#"{"value"?: "light" | "dark" | "system"; without it, toggles light and dark}"#)
+        .params(r#"{"value"?: "midnight" | "system" | "light" | "dark" | "black" | "white" | "navy" | "sky" | "burgundy" | "forest"; without it, toggles light and dark}"#)
         .pure(),
         CommandSpec::new("view.stylesPane", "Styles Pane", "Home › Styles", |s, v| toggle(s, v, |x| &mut x.styles_pane)).pure(),
         CommandSpec::new("view.commentsPane", "Comments Pane", "Review › Comments", |s, v| toggle(s, v, |x| &mut x.comments_pane)).pure(),

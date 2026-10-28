@@ -352,6 +352,9 @@ impl EditSnapshot {
 /// An editing session.
 pub struct Session {
     pub doc: Document,
+    /// Lexicon: the first-line indent (points) new blank documents start with; `None` keeps
+    /// Word's none. The app sets it to 1 cm ([`Session::blank_document`]).
+    pub new_first_line_indent: Option<f32>,
     pub sel: Selection,
     pub view: ViewState,
     /// Formatting picked with a collapsed caret, applied to the next typed text.
@@ -630,6 +633,7 @@ impl Session {
         let bib_style = doc_bib_style(&doc);
         Session {
             doc,
+            new_first_line_indent: None,
             sel: Selection::caret(start),
             view: ViewState::default(),
             pending: None,
@@ -1098,7 +1102,11 @@ impl Session {
     /// A new blank document (the Normal template) on the region's paper: Letter in the US and
     /// other Letter regions, A4 elsewhere (#838). Margins stay 2.54 cm (1") all round.
     pub fn blank_document(&self) -> Document {
-        blank_document(&self.region())
+        let mut d = blank_document(&self.region());
+        if let Some(indent) = self.new_first_line_indent {
+            set_first_line_indent(&mut d, indent);
+        }
+        d
     }
 
     /// Replace the document (open/new).
@@ -1146,6 +1154,7 @@ impl Session {
     pub fn edit_snapshot(&self) -> EditSnapshot {
         let Session {
             doc,
+            new_first_line_indent: _,
             sel,
             view: _,
             pending: _,
@@ -1493,6 +1502,21 @@ impl Session {
         }
         let (a, b) = self.sel.ordered();
         self.doc.copy_range(&a, &b).plain_text()
+    }
+}
+
+/// Lexicon's first-line indent for new documents: 1 cm, in points.
+pub const NEW_FIRST_LINE_INDENT: f32 = wordcraft_geom::PT_PER_CM;
+
+/// Lexicon: give a blank document's paragraphs a first-line indent (points, clamped), which new
+/// paragraphs typed after them carry on.
+pub fn set_first_line_indent(d: &mut Document, indent: f32) {
+    let indent = if indent.is_finite() { indent.clamp(-1584.0, 1584.0) } else { 0.0 };
+    for path in d.para_paths(StoryRef::Body) {
+        if let Ok(p) = d.para_mut(StoryRef::Body, &path) {
+            p.props.indent_first = Some(indent);
+            p.touch();
+        }
     }
 }
 

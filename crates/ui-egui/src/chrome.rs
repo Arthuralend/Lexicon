@@ -379,8 +379,8 @@ pub fn title_bar(app: &mut WordApp, ui: &mut Ui) {
             });
             // Centred title.
             let title = if !app.has_document() {
-                // No document open (#1129): the app's name alone.
-                "Lexicon".to_string()
+                // No document open (#1129): the app's name alone (Лексикон in Russian).
+                tl!("Lexicon").to_string()
             } else {
                 format!(
                     "{} — {}",

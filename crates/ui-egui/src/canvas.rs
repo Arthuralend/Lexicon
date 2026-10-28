@@ -2689,6 +2689,9 @@ fn rulers(app: &mut WordApp, ui: &mut Ui, h: Rect, v: Rect, rects: &[Rect], layo
         // spans the text area, so a border marker keeps its drag) and before the indent markers,
         // which keep the pointer where they overlap.
         crate::table_ruler::columns(app, ui, layout, pi, bar, x0, scale);
+        // Indents snap to the ruler's own marks: an eighth of a centimetre with metric units (so
+        // 1 cm is reachable), a sixteenth of an inch with inches.
+        let snap = |pt: f32| if step > 0.0 { (pt / step).round() * step } else { pt };
         // Dragging the left-indent marker.
         let id = ui.id().with("ruler_left");
         let mr = Rect::from_center_size(pos2(left, bar.max.y - 3.0), vec2(12.0, 12.0));
@@ -2697,7 +2700,7 @@ fn rulers(app: &mut WordApp, ui: &mut Ui, h: Rect, v: Rect, rects: &[Rect], layo
             && let Some(pp) = r.interact_pointer_pos()
         {
             let pt = dist_at(pp.x).clamp(-col_x, (w - 18.0).max(-col_x));
-            let snapped = (pt / 4.5).round() * 4.5;
+            let snapped = snap(pt);
             if !r.drag_started() {
                 app.session.join_next_undo();
             }
@@ -2712,7 +2715,7 @@ fn rulers(app: &mut WordApp, ui: &mut Ui, h: Rect, v: Rect, rects: &[Rect], layo
             if !r.drag_started() {
                 app.session.join_next_undo();
             }
-            let _ = app.run("para.indents", json!({"firstLine": (pt / 4.5).round() * 4.5}));
+            let _ = app.run("para.indents", json!({"firstLine": snap(pt)}));
         }
         let rr = Rect::from_center_size(pos2(right, bar.max.y - 3.0), vec2(12.0, 12.0));
         let r = ui.interact(rr, ui.id().with("ruler_right"), Sense::click_and_drag());
@@ -2723,7 +2726,7 @@ fn rulers(app: &mut WordApp, ui: &mut Ui, h: Rect, v: Rect, rects: &[Rect], layo
             if !r.drag_started() {
                 app.session.join_next_undo();
             }
-            let _ = app.run("para.indents", json!({"right": (pt / 4.5).round() * 4.5}));
+            let _ = app.run("para.indents", json!({"right": snap(pt)}));
         }
     }
     // Vertical.

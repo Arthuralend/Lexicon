@@ -8,3 +8,9 @@ still resolves the pointer icon. Upstream treats every motion event as a touch, 
 or the wheel did nothing in Lexicon on Android. Other platforms are unchanged.
 
 Root `Cargo.toml` uses it through `[patch.crates-io]`.
+
+## macOS: start Dictation
+
+`platform::macos::start_dictation()` sends `startDictation:` along the responder chain (what
+Edit › Start Dictation does), so Lexicon's Dictate button opens the system's Dictation; the words
+arrive through the view's `NSTextInputClient` as `Ime::Commit`.
