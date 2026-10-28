@@ -21,20 +21,39 @@ APP_ID = "ai.storyteller.wordcraft"
 # The artwork on a 512 grid, back to front. "rrect": (box, radius, top colour, bottom colour);
 # "poly": (points, colour).
 TILE_R = 112
-TILE = ((0xFF, 0xFF, 0xFF), (0xE4, 0xE9, 0xF1))
-BACKGROUND = "#EEF2F8"  # Android's adaptive-icon background
-LETTER = [(x + 8, y - 6) for x, y in [(150, 196), (252, 196), (252, 330), (218, 330), (218, 230), (184, 230), (183, 262), (179, 290), (170, 310), (156, 324), (136, 331), (118, 332), (118, 302), (130, 298), (140, 288), (146, 270), (149, 240)]]
+TILE = ((0x4C, 0xB6, 0xFF), (0x0A, 0x5A, 0xDE))
+BACKGROUND = "#1E7BF0"  # Android's adaptive-icon background
+LETTER = [(177, 225), (259, 225), (259, 354), (226, 354), (226, 253), (214, 253), (205, 300), (192, 333), (172, 351), (150, 355), (141, 355), (141, 327), (152, 324), (162, 315), (168, 295), (173, 262)]
 SHAPES = [
-    ("rrect", (186, 112, 424, 376), 24, (0x7A, 0xA6, 0xF7), (0x4A, 0x7C, 0xEB)),  # the page behind
-    ("rrect", (226, 146, 446, 408), 20, (0xFB, 0xFC, 0xFE), (0xEC, 0xF0, 0xF6)),  # the page
-    ("rrect", (306, 206, 414, 222), 8, (0x6F, 0x9B, 0xF2), (0x6F, 0x9B, 0xF2)),
-    ("rrect", (306, 246, 414, 262), 8, (0x6F, 0x9B, 0xF2), (0x6F, 0x9B, 0xF2)),
-    ("rrect", (306, 286, 414, 302), 8, (0x6F, 0x9B, 0xF2), (0x6F, 0x9B, 0xF2)),
-    ("rrect", (306, 326, 384, 342), 8, (0x6F, 0x9B, 0xF2), (0x6F, 0x9B, 0xF2)),
-    ("rrect", (64, 176, 150, 392), 20, (0x4F, 0x86, 0xF0), (0x2F, 0x63, 0xD8)),  # the tab behind the tile
-    ("rrect", (84, 140, 300, 376), 28, (0x2F, 0x5E, 0xDA), (0x16, 0x36, 0x96)),  # the letter tile
+    ("rrect", (195, 108, 433, 365), 26, (0x86, 0xDD, 0xFF), (0x3A, 0x98, 0xF4)),  # the page behind
+    ("rrect", (192, 152, 418, 420), 22, (0xFF, 0xFF, 0xFF), (0xE0, 0xEC, 0xFB)),  # the page
+    ("rrect", (314, 212, 390, 228), 8, (0x6C, 0xB0, 0xF8), (0x6C, 0xB0, 0xF8)),
+    ("rrect", (314, 251, 390, 267), 8, (0x6C, 0xB0, 0xF8), (0x6C, 0xB0, 0xF8)),
+    ("rrect", (314, 290, 390, 306), 8, (0x6C, 0xB0, 0xF8), (0x6C, 0xB0, 0xF8)),
+    ("rrect", (314, 328, 365, 344), 8, (0x6C, 0xB0, 0xF8), (0x6C, 0xB0, 0xF8)),
+    ("rrect", (73, 182, 150, 384), 22, (0x1E, 0x90, 0xFF), (0x0A, 0x58, 0xE0)),  # the tab behind the tile
+    ("rrect", (111, 152, 313, 402), 28, (0x0E, 0x6A, 0xE6), (0x07, 0x38, 0x9C)),  # the letter tile
     ("poly", LETTER, (0xFF, 0xFF, 0xFF), None, None),
 ]
+
+
+def _fit(shapes, k=1.18, cx=253, cy=264):
+    """Scale the artwork about its centre to fill the tile."""
+    def t(x, y):
+        return (round(256 + (x - cx) * k), round(256 + (y - cy) * k))
+
+    out = []
+    for kind, geo, a, b, c in shapes:
+        if kind == "rrect":
+            x0, y0 = t(geo[0], geo[1])
+            x1, y1 = t(geo[2], geo[3])
+            out.append((kind, (x0, y0, x1, y1), round(a * k), b, c))
+        else:
+            out.append((kind, [t(x, y) for x, y in geo], a, b, c))
+    return out
+
+
+SHAPES = _fit(SHAPES)
 SHADOWED = {1, 7}  # the page and the letter tile cast soft shadows
 
 
@@ -62,10 +81,10 @@ def svg():
 
 def android_foreground():
     """The adaptive icon's foreground (108 dp, content inside the 66 dp safe zone)."""
-    s = 0.17
+    s = 0.15
 
     def m(v):
-        return round(54 + (v - 262) * s, 2)
+        return round(54 + (v - 256) * s, 2)
 
     paths = []
     for kind, geo, a, b, c in SHAPES:
