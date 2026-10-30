@@ -10,7 +10,7 @@
 
 use std::collections::{BTreeMap, HashMap};
 
-use egui::{Align2, Color32, Pos2, Rect, Sense, Stroke, Ui, pos2, vec2};
+use egui::{Align2, Pos2, Rect, Sense, Stroke, Ui, pos2, vec2};
 use serde_json::{Value, json};
 use wordcraft_engine::sheet;
 
@@ -60,6 +60,17 @@ pub struct Workbook {
     reveal: bool,
     /// A pointer drag extending the selection.
     dragging: bool,
+    /// Pointing at cells while typing a formula: where the reference went in the text, and the
+    /// cell the drag started on.
+    pick: Option<(usize, Cell)>,
+    /// The cells the reference being pointed at covers (drawn around them).
+    pick_range: Option<(Cell, Cell)>,
+    /// The formula bar had the keyboard on the last frame; give it back after pointing.
+    bar_had_focus: bool,
+    refocus_bar: bool,
+    refocus_editor: bool,
+    /// A column whose right edge is being dragged: the column, its width and the pointer's x then.
+    resizing: Option<(usize, f32, f32)>,
 }
 
 impl Workbook {
@@ -498,6 +509,12 @@ fn from_document(app: &mut WordApp) -> Result<Value, String> {
     Ok(json!({"rows": app.calc.used().0}))
 }
 
+/// Whether a file opens in Calculations rather than as a document.
+pub fn is_spreadsheet(path: &str) -> bool {
+    let lower = path.to_ascii_lowercase();
+    [".xlsx", ".xlsm", ".xls", ".ods"].iter().any(|e| lower.ends_with(e))
+}
+
 /// Open a spreadsheet file into the sheet.
 pub(crate) fn open_path(app: &mut WordApp, path: &str) -> Result<Value, String> {
     let bytes = wordcraft_engine::io::read_file(path)?;
@@ -513,6 +530,11 @@ pub(crate) fn open_path(app: &mut WordApp, path: &str) -> Result<Value, String> 
     // Only an .xlsx is saved back in place; other formats are saved as a new workbook.
     app.calc.path = lower.ends_with(".xlsx").then(|| path.to_string());
     app.ui.tab = "Calculations".into();
+    app.ui.backstage = false;
+    // Opened from the Start screen or with no document: the window needs one behind the sheet.
+    if !app.has_document() {
+        let _ = app.execute("file.new", json!({}));
+    }
     Ok(json!({"opened": path}))
 }
 
@@ -584,8 +606,54 @@ pub(crate) fn tab(app: &mut WordApp, ui: &mut Ui) {
     });
 }
 
+/// Whether `s` is one cell reference or range (`B3`, `A1:C4`).
+fn is_reference(s: &str) -> bool {
+    let one = |p: &str| {
+        let letters = p.chars().take_while(char::is_ascii_alphabetic).count();
+        letters > 0 && letters <= 3 && p.len() > letters && p.chars().skip(letters).all(|c| c.is_ascii_digit())
+    };
+    match s.split_once(':') {
+        Some((a, b)) => one(a) && one(b),
+        None => one(s),
+    }
+}
+
+/// A formula being typed takes a pointed-at reference here: right after `=`, an operator, `(`,
+/// a separator, or in place of the reference pointed at last.
+fn pick_slot(text: &str, pick: Option<(usize, Cell)>) -> Option<usize> {
+    if !text.starts_with('=') {
+        return None;
+    }
+    if let Some((start, _)) = pick
+        && text.get(start..).is_some_and(is_reference)
+    {
+        return Some(start);
+    }
+    text.trim_end().ends_with(['=', '+', '-', '*', '/', '^', '(', ',', ';', ':', '<', '>', '&', '%']).then_some(text.len())
+}
+
+/// Put the reference to `cur` (a range from the drag's first cell when `extend`) into `text`.
+fn point_at(text: &mut String, pick: &mut Option<(usize, Cell)>, range: &mut Option<(Cell, Cell)>, cur: Cell, extend: bool) -> bool {
+    let Some(start) = pick_slot(text, *pick) else { return false };
+    let anchor = match (*pick, extend) {
+        (Some((_, a)), true) => a,
+        _ => cur,
+    };
+    let (r0, c0) = (anchor.0.min(cur.0), anchor.1.min(cur.1));
+    let (r1, c1) = (anchor.0.max(cur.0), anchor.1.max(cur.1));
+    let reference =
+        if (r0, c0) == (r1, c1) { sheet::cell_name(r0, c0) } else { format!("{}:{}", sheet::cell_name(r0, c0), sheet::cell_name(r1, c1)) };
+    text.truncate(start);
+    text.push_str(&reference);
+    *pick = Some((start, anchor));
+    *range = Some(((r0, c0), (r1, c1)));
+    true
+}
+
 /// Commit the in-cell editor.
 fn commit_edit(app: &mut WordApp) {
+    app.calc.pick = None;
+    app.calc.pick_range = None;
     if let Some(text) = app.calc.editing.take() {
         let at = app.calc.sel;
         if text != app.calc.raw(at) {
@@ -666,6 +734,15 @@ fn keys(app: &mut WordApp, ctx: &egui::Context) {
     }
 }
 
+/// Put a text field's cursor after its last character.
+fn cursor_to_end(ctx: &egui::Context, id: egui::Id, text: &str) {
+    if let Some(mut state) = egui::TextEdit::load_state(ctx, id) {
+        let end = egui::text::CCursor::new(text.chars().count());
+        state.cursor.set_char_range(Some(egui::text::CCursorRange::one(end)));
+        state.store(ctx, id);
+    }
+}
+
 /// The formula bar: the active cell's name and what it holds.
 fn formula_bar(app: &mut WordApp, ui: &mut Ui, t: &Tokens) {
     let at = app.calc.sel;
@@ -687,7 +764,21 @@ fn formula_bar(app: &mut WordApp, ui: &mut Ui, t: &Tokens) {
         });
         ui.label(egui::RichText::new("fx").italics().strong().color(t.text_dim));
         let w = (ui.available_width() - 8.0).max(80.0);
-        let r = ui.add(egui::TextEdit::singleline(&mut app.calc.bar).hint_text(crate::tl!("Type a formula, e.g. =SUM(B2:B5)")).desired_width(w));
+        let id = egui::Id::new("calc_formula_bar");
+        let r =
+            ui.add(egui::TextEdit::singleline(&mut app.calc.bar).id(id).hint_text(crate::tl!("Type a formula, e.g. =SUM(B2:B5)")).desired_width(w));
+        if std::mem::take(&mut app.calc.refocus_bar) {
+            r.request_focus();
+            cursor_to_end(ui.ctx(), id, &app.calc.bar);
+        }
+        if r.changed() {
+            app.calc.pick = None;
+            app.calc.pick_range = None;
+        }
+        app.calc.bar_had_focus = r.has_focus() || r.lost_focus();
+        if !app.calc.bar_had_focus && app.calc.editing.is_none() {
+            app.calc.pick_range = None;
+        }
         if r.lost_focus() && ui.input(|i| i.key_pressed(egui::Key::Enter)) {
             let text = app.calc.bar.trim().to_string();
             app.calc.snapshot();
@@ -766,6 +857,12 @@ pub(crate) fn show(app: &mut WordApp, ui: &mut Ui) {
         // The active cell.
         let active = cell_rect(sel.0, sel.1);
         painter.rect_stroke(active, 0.0, Stroke::new(2.0, t.accent), egui::StrokeKind::Inside);
+        // The cells a formula being typed points at.
+        if let Some((a, b)) = app.calc.pick_range {
+            let r = cell_rect(a.0, a.1).union(cell_rect(b.0, b.1));
+            painter.rect_filled(r, 0.0, t.blue.gamma_multiply(0.12));
+            painter.rect_stroke(r, 0.0, Stroke::new(2.0, t.blue), egui::StrokeKind::Inside);
+        }
         // Headers stay at the top and left of the view.
         let top = origin.y + vp.min.y;
         let left = origin.x + vp.min.x;
@@ -796,7 +893,66 @@ pub(crate) fn show(app: &mut WordApp, ui: &mut Ui) {
             let c = (!in_row_head).then(|| col_at(local.x - HEAD_W));
             Some((r, c))
         };
+        // Typing a formula: a click or drag on cells puts their reference into it (Excel's
+        // pointing), and the text field keeps the keyboard.
+        let pressed = resp.clicked() || resp.drag_started();
+        let dragged_on = resp.dragged() && !resp.drag_started() && app.calc.pick.is_some();
+        let mut pointed = false;
         if let Some(p) = resp.interact_pointer_pos()
+            && (pressed || dragged_on)
+            && let Some((Some(r), Some(c))) = hit(p)
+        {
+            let calc = &mut app.calc;
+            if let Some(text) = calc.editing.as_mut() {
+                if point_at(text, &mut calc.pick, &mut calc.pick_range, (r, c), dragged_on) {
+                    calc.refocus_editor = true;
+                    pointed = true;
+                }
+            } else if calc.bar_had_focus && point_at(&mut calc.bar, &mut calc.pick, &mut calc.pick_range, (r, c), dragged_on) {
+                calc.refocus_bar = true;
+                pointed = true;
+            }
+        }
+        // Dragging a column header's right edge sets the column's width.
+        let edge_at = |p: Pos2| -> Option<usize> {
+            if p.y > top + HEAD_H || p.x < left + HEAD_W {
+                return None;
+            }
+            let x = p.x - origin.x - HEAD_W;
+            let c = col_at(x);
+            let right = edges_ref.get(c + 1).copied().unwrap_or(0.0);
+            let left_edge = edges_ref.get(c).copied().unwrap_or(0.0);
+            if (right - x).abs() <= 4.0 {
+                Some(c)
+            } else if (x - left_edge).abs() <= 4.0 && c > 0 {
+                Some(c - 1)
+            } else {
+                None
+            }
+        };
+        if let Some(h) = resp.hover_pos()
+            && edge_at(h).is_some()
+        {
+            ui.ctx().set_cursor_icon(egui::CursorIcon::ResizeColumn);
+        }
+        if resp.drag_started()
+            && let Some(p) = resp.interact_pointer_pos()
+            && let Some(c) = edge_at(p)
+        {
+            app.calc.resizing = Some((c, app.calc.width(c), p.x));
+        }
+        if let Some((c, w0, x0)) = app.calc.resizing {
+            pointed = true;
+            if let Some(p) = resp.interact_pointer_pos() {
+                app.calc.widths.insert(c, (w0 + p.x - x0).clamp(24.0, 800.0));
+                ui.ctx().set_cursor_icon(egui::CursorIcon::ResizeColumn);
+            }
+            if resp.drag_stopped() || !resp.dragged() {
+                app.calc.resizing = None;
+            }
+        }
+        if !pointed
+            && let Some(p) = resp.interact_pointer_pos()
             && (resp.clicked() || resp.drag_started() || (resp.dragged() && app.calc.dragging))
             && let Some((r, c)) = hit(p)
         {
@@ -837,7 +993,7 @@ pub(crate) fn show(app: &mut WordApp, ui: &mut Ui) {
         if resp.drag_stopped() {
             app.calc.dragging = false;
         }
-        if resp.double_clicked() {
+        if resp.double_clicked() && !pointed {
             app.calc.editing = Some(app.calc.raw(app.calc.sel).to_string());
             app.calc.edit_started = true;
         }
@@ -850,6 +1006,15 @@ pub(crate) fn show(app: &mut WordApp, ui: &mut Ui) {
             let mut text = app.calc.editing.take().unwrap_or_default();
             let id = ui.id().with("calc_cell_editor");
             let out = ui.put(er, egui::TextEdit::singleline(&mut text).id(id).margin(vec2(3.0, 2.0)).desired_width(w));
+            let refocus = std::mem::take(&mut app.calc.refocus_editor);
+            if refocus {
+                out.request_focus();
+                cursor_to_end(ui.ctx(), id, &text);
+            }
+            if out.changed() {
+                app.calc.pick = None;
+                app.calc.pick_range = None;
+            }
             if std::mem::take(&mut app.calc.edit_started) {
                 out.request_focus();
                 // The typed character starts the text: put the cursor after it.
@@ -863,6 +1028,11 @@ pub(crate) fn show(app: &mut WordApp, ui: &mut Ui) {
                 ui.input(|i| (i.key_pressed(egui::Key::Enter), i.key_pressed(egui::Key::Tab), i.key_pressed(egui::Key::Escape), i.modifiers.shift));
             if esc {
                 app.calc.editing = None;
+                app.calc.pick = None;
+                app.calc.pick_range = None;
+            } else if out.lost_focus() && refocus {
+                // Focus went to the grid for the pointing click: keep editing.
+                app.calc.editing = Some(text);
             } else if out.lost_focus() {
                 app.calc.editing = Some(text);
                 commit_edit(app);
@@ -875,7 +1045,6 @@ pub(crate) fn show(app: &mut WordApp, ui: &mut Ui) {
                 app.calc.editing = Some(text);
             }
         }
-        let _ = Color32::TRANSPARENT;
     });
 }
 
@@ -910,6 +1079,49 @@ mod tests {
         assert_eq!(a.calc.raw((2, 0)), "a");
         command(&mut a, "ui.calc.undo", &json!({})).unwrap();
         assert_eq!(a.calc.raw((1, 0)), "a");
+    }
+
+    #[test]
+    fn pointing_at_cells_while_typing_a_formula() {
+        let (mut pick, mut range) = (None, None);
+        let mut text = "=".to_string();
+        assert!(point_at(&mut text, &mut pick, &mut range, (1, 1), false));
+        assert_eq!(text, "=B2");
+        // Dragging on makes it a range; pointing again replaces it.
+        assert!(point_at(&mut text, &mut pick, &mut range, (3, 2), true));
+        assert_eq!(text, "=B2:C4");
+        assert_eq!(range, Some(((1, 1), (3, 2))));
+        assert!(point_at(&mut text, &mut pick, &mut range, (0, 0), false));
+        assert_eq!(text, "=A1");
+        text.push('+');
+        pick = None;
+        assert!(point_at(&mut text, &mut pick, &mut range, (4, 0), false));
+        assert_eq!(text, "=A1+A5");
+        // After a finished reference a click doesn't point (it ends the editing).
+        pick = None;
+        assert!(!point_at(&mut text, &mut pick, &mut range, (5, 0), false));
+        let mut plain = "hello".to_string();
+        assert!(!point_at(&mut plain, &mut None, &mut None, (0, 0), false));
+        let mut sum = "=SUM(".to_string();
+        assert!(point_at(&mut sum, &mut None, &mut None, (2, 3), false));
+        assert_eq!(sum, "=SUM(D3");
+    }
+
+    #[test]
+    fn workbooks_open_from_file_open() {
+        let mut a = app();
+        let mut wb = Workbook::default();
+        wb.load(vec![vec!["a".into(), "=1+1".into()]], false);
+        let dir = std::env::temp_dir().join(format!("lexicon-open-{}", std::process::id()));
+        let _ = std::fs::create_dir_all(&dir);
+        let path = dir.join("book.xlsx");
+        std::fs::write(&path, wb.to_xlsx().unwrap()).unwrap();
+        let doc_before = a.session.document_id();
+        a.run("file.open", json!({"path": path.to_string_lossy()})).unwrap();
+        assert_eq!(a.ui.tab, "Calculations");
+        assert_eq!(a.calc.display((0, 1)), "2");
+        assert_eq!(a.session.document_id(), doc_before, "the document stays");
+        let _ = std::fs::remove_dir_all(dir);
     }
 
     #[test]

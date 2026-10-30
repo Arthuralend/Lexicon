@@ -1221,6 +1221,18 @@ fn home(app: &mut WordApp, ui: &mut Ui) {
     group(ui, "Voice", None, app, |ui, app| {
         let on = app.dictation.active;
         crate::widgets::big_toggle(ui, app, "dictate", "Dictate", "tools.dictate", on);
+        // The language to listen for.
+        let current = crate::dictation::LANGUAGES
+            .iter()
+            .find(|(c, _)| *c == app.ui.dictation_language)
+            .map_or_else(|| tl!("Interface language").to_string(), |(_, n)| (*n).to_string());
+        app.want_script_fonts = true;
+        egui::ComboBox::from_id_salt("dictation_language").selected_text(current).width(110.0).show_ui(ui, |ui| {
+            ui.selectable_value(&mut app.ui.dictation_language, String::new(), tl!("Interface language"));
+            for (code, name) in crate::dictation::LANGUAGES {
+                ui.selectable_value(&mut app.ui.dictation_language, code.to_string(), name);
+            }
+        });
     });
     group(ui, "Editor", None, app, |ui, app| {
         big(ui, app, "editor", "Editor", "review.spelling", json!({}), false);

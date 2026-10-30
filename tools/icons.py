@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Draw Lexicon's app icon and write every file the desktop builds use (needs Pillow).
 
-The artwork, original to Lexicon (from the owner's sketch): a page with lines of text behind a
-blue tile carrying the letter Л, on a light tile. It is drawn here in code and also written as
+The artwork follows the owner's picture: a blue-to-pink document with lines of text and a blue
+tile with the letter Л. It is drawn here in code and also written as
 assets/app-icon/wordcraft.svg and as Android's adaptive-icon foreground
 (android/app/src/main/res/drawable/ic_launcher_foreground.xml). The file names keep
 WordCraft's, so the build scripts and packaging find them unchanged.
@@ -20,106 +20,117 @@ APP_ID = "ai.storyteller.wordcraft"
 
 # The artwork on a 512 grid, back to front. "rrect": (box, radius, top colour, bottom colour);
 # "poly": (points, colour).
-TILE_R = 112
-TILE = ((0x4C, 0xB6, 0xFF), (0x0A, 0x5A, 0xDE))
-BACKGROUND = "#1E7BF0"  # Android's adaptive-icon background
-LETTER = [(177, 225), (259, 225), (259, 354), (226, 354), (226, 253), (214, 253), (205, 300), (192, 333), (172, 351), (150, 355), (141, 355), (141, 327), (152, 324), (162, 315), (168, 295), (173, 262)]
-SHAPES = [
-    ("rrect", (195, 108, 433, 365), 26, (0x86, 0xDD, 0xFF), (0x3A, 0x98, 0xF4)),  # the page behind
-    ("rrect", (192, 152, 418, 420), 22, (0xFF, 0xFF, 0xFF), (0xE0, 0xEC, 0xFB)),  # the page
-    ("rrect", (314, 212, 390, 228), 8, (0x6C, 0xB0, 0xF8), (0x6C, 0xB0, 0xF8)),
-    ("rrect", (314, 251, 390, 267), 8, (0x6C, 0xB0, 0xF8), (0x6C, 0xB0, 0xF8)),
-    ("rrect", (314, 290, 390, 306), 8, (0x6C, 0xB0, 0xF8), (0x6C, 0xB0, 0xF8)),
-    ("rrect", (314, 328, 365, 344), 8, (0x6C, 0xB0, 0xF8), (0x6C, 0xB0, 0xF8)),
-    ("rrect", (73, 182, 150, 384), 22, (0x1E, 0x90, 0xFF), (0x0A, 0x58, 0xE0)),  # the tab behind the tile
-    ("rrect", (111, 152, 313, 402), 28, (0x0E, 0x6A, 0xE6), (0x07, 0x38, 0x9C)),  # the letter tile
-    ("poly", LETTER, (0xFF, 0xFF, 0xFF), None, None),
-]
-
-
-def _fit(shapes, k=1.18, cx=253, cy=264):
-    """Scale the artwork about its centre to fill the tile."""
-    def t(x, y):
-        return (round(256 + (x - cx) * k), round(256 + (y - cy) * k))
-
-    out = []
-    for kind, geo, a, b, c in shapes:
-        if kind == "rrect":
-            x0, y0 = t(geo[0], geo[1])
-            x1, y1 = t(geo[2], geo[3])
-            out.append((kind, (x0, y0, x1, y1), round(a * k), b, c))
-        else:
-            out.append((kind, [t(x, y) for x, y in geo], a, b, c))
-    return out
-
-
-SHAPES = _fit(SHAPES)
-SHADOWED = {1, 7}  # the page and the letter tile cast soft shadows
+# The artwork, after the owner's picture: a document with a folded corner, its colour running
+# from blue to pink, a lighter page behind it, white lines of text, and a blue tile with the
+# letter Л on its left edge. No background tile: the document is the icon.
+BACKGROUND = "#FFFFFF"  # Android's adaptive-icon background
+BLUE = (0x5B, 0x8E, 0xEE)
+PINK = (0xE8, 0x8E, 0xBE)
+BACK_BLUE = (0xA9, 0xC3, 0xF6)
+BACK_PINK = (0xF2, 0xB9, 0xD6)
+FOLD = (0xF7, 0xD9, 0xE9)
+TILE_TOP = (0x5F, 0x95, 0xF2)
+TILE_BOTTOM = (0x34, 0x6A, 0xDB)
+BACK = (124, 58, 370, 432, 28)  # x0, y0, x1, y1, radius
+PAGE = (156, 82, 410, 458, 28)
+FOLD_W = 74
+LINES = [(250, 178, 372), (250, 222, 372), (250, 266, 372), (250, 310, 372), (250, 354, 372), (250, 398, 338)]
+LINE_W = 16
+TILE = (78, 196, 226, 344, 30)
+TILE_RIM = 9
+LETTER = [(126, 232), (186, 232), (186, 312), (166, 312), (166, 249), (147, 249), (144, 278), (137, 298), (124, 309), (106, 313), (104, 296), (114, 292), (121, 280), (124, 262)]
 
 
 def hexc(c):
     return "#%02X%02X%02X" % c
 
 
-def svg():
-    defs = [f'<linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{hexc(TILE[0])}"/><stop offset="1" stop-color="{hexc(TILE[1])}"/></linearGradient>']
-    body = [f'<rect width="512" height="512" rx="{TILE_R}" fill="url(#t)"/>']
-    for i, (kind, geo, a, b, c) in enumerate(SHAPES):
-        if kind == "rrect":
-            x0, y0, x1, y1 = geo
-            defs.append(f'<linearGradient id="g{i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{hexc(b)}"/><stop offset="1" stop-color="{hexc(c)}"/></linearGradient>')
-            body.append(f'<rect x="{x0}" y="{y0}" width="{x1 - x0}" height="{y1 - y0}" rx="{a}" fill="url(#g{i})"/>')
-        else:
-            pts = " ".join(f"{x},{y}" for x, y in geo)
-            body.append(f'<polygon points="{pts}" fill="{hexc(a)}"/>')
-    return (
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">\n'
-        "<!-- Lexicon app icon, drawn for this repository (tools/icons.py). -->\n"
-        f"<defs>{''.join(defs)}</defs>\n" + "\n".join(body) + "\n</svg>\n"
+def folded_page_path(x0, y0, x1, y1, r, fold, fmt):
+    """The page outline with its top-right corner cut for the fold."""
+    return fmt(
+        [("M", x0 + r, y0), ("L", x1 - fold, y0), ("L", x1, y0 + fold), ("L", x1, y1 - r), ("Q", x1, y1, x1 - r, y1), ("L", x0 + r, y1), ("Q", x0, y1, x0, y1 - r), ("L", x0, y0 + r), ("Q", x0, y0, x0 + r, y0)]
     )
+
+
+def svg_path(cmds, m=lambda v: v):
+    out = ""
+    for c in cmds:
+        out += c[0] + ",".join(str(round(m(v), 2)) for v in c[1:])
+    return out + "z"
+
+
+def rrect_path(x0, y0, x1, y1, r, m=lambda v: v):
+    return svg_path([("M", x0 + r, y0), ("L", x1 - r, y0), ("Q", x1, y0, x1, y0 + r), ("L", x1, y1 - r), ("Q", x1, y1, x1 - r, y1), ("L", x0 + r, y1), ("Q", x0, y1, x0, y1 - r), ("L", x0, y0 + r), ("Q", x0, y0, x0 + r, y0)], m)
+
+
+def svg():
+    x0, y0, x1, y1, r = PAGE
+    page = folded_page_path(x0, y0, x1, y1, r, FOLD_W, svg_path)
+    fold = f"M{x1 - FOLD_W},{y0}V{y0 + FOLD_W - 12}q0,12 12,12H{x1}z"
+    lines = "".join(f'<line x1="{a}" y1="{y}" x2="{b}" y2="{y}" stroke="#FFFFFF" stroke-opacity="0.9" stroke-width="{LINE_W}" stroke-linecap="round"/>' for a, y, b in LINES)
+    tx0, ty0, tx1, ty1, tr = TILE
+    pts = " ".join(f"{x},{y}" for x, y in LETTER)
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<!-- Lexicon app icon, drawn for this repository after the owner's picture (tools/icons.py). -->
+<defs>
+<linearGradient id="p" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{hexc(BLUE)}"/><stop offset="1" stop-color="{hexc(PINK)}"/></linearGradient>
+<linearGradient id="b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{hexc(BACK_BLUE)}"/><stop offset="1" stop-color="{hexc(BACK_PINK)}"/></linearGradient>
+<linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{hexc(TILE_TOP)}"/><stop offset="1" stop-color="{hexc(TILE_BOTTOM)}"/></linearGradient>
+</defs>
+<path d="{rrect_path(*BACK)}" fill="url(#b)"/>
+<path d="{page}" fill="url(#p)"/>
+<path d="{fold}" fill="{hexc(FOLD)}"/>
+{lines}
+<rect x="{tx0}" y="{ty0}" width="{tx1 - tx0}" height="{ty1 - ty0}" rx="{tr}" fill="url(#t)" stroke="#FFFFFF" stroke-width="{TILE_RIM}"/>
+<polygon points="{pts}" fill="#FFFFFF"/>
+</svg>
+"""
 
 
 def android_foreground():
     """The adaptive icon's foreground (108 dp, content inside the 66 dp safe zone)."""
-    s = 0.15
+    s = 0.155
 
     def m(v):
-        return round(54 + (v - 256) * s, 2)
+        return 54 + (v - 256) * s
 
-    paths = []
-    for kind, geo, a, b, c in SHAPES:
-        if kind == "rrect":
-            x0, y0, x1, y1 = (m(v) for v in geo)
-            r = round(a * s, 2)
-            d = (
-                f"M{round(x0 + r, 2)},{y0}H{round(x1 - r, 2)}A{r},{r} 0 0 1 {x1},{round(y0 + r, 2)}V{round(y1 - r, 2)}"
-                f"A{r},{r} 0 0 1 {round(x1 - r, 2)},{y1}H{round(x0 + r, 2)}A{r},{r} 0 0 1 {x0},{round(y1 - r, 2)}"
-                f"V{round(y0 + r, 2)}A{r},{r} 0 0 1 {round(x0 + r, 2)},{y0}z"
-            )
-            mid = tuple((p + q) // 2 for p, q in zip(b, c))
-        else:
-            d = "M" + "L".join(f"{m(x)},{m(y)}" for x, y in geo) + "z"
-            mid = a
-        paths.append(f'    <path android:fillColor="{hexc(mid)}" android:pathData="{d}" />')
-    body = "\n".join(paths)
+    def mid(a, b):
+        return hexc(tuple((p + q) // 2 for p, q in zip(a, b)))
+
+    x0, y0, x1, y1, r = PAGE
+    page = folded_page_path(x0, y0, x1, y1, r, FOLD_W, lambda c: svg_path(c, m))
+    fold = svg_path([("M", x1 - FOLD_W, y0), ("L", x1 - FOLD_W, y0 + FOLD_W), ("L", x1, y0 + FOLD_W)], m)
+    tile = rrect_path(*TILE, m=m)
+    letter = "M" + "L".join(f"{round(m(x), 2)},{round(m(y), 2)}" for x, y in LETTER) + "z"
+    lines = "\n".join(
+        f'    <path android:strokeColor="#FFFFFF" android:strokeWidth="{round(LINE_W * s, 2)}" android:strokeLineCap="round" android:pathData="M{round(m(a), 2)},{round(m(y), 2)}L{round(m(b), 2)},{round(m(y), 2)}" />'
+        for a, y, b in LINES
+    )
     return f"""<?xml version="1.0" encoding="utf-8"?>
-<!-- Lexicon's icon, drawn for this repository (generated by tools/icons.py): a page with lines
-     of text and a blue tile with the letter Л. -->
+<!-- Lexicon's icon, drawn for this repository after the owner's picture (generated by
+     tools/icons.py): a blue-to-pink document with lines of text and a blue tile with Л. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-{body}
+    <path android:fillColor="{mid(BACK_BLUE, BACK_PINK)}" android:pathData="{rrect_path(*BACK, m=m)}" />
+    <path android:fillColor="{mid(BLUE, PINK)}" android:pathData="{page}" />
+    <path android:fillColor="{hexc(FOLD)}" android:pathData="{fold}" />
+{lines}
+    <path android:fillColor="{mid(TILE_TOP, TILE_BOTTOM)}" android:strokeColor="#FFFFFF" android:strokeWidth="{round(TILE_RIM * s, 2)}" android:pathData="{tile}" />
+    <path android:fillColor="#FFFFFF" android:pathData="{letter}" />
 </vector>
 """
 
 
-def gradient(w, h, top, bottom):
-    g = Image.new("RGBA", (1, 256))
-    for y in range(256):
-        t = y / 255
-        g.putpixel((0, y), tuple(round(a + (b - a) * t) for a, b in zip(top, bottom)) + (255,))
+def gradient(w, h, a, b, horizontal):
+    n = 256
+    g = Image.new("RGBA", (n, 1) if horizontal else (1, n))
+    for i in range(n):
+        t = i / (n - 1)
+        c = tuple(round(p + (q - p) * t) for p, q in zip(a, b)) + (255,)
+        g.putpixel((i, 0) if horizontal else (0, i), c)
     return g.resize((max(1, w), max(1, h)))
 
 
@@ -135,26 +146,50 @@ def draw(size, body=1.0):
 
     img = Image.new("RGBA", (big, big), (0, 0, 0, 0))
 
-    def fill_rrect(target, box, r, top, bottom):
-        (x0, y0), (x1, y1) = p(box[0], box[1]), p(box[2], box[3])
-        w, h = round(x1 - x0), round(y1 - y0)
-        mask = Image.new("L", (w, h), 0)
-        ImageDraw.Draw(mask).rounded_rectangle([0, 0, w - 1, h - 1], radius=r * scale, fill=255)
-        target.paste(gradient(w, h, top, bottom), (round(x0), round(y0)), mask)
+    def fill(mask, a, b, horizontal=True):
+        nonlocal img
+        layer = gradient(big, big, a, b, horizontal)
+        img = Image.composite(layer, img, mask)
 
-    fill_rrect(img, (0, 0, 512, 512), TILE_R, *TILE)
-    tile_alpha = img.getchannel("A")
-    for i, (kind, geo, a, b, c) in enumerate(SHAPES):
-        if i in SHADOWED:
-            sh = Image.new("RGBA", (big, big), (0, 0, 0, 0))
-            x0, y0, x1, y1 = geo
-            ImageDraw.Draw(sh).rounded_rectangle([p(x0, y0 + 10), p(x1, y1 + 10)], radius=a * scale, fill=(0x10, 0x20, 0x50, 70))
-            sh = sh.filter(ImageFilter.GaussianBlur(12 * scale))
-            img = Image.alpha_composite(img, Image.composite(sh, Image.new("RGBA", (big, big), (0, 0, 0, 0)), tile_alpha))
-        if kind == "rrect":
-            fill_rrect(img, geo, a, b, c)
-        else:
-            ImageDraw.Draw(img).polygon([p(x, y) for x, y in geo], fill=a + (255,))
+    def rrect_mask(box, r):
+        m = Image.new("L", (big, big), 0)
+        x0, y0, x1, y1 = box
+        ImageDraw.Draw(m).rounded_rectangle([p(x0, y0), p(x1, y1)], radius=r * scale, fill=255)
+        return m
+
+    def shadow(mask, dy, blur, alpha):
+        nonlocal img
+        sh = Image.new("RGBA", (big, big), (0x30, 0x30, 0x60, 0))
+        a = mask.point(lambda v: v * alpha // 255).transform(mask.size, Image.AFFINE, (1, 0, 0, 0, 1, -dy * scale)).filter(ImageFilter.GaussianBlur(blur * scale))
+        sh.putalpha(a)
+        img = Image.alpha_composite(img, sh)
+
+    # The page behind.
+    bx0, by0, bx1, by1, br = BACK
+    back = rrect_mask((bx0, by0, bx1, by1), br)
+    shadow(back, 8, 12, 60)
+    fill(back, BACK_BLUE, BACK_PINK)
+    # The page, its corner cut for the fold.
+    x0, y0, x1, y1, r = PAGE
+    page = rrect_mask((x0, y0, x1, y1), r)
+    ImageDraw.Draw(page).polygon([p(x1 - FOLD_W, y0 - 2), p(x1 + 2, y0 - 2), p(x1 + 2, y0 + FOLD_W)], fill=0)
+    shadow(page, 10, 14, 90)
+    fill(page, BLUE, PINK)
+    d = ImageDraw.Draw(img)
+    d.polygon([p(x1 - FOLD_W, y0), p(x1 - FOLD_W, y0 + FOLD_W), p(x1, y0 + FOLD_W)], fill=FOLD + (255,))
+    w = max(1, round(LINE_W * scale))
+    for a, y, b in LINES:
+        d.line([p(a, y), p(b, y)], fill=(255, 255, 255, 235), width=w)
+        for x in (a, b):
+            cx, cy = p(x, y)
+            d.ellipse([cx - w / 2, cy - w / 2, cx + w / 2, cy + w / 2], fill=(255, 255, 255, 235))
+    # The tile with Л, on a white rim.
+    tx0, ty0, tx1, ty1, tr = TILE
+    rim = rrect_mask((tx0 - TILE_RIM, ty0 - TILE_RIM, tx1 + TILE_RIM, ty1 + TILE_RIM), tr + TILE_RIM)
+    shadow(rim, 6, 10, 90)
+    img = Image.composite(Image.new("RGBA", (big, big), (255, 255, 255, 255)), img, rim)
+    fill(rrect_mask((tx0, ty0, tx1, ty1), tr), TILE_TOP, TILE_BOTTOM, horizontal=False)
+    ImageDraw.Draw(img).polygon([p(x, y) for x, y in LETTER], fill=(255, 255, 255, 255))
     return img.resize((size, size), Image.LANCZOS)
 
 

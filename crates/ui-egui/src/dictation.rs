@@ -54,8 +54,16 @@ pub(crate) fn toggle(app: &mut WordApp) {
     start(app);
 }
 
+/// The languages Dictate offers (code, name in that language).
+pub const LANGUAGES: [(&str, &str); 6] =
+    [("ru", "Русский"), ("en", "English"), ("hy", "Հայերեն"), ("ka", "ქართული"), ("az", "Azərbaycan"), ("uk", "Українська")];
+
 fn start(app: &mut WordApp) {
-    let lang = crate::i18n::Lang::from_pref(&app.ui.language).code().to_string();
+    let lang = if app.ui.dictation_language.is_empty() {
+        crate::i18n::Lang::from_pref(&app.ui.language).code().to_string()
+    } else {
+        app.ui.dictation_language.clone()
+    };
     let started = app.services.dictate.as_ref().map(|f| f(&lang));
     match started {
         Some(Ok(Started::Listening)) => {

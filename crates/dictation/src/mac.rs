@@ -57,11 +57,19 @@ fn begin(lang: &str, sink: Sink) -> Result<(), String> {
     let id = NSString::from_str(crate::locale_for(lang));
     let locale = NSLocale::initWithLocaleIdentifier(NSLocale::alloc(), &id);
     // SAFETY: initialising a freshly allocated recogniser with a valid locale.
-    let recognizer = unsafe { SFSpeechRecognizer::initWithLocale(SFSpeechRecognizer::alloc(), &locale) }
-        .ok_or_else(|| format!("macOS can't recognise speech in {}", crate::locale_for(lang)))?;
-    // SAFETY: plain getters on a valid recogniser.
+    let wanted = unsafe { SFSpeechRecognizer::initWithLocale(SFSpeechRecognizer::alloc(), &locale) };
+    // SAFETY: a plain getter on a valid recogniser.
+    let recognizer = match wanted.filter(|r| unsafe { r.isAvailable() }) {
+        Some(r) => r,
+        // A language macOS doesn't recognise (Armenian, Georgian…): the system's language.
+        // SAFETY: the default initialiser.
+        None => unsafe { SFSpeechRecognizer::new() },
+    };
+    // SAFETY: a plain getter on a valid recogniser.
     if !unsafe { recognizer.isAvailable() } {
-        return Err("speech recognition is unavailable right now (no network?)".into());
+        return Err(
+            "speech recognition is unavailable right now: check the internet connection, or turn on Dictation in System Settings › Keyboard".into()
+        );
     }
     // SAFETY: creating and configuring a request we own.
     let request = unsafe { SFSpeechAudioBufferRecognitionRequest::new() };
@@ -71,6 +79,12 @@ fn begin(lang: &str, sink: Sink) -> Result<(), String> {
     let engine = unsafe { AVAudioEngine::new() };
     let input = unsafe { engine.inputNode() };
     let format = unsafe { input.outputFormatForBus(0) };
+    // Without microphone access (or a microphone) the input has no format, and tapping it would
+    // raise an Objective-C exception that ends the app.
+    // SAFETY: plain getters on a valid format.
+    if unsafe { format.sampleRate() } <= 0.0 || unsafe { format.channelCount() } == 0 {
+        return Err("Lexicon can't use the microphone: allow it in System Settings › Privacy & Security › Microphone".into());
+    }
     let feed = request.clone();
     let tap = RcBlock::new(move |buffer: NonNull<AVAudioPCMBuffer>, _when: NonNull<AVAudioTime>| {
         // SAFETY: AVAudioEngine hands the tap a valid buffer for the duration of the call.

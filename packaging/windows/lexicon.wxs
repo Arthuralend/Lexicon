@@ -148,6 +148,17 @@
         <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.PlainText\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Classes\.txt\OpenWithProgids" Name="Lexicon.PlainText" Value="" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".txt" Value="" Type="string" />
+
+        <!-- Lexicon: Excel workbooks open in Calculations. -->
+        <ProgId Id="Lexicon.Workbook" Description="Excel Workbook" Icon="LexiconExe" IconIndex="0" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.Workbook\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\.xlsx\OpenWithProgids" Name="Lexicon.Workbook" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".xlsx" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities\FileAssociations" Name=".xlsx" Value="Lexicon.Workbook" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\.xls\OpenWithProgids" Name="Lexicon.Workbook" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".xls" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\.ods\OpenWithProgids" Name="Lexicon.Workbook" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".ods" Value="" Type="string" />
       </Component>
 
     </ComponentGroup>

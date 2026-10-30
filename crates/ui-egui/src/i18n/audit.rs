@@ -173,6 +173,7 @@ impl Exempt {
             || plain.starts_with("Style") || plain.starts_with("Table Style ") // a new style's default name
             || plain.contains('┬') || plain.contains('\u{2061}') // equation input (UnicodeMath), drawn as math
             || matches!(plain, "Lexicon" | "Lexicon User" | "Discord" | "https://" | "auto" | "I. II. III." | "i. ii. iii.")
+            || crate::dictation::LANGUAGES.iter().any(|(_, n)| *n == plain) // Dictate's languages, by their own names
             || plain == "CONFIDENTIAL" // the watermark dialog's text: document content, kept as typed
             || plain == "Figure 1" // the caption dialog's sample: the label goes into the document as is
     }

@@ -368,6 +368,8 @@ pub struct UiState {
     /// File › Options › General: start on File › Home (Blank document, templates, Recent) when
     /// the app opens without a document (#766); on, as in Word. See [`WordApp::start_screen`].
     pub start_screen: bool,
+    /// Lexicon: Home › Dictate's language (`ru`, `en`, `hy`…); empty follows the interface.
+    pub dictation_language: String,
     /// File › Options › Display: print the page colour (off, as in Word).
     pub print_backgrounds: bool,
     /// File › Options › Display: update fields (dates, page numbers, SEQ…) before printing.
@@ -434,6 +436,7 @@ impl Default for UiState {
             mini_toolbar: true,
             alignment_guides: true,
             start_screen: true,
+            dictation_language: String::new(),
             print_backgrounds: false,
             update_fields_before_print: false,
             dictionary: Vec::new(),
@@ -897,6 +900,17 @@ impl WordApp {
     /// Close, Envelopes, Labels and Finish & Merge on a document with unsaved changes first ask
     /// Save / Don't Save / Cancel, and the command runs once that is answered (`ui.saveChanges`).
     pub fn run(&mut self, id: &str, params: Value) -> Result<Value, String> {
+        // Lexicon: a workbook (Finder, Open With, the Open dialog, the command line) opens in
+        // Calculations, not as a document.
+        if id == "file.open"
+            && let Some(path) = params.get("path").and_then(Value::as_str).filter(|p| calc::is_spreadsheet(p)).map(str::to_string)
+        {
+            let r = calc::open_path(self, &path);
+            if let Err(e) = &r {
+                self.status(e.clone());
+            }
+            return r;
+        }
         // Comment text still being typed is written first, so a save or export has it and a
         // close, New or Open counts it as a change (#1348). A draft the document refuses is not
         // part of it: saving and exporting go on without it (the refusal stays on the status
