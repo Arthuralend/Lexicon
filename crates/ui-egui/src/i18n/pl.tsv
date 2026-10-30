@@ -2733,3 +2733,29 @@ preview	Title	Tytuł
 	Voice typing isn't available on this system.	Pisanie głosowe nie jest dostępne w tym systemie.
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	Darmowy edytor tekstu o otwartym kodzie ze sprawdzaniem pisowni po rosyjsku, angielsku, ormiańsku, gruzińsku i azerbejdżańsku.
 	Free software under the MIT or Apache-2.0 licence.	Wolne oprogramowanie na licencji MIT lub Apache-2.0.
+	Calculations	Obliczenia
+	Lavender	Lawenda
+	Mint	Mięta
+	Dawn	Świt
+	Ocean	Ocean
+	Plum	Śliwka
+	Coffee	Kawa
+	Sheet	Arkusz
+	Save As Excel	Zapisz jako Excel
+	Save As CSV	Zapisz jako CSV
+	Insert Rows	Wstaw wiersze
+	Insert Columns	Wstaw kolumny
+	Sort A to Z	Sortuj od A do Z
+	Sort Z to A	Sortuj od Z do A
+	Insert into Document	Wstaw do dokumentu
+	Table from Document	Tabela z dokumentu
+	Sheet1	Arkusz1
+	The sheet is empty.	Arkusz jest pusty.
+	The table is in the document.	Tabela jest w dokumencie.
+	Put the caret in a table in the document first.	Najpierw umieść kursor w tabeli w dokumencie.
+	Saved {name}	Zapisano: {name}
+	Spreadsheets	Arkusze kalkulacyjne
+	Dictation stopped.	Dyktowanie zatrzymane.
+	The system's voice typing is open: speak, and the words are typed at the caret.	Systemowe pisanie głosowe jest otwarte: mów, a słowa pojawią się przy kursorze.
+	Allow speech recognition and the microphone when macOS asks.	Zezwól na rozpoznawanie mowy i mikrofon, gdy macOS zapyta.
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	Rozpoznawanie mowy jest niedozwolone: włącz je w Ustawieniach systemowych › Prywatność i ochrona.

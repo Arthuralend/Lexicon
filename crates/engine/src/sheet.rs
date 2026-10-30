@@ -573,6 +573,57 @@ impl Eval<'_, '_> {
     }
 }
 
+/// A formula (with or without its `=`) in Excel's syntax: English function names and `,` between
+/// arguments. `None` when Excel has no equivalent (Word's `ABOVE`, `LEFT`…), so the value is saved
+/// instead.
+pub fn to_excel(formula: &str) -> Option<String> {
+    let src = formula.trim().trim_start_matches('=');
+    if src.is_empty() || src.chars().count() > MAX_FORMULA {
+        return None;
+    }
+    let mut out = String::with_capacity(src.len());
+    let mut word = String::new();
+    let flush = |word: &mut String, out: &mut String| -> Option<()> {
+        if word.is_empty() {
+            return Some(());
+        }
+        let up = word.to_uppercase();
+        let mapped = match up.as_str() {
+            "СУММ" => "SUM",
+            "СРЗНАЧ" => "AVERAGE",
+            "МИН" => "MIN",
+            "МАКС" => "MAX",
+            "СЧЁТ" | "СЧЕТ" => "COUNT",
+            "ПРОИЗВЕД" => "PRODUCT",
+            "ОКРУГЛ" => "ROUND",
+            "ЕСЛИ" => "IF",
+            "КОРЕНЬ" => "SQRT",
+            "ЦЕЛОЕ" => "INT",
+            "ABOVE" | "BELOW" | "LEFT" | "RIGHT" | "ВЫШЕ" | "НИЖЕ" | "ЛЕВЕЕ" | "ПРАВЕЕ" => return None,
+            _ => "",
+        };
+        out.push_str(if mapped.is_empty() { word.as_str() } else { mapped });
+        word.clear();
+        Some(())
+    };
+    for c in src.chars() {
+        if c.is_alphanumeric() || c == '_' || c == '$' || c == '.' {
+            word.push(c);
+            continue;
+        }
+        flush(&mut word, &mut out)?;
+        out.push(match c {
+            ';' => ',',
+            '−' => '-',
+            '×' => '*',
+            '÷' => '/',
+            other => other,
+        });
+    }
+    flush(&mut word, &mut out)?;
+    Some(out)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -586,6 +637,14 @@ mod tests {
         formulas.insert(at, f.to_string());
         let sheet = Sheet { cells, formulas: &formulas };
         sheet.evaluate_all().get(&at).copied().unwrap_or(Err(SheetError::Value))
+    }
+
+    #[test]
+    fn formulas_in_excel_syntax() {
+        assert_eq!(to_excel("=СУММ(B2:B5)").as_deref(), Some("SUM(B2:B5)"));
+        assert_eq!(to_excel("=ОКРУГЛ(A1/3; 2)").as_deref(), Some("ROUND(A1/3, 2)"));
+        assert_eq!(to_excel("=SUM(ABOVE)"), None);
+        assert_eq!(to_excel("=B2*C2").as_deref(), Some("B2*C2"));
     }
 
     #[test]

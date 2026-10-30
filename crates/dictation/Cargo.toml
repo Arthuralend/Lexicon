@@ -1,0 +1,24 @@
+[package]
+name = "lexicon-dictation"
+description = "Lexicon: dictation with the operating system's own speech tools (macOS Speech framework, Windows voice typing)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+# Not `[lints] workspace = true`: talking to the Speech framework (Objective-C) and sending the
+# voice-typing shortcut on Windows need unsafe calls, which the workspace forbids. The unsafe stays
+# in `mac.rs` and `windows.rs`, each call commented.
+
+[dependencies]
+log = { workspace = true }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = "0.6"
+block2 = "0.6"
+objc2-foundation = { version = "0.3", default-features = false, features = ["std", "NSString", "NSLocale", "NSError", "block2"] }
+objc2-speech = { version = "0.3", default-features = false, features = ["std", "block2", "objc2-avf-audio", "SFSpeechRecognizer", "SFSpeechRecognitionRequest", "SFSpeechRecognitionResult", "SFSpeechRecognitionTask", "SFTranscription", "SFErrors"] }
+objc2-avf-audio = { version = "0.3", default-features = false, features = ["std", "block2", "AVAudioEngine", "AVAudioNode", "AVAudioIONode", "AVAudioFormat", "AVAudioBuffer", "AVAudioTime", "AVAudioTypes", "AVAudioMixerNode"] }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", features = ["Win32_UI_Input_KeyboardAndMouse"] }

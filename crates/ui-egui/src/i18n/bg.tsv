@@ -2717,3 +2717,29 @@
 	Voice typing isn't available on this system.	Гласовото въвеждане не е налично в тази система.
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	Безплатен текстов редактор с отворен код и проверка на правописа на руски, английски, арменски, грузински и азербайджански.
 	Free software under the MIT or Apache-2.0 licence.	Свободен софтуер под лиценз MIT или Apache-2.0.
+	Calculations	Изчисления
+	Lavender	Лавандула
+	Mint	Мента
+	Dawn	Зора
+	Ocean	Океан
+	Plum	Слива
+	Coffee	Кафе
+	Sheet	Лист
+	Save As Excel	Запиши като Excel
+	Save As CSV	Запиши като CSV
+	Insert Rows	Вмъкни редове
+	Insert Columns	Вмъкни колони
+	Sort A to Z	Сортиране от А до Я
+	Sort Z to A	Сортиране от Я до А
+	Insert into Document	Вмъкни в документа
+	Table from Document	Таблица от документа
+	Sheet1	Лист1
+	The sheet is empty.	Листът е празен.
+	The table is in the document.	Таблицата е в документа.
+	Put the caret in a table in the document first.	Първо поставете курсора в таблица в документа.
+	Saved {name}	Записано: {name}
+	Spreadsheets	Електронни таблици
+	Dictation stopped.	Диктовката е спряна.
+	The system's voice typing is open: speak, and the words are typed at the caret.	Гласовото въвеждане на системата е отворено: говорете и думите се въвеждат при курсора.
+	Allow speech recognition and the microphone when macOS asks.	Разрешете разпознаването на реч и микрофона, когато macOS попита.
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	Разпознаването на реч не е разрешено: включете го в Системни настройки › Поверителност и сигурност.

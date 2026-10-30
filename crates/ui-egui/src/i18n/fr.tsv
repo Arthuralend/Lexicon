@@ -2730,3 +2730,29 @@ template	Letter	Lettre
 	Voice typing isn't available on this system.	La saisie vocale n'est pas disponible sur ce système.
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	Un traitement de texte gratuit et open source, avec correction orthographique en russe, anglais, arménien, géorgien et azerbaïdjanais.
 	Free software under the MIT or Apache-2.0 licence.	Logiciel libre sous licence MIT ou Apache-2.0.
+	Calculations	Calculs
+	Lavender	Lavande
+	Mint	Menthe
+	Dawn	Aurore
+	Ocean	Océan
+	Plum	Prune
+	Coffee	Café
+	Sheet	Feuille
+	Save As Excel	Enregistrer en Excel
+	Save As CSV	Enregistrer en CSV
+	Insert Rows	Insérer des lignes
+	Insert Columns	Insérer des colonnes
+	Sort A to Z	Trier de A à Z
+	Sort Z to A	Trier de Z à A
+	Insert into Document	Insérer dans le document
+	Table from Document	Tableau du document
+	Sheet1	Feuille1
+	The sheet is empty.	La feuille est vide.
+	The table is in the document.	Le tableau est dans le document.
+	Put the caret in a table in the document first.	Placez d'abord le curseur dans un tableau du document.
+	Saved {name}	Enregistré : {name}
+	Spreadsheets	Feuilles de calcul
+	Dictation stopped.	Dictée arrêtée.
+	The system's voice typing is open: speak, and the words are typed at the caret.	La saisie vocale du système est ouverte : parlez, les mots s'inscrivent au curseur.
+	Allow speech recognition and the microphone when macOS asks.	Autorisez la reconnaissance vocale et le micro quand macOS le demande.
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	La reconnaissance vocale n'est pas autorisée : activez-la dans Réglages Système › Confidentialité et sécurité.

@@ -2319,3 +2319,29 @@
 	Voice typing isn't available on this system.	此系統不支援語音輸入。
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	免費開源的文書處理軟體，支援俄語、英語、亞美尼亞語、喬治亞語和亞塞拜然語拼字檢查。
 	Free software under the MIT or Apache-2.0 licence.	採用 MIT 或 Apache-2.0 授權的自由軟體。
+	Calculations	計算
+	Lavender	薰衣草
+	Mint	薄荷
+	Dawn	黎明
+	Ocean	海洋
+	Plum	梅子
+	Coffee	咖啡
+	Sheet	工作表
+	Save As Excel	另存為 Excel
+	Save As CSV	另存為 CSV
+	Insert Rows	插入列
+	Insert Columns	插入欄
+	Sort A to Z	從 A 到 Z 排序
+	Sort Z to A	從 Z 到 A 排序
+	Insert into Document	插入至文件
+	Table from Document	從文件取得表格
+	Sheet1	工作表1
+	The sheet is empty.	工作表是空的。
+	The table is in the document.	表格已插入文件。
+	Put the caret in a table in the document first.	請先將游標放在文件的表格中。
+	Saved {name}	已儲存：{name}
+	Spreadsheets	試算表
+	Dictation stopped.	聽寫已停止。
+	The system's voice typing is open: speak, and the words are typed at the caret.	系統語音輸入已開啟：說話，文字會輸入到游標處。
+	Allow speech recognition and the microphone when macOS asks.	macOS 詢問時，請允許語音辨識和麥克風。
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	不允許語音辨識：請在「系統設定」›「隱私權與安全性」中開啟。

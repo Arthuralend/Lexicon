@@ -2699,3 +2699,29 @@ preview	Title	ნიმუში
 	Voice typing isn't available on this system.	ხმოვანი შეყვანა ამ სისტემაში მიუწვდომელია.
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	უფასო, ღია კოდის ტექსტური რედაქტორი რუსული, ინგლისური, სომხური, ქართული და აზერბაიჯანული მართლწერის შემოწმებით.
 	Free software under the MIT or Apache-2.0 licence.	თავისუფალი პროგრამა MIT ან Apache-2.0 ლიცენზიით.
+	Calculations	გამოთვლები
+	Lavender	ლავანდა
+	Mint	პიტნა
+	Dawn	განთიადი
+	Ocean	ოკეანე
+	Plum	ქლიავი
+	Coffee	ყავა
+	Sheet	ფურცელი
+	Save As Excel	Excel-ად შენახვა
+	Save As CSV	CSV-ად შენახვა
+	Insert Rows	სტრიქონების ჩასმა
+	Insert Columns	სვეტების ჩასმა
+	Sort A to Z	დალაგება ა-დან ჰ-მდე
+	Sort Z to A	დალაგება ჰ-დან ა-მდე
+	Insert into Document	დოკუმენტში ჩასმა
+	Table from Document	ცხრილი დოკუმენტიდან
+	Sheet1	ფურცელი1
+	The sheet is empty.	ფურცელი ცარიელია.
+	The table is in the document.	ცხრილი დოკუმენტშია.
+	Put the caret in a table in the document first.	ჯერ კურსორი დოკუმენტის ცხრილში ჩადეთ.
+	Saved {name}	შენახულია: {name}
+	Spreadsheets	ცხრილები
+	Dictation stopped.	კარნახი შეჩერდა.
+	The system's voice typing is open: speak, and the words are typed at the caret.	სისტემის ხმოვანი შეყვანა გახსნილია: ილაპარაკეთ და სიტყვები კურსორთან აიკრიფება.
+	Allow speech recognition and the microphone when macOS asks.	დაუშვით მეტყველების ამოცნობა და მიკროფონი, როცა macOS მოგთხოვთ.
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	მეტყველების ამოცნობა აკრძალულია: ჩართეთ სისტემის პარამეტრები › კონფიდენციალურობა და უსაფრთხოება.

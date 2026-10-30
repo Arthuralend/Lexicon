@@ -1,12 +1,16 @@
 use std::cell::{Cell, RefCell};
 use std::mem;
 use std::rc::Weak;
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::time::Instant;
+
+use objc2::runtime::AnyObject;
 
 use objc2::rc::Retained;
 use objc2::{declare_class, msg_send_id, mutability, ClassType, DeclaredClass};
 use objc2_app_kit::{
-    NSApplication, NSApplicationActivationPolicy, NSApplicationDelegate, NSRunningApplication,
+    NSApplication, NSApplicationActivationPolicy, NSApplicationDelegate, NSApplicationTerminateReply,
+    NSRunningApplication,
 };
 use objc2_foundation::{MainThreadMarker, NSNotification, NSObject, NSObjectProtocol};
 
@@ -14,6 +18,9 @@ use super::event_handler::EventHandler;
 use super::event_loop::{notify_windows_of_exit, stop_app_immediately, ActiveEventLoop, PanicInfo};
 use super::observer::{EventLoopWaker, RunLoop};
 use super::{menu, WindowId, DEVICE_ID};
+
+/// Lexicon: set once the app has answered its unsaved-changes prompts and really quits.
+pub(crate) static TERMINATE_ALLOWED: AtomicBool = AtomicBool::new(false);
 use crate::event::{DeviceEvent, Event, StartCause, WindowEvent};
 use crate::event_loop::{ActiveEventLoop as RootActiveEventLoop, ControlFlow};
 use crate::window::WindowId as RootWindowId;
@@ -70,6 +77,14 @@ declare_class!(
         fn app_will_terminate(&self, notification: &NSNotification) {
             self.will_terminate(notification)
         }
+
+        // Lexicon: Command-Q (the default menu's Quit), Dock › Quit and logout ask the windows to
+        // close first, so the app can ask about unsaved changes; it quits through
+        // `platform::macos::allow_terminate` once they are answered.
+        #[method(applicationShouldTerminate:)]
+        fn app_should_terminate(&self, _sender: Option<&AnyObject>) -> NSApplicationTerminateReply {
+            self.should_terminate()
+        }
     }
 );
 
@@ -100,6 +115,23 @@ impl ApplicationDelegate {
             pending_redraw: RefCell::new(vec![]),
         });
         unsafe { msg_send_id![super(this), init] }
+    }
+
+    fn should_terminate(&self) -> NSApplicationTerminateReply {
+        if TERMINATE_ALLOWED.load(Ordering::Relaxed) {
+            return NSApplicationTerminateReply::NSTerminateNow;
+        }
+        let mtm = MainThreadMarker::from(self);
+        let app = NSApplication::sharedApplication(mtm);
+        let windows = app.windows();
+        if windows.is_empty() {
+            return NSApplicationTerminateReply::NSTerminateNow;
+        }
+        for window in windows.iter() {
+            let id = WindowId(window as *const _ as usize);
+            self.maybe_queue_window_event(id, WindowEvent::CloseRequested);
+        }
+        NSApplicationTerminateReply::NSTerminateCancel
     }
 
     // NOTE: This will, globally, only be run once, no matter how many

@@ -647,7 +647,12 @@ fn is_global_shortcut(key: Key, m: Modifiers) -> bool {
 /// Command shortcuts when the canvas isn't focused but no text field is either.
 pub fn global_shortcuts(app: &mut WordApp, ctx: &egui::Context) {
     // Customize Keyboard records the keys pressed; they never run commands meanwhile.
-    if app.canvas.focused || ctx.egui_wants_keyboard_input() || matches!(app.dialog, Some(crate::dialogs::Dialog::CustomizeKeyboard { .. })) {
+    if app.canvas.focused
+        || ctx.egui_wants_keyboard_input()
+        || matches!(app.dialog, Some(crate::dialogs::Dialog::CustomizeKeyboard { .. }))
+        // Lexicon: the Calculations sheet takes its own keys (Cmd+S saves the sheet).
+        || crate::calc::active(app)
+    {
         return;
     }
     let events = ctx.input(|i| i.events.clone());

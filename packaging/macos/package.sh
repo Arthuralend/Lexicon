@@ -109,6 +109,8 @@ for loc in "en:Lexicon" "ru:Лексикон" "hy:Լեքսիկոն"; do
   mkdir -p "$APP/Contents/Resources/${loc%%:*}.lproj"
   printf 'CFBundleDisplayName = "%s";\nCFBundleName = "%s";\n' "${loc#*:}" "${loc#*:}" > "$APP/Contents/Resources/${loc%%:*}.lproj/InfoPlist.strings"
 done
+# The dictation permission prompts in Russian.
+printf 'NSMicrophoneUsageDescription = "Лексикон слушает микрофон, пока вы диктуете текст.";\nNSSpeechRecognitionUsageDescription = "Лексикон превращает вашу речь в текст во время диктовки.";\n' >> "$APP/Contents/Resources/ru.lproj/InfoPlist.strings"
 sed -e "s/@VERSION@/$VERSION/g" -e "s/@SHORT_VERSION@/$SHORT_VERSION/g" \
   -e "s/@BUILD_SHA@/${WORDCRAFT_BUILD_SHA:-unknown}/g" \
   "$HERE/Info.plist.in" >"$APP/Contents/Info.plist"

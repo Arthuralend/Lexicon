@@ -19,6 +19,7 @@ pub mod odt;
 pub mod rtf;
 pub mod sheet;
 pub mod txt;
+pub mod xlsx_write;
 
 use wordcraft_doc::Document;
 

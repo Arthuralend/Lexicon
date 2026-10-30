@@ -117,7 +117,8 @@ fn services(android: &AndroidApp) -> Services {
     let mic = android.clone();
     Services {
         clipboard_text: Some(Box::new(move || keyboard::clipboard(&clip))),
-        dictate: Some(Box::new(move |lang: &str| keyboard::start_dictation(&mic, lang))),
+        // The system's speech screen types the words itself (nativeCommit).
+        dictate: Some(Box::new(move |lang: &str| keyboard::start_dictation(&mic, lang).map(|()| wordcraft_ui_egui::dictation::Started::System))),
         file_dialog: Some(Box::new(|_req: FileDialogRequest| {
             let (tx, rx) = std::sync::mpsc::channel::<FileDialogAnswer>();
             let _ = tx.send(Err("Android has no system file dialog".into()));

@@ -2720,3 +2720,29 @@ preview	Title	Ukázka
 	Voice typing isn't available on this system.	Hlasové zadávání není v tomto systému k dispozici.
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	Bezplatný textový editor s otevřeným kódem a kontrolou pravopisu v ruštině, angličtině, arménštině, gruzínštině a ázerbájdžánštině.
 	Free software under the MIT or Apache-2.0 licence.	Svobodný software pod licencí MIT nebo Apache-2.0.
+	Calculations	Výpočty
+	Lavender	Levandule
+	Mint	Máta
+	Dawn	Svítání
+	Ocean	Oceán
+	Plum	Švestka
+	Coffee	Káva
+	Sheet	List
+	Save As Excel	Uložit jako Excel
+	Save As CSV	Uložit jako CSV
+	Insert Rows	Vložit řádky
+	Insert Columns	Vložit sloupce
+	Sort A to Z	Seřadit od A do Z
+	Sort Z to A	Seřadit od Z do A
+	Insert into Document	Vložit do dokumentu
+	Table from Document	Tabulka z dokumentu
+	Sheet1	List1
+	The sheet is empty.	List je prázdný.
+	The table is in the document.	Tabulka je v dokumentu.
+	Put the caret in a table in the document first.	Nejprve umístěte kurzor do tabulky v dokumentu.
+	Saved {name}	Uloženo: {name}
+	Spreadsheets	Tabulky
+	Dictation stopped.	Diktování zastaveno.
+	The system's voice typing is open: speak, and the words are typed at the caret.	Hlasové zadávání systému je otevřené: mluvte a slova se zapíší u kurzoru.
+	Allow speech recognition and the microphone when macOS asks.	Povolte rozpoznávání řeči a mikrofon, až se macOS zeptá.
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	Rozpoznávání řeči není povoleno: zapněte ho v Nastavení systému › Soukromí a zabezpečení.

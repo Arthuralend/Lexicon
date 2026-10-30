@@ -2725,3 +2725,29 @@ preview	Title	Örnek
 	Voice typing isn't available on this system.	Bu sistemde sesle yazma kullanılamıyor.
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	Rusça, İngilizce, Ermenice, Gürcüce ve Azerbaycanca yazım denetimli, ücretsiz ve açık kaynaklı bir kelime işlemci.
 	Free software under the MIT or Apache-2.0 licence.	MIT veya Apache-2.0 lisanslı özgür yazılım.
+	Calculations	Hesaplamalar
+	Lavender	Lavanta
+	Mint	Nane
+	Dawn	Şafak
+	Ocean	Okyanus
+	Plum	Erik
+	Coffee	Kahve
+	Sheet	Sayfa
+	Save As Excel	Excel olarak kaydet
+	Save As CSV	CSV olarak kaydet
+	Insert Rows	Satır ekle
+	Insert Columns	Sütun ekle
+	Sort A to Z	A'dan Z'ye sırala
+	Sort Z to A	Z'den A'ya sırala
+	Insert into Document	Belgeye ekle
+	Table from Document	Belgeden tablo
+	Sheet1	Sayfa1
+	The sheet is empty.	Sayfa boş.
+	The table is in the document.	Tablo belgeye eklendi.
+	Put the caret in a table in the document first.	Önce imleci belgedeki bir tabloya koyun.
+	Saved {name}	Kaydedildi: {name}
+	Spreadsheets	Elektronik tablolar
+	Dictation stopped.	Dikte durduruldu.
+	The system's voice typing is open: speak, and the words are typed at the caret.	Sistemin sesle yazma özelliği açık: konuşun, sözcükler imleçte yazılır.
+	Allow speech recognition and the microphone when macOS asks.	macOS sorduğunda konuşma tanımaya ve mikrofona izin verin.
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	Konuşma tanımaya izin verilmiyor: Sistem Ayarları › Gizlilik ve Güvenlik'ten açın.

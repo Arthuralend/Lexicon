@@ -25,6 +25,7 @@ pub mod a11y_pane;
 pub mod async_saves;
 pub mod autoscroll;
 pub mod backstage;
+pub mod calc;
 pub mod canvas;
 pub mod caret_glide;
 pub mod chrome;
@@ -49,8 +50,8 @@ pub mod dialogs_ribbon;
 pub mod dialogs_smart_art;
 pub mod dialogs_table_style;
 pub mod dialogs_templates;
+pub mod dictation;
 pub mod equation_tab;
-pub mod excel;
 /// The built-in file browser, for desktops without a system file dialog (#576).
 #[cfg(not(target_arch = "wasm32"))]
 pub mod file_browser;
@@ -172,10 +173,14 @@ pub struct Services {
     /// `xdg-mime`. `None` (web, macOS) hides the button; macOS shows how to do it in Finder
     /// instead. An error means nothing changed.
     pub make_default_app: Option<Box<dyn Fn() -> Result<DefaultApp, String>>>,
-    /// Lexicon: Home › Dictate. Start the platform's speech recognition for the language tag
-    /// given; the recognised words arrive as text input. An error (empty for none in particular)
-    /// shows the fallback hint.
-    pub dictate: Option<Box<dyn Fn(&str) -> Result<(), String>>>,
+    /// Lexicon: Home › Dictate. Start the platform's speech recognition for the interface
+    /// language code given ([`dictation`]). An error (empty for none in particular) shows the
+    /// fallback hint.
+    pub dictate: Option<Box<dyn Fn(&str) -> Result<dictation::Started, String>>>,
+    /// Stop listening (the phrase's final words still arrive through `heard`).
+    pub dictate_stop: Option<Box<dyn Fn()>>,
+    /// What the recogniser heard since the last call.
+    pub heard: Option<Box<dyn Fn() -> Vec<dictation::Heard>>>,
 }
 
 /// Armenian and Georgian letters the interface must draw ([`WordApp::ensure_script_fonts`]).
@@ -301,6 +306,7 @@ pub struct UiState {
     /// View › Navigation Pane: open or closed as the person left it, kept between runs (#2526).
     /// The session owns it while running (see [`WordApp::prefs`]).
     pub nav_pane: bool,
+    /// Lexicon: kept only so an older `ui.json` still reads; there is no community button.
     pub show_discord: bool,
     /// User name (File › Options) for comments and tracked changes; empty keeps the default.
     pub author: String,
@@ -583,8 +589,10 @@ pub struct WordApp {
     comment_fonts_for: Option<(u64, u64)>,
     /// Whether the Armenian and Georgian interface fallbacks were looked up ([`Self::ensure_script_fonts`]).
     script_fonts_done: bool,
-    /// Lexicon: the Excel tab's formulas and formula bar.
-    pub(crate) excel: excel::ExcelState,
+    /// Lexicon: the Calculations tab's sheet.
+    pub(crate) calc: calc::Workbook,
+    /// Lexicon: Home › Dictate.
+    pub(crate) dictation: dictation::DictationState,
     /// Lookups [`Self::ensure_script_fonts`] has made.
     script_font_tries: u8,
     /// Armenian or Georgian text reached the interface (typed, pasted, or offered as a spelling
@@ -720,7 +728,8 @@ impl WordApp {
             want_system_cjk: false,
             comment_fonts_for: None,
             script_fonts_done: false,
-            excel: Default::default(),
+            calc: Default::default(),
+            dictation: Default::default(),
             script_font_tries: 0,
             want_script_fonts: false,
             fonts_frames: 0,
@@ -1354,6 +1363,14 @@ impl WordApp {
         }
         // `quit`: once the prompt is answered the window closes too, not just the document.
         let _ = self.run("file.close", json!({"quit": true}));
+        // Lexicon: the prompt is only drawn while the window shows; a quit from the Dock with the
+        // window minimized or hidden waited for an answer nobody could see.
+        if let Some(ctx) = &self.ctx {
+            ctx.send_viewport_cmd(egui::ViewportCommand::Minimized(false));
+            ctx.send_viewport_cmd(egui::ViewportCommand::Visible(true));
+            ctx.send_viewport_cmd(egui::ViewportCommand::Focus);
+            ctx.request_repaint();
+        }
         false
     }
 
@@ -1433,22 +1450,6 @@ impl WordApp {
         }
     }
 
-    /// Home › Dictate: the platform's speech recognition in the interface language, or how to
-    /// dictate where Lexicon can't start it.
-    fn start_dictation(&mut self) {
-        let lang = i18n::Lang::from_pref(&self.ui.language).code().to_string();
-        let started = self.services.dictate.as_ref().map(|f| f(&lang));
-        match started {
-            Some(Ok(())) => self.status(tl!("Listening… Speak now; your words appear at the caret.")),
-            Some(Err(e)) if !e.is_empty() => self.status(e),
-            _ if cfg!(windows) => self.status(tl!("Press the Windows logo key + H to dictate with Windows voice typing.")),
-            _ if cfg!(target_os = "macos") => {
-                self.status(tl!("Press the Fn key twice (or Edit › Start Dictation) and turn on Dictation in System Settings › Keyboard."))
-            }
-            _ => self.status(tl!("Voice typing isn't available on this system.")),
-        }
-    }
-
     /// Requests commands make of the UI (open a dialog…).
     fn handle_request(&mut self, req: &Value) {
         // Ctrl+F: type straight into the Navigation pane's search box (#712).
@@ -1463,7 +1464,7 @@ impl WordApp {
             self.ui.theme = a;
         }
         if req.get("dictate").is_some() {
-            self.start_dictation();
+            dictation::toggle(self);
         }
         if req.get("toggle").and_then(Value::as_str) == Some("interfaceTheme") {
             self.ui.theme = if self.ui_is_dark() { theme::Appearance::Light } else { theme::Appearance::Dark };
@@ -1531,8 +1532,8 @@ impl WordApp {
     /// Commands that live in the UI layer.
     fn ui_command(&mut self, id: &str, p: &Value) -> Option<Result<Value, String>> {
         let s = |k: &str| p.get(k).and_then(Value::as_str);
-        if id.starts_with("ui.excel.") {
-            return Some(excel::command(self, id, p));
+        if id.starts_with("ui.calc.") {
+            return Some(calc::command(self, id, p));
         }
         Some(Ok(match id {
             "ui.tab" => {
@@ -1762,10 +1763,6 @@ impl WordApp {
                     "making Lexicon the default app needs a click in File › Options › General; scripts and agents can't change system defaults"
                         .into(),
                 ));
-            }
-            "ui.discord" => {
-                self.canvas.open_url = Some("https://discord.gg/artcraft".into());
-                json!({})
             }
             "ui.caretAnimation" => {
                 // File › Options › Advanced › Animation: `value` true or false turns the caret's
@@ -2065,7 +2062,7 @@ impl WordApp {
         self.ensure_comment_fonts();
         self.ensure_script_fonts(lang);
         self.install_ui_fonts(ctx, lang);
-        excel::update(self);
+        dictation::poll(self, now_ms());
         if let Some(answer) = self.desktop_theme.take_change() {
             self.desktop_dark = Some(answer);
         }
@@ -2131,7 +2128,10 @@ impl WordApp {
         }
         if !self.recovery_seen && self.session.recovery_ready() {
             self.recovery_seen = true;
-            if !self.session.recovery_documents().is_empty() && !self.session.dirty {
+            // Lexicon: only when nothing was opened yet. A document opened from Finder or the
+            // command line before the first scan finished was hidden under the Recover page.
+            let untouched = !self.has_document() || (self.session.path.is_none() && self.session.file_name.is_none());
+            if !self.session.recovery_documents().is_empty() && !self.session.dirty && untouched {
                 self.ui.backstage = true;
                 self.ui.backstage_page = "recover".into();
             }
@@ -2340,17 +2340,18 @@ impl WordApp {
             chrome::title_bar(self, ui);
             if !self.session.view.focus_mode {
                 ribbon::show(self, ui);
-                if self.ui.tab == "Excel" {
-                    egui::Panel::top("formula_bar")
-                        .exact_size(32.0)
-                        .frame(egui::Frame::NONE.fill(t.ribbon).inner_margin(egui::Margin::symmetric(10, 4)).stroke(egui::Stroke::new(1.0, t.border)))
-                        .show(ui, |ui| excel::formula_bar(self, ui));
-                }
                 chrome::status_bar(self, ui);
-                panes::show(self, ui);
+                if !calc::active(self) {
+                    panes::show(self, ui);
+                }
             }
+            // Lexicon: the Calculations tab shows its sheet in place of the page.
             egui::CentralPanel::default().frame(egui::Frame::NONE.fill(t.canvas)).show(ui, |ui| {
-                canvas::show(self, ui);
+                if calc::active(self) {
+                    calc::show(self, ui);
+                } else {
+                    canvas::show(self, ui);
+                }
             });
         }
         content_controls::popup(self, &ctx);
@@ -2737,7 +2738,6 @@ pub(crate) fn works_without_document(id: &str) -> bool {
             | "ui.openFileDialog"
             | "ui.fileBrowser"
             | "ui.makeDefaultApp"
-            | "ui.discord"
             | "ui.caretAnimation"
             | "ui.startScreen"
     ) || id.starts_with("help.")
@@ -2971,7 +2971,7 @@ mod tests {
         let services = Services {
             dictate: Some(Box::new(move |lang: &str| {
                 seen.borrow_mut().push(lang.to_string());
-                Ok(())
+                Ok(dictation::Started::Listening)
             })),
             ..Default::default()
         };
@@ -3165,7 +3165,7 @@ mod tests {
         for id in ["format.bold", "text.insert", "file.save", "file.saveAs", "file.print", "edit.paste", "insert.table", "ui.print"] {
             assert!(!widgets::enabled(a, id), "{id} is off with no document");
         }
-        for id in ["file.new", "file.open", "ui.backstage", "ui.tab", "ui.discord", "file.options", "ui.theme"] {
+        for id in ["file.new", "file.open", "ui.backstage", "ui.tab", "file.options", "ui.theme"] {
             assert!(widgets::enabled(a, id), "{id} works with no document");
         }
         assert!(!chrome::qat_enabled(a, "file.save"));
@@ -5513,7 +5513,7 @@ mod tests {
                 a,
             );
             h.run_steps(4);
-            assert!(h.query_by_label("Show the community button in the title bar").is_some(), "hook {hook}: the Options page rendered");
+            assert!(h.query_by_label("Show the Start screen when Lexicon starts").is_some(), "hook {hook}: the Options page rendered");
             assert_eq!(h.query_by_label(LABEL).is_some(), hook, "hook {hook}: the button");
             if hook {
                 h.get_by_label(LABEL).click();

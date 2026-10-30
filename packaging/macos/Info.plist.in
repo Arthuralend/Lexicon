@@ -24,6 +24,12 @@
   <string>@SHORT_VERSION@</string>
   <key>CFBundleVersion</key>
   <string>@SHORT_VERSION@</string>
+  <!-- Home › Dictate: macOS ends an app that uses the microphone or speech recognition without
+       these. -->
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Lexicon listens to the microphone while you dictate text.</string>
+  <key>NSSpeechRecognitionUsageDescription</key>
+  <string>Lexicon turns your speech into text while you dictate.</string>
   <key>LexiconVersion</key>
   <string>@VERSION@</string>
   <key>LexiconBuildCommit</key>

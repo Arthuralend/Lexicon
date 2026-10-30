@@ -2699,3 +2699,29 @@ preview	Title	Nümunə
 	Voice typing isn't available on this system.	Bu sistemdə səsli yazma mövcud deyil.
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	Rus, ingilis, erməni, gürcü və Azərbaycan dillərində orfoqrafiya yoxlaması olan pulsuz, açıq mənbəli mətn redaktoru.
 	Free software under the MIT or Apache-2.0 licence.	MIT və ya Apache-2.0 lisenziyalı azad proqram.
+	Calculations	Hesablamalar
+	Lavender	Lavanda
+	Mint	Nanə
+	Dawn	Şəfəq
+	Ocean	Okean
+	Plum	Gavalı
+	Coffee	Qəhvə
+	Sheet	Vərəq
+	Save As Excel	Excel kimi saxla
+	Save As CSV	CSV kimi saxla
+	Insert Rows	Sətir əlavə et
+	Insert Columns	Sütun əlavə et
+	Sort A to Z	A-dan Z-yə sırala
+	Sort Z to A	Z-dən A-ya sırala
+	Insert into Document	Sənədə əlavə et
+	Table from Document	Sənəddən cədvəl
+	Sheet1	Vərəq1
+	The sheet is empty.	Vərəq boşdur.
+	The table is in the document.	Cədvəl sənədə əlavə olundu.
+	Put the caret in a table in the document first.	Əvvəlcə kursoru sənəddəki cədvələ qoyun.
+	Saved {name}	Saxlanıldı: {name}
+	Spreadsheets	Cədvəllər
+	Dictation stopped.	Diktə dayandırıldı.
+	The system's voice typing is open: speak, and the words are typed at the caret.	Sistemin səsli yazması açıqdır: danışın, sözlər kursorda yazılacaq.
+	Allow speech recognition and the microphone when macOS asks.	macOS soruşanda nitqin tanınmasına və mikrofona icazə verin.
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	Nitqin tanınmasına icazə yoxdur: Sistem Ayarları › Məxfilik və Təhlükəsizlik bölməsində yandırın.

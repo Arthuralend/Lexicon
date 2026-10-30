@@ -2768,3 +2768,29 @@ template	Letter	Thư
 	Voice typing isn't available on this system.	Hệ thống này không hỗ trợ nhập bằng giọng nói.
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	Trình soạn thảo văn bản miễn phí, mã nguồn mở, kiểm tra chính tả tiếng Nga, Anh, Armenia, Gruzia và Azerbaijan.
 	Free software under the MIT or Apache-2.0 licence.	Phần mềm tự do theo giấy phép MIT hoặc Apache-2.0.
+	Calculations	Tính toán
+	Lavender	Oải hương
+	Mint	Bạc hà
+	Dawn	Bình minh
+	Ocean	Đại dương
+	Plum	Mận
+	Coffee	Cà phê
+	Sheet	Trang tính
+	Save As Excel	Lưu dạng Excel
+	Save As CSV	Lưu dạng CSV
+	Insert Rows	Chèn hàng
+	Insert Columns	Chèn cột
+	Sort A to Z	Sắp xếp A đến Z
+	Sort Z to A	Sắp xếp Z đến A
+	Insert into Document	Chèn vào tài liệu
+	Table from Document	Bảng từ tài liệu
+	Sheet1	Trang1
+	The sheet is empty.	Trang tính trống.
+	The table is in the document.	Bảng đã nằm trong tài liệu.
+	Put the caret in a table in the document first.	Hãy đặt con trỏ vào một bảng trong tài liệu trước.
+	Saved {name}	Đã lưu: {name}
+	Spreadsheets	Bảng tính
+	Dictation stopped.	Đã dừng đọc chính tả.
+	The system's voice typing is open: speak, and the words are typed at the caret.	Nhập liệu bằng giọng nói của hệ thống đang mở: hãy nói, chữ sẽ được gõ tại con trỏ.
+	Allow speech recognition and the microphone when macOS asks.	Hãy cho phép nhận dạng giọng nói và micrô khi macOS hỏi.
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	Nhận dạng giọng nói chưa được phép: hãy bật trong Cài đặt hệ thống › Quyền riêng tư & Bảo mật.

@@ -2572,3 +2572,29 @@ preview	Title	제목
 	Voice typing isn't available on this system.	이 시스템에서는 음성 입력을 사용할 수 없습니다.
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	러시아어, 영어, 아르메니아어, 조지아어, 아제르바이잔어 맞춤법 검사를 갖춘 무료 오픈 소스 워드 프로세서입니다.
 	Free software under the MIT or Apache-2.0 licence.	MIT 또는 Apache-2.0 라이선스의 자유 소프트웨어입니다.
+	Calculations	계산
+	Lavender	라벤더
+	Mint	민트
+	Dawn	새벽
+	Ocean	바다
+	Plum	자두
+	Coffee	커피
+	Sheet	시트
+	Save As Excel	Excel로 저장
+	Save As CSV	CSV로 저장
+	Insert Rows	행 삽입
+	Insert Columns	열 삽입
+	Sort A to Z	오름차순 정렬
+	Sort Z to A	내림차순 정렬
+	Insert into Document	문서에 삽입
+	Table from Document	문서에서 표 가져오기
+	Sheet1	Sheet1
+	The sheet is empty.	시트가 비어 있습니다.
+	The table is in the document.	표를 문서에 넣었습니다.
+	Put the caret in a table in the document first.	먼저 커서를 문서의 표에 두세요.
+	Saved {name}	저장됨: {name}
+	Spreadsheets	스프레드시트
+	Dictation stopped.	받아쓰기를 멈췄습니다.
+	The system's voice typing is open: speak, and the words are typed at the caret.	시스템 음성 입력이 열려 있습니다. 말하면 커서 위치에 입력됩니다.
+	Allow speech recognition and the microphone when macOS asks.	macOS가 물으면 음성 인식과 마이크를 허용하세요.
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	음성 인식이 허용되지 않았습니다. 시스템 설정 › 개인정보 보호 및 보안에서 켜세요.

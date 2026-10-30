@@ -547,3 +547,9 @@ pub fn start_dictation() -> bool {
     // a nil target sends the action along the responder chain.
     unsafe { msg_send![&app, sendAction: sel!(startDictation:), to: none, from: none] }
 }
+
+/// Lexicon: let the next `terminate:` quit. Until this is called, Command-Q, Dock › Quit and
+/// logout send each window `CloseRequested` instead, so the app can ask about unsaved changes.
+pub fn allow_terminate() {
+    crate::platform_impl::allow_terminate();
+}

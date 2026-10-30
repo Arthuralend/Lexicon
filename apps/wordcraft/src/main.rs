@@ -125,6 +125,9 @@ fn schedule_macos_terminate(app: &WordApp, key_file: Option<&control_server::Key
     if let Some(key_file) = key_file {
         key_file.remove();
     }
+    // The prompts are answered: let `terminate:` through (Lexicon's winit asks the windows to
+    // close first otherwise).
+    winit::platform::macos::allow_terminate();
     dispatch2::DispatchQueue::main().exec_async(|| {
         if let Some(mtm) = objc2::MainThreadMarker::new() {
             objc2_app_kit::NSApplication::sharedApplication(mtm).terminate(None);
@@ -237,16 +240,43 @@ fn write_prefs(path: &std::path::Path, bytes: &[u8]) -> std::io::Result<()> {
 /// through the system spooler (`print`), the system clipboard's text, formatted copies,
 /// pictures and format names (`clipboard`, #45, #584, #687, #833), the system's animation setting
 /// (`animations`), and making Lexicon the default app for Word documents (`default_apps`, #295).
+/// A recogniser event as the interface takes it.
+fn heard(e: lexicon_dictation::Event) -> wordcraft_ui_egui::dictation::Heard {
+    use wordcraft_ui_egui::dictation::Heard;
+    match e {
+        lexicon_dictation::Event::Partial(t) => Heard::Partial(t),
+        lexicon_dictation::Event::Final(t) => Heard::Final(t),
+        lexicon_dictation::Event::Error(t) => Heard::Error(t),
+        lexicon_dictation::Event::Authorized(ok) => Heard::Authorized(ok),
+    }
+}
+
 fn services(file_dialog: file_dialogs::Hook, ctx: &egui::Context) -> Services {
+    let dictation_queue: std::sync::Arc<std::sync::Mutex<Vec<wordcraft_ui_egui::dictation::Heard>>> = Default::default();
+    let heard_queue = dictation_queue.clone();
+    let dictation_ctx = ctx.clone();
     Services {
         file_dialog: Some(file_dialog),
         printers: Some(print::discover()),
         print_native: Some(print::submit()),
         clipboard_picture: Some(Box::new(clipboard::picture)),
         make_default_app: default_apps::hook(),
-        // Home › Dictate: the system's Dictation on macOS (the words arrive as typed text).
-        #[cfg(target_os = "macos")]
-        dictate: Some(Box::new(|_lang: &str| if winit::platform::macos::start_dictation() { Ok(()) } else { Err(String::new()) })),
+        // Home › Dictate: macOS's Speech framework, Windows voice typing (lexicon-dictation).
+        dictate: Some(Box::new(move |lang: &str| {
+            let queue = dictation_queue.clone();
+            let ctx = dictation_ctx.clone();
+            let sink: lexicon_dictation::Sink = std::sync::Arc::new(move |e| {
+                queue.lock().unwrap_or_else(|p| p.into_inner()).push(heard(e));
+                ctx.request_repaint();
+            });
+            lexicon_dictation::start(lang, sink).map(|m| match m {
+                lexicon_dictation::Mode::Listening => wordcraft_ui_egui::dictation::Started::Listening,
+                lexicon_dictation::Mode::System => wordcraft_ui_egui::dictation::Started::System,
+                lexicon_dictation::Mode::AskingPermission => wordcraft_ui_egui::dictation::Started::AskingPermission,
+            })
+        })),
+        dictate_stop: Some(Box::new(lexicon_dictation::stop)),
+        heard: Some(Box::new(move || std::mem::take(&mut *heard_queue.lock().unwrap_or_else(|p| p.into_inner())))),
         animations_enabled: Some(animations::hook(ctx)),
         clipboard_text: Some(Box::new(clipboard::text)),
         clipboard_html: Some(Box::new(clipboard::html)),

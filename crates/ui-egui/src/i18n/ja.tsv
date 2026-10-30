@@ -2318,3 +2318,29 @@
 	Voice typing isn't available on this system.	このシステムでは音声入力を利用できません。
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	ロシア語・英語・アルメニア語・ジョージア語・アゼルバイジャン語のスペル チェックを備えた、無料のオープンソース ワープロです。
 	Free software under the MIT or Apache-2.0 licence.	MIT または Apache-2.0 ライセンスのフリー ソフトウェアです。
+	Calculations	計算
+	Lavender	ラベンダー
+	Mint	ミント
+	Dawn	夜明け
+	Ocean	オーシャン
+	Plum	プラム
+	Coffee	コーヒー
+	Sheet	シート
+	Save As Excel	Excel として保存
+	Save As CSV	CSV として保存
+	Insert Rows	行の挿入
+	Insert Columns	列の挿入
+	Sort A to Z	昇順で並べ替え
+	Sort Z to A	降順で並べ替え
+	Insert into Document	文書に挿入
+	Table from Document	文書から表を取り込む
+	Sheet1	Sheet1
+	The sheet is empty.	シートは空です。
+	The table is in the document.	表を文書に挿入しました。
+	Put the caret in a table in the document first.	先にカーソルを文書の表に置いてください。
+	Saved {name}	保存しました: {name}
+	Spreadsheets	スプレッドシート
+	Dictation stopped.	音声入力を停止しました。
+	The system's voice typing is open: speak, and the words are typed at the caret.	システムの音声入力が開いています。話すとカーソル位置に入力されます。
+	Allow speech recognition and the microphone when macOS asks.	macOS に求められたら、音声認識とマイクを許可してください。
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	音声認識が許可されていません。「システム設定」›「プライバシーとセキュリティ」でオンにしてください。

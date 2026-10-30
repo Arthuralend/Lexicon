@@ -2328,3 +2328,29 @@
 	Voice typing isn't available on this system.	Glasovni unos nije dostupan na ovom sistemu.
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	Besplatan program za obradu teksta otvorenog koda sa proverom pravopisa na ruskom, engleskom, jermenskom, gruzijskom i azerbejdžanskom.
 	Free software under the MIT or Apache-2.0 licence.	Slobodan softver pod licencom MIT ili Apache-2.0.
+	Calculations	Proračuni
+	Lavender	Lavanda
+	Mint	Nana
+	Dawn	Zora
+	Ocean	Okean
+	Plum	Šljiva
+	Coffee	Kafa
+	Sheet	List
+	Save As Excel	Sačuvaj kao Excel
+	Save As CSV	Sačuvaj kao CSV
+	Insert Rows	Umetni redove
+	Insert Columns	Umetni kolone
+	Sort A to Z	Sortiraj od A do Ž
+	Sort Z to A	Sortiraj od Ž do A
+	Insert into Document	Umetni u dokument
+	Table from Document	Tabela iz dokumenta
+	Sheet1	List1
+	The sheet is empty.	List je prazan.
+	The table is in the document.	Tabela je u dokumentu.
+	Put the caret in a table in the document first.	Najpre postavite kursor u tabelu u dokumentu.
+	Saved {name}	Sačuvano: {name}
+	Spreadsheets	Tabele
+	Dictation stopped.	Diktiranje je zaustavljeno.
+	The system's voice typing is open: speak, and the words are typed at the caret.	Glasovni unos sistema je otvoren: govorite i reči će biti unete kod kursora.
+	Allow speech recognition and the microphone when macOS asks.	Dozvolite prepoznavanje govora i mikrofon kada macOS pita.
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	Prepoznavanje govora nije dozvoljeno: uključite ga u Podešavanja sistema › Privatnost i bezbednost.

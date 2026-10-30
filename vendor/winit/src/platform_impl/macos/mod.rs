@@ -59,3 +59,8 @@ impl fmt::Display for OsError {
         }
     }
 }
+
+/// Lexicon: see `platform::macos::allow_terminate`.
+pub(crate) fn allow_terminate() {
+    app_state::TERMINATE_ALLOWED.store(true, std::sync::atomic::Ordering::Relaxed);
+}

@@ -602,9 +602,34 @@ struct XCell {
     style: usize,
     value: String,
     inline: String,
+    formula: String,
 }
 
 fn xlsx_rows(pkg: &mut Package<'_>, path: &str) -> Result<Vec<Vec<String>>, String> {
+    xlsx_rows_with(pkg, path, false)
+}
+
+/// Lexicon's Calculations: the first sheet as a grid that keeps blank rows in place and gives a
+/// formula cell its formula (`=SUM(A1:A3)`) instead of its cached value. `.xls` and `.ods`
+/// workbooks give their values ([`read_rows`]).
+pub fn read_grid(bytes: &[u8]) -> Result<Vec<Vec<String>>, String> {
+    if bytes.starts_with(&xls::MAGIC) {
+        return Ok(xls::read_rows(bytes, Pick::Index(0))?.1);
+    }
+    let mut pkg = Package::open(bytes)?;
+    match pkg.kind().ok_or("not an Excel or OpenDocument spreadsheet")? {
+        Kind::Xlsx => {
+            let sheets = xlsx_sheets(&mut pkg)?;
+            let sheet = sheets.first().ok_or("the workbook has no sheets")?;
+            let path = sheet.path.clone();
+            xlsx_rows_with(&mut pkg, &path, true)
+        }
+        Kind::Xls => Ok(xls::read_rows(bytes, Pick::Index(0))?.1),
+        Kind::Ods => Ok(read_rows(bytes, Pick::Index(0))?.1),
+    }
+}
+
+fn xlsx_rows_with(pkg: &mut Package<'_>, path: &str, layout: bool) -> Result<Vec<Vec<String>>, String> {
     let wb = workbook(pkg)?;
     let shared = match wb.shared.as_deref().or(pkg.has("xl/sharedStrings.xml").then_some("xl/sharedStrings.xml")).map(str::to_string) {
         Some(p) => shared_strings(&pkg.read(&p)?),
@@ -622,6 +647,7 @@ fn xlsx_rows(pkg: &mut Package<'_>, path: &str) -> Result<Vec<Vec<String>>, Stri
     let (mut in_data, mut row_no, mut next_col) = (false, 0u64, 0usize);
     let mut cell: Option<XCell> = None;
     let (mut in_v, mut in_is_t, mut phonetic) = (false, false, 0usize);
+    let mut in_f = false;
     walk(&xml, |ev| match ev {
         Ev::Start(e) => match e.local_name().as_ref() {
             b"sheetData" => in_data = true,
@@ -640,6 +666,7 @@ fn xlsx_rows(pkg: &mut Package<'_>, path: &str) -> Result<Vec<Vec<String>>, Stri
                 cell = Some(XCell { col, kind: attr(e, b"t").unwrap_or_default(), style, ..Default::default() });
             }
             b"v" => in_v = cell.is_some(),
+            b"f" => in_f = cell.is_some() && layout,
             b"t" => in_is_t = cell.is_some(),
             b"rPh" => phonetic += 1,
             _ => {}
@@ -648,6 +675,8 @@ fn xlsx_rows(pkg: &mut Package<'_>, path: &str) -> Result<Vec<Vec<String>>, Stri
             if let Some(c) = cell.as_mut() {
                 if in_v {
                     push_capped(&mut c.value, &t);
+                } else if in_f {
+                    push_capped(&mut c.formula, &t);
                 } else if in_is_t && phonetic == 0 {
                     push_capped(&mut c.inline, &t);
                 }
@@ -656,11 +685,16 @@ fn xlsx_rows(pkg: &mut Package<'_>, path: &str) -> Result<Vec<Vec<String>>, Stri
         Ev::End(n) => match n.as_slice() {
             b"sheetData" => in_data = false,
             b"v" => in_v = false,
+            b"f" => in_f = false,
             b"t" => in_is_t = false,
             b"rPh" => phonetic = phonetic.saturating_sub(1),
             b"c" => {
                 let Some(c) = cell.take() else { return };
-                let text = xlsx_value(&c, &shared, &formats, wb.date1904);
+                let text = if layout && !c.formula.trim().is_empty() {
+                    format!("={}", c.formula.trim())
+                } else {
+                    xlsx_value(&c, &shared, &formats, wb.date1904)
+                };
                 if text.is_empty() || c.col >= MAX_COLS {
                     return;
                 }
@@ -686,6 +720,23 @@ fn xlsx_rows(pkg: &mut Package<'_>, path: &str) -> Result<Vec<Vec<String>>, Stri
             _ => {}
         },
     });
+    if layout {
+        // Blank rows stay in place (row numbers from 1; at most MAX_ROWS rows).
+        let mut out: Vec<Vec<String>> = Vec::new();
+        for (n, r) in rows {
+            let i = usize::try_from(n.saturating_sub(1)).unwrap_or(usize::MAX);
+            if i >= MAX_ROWS {
+                break;
+            }
+            if out.len() <= i {
+                out.resize(i + 1, Vec::new());
+            }
+            if let Some(slot) = out.get_mut(i) {
+                *slot = r;
+            }
+        }
+        return Ok(out);
+    }
     let mut grid = Grid::default();
     for (_, r) in rows {
         grid.push(r, 1);

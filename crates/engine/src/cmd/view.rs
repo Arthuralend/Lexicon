@@ -15,7 +15,9 @@ fn toggle(s: &mut Session, v: &Value, f: fn(&mut crate::ViewState) -> &mut bool)
 
 /// The interface themes the front end knows (Lexicon adds its own palettes to light, dark and
 /// system).
-pub const INTERFACE_THEMES: [&str; 10] = ["navy", "night", "system", "light", "dark", "black", "white", "sky", "burgundy", "forest"];
+pub const INTERFACE_THEMES: [&str; 16] = [
+    "navy", "night", "system", "light", "dark", "black", "white", "sky", "burgundy", "forest", "lavender", "mint", "dawn", "ocean", "plum", "coffee",
+];
 
 pub fn specs() -> Vec<CommandSpec> {
     vec![
@@ -92,7 +94,7 @@ pub fn specs() -> Vec<CommandSpec> {
             },
             _ => Err(CmdError::Params(format!("interface theme: {}", INTERFACE_THEMES.join("|")))),
         })
-        .params(r#"{"value"?: "navy" | "night" | "system" | "light" | "dark" | "black" | "white" | "sky" | "burgundy" | "forest"; without it, toggles light and dark}"#)
+        .params(r#"{"value"?: "navy" | "night" | "system" | "light" | "dark" | "black" | "white" | "sky" | "burgundy" | "forest" | "lavender" | "mint" | "dawn" | "ocean" | "plum" | "coffee"; without it, toggles light and dark}"#)
         .pure(),
         CommandSpec::new("view.stylesPane", "Styles Pane", "Home › Styles", |s, v| toggle(s, v, |x| &mut x.styles_pane)).pure(),
         CommandSpec::new("view.commentsPane", "Comments Pane", "Review › Comments", |s, v| toggle(s, v, |x| &mut x.comments_pane)).pure(),

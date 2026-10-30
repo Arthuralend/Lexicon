@@ -2699,3 +2699,29 @@ preview	Title	Օրինակ
 	Voice typing isn't available on this system.	Ձայնային մուտքագրումը հասանելի չէ այս համակարգում։
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	Անվճար, բաց կոդով տեքստային խմբագրիչ՝ ռուսերեն, անգլերեն, հայերեն, վրացերեն և ադրբեջաներեն ուղղագրության ստուգմամբ։
 	Free software under the MIT or Apache-2.0 licence.	Ազատ ծրագիր MIT կամ Apache-2.0 լիցենզիայով։
+	Calculations	Հաշվարկներ
+	Lavender	Նարդոս
+	Mint	Անանուխ
+	Dawn	Արշալույս
+	Ocean	Օվկիանոս
+	Plum	Սալոր
+	Coffee	Սուրճ
+	Sheet	Թերթ
+	Save As Excel	Պահպանել որպես Excel
+	Save As CSV	Պահպանել որպես CSV
+	Insert Rows	Տեղադրել տողեր
+	Insert Columns	Տեղադրել սյունակներ
+	Sort A to Z	Դասավորել Ա-ից Ֆ
+	Sort Z to A	Դասավորել Ֆ-ից Ա
+	Insert into Document	Տեղադրել փաստաթղթում
+	Table from Document	Աղյուսակ փաստաթղթից
+	Sheet1	Թերթ1
+	The sheet is empty.	Թերթը դատարկ է։
+	The table is in the document.	Աղյուսակը տեղադրված է փաստաթղթում։
+	Put the caret in a table in the document first.	Նախ կուրսորը տեղադրեք փաստաթղթի աղյուսակում։
+	Saved {name}	Պահպանված է՝ {name}
+	Spreadsheets	Աղյուսակներ
+	Dictation stopped.	Թելադրանքը դադարեցված է։
+	The system's voice typing is open: speak, and the words are typed at the caret.	Բացված է համակարգի ձայնային մուտքագրումը․ խոսեք, և բառերը կմուտքագրվեն կուրսորի մոտ։
+	Allow speech recognition and the microphone when macOS asks.	Թույլատրեք խոսքի ճանաչումը և խոսափողը, երբ macOS-ը հարցնի։
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	Խոսքի ճանաչումն արգելված է․ միացրեք այն Համակարգի կարգավորումներ › Գաղտնիություն և անվտանգություն բաժնում։

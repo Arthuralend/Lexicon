@@ -14,3 +14,10 @@ Root `Cargo.toml` uses it through `[patch.crates-io]`.
 `platform::macos::start_dictation()` sends `startDictation:` along the responder chain (what
 Edit › Start Dictation does), so Lexicon's Dictate button opens the system's Dictation; the words
 arrive through the view's `NSTextInputClient` as `Ime::Commit`.
+
+## macOS: Quit asks first
+
+`applicationShouldTerminate:` (Command-Q from the default menu, Dock › Quit, logout) sends every
+window `CloseRequested` and cancels, so the app's unsaved-changes prompt runs; the app calls
+`platform::macos::allow_terminate()` before its own `terminate:`. Before this, Command-Q skipped
+the prompt and tore the window down inside `-[NSApplication run]`.

@@ -2352,3 +2352,29 @@
 	Voice typing isn't available on this system.	Selles süsteemis pole häälsisestus saadaval.
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	Tasuta avatud lähtekoodiga tekstitöötlusprogramm vene, inglise, armeenia, gruusia ja aserbaidžaani õigekirja kontrolliga.
 	Free software under the MIT or Apache-2.0 licence.	Vaba tarkvara MIT või Apache-2.0 litsentsi all.
+	Calculations	Arvutused
+	Lavender	Lavendel
+	Mint	Münt
+	Dawn	Koit
+	Ocean	Ookean
+	Plum	Ploom
+	Coffee	Kohv
+	Sheet	Leht
+	Save As Excel	Salvesta Excelina
+	Save As CSV	Salvesta CSV-na
+	Insert Rows	Lisa read
+	Insert Columns	Lisa veerud
+	Sort A to Z	Sordi A–Z
+	Sort Z to A	Sordi Z–A
+	Insert into Document	Lisa dokumenti
+	Table from Document	Tabel dokumendist
+	Sheet1	Leht1
+	The sheet is empty.	Leht on tühi.
+	The table is in the document.	Tabel on dokumendis.
+	Put the caret in a table in the document first.	Pange kursor esmalt dokumendi tabelisse.
+	Saved {name}	Salvestatud: {name}
+	Spreadsheets	Arvutustabelid
+	Dictation stopped.	Dikteerimine peatati.
+	The system's voice typing is open: speak, and the words are typed at the caret.	Süsteemi häälsisestus on avatud: rääkige ja sõnad trükitakse kursori kohale.
+	Allow speech recognition and the microphone when macOS asks.	Lubage kõnetuvastus ja mikrofon, kui macOS küsib.
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	Kõnetuvastus pole lubatud: lülitage see sisse: Süsteemiseaded › Privaatsus ja turvalisus.

@@ -2724,3 +2724,29 @@
 	Voice typing isn't available on this system.	A hangalapú gépelés nem érhető el ezen a rendszeren.
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	Ingyenes, nyílt forráskódú szövegszerkesztő orosz, angol, örmény, grúz és azeri helyesírás-ellenőrzéssel.
 	Free software under the MIT or Apache-2.0 licence.	Szabad szoftver MIT vagy Apache-2.0 licenccel.
+	Calculations	Számítások
+	Lavender	Levendula
+	Mint	Menta
+	Dawn	Hajnal
+	Ocean	Óceán
+	Plum	Szilva
+	Coffee	Kávé
+	Sheet	Munkalap
+	Save As Excel	Mentés Excelként
+	Save As CSV	Mentés CSV-ként
+	Insert Rows	Sorok beszúrása
+	Insert Columns	Oszlopok beszúrása
+	Sort A to Z	Rendezés A–Z
+	Sort Z to A	Rendezés Z–A
+	Insert into Document	Beszúrás a dokumentumba
+	Table from Document	Táblázat a dokumentumból
+	Sheet1	Munka1
+	The sheet is empty.	A munkalap üres.
+	The table is in the document.	A táblázat bekerült a dokumentumba.
+	Put the caret in a table in the document first.	Előbb vigye a kurzort a dokumentum egy táblázatába.
+	Saved {name}	Mentve: {name}
+	Spreadsheets	Munkafüzetek
+	Dictation stopped.	A diktálás leállt.
+	The system's voice typing is open: speak, and the words are typed at the caret.	A rendszer hangalapú gépelése nyitva: beszéljen, és a szavak a kurzornál jelennek meg.
+	Allow speech recognition and the microphone when macOS asks.	Engedélyezze a beszédfelismerést és a mikrofont, amikor a macOS kéri.
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	A beszédfelismerés nincs engedélyezve: kapcsolja be a Rendszerbeállítások › Adatvédelem és biztonság alatt.

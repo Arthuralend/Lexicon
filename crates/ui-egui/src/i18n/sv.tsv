@@ -2743,3 +2743,29 @@ preview	Title	Titel
 	Voice typing isn't available on this system.	Röstinmatning är inte tillgänglig i det här systemet.
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	En gratis ordbehandlare med öppen källkod och stavningskontroll på ryska, engelska, armeniska, georgiska och azerbajdzjanska.
 	Free software under the MIT or Apache-2.0 licence.	Fri programvara under licensen MIT eller Apache-2.0.
+	Calculations	Beräkningar
+	Lavender	Lavendel
+	Mint	Mint
+	Dawn	Gryning
+	Ocean	Hav
+	Plum	Plommon
+	Coffee	Kaffe
+	Sheet	Blad
+	Save As Excel	Spara som Excel
+	Save As CSV	Spara som CSV
+	Insert Rows	Infoga rader
+	Insert Columns	Infoga kolumner
+	Sort A to Z	Sortera A till Ö
+	Sort Z to A	Sortera Ö till A
+	Insert into Document	Infoga i dokumentet
+	Table from Document	Tabell från dokumentet
+	Sheet1	Blad1
+	The sheet is empty.	Bladet är tomt.
+	The table is in the document.	Tabellen finns i dokumentet.
+	Put the caret in a table in the document first.	Placera först markören i en tabell i dokumentet.
+	Saved {name}	Sparade {name}
+	Spreadsheets	Kalkylblad
+	Dictation stopped.	Dikteringen stoppades.
+	The system's voice typing is open: speak, and the words are typed at the caret.	Systemets röstinmatning är öppen: tala, så skrivs orden vid markören.
+	Allow speech recognition and the microphone when macOS asks.	Tillåt taligenkänning och mikrofonen när macOS frågar.
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	Taligenkänning är inte tillåten: slå på den i Systeminställningar › Integritet och säkerhet.

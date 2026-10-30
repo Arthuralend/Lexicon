@@ -2330,3 +2330,29 @@
 	Voice typing isn't available on this system.	A digitação por voz não está disponível neste sistema.
 	A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani.	Um processador de texto gratuito e de código aberto, com verificação ortográfica em russo, inglês, armênio, georgiano e azerbaijano.
 	Free software under the MIT or Apache-2.0 licence.	Software livre sob a licença MIT ou Apache-2.0.
+	Calculations	Cálculos
+	Lavender	Lavanda
+	Mint	Menta
+	Dawn	Aurora
+	Ocean	Oceano
+	Plum	Ameixa
+	Coffee	Café
+	Sheet	Planilha
+	Save As Excel	Salvar como Excel
+	Save As CSV	Salvar como CSV
+	Insert Rows	Inserir linhas
+	Insert Columns	Inserir colunas
+	Sort A to Z	Classificar de A a Z
+	Sort Z to A	Classificar de Z a A
+	Insert into Document	Inserir no documento
+	Table from Document	Tabela do documento
+	Sheet1	Planilha1
+	The sheet is empty.	A planilha está vazia.
+	The table is in the document.	A tabela está no documento.
+	Put the caret in a table in the document first.	Primeiro coloque o cursor numa tabela do documento.
+	Saved {name}	Salvo: {name}
+	Spreadsheets	Planilhas
+	Dictation stopped.	Ditado interrompido.
+	The system's voice typing is open: speak, and the words are typed at the caret.	A digitação por voz do sistema está aberta: fale e as palavras são digitadas no cursor.
+	Allow speech recognition and the microphone when macOS asks.	Permita o reconhecimento de fala e o microfone quando o macOS pedir.
+	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	O reconhecimento de fala não é permitido: ative-o em Ajustes do Sistema › Privacidade e Segurança.

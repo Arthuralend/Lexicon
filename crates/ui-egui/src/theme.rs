@@ -32,11 +32,23 @@ pub enum Appearance {
     Burgundy,
     /// Dark green.
     Forest,
+    /// Light lilac.
+    Lavender,
+    /// Light mint green.
+    Mint,
+    /// Light peach and coral.
+    Dawn,
+    /// Dark teal.
+    Ocean,
+    /// Dark plum.
+    Plum,
+    /// Dark coffee brown.
+    Coffee,
 }
 
 impl Appearance {
     /// In menu order.
-    pub const ALL: [Appearance; 10] = [
+    pub const ALL: [Appearance; 16] = [
         Appearance::Navy,
         Appearance::Midnight,
         Appearance::System,
@@ -47,6 +59,12 @@ impl Appearance {
         Appearance::Sky,
         Appearance::Burgundy,
         Appearance::Forest,
+        Appearance::Lavender,
+        Appearance::Mint,
+        Appearance::Dawn,
+        Appearance::Ocean,
+        Appearance::Plum,
+        Appearance::Coffee,
     ];
 
     /// The value used in `ui.json` and by the `ui.theme` command.
@@ -64,6 +82,12 @@ impl Appearance {
             Appearance::Sky => "sky",
             Appearance::Burgundy => "burgundy",
             Appearance::Forest => "forest",
+            Appearance::Lavender => "lavender",
+            Appearance::Mint => "mint",
+            Appearance::Dawn => "dawn",
+            Appearance::Ocean => "ocean",
+            Appearance::Plum => "plum",
+            Appearance::Coffee => "coffee",
         }
     }
 
@@ -84,6 +108,12 @@ impl Appearance {
             Appearance::Sky => "Light Blue",
             Appearance::Burgundy => "Burgundy and Beige",
             Appearance::Forest => "Forest",
+            Appearance::Lavender => "Lavender",
+            Appearance::Mint => "Mint",
+            Appearance::Dawn => "Dawn",
+            Appearance::Ocean => "Ocean",
+            Appearance::Plum => "Plum",
+            Appearance::Coffee => "Coffee",
         }
     }
 
@@ -100,6 +130,12 @@ impl Appearance {
             Appearance::Sky => Tokens::sky(),
             Appearance::Burgundy => Tokens::burgundy(),
             Appearance::Forest => Tokens::forest(),
+            Appearance::Lavender => Tokens::lavender(),
+            Appearance::Mint => Tokens::mint(),
+            Appearance::Dawn => Tokens::dawn(),
+            Appearance::Ocean => Tokens::ocean(),
+            Appearance::Plum => Tokens::plum(),
+            Appearance::Coffee => Tokens::coffee(),
         })
     }
 
@@ -681,6 +717,198 @@ impl Tokens {
             menu: rgb(0xFFFBF5),
             selection: Color32::from_rgba_unmultiplied(0x8C, 0x1D, 0x3A, 0x40),
             ..Tokens::light()
+        }
+    }
+
+    /// Light lilac.
+    pub fn lavender() -> Self {
+        Tokens {
+            title_bar: rgb(0xECE6F7),
+            ribbon: rgb(0xF6F2FC),
+            tab_strip: rgb(0xECE6F7),
+            canvas: rgb(0xE2DAF2),
+            panel: rgb(0xFAF7FE),
+            border: rgb(0xDDD3EF),
+            border_strong: rgb(0xBFAFDF),
+            text: rgb(0x231A33),
+            text_dim: rgb(0x56486E),
+            icon: rgb(0x3D2F57),
+            hover: rgb(0xE6DCF5),
+            pressed: rgb(0xD8CAEE),
+            checked: rgb(0xE3D5F7),
+            accent: rgb(0x6A3FB5),
+            accent_text: rgb(0x5A32A0),
+            input_border: rgb(0x7D6A9E),
+            group_label: rgb(0x56486E),
+            ruler_margin: rgb(0xDDD3EF),
+            ruler_tick: rgb(0x56486E),
+            status_bar: rgb(0xECE6F7),
+            markup_area: rgb(0xFAF7FE),
+            markup_edge: rgb(0xDDD3EF),
+            ..Tokens::light()
+        }
+    }
+
+    /// Light mint green.
+    pub fn mint() -> Self {
+        Tokens {
+            title_bar: rgb(0xE2F3EC),
+            ribbon: rgb(0xF1FAF6),
+            tab_strip: rgb(0xE2F3EC),
+            canvas: rgb(0xD6EDE3),
+            panel: rgb(0xF7FCFA),
+            border: rgb(0xCDE6DA),
+            border_strong: rgb(0xA9D2BF),
+            text: rgb(0x15291F),
+            text_dim: rgb(0x3F5C4E),
+            icon: rgb(0x24443A),
+            hover: rgb(0xD9EFE5),
+            pressed: rgb(0xC6E5D7),
+            checked: rgb(0xCDEBDD),
+            accent: rgb(0x1E7A55),
+            accent_text: rgb(0x17654A),
+            input_border: rgb(0x638A78),
+            group_label: rgb(0x3F5C4E),
+            ruler_margin: rgb(0xCDE6DA),
+            ruler_tick: rgb(0x3F5C4E),
+            status_bar: rgb(0xE2F3EC),
+            markup_area: rgb(0xF7FCFA),
+            markup_edge: rgb(0xCDE6DA),
+            ..Tokens::light()
+        }
+    }
+
+    /// Light peach and coral.
+    pub fn dawn() -> Self {
+        Tokens {
+            title_bar: rgb(0xFBE9DF),
+            ribbon: rgb(0xFEF5EF),
+            tab_strip: rgb(0xFBE9DF),
+            canvas: rgb(0xF5DDD0),
+            panel: rgb(0xFFF9F5),
+            border: rgb(0xF0D5C5),
+            border_strong: rgb(0xE0B39A),
+            text: rgb(0x33201A),
+            text_dim: rgb(0x6A4B40),
+            icon: rgb(0x5A3428),
+            hover: rgb(0xF8E1D4),
+            pressed: rgb(0xF1CFBD),
+            checked: rgb(0xF9DCD0),
+            accent: rgb(0xC2482E),
+            accent_text: rgb(0xA63C25),
+            input_border: rgb(0x9C7666),
+            group_label: rgb(0x6A4B40),
+            ruler_margin: rgb(0xF0D5C5),
+            ruler_tick: rgb(0x6A4B40),
+            status_bar: rgb(0xFBE9DF),
+            markup_area: rgb(0xFFF9F5),
+            markup_edge: rgb(0xF0D5C5),
+            ..Tokens::light()
+        }
+    }
+
+    /// Dark teal.
+    pub fn ocean() -> Self {
+        Tokens {
+            title_bar: rgb(0x0B1E24),
+            ribbon: rgb(0x10282F),
+            tab_strip: rgb(0x0B1E24),
+            canvas: rgb(0x07161B),
+            panel: rgb(0x0E242B),
+            border: rgb(0x1C3F48),
+            border_strong: rgb(0x2C5C68),
+            text: rgb(0xE3F2F4),
+            text_dim: rgb(0xA6C6CC),
+            icon: rgb(0xC6DFE3),
+            hover: rgb(0x173840),
+            pressed: rgb(0x1F4751),
+            checked: rgb(0x1F4A55),
+            accent: rgb(0x45C6C9),
+            accent_text: rgb(0x7ADDE0),
+            on_accent: rgb(0x0B1E24),
+            input: rgb(0x07161B),
+            input_border: rgb(0x4E8590),
+            group_label: rgb(0xA6C6CC),
+            ruler: rgb(0x1A3840),
+            ruler_margin: rgb(0x07161B),
+            ruler_tick: rgb(0xA6C6CC),
+            status_bar: rgb(0x0B1E24),
+            balloon: rgb(0x0E242B),
+            markup_area: rgb(0x07161B),
+            markup_edge: rgb(0x1C3F48),
+            menu: rgb(0x10282F),
+            resolved_text: rgb(0x8EE6B5),
+            ..Tokens::dark()
+        }
+    }
+
+    /// Dark plum.
+    pub fn plum() -> Self {
+        Tokens {
+            title_bar: rgb(0x1C1024),
+            ribbon: rgb(0x251530),
+            tab_strip: rgb(0x1C1024),
+            canvas: rgb(0x140A1A),
+            panel: rgb(0x211329),
+            border: rgb(0x3A2447),
+            border_strong: rgb(0x56366A),
+            text: rgb(0xF1E6F6),
+            text_dim: rgb(0xC5AED2),
+            icon: rgb(0xDCCAE6),
+            hover: rgb(0x322040),
+            pressed: rgb(0x3D2850),
+            checked: rgb(0x3C2852),
+            accent: rgb(0xC08BEA),
+            accent_text: rgb(0xD7B3F4),
+            on_accent: rgb(0x1C1024),
+            input: rgb(0x140A1A),
+            input_border: rgb(0x80659A),
+            group_label: rgb(0xC5AED2),
+            ruler: rgb(0x322044),
+            ruler_margin: rgb(0x140A1A),
+            ruler_tick: rgb(0xC5AED2),
+            status_bar: rgb(0x1C1024),
+            balloon: rgb(0x211329),
+            markup_area: rgb(0x140A1A),
+            markup_edge: rgb(0x3A2447),
+            menu: rgb(0x251530),
+            resolved_text: rgb(0x8EE6B5),
+            ..Tokens::dark()
+        }
+    }
+
+    /// Dark coffee brown.
+    pub fn coffee() -> Self {
+        Tokens {
+            title_bar: rgb(0x1E1612),
+            ribbon: rgb(0x28201A),
+            tab_strip: rgb(0x1E1612),
+            canvas: rgb(0x15100D),
+            panel: rgb(0x241C17),
+            border: rgb(0x3D2F26),
+            border_strong: rgb(0x5A4638),
+            text: rgb(0xF3EAE2),
+            text_dim: rgb(0xC9B8A8),
+            icon: rgb(0xE0D2C4),
+            hover: rgb(0x352A22),
+            pressed: rgb(0x42342A),
+            checked: rgb(0x47372C),
+            accent: rgb(0xE0A060),
+            accent_text: rgb(0xEDBE88),
+            on_accent: rgb(0x1E1612),
+            input: rgb(0x15100D),
+            input_border: rgb(0x85705E),
+            group_label: rgb(0xC9B8A8),
+            ruler: rgb(0x35291F),
+            ruler_margin: rgb(0x15100D),
+            ruler_tick: rgb(0xC9B8A8),
+            status_bar: rgb(0x1E1612),
+            balloon: rgb(0x241C17),
+            markup_area: rgb(0x15100D),
+            markup_edge: rgb(0x3D2F26),
+            menu: rgb(0x28201A),
+            resolved_text: rgb(0x8EE6B5),
+            ..Tokens::dark()
         }
     }
 

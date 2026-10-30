@@ -279,11 +279,11 @@ pub fn show(app: &mut WordApp, ui: &mut Ui) {
     // Format) may be stored while the selection moved away, and a tab may have been hidden.
     let user_tabs = app.session.ribbon.tabs().into_owned();
     let mut tabs: Vec<(String, bool)> = vec![("File".to_string(), false)];
-    // Lexicon: no Developer, Zotero or Help tab; the Excel tab comes last.
+    // Lexicon: no Developer, Zotero or Help tab; Calculations (a spreadsheet) comes last.
     tabs.extend(
         user_tabs.iter().filter(|e| !e.hidden && !matches!(e.name.as_str(), "Developer" | "Zotero" | "Help")).map(|e| (e.name.clone(), e.custom)),
     );
-    tabs.push(("Excel".to_string(), false));
+    tabs.push(("Calculations".to_string(), false));
     for ct in contextual_tabs(&app.session) {
         if ct == "Outlining" {
             tabs.insert(1.min(tabs.len()), (ct.to_string(), false));
@@ -514,7 +514,7 @@ pub fn show(app: &mut WordApp, ui: &mut Ui) {
                         "Developer" => developer(app, ui),
                         "Zotero" => zotero(app, ui),
                         "Help" => help(app, ui),
-                        "Excel" => crate::excel::tab(app, ui),
+                        "Calculations" => crate::calc::tab(app, ui),
                         "Table Design" => table_design(app, ui),
                         "Table Layout" => table_layout(app, ui),
                         "Equation" if app.session.math.is_some() => crate::equation_tab::show(app, ui),
@@ -1219,7 +1219,8 @@ fn home(app: &mut WordApp, ui: &mut Ui) {
         });
     });
     group(ui, "Voice", None, app, |ui, app| {
-        big(ui, app, "dictate", "Dictate", "tools.dictate", json!({}), false);
+        let on = app.dictation.active;
+        crate::widgets::big_toggle(ui, app, "dictate", "Dictate", "tools.dictate", on);
     });
     group(ui, "Editor", None, app, |ui, app| {
         big(ui, app, "editor", "Editor", "review.spelling", json!({}), false);
@@ -2243,7 +2244,6 @@ fn outlining(app: &mut WordApp, ui: &mut Ui) {
 fn help(app: &mut WordApp, ui: &mut Ui) {
     group(ui, "Help", None, app, |ui, app| {
         big(ui, app, "help", "Help", "ui.dialog", json!({"name": "about"}), false);
-        big(ui, app, "discord", "Community\nDiscord", "ui.discord", json!({}), false);
     });
     group(ui, "Agents", None, app, |ui, app| {
         big(ui, app, "macros", "Commands", "ui.dialog", json!({"name": "commands"}), false);

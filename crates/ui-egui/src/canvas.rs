@@ -2362,12 +2362,16 @@ fn mouse(app: &mut WordApp, ui: &Ui, resp: &egui::Response, rects: &[Rect], layo
     }
     // Double-click in the header/footer area edits it (creating it when the page has none, #960);
     // double-click in the body leaves it. Print Layout only: the other views show no margins.
-    let hf_zone = if app.session.view.mode == wordcraft_layout::ViewMode::Print && !app.session.view.read_mode {
+    // Lexicon: only on the page itself (not the grey above page 1), and only for a double-click the
+    // canvas counted both presses of: the first click of a double-click on a Start screen tile or a
+    // Recent entry opened the document, and its second landed here and created a header.
+    let hf_zone = if app.session.view.mode == wordcraft_layout::ViewMode::Print && !app.session.view.read_mode && y >= 0.0 {
         layout.header_footer_zone(page, y)
     } else {
         None
     };
-    if resp.double_clicked() {
+    let counted_double = app.canvas.last_press.is_some_and(|(_, _, n)| n >= 2);
+    if resp.double_clicked() && counted_double {
         // Also from another header/footer: with Different First Page on, page 1's header is not
         // the one being edited on page 2 (#2826).
         if let Some((shown, header)) = hf_zone

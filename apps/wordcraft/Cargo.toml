@@ -17,6 +17,8 @@ wordcraft-proof = { workspace = true }
 # Fonts the user added (#582) load from the settings folder at start-up.
 wordcraft-fonts = { workspace = true }
 wordcraft-ui-egui = { workspace = true }
+# Home › Dictate with the system's speech tools.
+lexicon-dictation = { path = "../../crates/dictation" }
 # The control key file's location (shared with the MCP bridge).
 wordcraft-control-key = { workspace = true }
 eframe = { workspace = true, features = ["default_fonts", "wgpu", "accesskit", "wayland", "x11", "links"] }
@@ -47,8 +49,7 @@ objc2-foundation = { version = "0.3", default-features = false, features = ["std
 # Closing the window must quit through NSApplication rather than by dropping the NSWindow
 # inside the AppKit run loop (see `schedule_macos_terminate`).
 dispatch2 = "0.3"
-# Lexicon: Home › Dictate starts the system's Dictation through the patched winit
-# (vendor/winit, `platform::macos::start_dictation`).
+# Lexicon's patched winit (vendor/winit): Quit asks the windows to close first.
 winit = { version = "0.30", default-features = false }
 
 [target.'cfg(all(unix, not(target_os = "macos")))'.dependencies]
