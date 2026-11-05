@@ -1,4 +1,4 @@
-<h1 align="center">Lexicon</h1>
+<h1 align="center">Office Pro Max</h1>
 
 <p align="center">
   <b>Текстовый процессор с проверкой орфографии на русском и английском — для Android, Windows, macOS, Linux и браузера.</b><br>
@@ -52,7 +52,7 @@ Lexicon основан на [WordCraft](https://github.com/storytold/wordcraft) 
 
 ## Установка на Android
 
-1. Скачайте APK на телефон по прямой ссылке: **https://github.com/Arthuralend/Lexicon/releases/download/latest/Lexicon.apk** — там всегда последняя сборка.
+1. Скачайте APK на телефон по прямой ссылке: **https://github.com/Arthuralend/Lexicon/releases/download/latest/Office-Pro-Max.apk** — там всегда последняя сборка.
 2. Откройте скачанный `Lexicon.apk`. Разрешите установку из
    этого источника, когда телефон спросит.
 3. При первом запуске Lexicon попросит доступ к файлам — тогда документы можно открывать и
@@ -64,8 +64,8 @@ Lexicon основан на [WordCraft](https://github.com/storytold/wordcraft) 
 
 ## Установка на Windows
 
-1. Скачайте установщик: **https://github.com/Arthuralend/Lexicon/releases/download/latest/Lexicon-Windows.msi**
-   (или версию без установки: **https://github.com/Arthuralend/Lexicon/releases/download/latest/Lexicon-Windows-portable.zip**).
+1. Скачайте установщик: **https://github.com/Arthuralend/Lexicon/releases/download/latest/Office-Pro-Max-Windows.msi**
+   (или версию без установки: **https://github.com/Arthuralend/Lexicon/releases/download/latest/Office-Pro-Max-Windows-portable.zip**).
 2. Запустите `Lexicon-Windows.msi`. Если Windows покажет «Система Windows защитила ваш компьютер»,
    нажмите «Подробнее» → «Выполнить в любом случае»: установщик не подписан платным сертификатом.
 3. Lexicon появится в меню «Пуск». Для документов Word его можно выбрать в
@@ -75,7 +75,7 @@ Lexicon основан на [WordCraft](https://github.com/storytold/wordcraft) 
 
 ## Установка на macOS
 
-1. Скачайте **https://github.com/Arthuralend/Lexicon/releases/download/latest/Lexicon-macOS.dmg**,
+1. Скачайте **https://github.com/Arthuralend/Lexicon/releases/download/latest/Office-Pro-Max-macOS.dmg**,
    откройте его и перетащите Lexicon в «Программы».
 2. Приложение не заверено Apple, поэтому при первом запуске macOS его не откроет. Откройте
    «Системные настройки › Конфиденциальность и безопасность» и нажмите «Всё равно открыть» рядом
