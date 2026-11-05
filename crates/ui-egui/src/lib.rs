@@ -800,6 +800,14 @@ impl WordApp {
         self.ui.start_screen
     }
 
+    /// Office Pro Max Sheets: open on the Calculations tab, with the sheet in front.
+    pub fn start_in_calculations(&mut self) {
+        self.ui.tab = "Calculations".into();
+        self.ui.backstage = false;
+        // A blank document stands behind the sheet (no Start screen).
+        self.no_document = None;
+    }
+
     /// Whether a document is open: false from a Start screen launch until the user creates or
     /// opens one (#1129).
     pub fn has_document(&self) -> bool {
@@ -1405,17 +1413,10 @@ impl WordApp {
             return Ok(json!({"closed": false}));
         }
         self.execute("file.new", json!({}))?;
-        // Lexicon: closing the last document leaves a blank one, as Word does. On the Mac the
-        // window goes to the Dock (Cmd+W there doesn't empty the window); elsewhere File › Home
-        // offers New, Open and the recent documents. An empty window whose ribbon is greyed out
-        // left nothing to click (the Help tab, which stayed on, is gone).
+        // Lexicon: closing the last document shows File › Home (New, Open, recent documents), never
+        // a window with nothing to click. (Minimizing the window instead, on the Mac, left it
+        // stuck when it came back from the Dock.)
         self.ui.backstage = false;
-        if cfg!(target_os = "macos") {
-            if let Some(ctx) = &self.ctx {
-                ctx.send_viewport_cmd(egui::ViewportCommand::Minimized(true));
-            }
-            return Ok(json!({"closed": true, "minimized": true}));
-        }
         self.no_document = Some(self.session.document_id());
         self.ui.backstage = true;
         self.ui.backstage_page = "home".into();
@@ -1774,7 +1775,7 @@ impl WordApp {
             // MCP get an error.
             "ui.makeDefaultApp" => {
                 return Some(Err(
-                    "making Lexicon the default app needs a click in File › Options › General; scripts and agents can't change system defaults"
+                    "making Office Pro Max the default app needs a click in File › Options › General; scripts and agents can't change system defaults"
                         .into(),
                 ));
             }
@@ -1837,20 +1838,20 @@ impl WordApp {
     /// command, so nothing programmatic (control channel, MCP, macros) can change system defaults.
     pub(crate) fn make_default_app(&mut self) -> Result<Value, String> {
         let Some(hook) = self.services.make_default_app.as_ref() else {
-            return Err("Lexicon can't change the default apps here; use your system's settings".into());
+            return Err("Office Pro Max can't change the default apps here; use your system's settings".into());
         };
         match hook() {
             Ok(DefaultApp::SettingsOpened) => {
-                self.status(tl!("In Default apps, choose Lexicon for the document types you want it to open."));
+                self.status(tl!("In Default apps, choose Office Pro Max for the document types you want it to open."));
                 Ok(json!({"settingsOpened": true}))
             }
             Ok(DefaultApp::MadeDefault) => {
-                self.status(tl!("Lexicon is now the default app for Word documents."));
+                self.status(tl!("Office Pro Max is now the default app for Word documents."));
                 Ok(json!({"default": true}))
             }
             Err(e) => {
                 log::warn!("make default app: {e}");
-                let msg = i18n::fmt(tl!("Couldn't make Lexicon the default: {error}"), &[("error", &e)]);
+                let msg = i18n::fmt(tl!("Couldn't make Office Pro Max the default: {error}"), &[("error", &e)]);
                 self.status(msg.clone());
                 Err(msg)
             }
@@ -2144,7 +2145,7 @@ impl WordApp {
             self.recovery_seen = true;
             // Lexicon: only when nothing was opened yet. A document opened from Finder or the
             // command line before the first scan finished was hidden under the Recover page.
-            let untouched = !self.has_document() || (self.session.path.is_none() && self.session.file_name.is_none());
+            let untouched = (!self.has_document() || (self.session.path.is_none() && self.session.file_name.is_none())) && !calc::active(self);
             if !self.session.recovery_documents().is_empty() && !self.session.dirty && untouched {
                 self.ui.backstage = true;
                 self.ui.backstage_page = "recover".into();
@@ -2382,9 +2383,9 @@ impl WordApp {
             ctx.open_url(egui::OpenUrl::new_tab(url));
         }
         let title = if self.has_document() {
-            format!("{}{} - {}", self.title_stem(), if self.session.dirty { " •" } else { "" }, tl!("Lexicon"))
+            format!("{}{} - {}", self.title_stem(), if self.session.dirty { " •" } else { "" }, tl!("Office Pro Max"))
         } else {
-            tl!("Lexicon").to_string()
+            tl!("Office Pro Max").to_string()
         };
         if title != self.sent_title {
             ctx.send_viewport_cmd(egui::ViewportCommand::Title(title.clone()));
@@ -3006,11 +3007,7 @@ mod tests {
         a.run("text.insert", json!({"text": "x"})).unwrap();
         a.session.dirty = false;
         a.run("file.close", json!({})).unwrap();
-        if cfg!(target_os = "macos") {
-            assert!(a.has_document(), "a blank document behind the minimized window");
-        } else {
-            assert!(a.ui.backstage && a.ui.backstage_page == "home", "File › Home offers New and Open");
-        }
+        assert!(a.ui.backstage && a.ui.backstage_page == "home", "File › Home offers New and Open");
     }
 
     #[test]
@@ -3174,7 +3171,7 @@ mod tests {
         let a = h.state_mut();
         assert!(!a.ui.backstage, "Esc leaves the Start screen");
         assert!(!a.has_document(), "for an empty window, not a blank document");
-        assert_eq!(a.sent_title, "Lexicon", "the window is titled with the app alone");
+        assert_eq!(a.sent_title, "Office Pro Max", "the window is titled with the app alone");
         // The ribbon's commands are off, but Help, the File tab and the settings work.
         for id in ["format.bold", "text.insert", "file.save", "file.saveAs", "file.print", "edit.paste", "insert.table", "ui.print"] {
             assert!(!widgets::enabled(a, id), "{id} is off with no document");
@@ -5506,7 +5503,7 @@ mod tests {
     #[test]
     fn the_default_app_button_shows_only_with_the_hosts_hook() {
         use egui_kittest::kittest::Queryable;
-        const LABEL: &str = "Make Lexicon the default for Word documents…";
+        const LABEL: &str = "Make Office Pro Max the default for Word documents…";
         for hook in [false, true] {
             let calls = std::rc::Rc::new(std::cell::Cell::new(0));
             let mut a = app();
@@ -5527,7 +5524,7 @@ mod tests {
                 a,
             );
             h.run_steps(4);
-            assert!(h.query_by_label("Show the Start screen when Lexicon starts").is_some(), "hook {hook}: the Options page rendered");
+            assert!(h.query_by_label("Show the Start screen when Office Pro Max starts").is_some(), "hook {hook}: the Options page rendered");
             assert_eq!(h.query_by_label(LABEL).is_some(), hook, "hook {hook}: the button");
             if hook {
                 h.get_by_label(LABEL).click();

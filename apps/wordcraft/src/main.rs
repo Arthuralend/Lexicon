@@ -356,6 +356,12 @@ fn main() -> eframe::Result {
     let mut control_port: Option<u16> = std::env::var("WORDCRAFT_CONTROL_PORT").ok().and_then(|p| p.parse().ok());
     let mut files = Vec::new();
     let mut sample = false;
+    // Office Pro Max Sheets (the same program under another name: `Sheets` in the macOS app,
+    // `--calc` from its Windows shortcut) starts in Calculations.
+    let mut sheets = std::env::current_exe()
+        .ok()
+        .and_then(|p| p.file_stem().map(|s| s.to_string_lossy().to_ascii_lowercase()))
+        .is_some_and(|s| s.contains("sheets"));
     let (args, other_files) = text_args();
     let mut bad_control: Option<Option<String>> = None;
     let mut args = args.into_iter().peekable();
@@ -370,6 +376,8 @@ fn main() -> eframe::Result {
                 }
             }
             "--sample" => sample = true,
+            // Office Pro Max Sheets: start in Calculations.
+            "--calc" => sheets = true,
             "--version" => {
                 println!("wordcraft {} ({})", env!("CARGO_PKG_VERSION"), build_sha());
                 return Ok(());
@@ -395,7 +403,7 @@ fn main() -> eframe::Result {
     if let Some(logger) = logger {
         match log_dir().filter(|_| prefs_enabled()) {
             Some(dir) => match logger.attach_dir(&dir) {
-                Ok(path) => log::info!("Lexicon {} ({}), log file {}", env!("CARGO_PKG_VERSION"), build_sha(), path.display()),
+                Ok(path) => log::info!("Office Pro Max {} ({}), log file {}", env!("CARGO_PKG_VERSION"), build_sha(), path.display()),
                 // Standard error only by now (`attach_dir` gave up on the file); unlike `eprintln!`, never panics.
                 Err(e) => log::warn!("no log file: {e}"),
             },
@@ -404,7 +412,7 @@ fn main() -> eframe::Result {
     }
     let mut options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default()
-            .with_title("Lexicon")
+            .with_title("Office Pro Max")
             .with_app_id("ai.storyteller.wordcraft")
             .with_inner_size([1440.0, 920.0])
             .with_min_inner_size([760.0, 480.0])
@@ -447,7 +455,7 @@ fn main() -> eframe::Result {
     #[cfg(target_os = "macos")]
     let apple_events = &apple_events;
     eframe::run_native(
-        "Lexicon",
+        "Office Pro Max",
         options,
         Box::new(move |cc| {
             // The system region picks the new document's paper, the units and the decimal
@@ -497,8 +505,16 @@ fn main() -> eframe::Result {
             // Nothing to open (no files, no sample, no control channel driving the editor): start
             // on File › Home, as Word does (#766), unless the Start screen option is off. Files
             // macOS hands over later open on top of it and close it (`apple_events`).
-            if files.is_empty() && other_files.is_empty() && !sample && control_port.is_none() {
-                app.start_screen();
+            if sheets {
+                app.start_in_calculations();
+            } else {
+                // The documents app opens on the page even when the sheet was last in front.
+                if app.ui.tab == "Calculations" {
+                    app.ui.tab = "Home".into();
+                }
+                if files.is_empty() && other_files.is_empty() && !sample && control_port.is_none() {
+                    app.start_screen();
+                }
             }
             for f in files {
                 if let Err(e) = app.run("file.open", serde_json::json!({"path": f})) {

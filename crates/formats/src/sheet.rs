@@ -606,13 +606,47 @@ struct XCell {
 }
 
 fn xlsx_rows(pkg: &mut Package<'_>, path: &str) -> Result<Vec<Vec<String>>, String> {
-    xlsx_rows_with(pkg, path, false)
+    xlsx_rows_with(pkg, path, false, false)
 }
 
 /// Lexicon's Calculations: the first sheet as a grid that keeps blank rows in place and gives a
 /// formula cell its formula (`=SUM(A1:A3)`) instead of its cached value. `.xls` and `.ods`
 /// workbooks give their values ([`read_rows`]).
 pub fn read_grid(bytes: &[u8]) -> Result<Vec<Vec<String>>, String> {
+    read_grid_inner(bytes)
+}
+
+/// [`read_grid`], with the value Excel last calculated for each formula cell (row, column from
+/// 0): shown where Lexicon can't calculate the formula itself.
+pub fn read_grid_cached(bytes: &[u8]) -> Result<(Vec<Vec<String>>, Vec<((usize, usize), String)>), String> {
+    let grid = read_grid_inner(bytes)?;
+    let mut cached = Vec::new();
+    if let Ok(values) = read_values_in_place(bytes) {
+        for (r, row) in grid.iter().enumerate() {
+            for (c, text) in row.iter().enumerate() {
+                if text.starts_with('=')
+                    && let Some(v) = values.get(r).and_then(|row| row.get(c)).filter(|v| !v.is_empty())
+                {
+                    cached.push(((r, c), v.clone()));
+                }
+            }
+        }
+    }
+    Ok((grid, cached))
+}
+
+/// The first sheet's values in place (blank rows kept), for [`read_grid_cached`].
+fn read_values_in_place(bytes: &[u8]) -> Result<Vec<Vec<String>>, String> {
+    let mut pkg = Package::open(bytes)?;
+    if pkg.kind() != Some(Kind::Xlsx) {
+        return Err("not an xlsx workbook".into());
+    }
+    let sheets = xlsx_sheets(&mut pkg)?;
+    let path = sheets.first().ok_or("the workbook has no sheets")?.path.clone();
+    xlsx_rows_with(&mut pkg, &path, true, false)
+}
+
+fn read_grid_inner(bytes: &[u8]) -> Result<Vec<Vec<String>>, String> {
     if bytes.starts_with(&xls::MAGIC) {
         return Ok(xls::read_rows(bytes, Pick::Index(0))?.1);
     }
@@ -622,14 +656,14 @@ pub fn read_grid(bytes: &[u8]) -> Result<Vec<Vec<String>>, String> {
             let sheets = xlsx_sheets(&mut pkg)?;
             let sheet = sheets.first().ok_or("the workbook has no sheets")?;
             let path = sheet.path.clone();
-            xlsx_rows_with(&mut pkg, &path, true)
+            xlsx_rows_with(&mut pkg, &path, true, true)
         }
         Kind::Xls => Ok(xls::read_rows(bytes, Pick::Index(0))?.1),
         Kind::Ods => Ok(read_rows(bytes, Pick::Index(0))?.1),
     }
 }
 
-fn xlsx_rows_with(pkg: &mut Package<'_>, path: &str, layout: bool) -> Result<Vec<Vec<String>>, String> {
+fn xlsx_rows_with(pkg: &mut Package<'_>, path: &str, layout: bool, formulas: bool) -> Result<Vec<Vec<String>>, String> {
     let wb = workbook(pkg)?;
     let shared = match wb.shared.as_deref().or(pkg.has("xl/sharedStrings.xml").then_some("xl/sharedStrings.xml")).map(str::to_string) {
         Some(p) => shared_strings(&pkg.read(&p)?),
@@ -666,7 +700,7 @@ fn xlsx_rows_with(pkg: &mut Package<'_>, path: &str, layout: bool) -> Result<Vec
                 cell = Some(XCell { col, kind: attr(e, b"t").unwrap_or_default(), style, ..Default::default() });
             }
             b"v" => in_v = cell.is_some(),
-            b"f" => in_f = cell.is_some() && layout,
+            b"f" => in_f = cell.is_some() && formulas,
             b"t" => in_is_t = cell.is_some(),
             b"rPh" => phonetic += 1,
             _ => {}
@@ -690,7 +724,7 @@ fn xlsx_rows_with(pkg: &mut Package<'_>, path: &str, layout: bool) -> Result<Vec
             b"rPh" => phonetic = phonetic.saturating_sub(1),
             b"c" => {
                 let Some(c) = cell.take() else { return };
-                let text = if layout && !c.formula.trim().is_empty() {
+                let text = if formulas && !c.formula.trim().is_empty() {
                     format!("={}", c.formula.trim())
                 } else {
                     xlsx_value(&c, &shared, &formats, wb.date1904)

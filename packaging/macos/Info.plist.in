@@ -7,9 +7,9 @@
   <key>CFBundleDevelopmentRegion</key>
   <string>en</string>
   <key>CFBundleDisplayName</key>
-  <string>Lexicon</string>
+  <string>Office Pro Max</string>
   <key>CFBundleName</key>
-  <string>Lexicon</string>
+  <string>Office Pro Max</string>
   <key>CFBundleExecutable</key>
   <string>Lexicon</string>
   <key>CFBundleIdentifier</key>
@@ -27,9 +27,9 @@
   <!-- Home › Dictate: macOS ends an app that uses the microphone or speech recognition without
        these. -->
   <key>NSMicrophoneUsageDescription</key>
-  <string>Lexicon listens to the microphone while you dictate text.</string>
+  <string>Office Pro Max listens to the microphone while you dictate text.</string>
   <key>NSSpeechRecognitionUsageDescription</key>
-  <string>Lexicon turns your speech into text while you dictate.</string>
+  <string>Office Pro Max turns your speech into text while you dictate.</string>
   <key>LexiconVersion</key>
   <string>@VERSION@</string>
   <key>LexiconBuildCommit</key>
@@ -49,7 +49,7 @@
   <key>NSRequiresAquaSystemAppearance</key>
   <false/>
   <key>NSHumanReadableCopyright</key>
-  <string>Copyright © the Lexicon and Lexicon authors. MIT OR Apache-2.0.</string>
+  <string>Office Pro Max. MIT OR Apache-2.0.</string>
 
   <!-- Documents Lexicon opens (system type declarations). -->
   <key>CFBundleDocumentTypes</key>
@@ -73,21 +73,7 @@
         <string>public.plain-text</string>
       </array>
     </dict>
-    <!-- Lexicon: spreadsheets open in Calculations. -->
-    <dict>
-      <key>CFBundleTypeName</key>
-      <string>Spreadsheet</string>
-      <key>CFBundleTypeRole</key>
-      <string>Editor</string>
-      <key>LSHandlerRank</key>
-      <string>Alternate</string>
-      <key>LSItemContentTypes</key>
-      <array>
-        <string>org.openxmlformats.spreadsheetml.sheet</string>
-        <string>com.microsoft.excel.xls</string>
-        <string>org.oasis-open.opendocument.spreadsheet</string>
-        <string>public.comma-separated-values-text</string>
-      </array>
+  </array>
     </dict>
   </array>
 </dict>

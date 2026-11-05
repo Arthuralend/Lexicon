@@ -21,7 +21,7 @@
 	1.5 Line Spacing	Междуредие 1,5
 	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	Безплатен текстообработващ софтуер с отворен код на Rust, с проверка на правописа на руски и английски.\nБазиран на WordCraft от екипа на ArtCraft.
 	About	Относно
-	About Lexicon	За Lexicon
+	About Office Pro Max	За Office Pro Max
 	Accept	Приемане
 	Accept All Changes	Приемане на всички промени
 	Accept This Change	Приемане на тази промяна
@@ -460,7 +460,7 @@
 	Landscape	Пейзаж
 	Language	Език
 	{language} (no dictionary)	{language} (няма речник)
-	No spelling dictionary for {language} is installed, so it isn't checked. Lexicon looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	Не е инсталиран правописен речник за {language}, затова текстът не се проверява. Lexicon търси речника Hunspell {name} в папката WORDCRAFT_DICTIONARIES и на обичайните места в системата.
+	No spelling dictionary for {language} is installed, so it isn't checked. Office Pro Max looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	Не е инсталиран правописен речник за {language}, затова текстът не се проверява. Office Pro Max търси речника Hunspell {name} в папката WORDCRAFT_DICTIONARIES и на обичайните места в системата.
 	Lasso	Ласо
 	Last Column	Последна колона
 	Last commit	Последно подаване
@@ -490,7 +490,7 @@
 	Link to Previous	Връзка към предишния
 	Links	Връзки
 	Location: {path}	Местоположение: {path}
-	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.
 	Macros	Макроси
 	Mailings	Кореспонденция
 	Manage Sources	Управление на източниците
@@ -929,7 +929,7 @@
 	Word Right	Дума надясно
 	Word document (*.docx)	Документ на Word (*.docx)
 	WordArt	WordArt
-	Lexicon	Lexicon
+	Office Pro Max	Office Pro Max
 	Words	Думи
 	Words only	Само думи
 	Wrap Text	Обтичане на текста
@@ -996,7 +996,7 @@
 	Stopped	Спряно
 	Speed	Скорост
 	Normal speed	Нормална скорост
-	AutoSave documents you have saved in Lexicon	Автоматично запазване на документите, които сте запазили в Lexicon
+	AutoSave documents you have saved in Office Pro Max	Автоматично запазване на документите, които сте запазили в Office Pro Max
 	AutoSave failed: {error}. Save the document to turn AutoSave back on.	Автоматичното запазване е неуспешно: {error}. Запазете документа, за да включите отново автоматичното запазване.
 	Couldn't download {name}: {error}	Неуспешно изтегляне на {name}: {error}
 	Do you want to save changes to {name}?	Искате ли да запазите промените в {name}?
@@ -1301,7 +1301,7 @@
 	The document will be saved with a password. Save it to protect it.	Документът ще бъде запазен с парола. Запазете го, за да го защитите.
 	The password is removed. Save the document to keep the change.	Паролата е премахната. Запазете документа, за да запазите промяната.
 	The passwords don't match.	Паролите не съвпадат.
-	Keep the password somewhere safe: without it nobody, Lexicon included, can open the document. Leave both boxes empty to remove the password.	Съхранявайте паролата на сигурно място: без нея никой, включително Lexicon, не може да отвори документа. Оставете двете полета празни, за да премахнете паролата.
+	Keep the password somewhere safe: without it nobody, Office Pro Max included, can open the document. Leave both boxes empty to remove the password.	Съхранявайте паролата на сигурно място: без нея никой, включително Office Pro Max, не може да отвори документа. Оставете двете полета празни, за да премахнете паролата.
 	Align Top Left	Подравняване горе вляво
 	Align Top Center	Подравняване горе в центъра
 	Align Top Right	Подравняване горе вдясно
@@ -2406,7 +2406,7 @@
 	Word document	Документ на Word
 	All files	Всички файлове
 	Recipient lists	Списъци с получатели
-	The system file dialog isn't available, so Lexicon shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Системният диалогов прозорец за файлове не е наличен, затова Lexicon показва своя. За да получите системния, инсталирайте портал за избор на файлове (например xdg-desktop-portal-gtk) или zenity.
+	The system file dialog isn't available, so Office Pro Max shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Системният диалогов прозорец за файлове не е наличен, затова Office Pro Max показва своя. За да получите системния, инсталирайте портал за избор на файлове (например xdg-desktop-portal-gtk) или zenity.
 	Up one level	Едно ниво нагоре
 	Home folder	Домашна папка
 	{name} wasn't found.	{name} не е намерен.
@@ -2414,8 +2414,8 @@
 	This folder can't be read: {error}	Тази папка не може да бъде прочетена: {error}
 	Showing the first {count} items.	Показани са първите {count} елемента.
 	File name:	Име на файла:
-	Browse in Lexicon…	Разглеждане в Lexicon…
-	Open a file with Lexicon's own browser when the system file dialog doesn't appear.	Отваряне на файл чрез собствения браузър на Lexicon, когато системният диалогов прозорец за файлове не се появява.
+	Browse in Office Pro Max…	Разглеждане в Office Pro Max…
+	Open a file with Office Pro Max's own browser when the system file dialog doesn't appear.	Отваряне на файл чрез собствения браузър на Office Pro Max, когато системният диалогов прозорец за файлове не се появява.
 	Resize Table by Dragging	Преоразмеряване на таблица чрез плъзгане
 	Visual effects	Визуални ефекти
 	Animation effects:	Ефекти на анимация:
@@ -2441,23 +2441,23 @@
 	TOC {n}	Съдържание {n}
 	Good afternoon	Добър ден
 	Context	Според контекста
-	Couldn't make Lexicon the default: {error}	Lexicon не можа да стане приложение по подразбиране: {error}
+	Couldn't make Office Pro Max the default: {error}	Office Pro Max не можа да стане приложение по подразбиране: {error}
 	Do Not Check Spelling or Grammar	Без проверка на правописа и граматиката
 	Hindi	Хинди
-	In Default apps, choose Lexicon for the document types you want it to open.	В „Приложения по подразбиране“ изберете Lexicon за типовете документи, които искате да отваря.
-	Make Lexicon the default for Word documents…	Lexicon по подразбиране за документи на Word…
+	In Default apps, choose Office Pro Max for the document types you want it to open.	В „Приложения по подразбиране“ изберете Office Pro Max за типовете документи, които искате да отваря.
+	Make Office Pro Max the default for Word documents…	Office Pro Max по подразбиране за документи на Word…
 	Numerals	Цифри
 	Numerals:	Цифри:
-	Opens .docx, .doc, .rtf and .odt files and Word templates with Lexicon from now on.	Отсега нататък файловете .docx, .doc, .rtf и .odt и шаблоните на Word ще се отварят с Lexicon.
-	Opens Settings › Default apps, where you choose Lexicon for .docx and the other document types.	Отваря „Настройки › Приложения по подразбиране“, където избирате Lexicon за .docx и другите типове документи.
+	Opens .docx, .doc, .rtf and .odt files and Word templates with Office Pro Max from now on.	Отсега нататък файловете .docx, .doc, .rtf и .odt и шаблоните на Word ще се отварят с Office Pro Max.
+	Opens Settings › Default apps, where you choose Office Pro Max for .docx and the other document types.	Отваря „Настройки › Приложения по подразбиране“, където избирате Office Pro Max за .docx и другите типове документи.
 	Reading	Четене
 	Reading Column Width	Ширина на колоната при четене
 	Reading Line Spacing	Междуредие при четене
 	Reading Text Size	Размер на текста при четене
 	Show KeyTips (Alt or F10)	Показване на клавишните подсказки (Alt или F10)
 	System	Според системата
-	To open Word documents with Lexicon by default: select one in Finder, choose File › Get Info, pick Lexicon under Open with, then click Change All.	За да се отварят документите на Word с Lexicon по подразбиране: изберете документ във Finder, изберете File › Get Info, изберете Lexicon под Open with и щракнете Change All.
-	Lexicon is now the default app for Word documents.	Lexicon вече е приложението по подразбиране за документи на Word.
+	To open Word documents with Office Pro Max by default: select one in Finder, choose File › Get Info, pick Office Pro Max under Open with, then click Change All.	За да се отварят документите на Word с Office Pro Max по подразбиране: изберете документ във Finder, изберете File › Get Info, изберете Office Pro Max под Open with и щракнете Change All.
+	Office Pro Max is now the default app for Word documents.	Office Pro Max вече е приложението по подразбиране за документи на Word.
 	Correct TWo INitial CApitals	Коригиране на ДВе НАчални ГЛавни букви
 	Correct accidental usage of cAPS LOCK key	Коригиране на случайно използване на клавиша cAPS LOCK
 	Picture	Картина
@@ -2517,8 +2517,8 @@
 	Undo History	История на отмяната
 	Undo {n} Actions	Отмяна на {n} действия
 	Start-up	Стартиране
-	Show the Start screen when Lexicon starts	Показване на началния екран при стартиране на Lexicon
-	On: Lexicon opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Вкл.: Lexicon се отваря на Файл › Начало с празен документ, шаблоните и последните документи. Изкл.: отваря се празен документ.
+	Show the Start screen when Office Pro Max starts	Показване на началния екран при стартиране на Office Pro Max
+	On: Office Pro Max opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Вкл.: Office Pro Max се отваря на Файл › Начало с празен документ, шаблоните и последните документи. Изкл.: отваря се празен документ.
 	Typing	Въвеждане
 	Level 4	Ниво 4
 	Level 5	Ниво 5
@@ -2565,7 +2565,7 @@
 	{name}   {height} × {width} mm	{name}   {height} × {width} мм
 	{width} × {height} mm	{width} × {height} мм
 	{kind}, {columns} × {rows}, {size} ({paper})	{kind}, {columns} × {rows}, {size} ({paper})
-	Researcher needs an online service; Lexicon keeps your documents offline.	Изследователят изисква онлайн услуга, а Lexicon пази документите ви офлайн.
+	Researcher needs an online service; Office Pro Max keeps your documents offline.	Изследователят изисква онлайн услуга, а Office Pro Max пази документите ви офлайн.
 	These settings will be used for new documents.	Тези настройки ще се използват за новите документи.
 	can't split at the first row	таблицата не може да се раздели на първия ред
 	select two or more cells to merge	изберете две или повече клетки за обединяване
@@ -2743,3 +2743,9 @@
 	The system's voice typing is open: speak, and the words are typed at the caret.	Гласовото въвеждане на системата е отворено: говорете и думите се въвеждат при курсора.
 	Allow speech recognition and the microphone when macOS asks.	Разрешете разпознаването на реч и микрофона, когато macOS попита.
 	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	Разпознаването на реч не е разрешено: включете го в Системни настройки › Поверителност и сигурност.
+	Rose	Роза
+	Apricot	Кайсия
+	Powder	Пудра
+	Lilac	Люляк
+	Sage	Градински чай
+	Vanilla	Ванилия

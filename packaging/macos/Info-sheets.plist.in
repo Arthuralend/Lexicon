@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Office Pro Max Sheets: the same program, started in Calculations (its executable is named
+     Sheets). Template: packaging/macos/package.sh substitutes @VERSION@ (full, e.g. 0.2.0-rc.1),
+     @SHORT_VERSION@ (numeric X.Y.Z) and @BUILD_SHA@. -->
+<plist version="1.0">
+<dict>
+  <key>CFBundleDevelopmentRegion</key>
+  <string>en</string>
+  <key>CFBundleDisplayName</key>
+  <string>Office Pro Max Sheets</string>
+  <key>CFBundleName</key>
+  <string>Office Pro Max Sheets</string>
+  <key>CFBundleExecutable</key>
+  <string>Sheets</string>
+  <key>CFBundleIdentifier</key>
+  <string>io.github.arthuralend.lexicon.sheets</string>
+  <key>CFBundleInfoDictionaryVersion</key>
+  <string>6.0</string>
+  <key>CFBundlePackageType</key>
+  <string>APPL</string>
+  <key>CFBundleSignature</key>
+  <string>????</string>
+  <key>CFBundleShortVersionString</key>
+  <string>@SHORT_VERSION@</string>
+  <key>CFBundleVersion</key>
+  <string>@SHORT_VERSION@</string>
+  <!-- Home › Dictate: macOS ends an app that uses the microphone or speech recognition without
+       these. -->
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Office Pro Max listens to the microphone while you dictate text.</string>
+  <key>NSSpeechRecognitionUsageDescription</key>
+  <string>Office Pro Max turns your speech into text while you dictate.</string>
+  <key>LexiconVersion</key>
+  <string>@VERSION@</string>
+  <key>LexiconBuildCommit</key>
+  <string>@BUILD_SHA@</string>
+  <key>CFBundleIconFile</key>
+  <string>Sheets</string>
+  <key>LSApplicationCategoryType</key>
+  <string>public.app-category.productivity</string>
+  <!-- Must match MACOSX_DEPLOYMENT_TARGET in package.sh. Big Sur is the first release on
+       Apple silicon and has the Metal feature set wgpu targets. -->
+  <key>LSMinimumSystemVersion</key>
+  <string>11.0</string>
+  <key>NSHighResolutionCapable</key>
+  <true/>
+  <key>NSSupportsAutomaticGraphicsSwitching</key>
+  <true/>
+  <key>NSRequiresAquaSystemAppearance</key>
+  <false/>
+  <key>NSHumanReadableCopyright</key>
+  <string>Office Pro Max. MIT OR Apache-2.0.</string>
+
+  <!-- Documents Lexicon opens (system type declarations). -->
+  <key>CFBundleDocumentTypes</key>
+  <array>
+    <!-- Lexicon: spreadsheets open in Calculations. -->
+    <dict>
+      <key>CFBundleTypeName</key>
+      <string>Spreadsheet</string>
+      <key>CFBundleTypeRole</key>
+      <string>Editor</string>
+      <key>LSHandlerRank</key>
+      <string>Alternate</string>
+      <key>LSItemContentTypes</key>
+      <array>
+        <string>org.openxmlformats.spreadsheetml.sheet</string>
+        <string>com.microsoft.excel.xls</string>
+        <string>org.oasis-open.opendocument.spreadsheet</string>
+        <string>public.comma-separated-values-text</string>
+      </array>
+    </dict>
+  </array>
+</dict>
+</plist>

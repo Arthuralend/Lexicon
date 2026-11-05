@@ -38,7 +38,8 @@ export MACOSX_DEPLOYMENT_TARGET=11.0
 IDENTITY="${MACOS_SIGN_IDENTITY:--}"
 SHORT_VERSION="${VERSION%%-*}"
 WORK="$CARGO_TARGET_DIR/macos-package"
-APP="$WORK/Lexicon.app"
+APP="$WORK/Office Pro Max.app"
+SHEETS="$WORK/Office Pro Max Sheets.app"
 DMG="$DIST/Lexicon-$VERSION-macos-$ARCH.dmg"
 
 NOTARIZE=0
@@ -104,28 +105,52 @@ cp "$ROOT/assets/app-icon/wordcraft.icns" "$APP/Contents/Resources/Lexicon.icns"
 # Licences of the embedded craft-fonts fonts (only when built with CRAFT_FONTS_DIR).
 copy_font_licences "$APP/Contents/Resources"
 cp "$ROOT/LICENSE-MIT" "$ROOT/LICENSE-APACHE" "$APP/Contents/Resources/"
-# The app's name in Finder, the Dock and the menu bar: Лексикон in Russian, Լեքսիկոն in Armenian.
-for loc in "en:Lexicon" "ru:Лексикон" "hy:Լեքսիկոն"; do
-  mkdir -p "$APP/Contents/Resources/${loc%%:*}.lproj"
-  printf 'CFBundleDisplayName = "%s";\nCFBundleName = "%s";\n' "${loc#*:}" "${loc#*:}" > "$APP/Contents/Resources/${loc%%:*}.lproj/InfoPlist.strings"
+# The app's name in Finder, the Dock and the menu bar.
+for loc in en ru hy; do
+  mkdir -p "$APP/Contents/Resources/$loc.lproj"
+  printf 'CFBundleDisplayName = "Office Pro Max";\nCFBundleName = "Office Pro Max";\n' > "$APP/Contents/Resources/$loc.lproj/InfoPlist.strings"
 done
 # The dictation permission prompts in Russian.
-printf 'NSMicrophoneUsageDescription = "Лексикон слушает микрофон, пока вы диктуете текст.";\nNSSpeechRecognitionUsageDescription = "Лексикон превращает вашу речь в текст во время диктовки.";\n' >> "$APP/Contents/Resources/ru.lproj/InfoPlist.strings"
+printf 'NSMicrophoneUsageDescription = "Office Pro Max слушает микрофон, пока вы диктуете текст.";\nNSSpeechRecognitionUsageDescription = "Office Pro Max превращает вашу речь в текст во время диктовки.";\n' >> "$APP/Contents/Resources/ru.lproj/InfoPlist.strings"
 sed -e "s/@VERSION@/$VERSION/g" -e "s/@SHORT_VERSION@/$SHORT_VERSION/g" \
   -e "s/@BUILD_SHA@/${WORDCRAFT_BUILD_SHA:-unknown}/g" \
   "$HERE/Info.plist.in" >"$APP/Contents/Info.plist"
 plutil -lint "$APP/Contents/Info.plist"
 printf 'APPL????' >"$APP/Contents/PkgInfo"
 
+# ---- Office Pro Max Sheets.app: the same program, started in Calculations ---------------------
+# (it opens there when its executable is named Sheets), with the spreadsheet icon and types.
+echo "==> assembling $SHEETS"
+mkdir -p "$SHEETS/Contents/MacOS" "$SHEETS/Contents/Resources"
+cp "$WORK/bin/wordcraft" "$SHEETS/Contents/MacOS/Sheets"
+cp "$ROOT/assets/app-icon/sheets.icns" "$SHEETS/Contents/Resources/Sheets.icns"
+copy_font_licences "$SHEETS/Contents/Resources"
+cp "$ROOT/LICENSE-MIT" "$ROOT/LICENSE-APACHE" "$SHEETS/Contents/Resources/"
+for loc in en ru hy; do
+  mkdir -p "$SHEETS/Contents/Resources/$loc.lproj"
+done
+printf 'CFBundleDisplayName = "Office Pro Max Sheets";\nCFBundleName = "Office Pro Max Sheets";\n' > "$SHEETS/Contents/Resources/en.lproj/InfoPlist.strings"
+printf 'CFBundleDisplayName = "Office Pro Max Таблицы";\nCFBundleName = "Office Pro Max Таблицы";\nNSMicrophoneUsageDescription = "Office Pro Max слушает микрофон, пока вы диктуете текст.";\nNSSpeechRecognitionUsageDescription = "Office Pro Max превращает вашу речь в текст во время диктовки.";\n' > "$SHEETS/Contents/Resources/ru.lproj/InfoPlist.strings"
+printf 'CFBundleDisplayName = "Office Pro Max Sheets";\nCFBundleName = "Office Pro Max Sheets";\n' > "$SHEETS/Contents/Resources/hy.lproj/InfoPlist.strings"
+sed -e "s/@VERSION@/$VERSION/g" -e "s/@SHORT_VERSION@/$SHORT_VERSION/g" \
+  -e "s/@BUILD_SHA@/${WORDCRAFT_BUILD_SHA:-unknown}/g" \
+  "$HERE/Info-sheets.plist.in" >"$SHEETS/Contents/Info.plist"
+plutil -lint "$SHEETS/Contents/Info.plist"
+printf 'APPL????' >"$SHEETS/Contents/PkgInfo"
+
 # codesign --strict rejects extended attributes such as com.apple.FinderInfo or a resource fork
 # ("Finder information, or similar detritus not allowed"); a source file copied in can carry them.
 # Clear them before signing; nothing after this point may write xattrs onto the bundle (#525).
 xattr -cr "$APP"
+xattr -cr "$SHEETS"
 # Sign inside-out: nested code first, then the bundle itself (no --deep on the final signature).
 # Today the only nested code is the main executable; frameworks/helpers would be signed here too.
 sign --options runtime --entitlements "$HERE/entitlements.plist" "$APP/Contents/MacOS/Lexicon"
 sign --options runtime --entitlements "$HERE/entitlements.plist" "$APP"
 codesign --verify --strict --deep --verbose=2 "$APP"
+sign --options runtime --entitlements "$HERE/entitlements.plist" "$SHEETS/Contents/MacOS/Sheets"
+sign --options runtime --entitlements "$HERE/entitlements.plist" "$SHEETS"
+codesign --verify --strict --deep --verbose=2 "$SHEETS"
 
 if [ "$NOTARIZE" = 1 ]; then
   ditto -c -k --keepParent "$APP" "$WORK/Lexicon-notarize.zip"
@@ -139,7 +164,8 @@ fi
 echo "==> building $DMG"
 STAGE="$WORK/dmg"
 mkdir -p "$STAGE"
-ditto "$APP" "$STAGE/Lexicon.app"
+ditto "$APP" "$STAGE/Office Pro Max.app"
+ditto "$SHEETS" "$STAGE/Office Pro Max Sheets.app"
 ln -s /Applications "$STAGE/Applications"
 rm -f "$DMG"
 # Retries an hdiutil verb that attaches a device: on CI runners it fails now and then with
@@ -163,7 +189,7 @@ hdiutil_retry() {
 # (Finder location -1,-1), so the signed app failed `codesign --verify --deep --strict` inside the
 # mounted DMG and after copying it out (#525). The volume name has no version: .DS_Store finds the
 # background through an alias that includes it.
-hdiutil_retry create -srcfolder "$STAGE" -volname "Lexicon" -fs HFS+ -format UDZO \
+hdiutil_retry create -srcfolder "$STAGE" -volname "Office Pro Max" -fs HFS+ -format UDZO \
   -imagekey zlib-level=9 -ov "$DMG"
 sign "$DMG"
 codesign --verify --strict --verbose=2 "$DMG"
@@ -176,20 +202,20 @@ verify_dmg_app() {
   mkdir -p "$mount" "$copy"
   hdiutil_retry attach -readonly -nobrowse -noautoopen -mountpoint "$mount" "$dmg" >/dev/null
   echo "==> strict signature check of Lexicon.app inside $(basename "$dmg")"
-  codesign --verify --deep --strict --verbose=2 "$mount/Lexicon.app" || rc=1
+  codesign --verify --deep --strict --verbose=2 "$mount/Office Pro Max.app" || rc=1
   if [ "$rc" = 0 ]; then
-    ditto "$mount/Lexicon.app" "$copy/Lexicon.app" || rc=1
+    ditto "$mount/Office Pro Max.app" "$copy/Office Pro Max.app" || rc=1
   fi
   if [ "$rc" = 0 ]; then
     echo "==> strict signature check of a ditto copy of it"
-    codesign --verify --deep --strict --verbose=2 "$copy/Lexicon.app" || rc=1
+    codesign --verify --deep --strict --verbose=2 "$copy/Office Pro Max.app" || rc=1
   fi
   if [ "$rc" = 0 ] && [ "$NOTARIZE" = 1 ]; then
-    spctl --assess --type execute -vvv "$copy/Lexicon.app" || rc=1
+    spctl --assess --type execute -vvv "$copy/Office Pro Max.app" || rc=1
   fi
   if [ "$rc" != 0 ]; then
     echo "error: Lexicon.app in $(basename "$dmg") fails strict verification; extended attributes:" >&2
-    xattr -lr "$mount/Lexicon.app" >&2 || true
+    xattr -lr "$mount/Office Pro Max.app" >&2 || true
   fi
   hdiutil_retry detach "$mount" >/dev/null || hdiutil detach "$mount" -force >/dev/null || rc=1
   rm -rf "$copy"

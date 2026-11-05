@@ -152,7 +152,7 @@ fn has_smart_art(s: &Session) -> Option<&'static str> {
     match selected(s) {
         Some((_, InlineObject::Graphic { graphic, .. })) if graphic.smart_art.is_some() => None,
         Some((_, InlineObject::Graphic { graphic, .. })) if graphic.kind == GraphicKind::Diagram => {
-            Some("this SmartArt was made in another program: Lexicon shows it but can't edit it")
+            Some("this SmartArt was made in another program: Office Pro Max shows it but can't edit it")
         }
         _ => Some("select a SmartArt graphic first"),
     }

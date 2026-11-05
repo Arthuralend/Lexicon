@@ -39,6 +39,9 @@ const MAX_UNDO: usize = 100;
 pub struct Workbook {
     /// What was typed into each cell (formulas with their `=`).
     cells: BTreeMap<Cell, String>,
+    /// The value Excel saved for each formula of an opened workbook: shown while Lexicon can't
+    /// calculate that formula (a function it lacks), until the cell is changed.
+    cached: HashMap<Cell, String>,
     /// What each formula cell shows.
     shown: HashMap<Cell, String>,
     /// Each formula's number, for saving.
@@ -104,6 +107,7 @@ impl Workbook {
 
     /// Set a cell (empty text clears it). The caller takes the undo snapshot.
     fn put(&mut self, c: Cell, text: &str) {
+        self.cached.remove(&c);
         if c.0 >= MAX_ROWS || c.1 >= MAX_COLS {
             return;
         }
@@ -141,7 +145,11 @@ impl Workbook {
                     self.numbers.insert(k, n);
                 }
                 Err(e) => {
-                    self.shown.insert(k, e.text().to_string());
+                    let shown = self.cached.get(&k).cloned().unwrap_or_else(|| e.text().to_string());
+                    if let Some(n) = sheet::parse_number(&shown) {
+                        self.numbers.insert(k, n);
+                    }
+                    self.shown.insert(k, shown);
                 }
             }
         }
@@ -519,13 +527,14 @@ pub fn is_spreadsheet(path: &str) -> bool {
 pub(crate) fn open_path(app: &mut WordApp, path: &str) -> Result<Value, String> {
     let bytes = wordcraft_engine::io::read_file(path)?;
     let lower = path.to_ascii_lowercase();
-    let rows = if lower.ends_with(".csv") || lower.ends_with(".tsv") || lower.ends_with(".txt") {
-        wordcraft_engine::cmd::mailings::parse_csv(&String::from_utf8_lossy(&bytes))
+    let (rows, cached) = if lower.ends_with(".csv") || lower.ends_with(".tsv") || lower.ends_with(".txt") {
+        (wordcraft_engine::cmd::mailings::parse_csv(&String::from_utf8_lossy(&bytes)), Vec::new())
     } else {
-        wordcraft_formats::sheet::read_grid(&bytes)?
+        wordcraft_formats::sheet::read_grid_cached(&bytes)?
     };
     let comma = comma(app);
     app.calc = Workbook::default();
+    app.calc.cached = cached.into_iter().collect();
     app.calc.load(rows, comma);
     // Only an .xlsx is saved back in place; other formats are saved as a new workbook.
     app.calc.path = lower.ends_with(".xlsx").then(|| path.to_string());
@@ -1122,6 +1131,18 @@ mod tests {
         assert_eq!(a.calc.display((0, 1)), "2");
         assert_eq!(a.session.document_id(), doc_before, "the document stays");
         let _ = std::fs::remove_dir_all(dir);
+    }
+
+    #[test]
+    fn excel_values_stand_in_for_formulas_lexicon_cannot_calculate() {
+        let mut a = app();
+        a.calc.cached = [((0, 1), "42".to_string())].into_iter().collect();
+        a.calc.load(vec![vec!["x".into(), "=VLOOKUP(1,A1:A2,1)".into()]], false);
+        assert_eq!(a.calc.display((0, 1)), "42", "Excel's value, not #NAME?");
+        a.calc.snapshot();
+        a.calc.put((0, 1), "=1/0");
+        a.calc.recalc(false);
+        assert_eq!(a.calc.display((0, 1)), "#DIV/0!", "a changed cell shows its own result");
     }
 
     #[test]

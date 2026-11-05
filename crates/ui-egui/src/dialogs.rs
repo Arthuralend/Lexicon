@@ -1439,8 +1439,8 @@ pub fn show(app: &mut WordApp, ctx: &egui::Context) {
         Dialog::Refs(d) => d.title(),
         Dialog::Icons { .. } => "Icons",
         Dialog::PasteSpecial { .. } => "Paste Special",
-        Dialog::About { .. } => "About Lexicon",
-        Dialog::SaveChanges { .. } => "Lexicon",
+        Dialog::About { .. } => "About Office Pro Max",
+        Dialog::SaveChanges { .. } => "Office Pro Max",
         Dialog::DiscardRecovery { .. } => "Discard recovery copy",
         Dialog::RecipientList { .. } => "Recipient List",
         Dialog::SelectTable { .. } => "Select Table",
@@ -2674,7 +2674,7 @@ fn body(app: &mut WordApp, ui: &mut Ui, d: &mut Dialog) -> bool {
             *tab = 0;
             {
                 {
-                    ui.label(egui::RichText::new(tl!("Lexicon")).font(semibold(22.0)));
+                    ui.label(egui::RichText::new(tl!("Office Pro Max")).font(semibold(22.0)));
                     let build = option_env!("WORDCRAFT_BUILD_SHA").map(|s| s.get(..8).unwrap_or(s)).unwrap_or(tl!("development build"));
                     ui.label(crate::i18n::fmt(tl!("Version {version} ({build})"), &[("version", env!("CARGO_PKG_VERSION")), ("build", build)]));
                     ui.label(tl!("A free, open-source word processor with spelling in Russian, English, Armenian, Georgian and Azerbaijani."));
@@ -2836,7 +2836,7 @@ fn body(app: &mut WordApp, ui: &mut Ui, d: &mut Dialog) -> bool {
             });
             ui.label(
                 egui::RichText::new(tl!(
-                    "Keep the password somewhere safe: without it nobody, Lexicon included, can open the document. Leave both boxes empty to remove the password."
+                    "Keep the password somewhere safe: without it nobody, Office Pro Max included, can open the document. Leave both boxes empty to remove the password."
                 ))
                 .small()
                 .weak(),

@@ -13,7 +13,7 @@
 	1.5 Line Spacing	Reavahe 1,5
 	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	Tasuta avatud lähtekoodiga tekstitöötlusprogramm Rustis, vene ja inglise keele õigekirjakontrolliga.\nPõhineb ArtCrafti meeskonna WordCraftil.
 	About	Teave
-	About Lexicon	Lexiconi teave
+	About Office Pro Max	Lexiconi teave
 	Accept	Nõustu
 	Accept All Changes	Nõustu kõigi muudatustega
 	Accept This Change	Nõustu selle muudatusega
@@ -401,7 +401,7 @@
 	Landscape	Rõhtpaigutus
 	Language	Keel
 	{language} (no dictionary)	{language} (sõnastik puudub)
-	No spelling dictionary for {language} is installed, so it isn't checked. Lexicon looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	Keele {language} õigekirjasõnastikku pole paigaldatud, seega seda ei kontrollita. Lexicon otsib Hunspelli sõnastikku {name} kaustast WORDCRAFT_DICTIONARIES ja tavalistest süsteemikohtadest.
+	No spelling dictionary for {language} is installed, so it isn't checked. Office Pro Max looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	Keele {language} õigekirjasõnastikku pole paigaldatud, seega seda ei kontrollita. Office Pro Max otsib Hunspelli sõnastikku {name} kaustast WORDCRAFT_DICTIONARIES ja tavalistest süsteemikohtadest.
 	Lasso	Lasso
 	Last Column	Viimane veerg
 	Last commit	Viimane commit
@@ -431,7 +431,7 @@
 	Links	Lingid
 	Location: {path}	Asukoht: {path}
 	Mirror indents	Peegelda taanded
-	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.
 	Macros	Makrod
 	Mailings	Postitused
 	Manage Sources	Halda allikaid
@@ -896,7 +896,7 @@
 	Word XML Document (*.xml)	Wordi XML-dokument (*.xml)
 	Word 2003 XML Document (*.xml)	Word 2003 XML-dokument (*.xml)
 	WordArt	WordArt
-	Lexicon	Lexicon
+	Office Pro Max	Office Pro Max
 	Words	Sõnad
 	Words only	Ainult sõnad
 	Wrap Text	Mähi tekst
@@ -961,7 +961,7 @@
 	Stopped	Lõpetatud
 	Speed	Kiirus
 	Normal speed	Tavaline kiirus
-	AutoSave documents you have saved in Lexicon	Salvesta Lexiconis salvestatud dokumendid automaatselt
+	AutoSave documents you have saved in Office Pro Max	Salvesta Lexiconis salvestatud dokumendid automaatselt
 	AutoSave failed: {error}. Save the document to turn AutoSave back on.	Automaatsalvestus ebaõnnestus: {error}. Selle uuesti sisse lülitamiseks salvesta dokument.
 	Couldn't download {name}: {error}	Faili {name} allalaadimine ebaõnnestus: {error}
 	Do you want to save changes to {name}?	Kas soovid faili {name} muudatused salvestada?
@@ -1225,7 +1225,7 @@
 	The document will be saved with a password. Save it to protect it.	Dokument salvestatakse parooliga. Kaitsmiseks salvesta see.
 	The password is removed. Save the document to keep the change.	Parool on eemaldatud. Muudatuse säilitamiseks salvesta dokument.
 	The passwords don't match.	Paroolid ei ühti.
-	Keep the password somewhere safe: without it nobody, Lexicon included, can open the document. Leave both boxes empty to remove the password.	Hoia parooli kindlas kohas: ilma selleta ei saa keegi, ka Lexicon, dokumenti avada. Parooli eemaldamiseks jäta mõlemad väljad tühjaks.
+	Keep the password somewhere safe: without it nobody, Office Pro Max included, can open the document. Leave both boxes empty to remove the password.	Hoia parooli kindlas kohas: ilma selleta ei saa keegi, ka Office Pro Max, dokumenti avada. Parooli eemaldamiseks jäta mõlemad väljad tühjaks.
 	Align Top Left	Joonda üles vasakule
 	Align Top Center	Joonda üles keskele
 	Align Top Right	Joonda üles paremale
@@ -1651,13 +1651,13 @@
 	Hindi	Hindi
 	Context	Kontekst
 	System	Süsteem
-	Couldn't make Lexicon the default: {error}	Lexiconi ei õnnestunud vaikerakenduseks määrata: {error}
-	In Default apps, choose Lexicon for the document types you want it to open.	Vali jaotises „Vaikerakendused“ Lexicon nende dokumenditüüpide jaoks, mida see peaks avama.
-	Make Lexicon the default for Word documents…	Määra Lexicon Wordi dokumentide vaikerakenduseks…
-	Opens .docx, .doc, .rtf and .odt files and Word templates with Lexicon from now on.	Edaspidi avatakse .docx-, .doc-, .rtf- ja .odt-failid ning Wordi mallid Lexiconiga.
-	Opens Settings › Default apps, where you choose Lexicon for .docx and the other document types.	Avab Sätted › Vaikerakendused, kus saad valida Lexiconi .docx-i ja teiste dokumenditüüpide jaoks.
-	To open Word documents with Lexicon by default: select one in Finder, choose File › Get Info, pick Lexicon under Open with, then click Change All.	Wordi dokumentide vaikimisi avamiseks Lexiconiga vali Finderis üks dokument, vali Fail › Hangi teave, vali jaotises „Ava rakendusega“ Lexicon ja klõpsa „Muuda kõiki“.
-	Lexicon is now the default app for Word documents.	Lexicon on nüüd Wordi dokumentide vaikerakendus.
+	Couldn't make Office Pro Max the default: {error}	Lexiconi ei õnnestunud vaikerakenduseks määrata: {error}
+	In Default apps, choose Office Pro Max for the document types you want it to open.	Vali jaotises „Vaikerakendused“ Office Pro Max nende dokumenditüüpide jaoks, mida see peaks avama.
+	Make Office Pro Max the default for Word documents…	Määra Office Pro Max Wordi dokumentide vaikerakenduseks…
+	Opens .docx, .doc, .rtf and .odt files and Word templates with Office Pro Max from now on.	Edaspidi avatakse .docx-, .doc-, .rtf- ja .odt-failid ning Wordi mallid Lexiconiga.
+	Opens Settings › Default apps, where you choose Office Pro Max for .docx and the other document types.	Avab Sätted › Vaikerakendused, kus saad valida Lexiconi .docx-i ja teiste dokumenditüüpide jaoks.
+	To open Word documents with Office Pro Max by default: select one in Finder, choose File › Get Info, pick Office Pro Max under Open with, then click Change All.	Wordi dokumentide vaikimisi avamiseks Lexiconiga vali Finderis üks dokument, vali Fail › Hangi teave, vali jaotises „Ava rakendusega“ Office Pro Max ja klõpsa „Muuda kõiki“.
+	Office Pro Max is now the default app for Word documents.	Office Pro Max on nüüd Wordi dokumentide vaikerakendus.
 	Templates	Mallid
 	Templates and Add-ins	Mallid ja lisandmoodulid
 	Attach Template	Manusta mall
@@ -1760,7 +1760,7 @@
 	Word document	Wordi dokument
 	All files	Kõik failid
 	Recipient lists	Adressaatide loendid
-	The system file dialog isn't available, so Lexicon shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Süsteemi failidialoog pole saadaval, seega näitab Lexicon enda oma. Süsteemi dialoogi saamiseks paigalda failivalija portaal (näiteks xdg-desktop-portal-gtk) või zenity.
+	The system file dialog isn't available, so Office Pro Max shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Süsteemi failidialoog pole saadaval, seega näitab Office Pro Max enda oma. Süsteemi dialoogi saamiseks paigalda failivalija portaal (näiteks xdg-desktop-portal-gtk) või zenity.
 	Up one level	Taseme võrra üles
 	Home folder	Kodukaust
 	{name} wasn't found.	{name} ei leitud.
@@ -1768,8 +1768,8 @@
 	This folder can't be read: {error}	Seda kausta ei saa lugeda: {error}
 	Showing the first {count} items.	Kuvatud on ainult esimesed kirjed: {count}.
 	File name:	Faili nimi:
-	Browse in Lexicon…	Sirvi Lexiconis…
-	Open a file with Lexicon's own browser when the system file dialog doesn't appear.	Ava fail Lexiconi enda failisirvijaga, kui süsteemi failidialoog ei ilmu.
+	Browse in Office Pro Max…	Sirvi Lexiconis…
+	Open a file with Office Pro Max's own browser when the system file dialog doesn't appear.	Ava fail Lexiconi enda failisirvijaga, kui süsteemi failidialoog ei ilmu.
 	Hide White Space	Peida tühi ala lehtede vahel
 	All pages	Kõik leheküljed
 	Current page	Praegune lehekülg
@@ -2186,8 +2186,8 @@
 	Number only, without the label's words	Ainult number, ilma sildi sõnadeta
 	Add whether it is above or below	Lisa, kas see on üleval või all
 	Start-up	Käivitamine
-	Show the Start screen when Lexicon starts	Näita Lexiconi käivitamisel avakuva
-	On: Lexicon opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Sees: Lexicon avaneb vaates Fail › Avaleht, kus on tühi dokument, mallid ja hiljutised dokumendid. Väljas: avaneb tühi dokument.
+	Show the Start screen when Office Pro Max starts	Näita Lexiconi käivitamisel avakuva
+	On: Office Pro Max opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Sees: Office Pro Max avaneb vaates Fail › Avaleht, kus on tühi dokument, mallid ja hiljutised dokumendid. Väljas: avaneb tühi dokument.
 	Copy to	Kopeeri asukohta
 
 # Document naming and account controls.
@@ -2218,7 +2218,7 @@
 	{name}   {height} × {width} mm	{name}   {height} × {width} mm
 	{width} × {height} mm	{width} × {height} mm
 	{kind}, {columns} × {rows}, {size} ({paper})	{kind}, {columns} × {rows}, {size} ({paper})
-	Researcher needs an online service; Lexicon keeps your documents offline.	Uurija vajab võrguteenust; Lexicon hoiab teie dokumendid võrguühenduseta.
+	Researcher needs an online service; Office Pro Max keeps your documents offline.	Uurija vajab võrguteenust; Office Pro Max hoiab teie dokumendid võrguühenduseta.
 	These settings will be used for new documents.	Neid sätteid kasutatakse uute dokumentide puhul.
 	can't split at the first row	tabelit ei saa esimese rea kohalt tükeldada
 	select two or more cells to merge	valige ühendamiseks kaks või rohkem lahtrit
@@ -2378,3 +2378,9 @@
 	The system's voice typing is open: speak, and the words are typed at the caret.	Süsteemi häälsisestus on avatud: rääkige ja sõnad trükitakse kursori kohale.
 	Allow speech recognition and the microphone when macOS asks.	Lubage kõnetuvastus ja mikrofon, kui macOS küsib.
 	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	Kõnetuvastus pole lubatud: lülitage see sisse: Süsteemiseaded › Privaatsus ja turvalisus.
+	Rose	Roos
+	Apricot	Aprikoos
+	Powder	Puuder
+	Lilac	Sirel
+	Sage	Salvei
+	Vanilla	Vanill

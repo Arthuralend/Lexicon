@@ -39,5 +39,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Office Pro Max Sheets: the same app, opened in Calculations. -->
+        <activity-alias
+            android:name=".SheetsLauncher"
+            android:targetActivity=".LexiconActivity"
+            android:exported="true"
+            android:label="@string/sheets_name"
+            android:icon="@mipmap/ic_sheets"
+            android:roundIcon="@mipmap/ic_sheets">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
     </application>
 </manifest>

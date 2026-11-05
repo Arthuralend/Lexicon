@@ -79,7 +79,7 @@ fn parse_length(text: &str, unit: Unit) -> Option<f64> {
 
 /// Regions offered in File › Options › Advanced › Region (any locale tag works through
 /// `file.options`): Letter and A4 countries, decimal point and decimal comma.
-const REGIONS: [&str; 16] =
+pub(crate) const REGIONS: [&str; 16] =
     ["en-US", "en-CA", "en-GB", "en-AU", "en-IN", "es-MX", "es-ES", "pt-BR", "fr-FR", "de-DE", "it-IT", "pl-PL", "ru-RU", "ja-JP", "zh-CN", "ko-KR"];
 
 /// The units offered, with their names.
@@ -196,9 +196,9 @@ fn general(app: &mut WordApp, ui: &mut Ui) {
     section(ui, "Start-up");
     let mut start = app.ui.start_screen;
     if ui
-        .checkbox(&mut start, tl!("Show the Start screen when Lexicon starts"))
+        .checkbox(&mut start, tl!("Show the Start screen when Office Pro Max starts"))
         .on_hover_text(tl!(
-            "On: Lexicon opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document."
+            "On: Office Pro Max opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document."
         ))
         .changed()
     {
@@ -400,7 +400,7 @@ fn save(app: &mut WordApp, ui: &mut Ui) {
     // The browser can't write to the user's files, so AutoSave can't be turned on there (#176).
     let browser = app.autosave_block() == Some(crate::AutoSaveBlock::Browser);
     let mut autosave = app.autosave && !browser;
-    let r = ui.add_enabled(!browser, egui::Checkbox::new(&mut autosave, tl!("AutoSave documents you have saved in Lexicon")));
+    let r = ui.add_enabled(!browser, egui::Checkbox::new(&mut autosave, tl!("AutoSave documents you have saved in Office Pro Max")));
     if browser {
         r.on_disabled_hover_text(crate::AutoSaveBlock::Browser.reason());
     } else if r.changed() {
@@ -484,8 +484,8 @@ fn advanced(app: &mut WordApp, ui: &mut Ui) {
         let units = app.session.units();
         let auto = app.session.prefs.units.is_none();
         let name = UNITS.iter().find(|(u, _)| *u == units).map_or("Inches", |(_, n)| n);
-        let shown = if auto { format!("{} ({})", tl!("Automatic"), tl!(name)) } else { tl!(name).to_string() };
-        egui::ComboBox::from_id_salt("options_units").selected_text(shown).width(200.0).show_ui(ui, |ui| {
+        let _shown = if auto { format!("{} ({})", tl!("Automatic"), tl!(name)) } else { tl!(name).to_string() };
+        choices(ui, "options_units", |ui| {
             if ui.selectable_label(auto, tl!("Automatic")).clicked() {
                 set(app, json!({"units": "auto"}));
             }
@@ -503,8 +503,8 @@ fn advanced(app: &mut WordApp, ui: &mut Ui) {
         let system = &app.session.system_region;
         let system_tag = if system.territory.is_empty() { system.language.clone() } else { format!("{}-{}", system.language, system.territory) };
         let automatic = crate::i18n::fmt(tl!("Automatic ({region})"), &[("region", system_tag.as_str())]);
-        let shown = chosen.clone().unwrap_or_else(|| automatic.clone());
-        egui::ComboBox::from_id_salt("options_region").selected_text(shown).width(200.0).show_ui(ui, |ui| {
+        let _shown = chosen.clone().unwrap_or_else(|| automatic.clone());
+        choices(ui, "options_region", |ui| {
             if ui.selectable_label(chosen.is_none(), automatic.as_str()).clicked() {
                 set(app, json!({"region": "auto"}));
             }
@@ -553,7 +553,7 @@ fn theme_picker(app: &mut WordApp, ui: &mut Ui) {
     use crate::theme::Appearance;
     ui.horizontal(|ui| {
         ui.label(tl!("Interface theme:"));
-        egui::ComboBox::from_id_salt("interface_theme").selected_text(tl!(app.ui.theme.label())).width(220.0).show_ui(ui, |ui| {
+        choices(ui, "interface_theme", |ui| {
             for a in Appearance::ALL {
                 if ui.selectable_label(app.ui.theme == a, tl!(a.label())).clicked() {
                     let _ = app.run("ui.theme", json!({"value": a.code()}));
@@ -570,10 +570,10 @@ fn interface_size_picker(app: &mut WordApp, ui: &mut Ui) {
     let size = app.ui.interface_size;
     let native = ui.ctx().native_pixels_per_point().unwrap_or(1.0);
     let auto = crate::i18n::fmt(tl!("Auto ({percent}%)"), &[("percent", &InterfaceSize::AUTO.drawn_percent(native).to_string())]);
-    let selected = size.percent().map_or_else(|| auto.clone(), |pct| format!("{pct}%"));
+    let _selected = size.percent().map_or_else(|| auto.clone(), |pct| format!("{pct}%"));
     ui.horizontal(|ui| {
         ui.label(tl!("Interface size:"));
-        egui::ComboBox::from_id_salt("interface_size").selected_text(selected).width(220.0).show_ui(ui, |ui| {
+        choices(ui, "interface_size", |ui| {
             if ui.selectable_label(size.is_auto(), auto).clicked() {
                 let _ = app.run("ui.interfaceSize", json!({"value": "auto"}));
             }
@@ -599,7 +599,7 @@ fn animations_picker(app: &mut WordApp, ui: &mut Ui) {
     use crate::theme::Animations;
     ui.horizontal(|ui| {
         ui.label(tl!("Animation effects:"));
-        egui::ComboBox::from_id_salt("animation_effects").selected_text(tl!(app.ui.animations.label())).width(220.0).show_ui(ui, |ui| {
+        choices(ui, "animation_effects", |ui| {
             for a in Animations::ALL {
                 if ui.selectable_label(app.ui.animations == a, tl!(a.label())).clicked() {
                     let _ = app.run("ui.animations", json!({"value": a.code()}));
@@ -618,6 +618,19 @@ fn animations_picker(app: &mut WordApp, ui: &mut Ui) {
     }
 }
 
+/// Lexicon: a choice shown as a row of buttons that wraps. Drop-down lists on the File pages
+/// didn't take clicks (their pop-up landed behind the page), so Options shows every choice.
+fn choices<R>(ui: &mut Ui, id: &str, add: impl FnOnce(&mut Ui) -> R) {
+    ui.push_id(id, |ui| {
+        ui.vertical(|ui| {
+            ui.set_max_width(560.0);
+            ui.horizontal_wrapped(|ui| {
+                add(ui);
+            });
+        });
+    });
+}
+
 /// Interface language: follow the system (the default) or pick one (#8).
 fn language_picker(app: &mut WordApp, ui: &mut Ui) {
     use crate::i18n::{AUTO, Lang};
@@ -628,19 +641,25 @@ fn language_picker(app: &mut WordApp, ui: &mut Ui) {
     let system = crate::i18n::system_lang();
     let auto_label = crate::i18n::fmt(tl!("Automatic ({language})"), &[("language", system.name())]);
     let current = if app.ui.language == AUTO { auto_label.clone() } else { Lang::from_pref(&app.ui.language).name().to_string() };
-    ui.horizontal(|ui| {
-        ui.label(tl!("Interface language:"));
-        egui::ComboBox::from_id_salt("interface_language").selected_text(current).width(220.0).show_ui(ui, |ui| {
-            if ui.selectable_label(app.ui.language == AUTO, auto_label.as_str()).clicked() {
-                let _ = app.run("ui.language", json!({"value": AUTO}));
+    let _ = current;
+    // Lexicon: every language as a button (a drop-down list in the File pages didn't take clicks).
+    ui.label(tl!("Interface language:"));
+    ui.add_space(4.0);
+    if ui.selectable_label(app.ui.language == AUTO, auto_label.as_str()).clicked() {
+        let _ = app.run("ui.language", json!({"value": AUTO}));
+    }
+    egui::Grid::new("interface_languages").num_columns(3).spacing(vec2(8.0, 4.0)).show(ui, |ui| {
+        for (i, lang) in Lang::all().enumerate() {
+            let on = app.ui.language == lang.code();
+            if ui.add_sized(vec2(180.0, 24.0), egui::Button::selectable(on, lang.name())).clicked() {
+                let _ = app.run("ui.language", json!({"value": lang.code()}));
             }
-            for lang in Lang::all() {
-                if ui.selectable_label(app.ui.language == lang.code(), lang.name()).clicked() {
-                    let _ = app.run("ui.language", json!({"value": lang.code()}));
-                }
+            if i % 3 == 2 {
+                ui.end_row();
             }
-        });
+        }
     });
+    ui.add_space(4.0);
     ui.label(RichText::new(tl!("Automatic follows your system's language. Menus and commands change; your documents don't.")).small().weak());
 }
 
@@ -692,17 +711,17 @@ fn overlay<T: DeserializeOwned>(root: &mut Value, path: &mut Vec<String>, input:
 fn default_app_button(app: &mut WordApp, ui: &mut Ui) {
     if app.services.make_default_app.is_some() {
         let hint = if cfg!(target_os = "windows") {
-            tl!("Opens Settings › Default apps, where you choose Lexicon for .docx and the other document types.")
+            tl!("Opens Settings › Default apps, where you choose Office Pro Max for .docx and the other document types.")
         } else {
-            tl!("Opens .docx, .doc, .rtf and .odt files and Word templates with Lexicon from now on.")
+            tl!("Opens .docx, .doc, .rtf and .odt files and Word templates with Office Pro Max from now on.")
         };
-        if ui.button(tl!("Make Lexicon the default for Word documents…")).on_hover_text(hint).clicked() {
+        if ui.button(tl!("Make Office Pro Max the default for Word documents…")).on_hover_text(hint).clicked() {
             // Straight to the hook, not through `run`: only a click may change system defaults.
             let _ = app.make_default_app();
         }
     } else if cfg!(target_os = "macos") {
         ui.label(
-            egui::RichText::new(tl!("To open Word documents with Lexicon by default: select one in Finder, choose File › Get Info, pick Lexicon under Open with, then click Change All."))
+            egui::RichText::new(tl!("To open Word documents with Office Pro Max by default: select one in Finder, choose File › Get Info, pick Office Pro Max under Open with, then click Change All."))
                 .small()
                 .weak(),
         );
@@ -716,7 +735,7 @@ fn numeral_picker(app: &mut WordApp, ui: &mut Ui) {
     ui.horizontal(|ui| {
         ui.label(tl!("Numerals:"));
         let mut sel = app.session.view.numeral;
-        egui::ComboBox::from_id_salt("numerals").selected_text(tl!(sel.label())).width(220.0).show_ui(ui, |ui| {
+        choices(ui, "numerals", |ui| {
             for m in [NumeralMode::Arabic, NumeralMode::Hindi, NumeralMode::Context, NumeralMode::System] {
                 ui.selectable_value(&mut sel, m, tl!(m.label()));
             }
@@ -757,6 +776,29 @@ mod tests {
         );
         h.run_steps(4);
         h
+    }
+
+    /// Lexicon: picking a language in Options › Language switches the menus.
+    #[test]
+    fn picking_an_interface_language_switches_the_menus() {
+        use egui_kittest::kittest::Queryable;
+        let mut a = app();
+        a.run("ui.language", json!({"value": "en"})).unwrap();
+        a.run("file.options", json!({"pane": "language"})).unwrap();
+        let mut h = egui_kittest::Harness::builder().with_size(egui::vec2(1440.0, 900.0)).build_ui_state(
+            |ui, app: &mut WordApp| {
+                let ctx = ui.ctx().clone();
+                app.logic(&ctx);
+                app.ui(ui);
+            },
+            a,
+        );
+        h.run_steps(4);
+        let n = h.get_by_label("Русский");
+        n.click();
+        h.run_steps(4);
+        assert_eq!(h.state().ui.language, "ru");
+        assert!(h.query_by_label("Язык интерфейса:").is_some(), "the Options page is in Russian");
     }
 
     /// #1266: check the actual painted text and renderer clip, including the bold selected
@@ -1007,8 +1049,6 @@ mod tests {
         assert!(h.query_by_label("Animation effects:").is_some());
         assert!(h.query_by_label("Your system has animation effects turned off.").is_some());
         assert!(!h.state().animations_on());
-        h.get_by_role(egui::accesskit::Role::ComboBox).click();
-        h.run_steps(4);
         h.get_by_label("On").click();
         h.run_steps(4);
         assert_eq!(h.state().ui.animations, Animations::On);
@@ -1031,10 +1071,10 @@ mod tests {
         );
         h.run_steps(4);
         assert!(h.query_by_label("Start-up").is_some(), "the section is there");
-        h.get_by_label("Show the Start screen when Lexicon starts").click();
+        h.get_by_label("Show the Start screen when Office Pro Max starts").click();
         h.run_steps(4);
         assert!(!h.state().ui.start_screen, "the checkbox turns it off");
-        h.get_by_label("Show the Start screen when Lexicon starts").click();
+        h.get_by_label("Show the Start screen when Office Pro Max starts").click();
         h.run_steps(4);
         assert!(h.state().ui.start_screen, "and on again");
     }
@@ -1121,5 +1161,51 @@ mod tests {
         h.state_mut().run("file.options", json!({"units": "auto", "region": "en-US"})).unwrap();
         h.run_steps(4);
         assert_eq!(length(72.0), "1\"");
+    }
+}
+
+#[cfg(test)]
+mod choice_clicks {
+    use egui_kittest::kittest::Queryable;
+    use serde_json::json;
+
+    use crate::WordApp;
+
+    #[test]
+    fn ribbon_drop_downs_take_clicks() {
+        let mut a = WordApp::new(wordcraft_engine::Session::new(wordcraft_doc::Document::new()), crate::Services::default());
+        a.run("ui.tab", json!({"tab": "Home"})).unwrap();
+        let mut h = egui_kittest::Harness::builder().with_size(egui::vec2(1800.0, 900.0)).build_ui_state(
+            |ui, app: &mut WordApp| {
+                let ctx = ui.ctx().clone();
+                app.logic(&ctx);
+                app.ui(ui);
+            },
+            a,
+        );
+        h.run_steps(4);
+        h.get_by(|n| n.role() == egui::accesskit::Role::ComboBox && n.value().as_deref() == Some("Interface language")).click();
+        h.run_steps(3);
+        h.get_by_label("Русский").click();
+        h.run_steps(3);
+        assert_eq!(h.state().ui.dictation_language, "ru");
+    }
+
+    #[test]
+    fn options_drop_downs_take_clicks() {
+        let mut a = WordApp::new(wordcraft_engine::Session::new(wordcraft_doc::Document::new()), crate::Services::default());
+        a.run("file.options", json!({"pane": "general"})).unwrap();
+        let mut h = egui_kittest::Harness::builder().with_size(egui::vec2(1440.0, 900.0)).build_ui_state(
+            |ui, app: &mut WordApp| {
+                let ctx = ui.ctx().clone();
+                app.logic(&ctx);
+                app.ui(ui);
+            },
+            a,
+        );
+        h.run_steps(4);
+        h.get_by_label("Coffee").click();
+        h.run_steps(3);
+        assert_eq!(h.state().ui.theme, crate::theme::Appearance::Coffee);
     }
 }

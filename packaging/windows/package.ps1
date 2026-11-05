@@ -108,8 +108,8 @@ function ConvertTo-RtfText([string] $Text) {
   return $sb.ToString()
 }
 $paragraphs = [System.Collections.Generic.List[string]]::new()
-$paragraphs.Add('\b Lexicon\b0')
-$paragraphs.Add((ConvertTo-RtfText 'Lexicon, based on WordCraft, is dual-licensed under the MIT License or the Apache License, Version 2.0, at your option. Both license texts follow. Bundled fonts, dictionaries and other third-party material keep their own open licenses, listed in NOTICE and ATTRIBUTION.md at https://github.com/Arthuralend/Lexicon.'))
+$paragraphs.Add('\b Office Pro Max\b0')
+$paragraphs.Add((ConvertTo-RtfText 'Office Pro Max, based on WordCraft, is dual-licensed under the MIT License or the Apache License, Version 2.0, at your option. Both license texts follow. Bundled fonts, dictionaries and other third-party material keep their own open licenses, listed in NOTICE and ATTRIBUTION.md at https://github.com/Arthuralend/Lexicon.'))
 foreach ($file in 'LICENSE-MIT', 'LICENSE-APACHE') {
   $title = $true  # each file opens with its license's name: show it bold
   foreach ($para in ((Get-Content -Raw (Join-Path $Root $file)) -split '\r?\n\s*\r?\n')) {
@@ -128,7 +128,7 @@ $Msi = Join-Path $Dist "Lexicon-$Version-windows-$Arch.msi"
 Invoke-Native 'wix build' {
   wix build (Join-Path $PSScriptRoot 'lexicon.wxs') -arch $Arch `
     -ext WixToolset.UI.wixext -ext WixToolset.Util.wixext `
-    -d "Version=$MsiVersion" -d "BinDir=$Stage" -d "IconPath=$(Join-Path $Root 'assets\app-icon\wordcraft.ico')" `
+    -d "Version=$MsiVersion" -d "BinDir=$Stage" -d "IconPath=$(Join-Path $Root 'assets\app-icon\wordcraft.ico')" -d "SheetsIconPath=$(Join-Path $Root 'assets\app-icon\sheets.ico')" -d "SuiteIconPath=$(Join-Path $Root 'assets\app-icon\suite.ico')" `
     -d "LicenseRtf=$LicenseRtf" `
     -o $Msi
 }
@@ -141,6 +141,8 @@ $Portable = Join-Path $TargetDir "windows-package\Lexicon-$Version-windows-$Arch
 Remove-Item -Recurse -Force $Portable -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Force -Path $Portable | Out-Null
 Copy-Item (Join-Path $Stage '*.exe') $Portable
+# Office Pro Max Sheets: the same program, started in Calculations.
+Set-Content -Path (Join-Path $Portable 'Office Pro Max Sheets.cmd') -Value "@start `"`" `"%~dp0Lexicon.exe`" --calc %*" -Encoding ASCII
 foreach ($f in 'README.md', 'LICENSE', 'LICENSE-MIT', 'LICENSE-APACHE') {
   $p = Join-Path $Root $f
   if (Test-Path $p) { Copy-Item $p $Portable }

@@ -19,7 +19,7 @@
 	1.5 Line Spacing	Radavstånd 1,5
 	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	En kostnadsfri ordbehandlare med öppen källkod skriven i Rust, med rysk och engelsk stavningskontroll.\nBaserad på WordCraft från ArtCraft-teamet.
 	About	Om
-	About Lexicon	Om Lexicon
+	About Office Pro Max	Om Office Pro Max
 	Accept	Acceptera
 	Accept All Changes	Acceptera alla ändringar
 	Accept This Change	Acceptera den här ändringen
@@ -287,7 +287,7 @@
 	Copy	Kopiera
 	Copy Formatting	Kopiera formatering
 	Corrections	Korrigeringar
-	Couldn't make Lexicon the default: {error}	Det gick inte att göra Lexicon till standardprogram: {error}
+	Couldn't make Office Pro Max the default: {error}	Det gick inte att göra Office Pro Max till standardprogram: {error}
 	Count words in text boxes and notes	Räkna ord i textrutor, fotnoter och slutnoter
 	Cover Page	Försättsblad
 	Create	Skapa
@@ -463,7 +463,7 @@
 	Immersive	Fördjupning
 	Immersive Reader	Fördjupad läsning
 	Immersive\nReader	Fördjupad\nläsning
-	In Default apps, choose Lexicon for the document types you want it to open.	I Standardappar väljer du Lexicon för de dokumenttyper som den ska öppna.
+	In Default apps, choose Office Pro Max for the document types you want it to open.	I Standardappar väljer du Office Pro Max för de dokumenttyper som den ska öppna.
 	Increase Font Size	Öka teckenstorleken
 	Increase Indent	Öka indraget
 	Indent	Indrag
@@ -548,10 +548,10 @@
 	Link to Previous	Länka till föregående
 	Links	Länkar
 	Location: {path}	Plats: {path}
-	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Lexicon contributors.
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.
 	Macros	Makron
 	Mailings	Utskick
-	Make Lexicon the default for Word documents…	Gör Lexicon till standardprogram för Word-dokument…
+	Make Office Pro Max the default for Word documents…	Gör Office Pro Max till standardprogram för Word-dokument…
 	Manage Sources	Hantera källor
 	Many pages	Många sidor
 	Margins	Marginaler
@@ -628,8 +628,8 @@
 	One Page	En sida
 	Open	Öppna
 	OpenDocument Text (*.odt)	OpenDocument-text (*.odt)
-	Opens .docx, .doc, .rtf and .odt files and Word templates with Lexicon from now on.	Öppnar .docx-, .doc-, .rtf- och .odt-filer och Word-mallar med Lexicon från och med nu.
-	Opens Settings › Default apps, where you choose Lexicon for .docx and the other document types.	Öppnar Inställningar › Standardappar, där du väljer Lexicon för .docx och de andra dokumenttyperna.
+	Opens .docx, .doc, .rtf and .odt files and Word templates with Office Pro Max from now on.	Öppnar .docx-, .doc-, .rtf- och .odt-filer och Word-mallar med Office Pro Max från och med nu.
+	Opens Settings › Default apps, where you choose Office Pro Max for .docx and the other document types.	Öppnar Inställningar › Standardappar, där du väljer Office Pro Max för .docx och de andra dokumenttyperna.
 	Optional Hyphen	Mjukt bindestreck
 	Copyright Sign	Copyrighttecken
 	Ellipsis	Ellips
@@ -945,7 +945,7 @@
 	Tight	Tät
 	TOC Heading	Innehållsrubrik
 	TOC {n}	Innehåll {n}
-	To open Word documents with Lexicon by default: select one in Finder, choose File › Get Info, pick Lexicon under Open with, then click Change All.	Så här öppnar du Word-dokument med Lexicon som standard: markera ett dokument i Finder, välj Arkiv › Hämta info, välj Lexicon under Öppna med och klicka sedan på Ändra alla.
+	To open Word documents with Office Pro Max by default: select one in Finder, choose File › Get Info, pick Office Pro Max under Open with, then click Change All.	Så här öppnar du Word-dokument med Office Pro Max som standard: markera ett dokument i Finder, välj Arkiv › Hämta info, välj Office Pro Max under Öppna med och klicka sedan på Ändra alla.
 	Top Border	Övre kantlinje
 	Top Margin	Övre marginal
 	Top of Page	Överst på sidan
@@ -1009,8 +1009,8 @@
 	Word document (*.docx)	Word-dokument (*.docx)
 	Word XML Document (*.xml)	Word XML-dokument (*.xml)
 	WordArt	WordArt
-	Lexicon	Lexicon
-	Lexicon is now the default app for Word documents.	Lexicon är nu standardprogram för Word-dokument.
+	Office Pro Max	Office Pro Max
+	Office Pro Max is now the default app for Word documents.	Office Pro Max är nu standardprogram för Word-dokument.
 	Words	Ord
 	Words only	Bara ord
 	Wrap Text	Textombrytning
@@ -1079,7 +1079,7 @@
 	Stopped	Stoppad
 	Speed	Hastighet
 	Normal speed	Normal hastighet
-	AutoSave documents you have saved in Lexicon	Autospara dokument som du har sparat i Lexicon
+	AutoSave documents you have saved in Office Pro Max	Autospara dokument som du har sparat i Office Pro Max
 	AutoSave failed: {error}. Save the document to turn AutoSave back on.	Autospara misslyckades: {error}. Spara dokumentet för att slå på Autospara igen.
 	Couldn't download {name}: {error}	Det gick inte att ladda ner {name}: {error}
 	Do you want to save changes to {name}?	Vill du spara ändringarna i {name}?
@@ -1388,7 +1388,7 @@
 	The document will be saved with a password. Save it to protect it.	Dokumentet sparas med lösenord. Spara det för att skydda det.
 	The password is removed. Save the document to keep the change.	Lösenordet är borttaget. Spara dokumentet för att behålla ändringen.
 	The passwords don't match.	Lösenorden stämmer inte överens.
-	Keep the password somewhere safe: without it nobody, Lexicon included, can open the document. Leave both boxes empty to remove the password.	Förvara lösenordet på ett säkert ställe: utan det kan ingen, inte heller Lexicon, öppna dokumentet. Lämna båda rutorna tomma för att ta bort lösenordet.
+	Keep the password somewhere safe: without it nobody, Office Pro Max included, can open the document. Leave both boxes empty to remove the password.	Förvara lösenordet på ett säkert ställe: utan det kan ingen, inte heller Office Pro Max, öppna dokumentet. Lämna båda rutorna tomma för att ta bort lösenordet.
 
 # Interface text routed through translation (#313)
 	Align Top Left	Justera uppe till vänster
@@ -1779,7 +1779,7 @@
 	Word document	Word-dokument
 	All files	Alla filer
 	Recipient lists	Mottagarlistor
-	The system file dialog isn't available, so Lexicon shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Systemets fildialogruta är inte tillgänglig, så Lexicon visar sin egen. Installera en filväljarportal (till exempel xdg-desktop-portal-gtk) eller zenity för att få systemets dialogruta.
+	The system file dialog isn't available, so Office Pro Max shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Systemets fildialogruta är inte tillgänglig, så Office Pro Max visar sin egen. Installera en filväljarportal (till exempel xdg-desktop-portal-gtk) eller zenity för att få systemets dialogruta.
 	Up one level	Upp en nivå
 	Home folder	Hemmapp
 	{name} wasn't found.	{name} hittades inte.
@@ -1787,8 +1787,8 @@
 	This folder can't be read: {error}	Den här mappen kan inte läsas: {error}
 	Showing the first {count} items.	Visar de första {count} objekten.
 	File name:	Filnamn:
-	Browse in Lexicon…	Bläddra i Lexicon…
-	Open a file with Lexicon's own browser when the system file dialog doesn't appear.	Öppna en fil med Lexicons egen filbläddrare när systemets fildialogruta inte visas.
+	Browse in Office Pro Max…	Bläddra i Office Pro Max…
+	Open a file with Office Pro Max's own browser when the system file dialog doesn't appear.	Öppna en fil med Lexicons egen filbläddrare när systemets fildialogruta inte visas.
 	Hide White Space	Dölj tomrum
 	All pages	Alla sidor
 	Current page	Aktuell sida
@@ -2449,8 +2449,8 @@ preview	Title	Titel
 	Region:	Region:
 	Automatic ({region})	Automatisk ({region})
 	Start-up	Start
-	Show the Start screen when Lexicon starts	Visa startskärmen när Lexicon startar
-	On: Lexicon opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	På: Lexicon öppnas på Arkiv › Start, med ett tomt dokument, mallarna och dina senaste dokument. Av: ett tomt dokument öppnas.
+	Show the Start screen when Office Pro Max starts	Visa startskärmen när Office Pro Max startar
+	On: Office Pro Max opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	På: Office Pro Max öppnas på Arkiv › Start, med ett tomt dokument, mallarna och dina senaste dokument. Av: ett tomt dokument öppnas.
 
 # Strings the Spanish catalog lacks: paper sizes, citation and table styles, list levels and
 # proofing messages.
@@ -2501,7 +2501,7 @@ preview	Title	Titel
 	Edit Document	Redigera dokument
 	Go to what:	Gå till:
 	Reading Mode	Läsläge
-	Researcher needs an online service; Lexicon keeps your documents offline.	Efterforska kräver en onlinetjänst; Lexicon håller dina dokument offline.
+	Researcher needs an online service; Office Pro Max keeps your documents offline.	Efterforska kräver en onlinetjänst; Office Pro Max håller dina dokument offline.
 	Suggested	Förslag
 	Text size	Textstorlek
 	These settings will be used for new documents.	De här inställningarna används för nya dokument.
@@ -2545,7 +2545,7 @@ preview	Title	Titel
 	Hidden bookmarks	Dolda bokmärken
 	Sort by:	Sortera efter:
 	{language} (no dictionary)	{language} (ingen ordlista)
-	No spelling dictionary for {language} is installed, so it isn't checked. Lexicon looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	Ingen stavningsordlista för {language} är installerad, så språket kontrolleras inte. Lexicon letar efter Hunspell-ordlistan {name} i mappen WORDCRAFT_DICTIONARIES och på systemets vanliga platser.
+	No spelling dictionary for {language} is installed, so it isn't checked. Office Pro Max looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	Ingen stavningsordlista för {language} är installerad, så språket kontrolleras inte. Office Pro Max letar efter Hunspell-ordlistan {name} i mappen WORDCRAFT_DICTIONARIES och på systemets vanliga platser.
 	Word 2003 XML Document (*.xml)	Word 2003 XML-dokument (*.xml)
 	Type Character Code	Skriv teckenkod
 	Auto ({percent}%)	Automatisk ({percent} %)
@@ -2769,3 +2769,9 @@ preview	Title	Titel
 	The system's voice typing is open: speak, and the words are typed at the caret.	Systemets röstinmatning är öppen: tala, så skrivs orden vid markören.
 	Allow speech recognition and the microphone when macOS asks.	Tillåt taligenkänning och mikrofonen när macOS frågar.
 	Speech recognition isn't allowed: turn it on in System Settings › Privacy & Security.	Taligenkänning är inte tillåten: slå på den i Systeminställningar › Integritet och säkerhet.
+	Rose	Ros
+	Apricot	Aprikos
+	Powder	Puder
+	Lilac	Syren
+	Sage	Salvia
+	Vanilla	Vanilj

@@ -379,6 +379,14 @@ impl WordApp {
         self.ask_file(FileDialogRequest::Save { name }, AfterPick::SaveAs { after, document: self.session.document_id() })
     }
 
+    /// File › Save As with a format chosen: ask where, the name ending in its extension, then save
+    /// the document there (it is then this file).
+    pub(crate) fn save_as_format(&mut self, ext: &str) {
+        let name = format!("{}.{ext}", self.title_stem());
+        let _ =
+            self.ask_file(FileDialogRequest::Save { name }, AfterPick::SaveAs { after: AfterSave::Nothing, document: self.session.document_id() });
+    }
+
     /// File › Export: ask where to save a copy in this format, then write it.
     pub(crate) fn export_dialog(&mut self, ext: &str) {
         let file_ext = if ext == crate::print_page::EXPORT_WORD_2003 { "xml" } else { ext };

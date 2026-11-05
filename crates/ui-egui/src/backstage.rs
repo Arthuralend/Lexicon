@@ -387,8 +387,8 @@ fn open_page(app: &mut WordApp, ui: &mut Ui) {
     // doesn't show up, Lexicon's own browser is always one click away.
     #[cfg(all(unix, not(target_os = "macos"), not(target_arch = "wasm32")))]
     if ui
-        .button(egui::RichText::new(tl!("Browse in Lexicon…")).font(medium(14.0)))
-        .on_hover_text(tl!("Open a file with Lexicon's own browser when the system file dialog doesn't appear."))
+        .button(egui::RichText::new(tl!("Browse in Office Pro Max…")).font(medium(14.0)))
+        .on_hover_text(tl!("Open a file with Office Pro Max's own browser when the system file dialog doesn't appear."))
         .clicked()
     {
         let _ = app.run("ui.fileBrowser", json!({}));
@@ -401,8 +401,20 @@ fn open_page(app: &mut WordApp, ui: &mut Ui) {
 /// opens it, which is not what Save As is for.
 fn save_as_page(app: &mut WordApp, ui: &mut Ui) {
     heading(ui, "Save As");
-    if ui.button(egui::RichText::new(tl!("Browse…")).font(medium(14.0))).clicked() {
-        app.save_as_dialog();
+    // Lexicon: a button per format, as on the Export page; the system's save dialog then asks
+    // where, with the name already ending in the format's extension.
+    for (label, ext) in [
+        ("Word document (*.docx)", "docx"),
+        ("OpenDocument Text (*.odt)", "odt"),
+        ("Rich Text Format (*.rtf)", "rtf"),
+        ("Web page (*.html)", "html"),
+        ("Markdown (*.md)", "md"),
+        ("Plain text (*.txt)", "txt"),
+    ] {
+        if ui.add(egui::Button::new(egui::RichText::new(tl!(label)).font(medium(13.5))).min_size(vec2(320.0, 34.0))).clicked() {
+            app.save_as_format(ext);
+        }
+        ui.add_space(4.0);
     }
 }
 
@@ -780,7 +792,7 @@ mod tests {
     }
 
     #[test]
-    fn save_as_page_shows_browse_and_no_open_list() {
+    fn save_as_page_shows_formats_and_no_open_list() {
         let mut a = WordApp::new(wordcraft_engine::Session::new(wordcraft_doc::Document::new()), Services::default());
         a.run("ui.backstage", json!({"value": true, "page": "saveAs"})).unwrap();
         let mut h = egui_kittest::Harness::builder().with_size(egui::vec2(1440.0, 900.0)).build_ui_state(
@@ -792,7 +804,7 @@ mod tests {
             a,
         );
         h.run_steps(4);
-        assert!(h.query_by_label("Browse…").is_some(), "Save As has Browse button");
+        assert!(h.query_by_label("Word document (*.docx)").is_some(), "Save As offers the formats, as Export does");
         assert!(h.query_by_label("Recent").is_none(), "Save As has no list that opens documents");
     }
 

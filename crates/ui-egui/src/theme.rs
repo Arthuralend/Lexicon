@@ -44,11 +44,23 @@ pub enum Appearance {
     Plum,
     /// Dark coffee brown.
     Coffee,
+    /// Pastel pink.
+    Rose,
+    /// Pastel peach.
+    Apricot,
+    /// Pastel blue.
+    Powder,
+    /// Pastel violet.
+    Lilac,
+    /// Pastel green.
+    Sage,
+    /// Pastel yellow.
+    Vanilla,
 }
 
 impl Appearance {
     /// In menu order.
-    pub const ALL: [Appearance; 16] = [
+    pub const ALL: [Appearance; 22] = [
         Appearance::Navy,
         Appearance::Midnight,
         Appearance::System,
@@ -65,6 +77,12 @@ impl Appearance {
         Appearance::Ocean,
         Appearance::Plum,
         Appearance::Coffee,
+        Appearance::Rose,
+        Appearance::Apricot,
+        Appearance::Powder,
+        Appearance::Lilac,
+        Appearance::Sage,
+        Appearance::Vanilla,
     ];
 
     /// The value used in `ui.json` and by the `ui.theme` command.
@@ -88,6 +106,12 @@ impl Appearance {
             Appearance::Ocean => "ocean",
             Appearance::Plum => "plum",
             Appearance::Coffee => "coffee",
+            Appearance::Rose => "rose",
+            Appearance::Apricot => "apricot",
+            Appearance::Powder => "powder",
+            Appearance::Lilac => "lilac",
+            Appearance::Sage => "sage",
+            Appearance::Vanilla => "vanilla",
         }
     }
 
@@ -114,6 +138,12 @@ impl Appearance {
             Appearance::Ocean => "Ocean",
             Appearance::Plum => "Plum",
             Appearance::Coffee => "Coffee",
+            Appearance::Rose => "Rose",
+            Appearance::Apricot => "Apricot",
+            Appearance::Powder => "Powder",
+            Appearance::Lilac => "Lilac",
+            Appearance::Sage => "Sage",
+            Appearance::Vanilla => "Vanilla",
         }
     }
 
@@ -136,6 +166,12 @@ impl Appearance {
             Appearance::Ocean => Tokens::ocean(),
             Appearance::Plum => Tokens::plum(),
             Appearance::Coffee => Tokens::coffee(),
+            Appearance::Rose => Tokens::rose(),
+            Appearance::Apricot => Tokens::apricot(),
+            Appearance::Powder => Tokens::powder(),
+            Appearance::Lilac => Tokens::lilac(),
+            Appearance::Sage => Tokens::sage(),
+            Appearance::Vanilla => Tokens::vanilla(),
         })
     }
 
@@ -909,6 +945,180 @@ impl Tokens {
             menu: rgb(0x28201A),
             resolved_text: rgb(0x8EE6B5),
             ..Tokens::dark()
+        }
+    }
+
+    /// Pastel pink.
+    pub fn rose() -> Self {
+        Tokens {
+            title_bar: rgb(0xF9E4EA),
+            ribbon: rgb(0xFDF2F5),
+            tab_strip: rgb(0xF9E4EA),
+            canvas: rgb(0xF3D9E1),
+            panel: rgb(0xFFF8FA),
+            border: rgb(0xEED3DC),
+            border_strong: rgb(0xDBAFBE),
+            text: rgb(0x2E1A22),
+            text_dim: rgb(0x6A4A56),
+            icon: rgb(0x5A3444),
+            hover: rgb(0xF6DDE5),
+            pressed: rgb(0xEFCAD6),
+            checked: rgb(0xF5D3DF),
+            accent: rgb(0xB03A66),
+            accent_text: rgb(0x9A2F57),
+            input_border: rgb(0x917080),
+            group_label: rgb(0x6A4A56),
+            ruler_margin: rgb(0xEED3DC),
+            ruler_tick: rgb(0x6A4A56),
+            status_bar: rgb(0xF9E4EA),
+            markup_area: rgb(0xFFF8FA),
+            markup_edge: rgb(0xEED3DC),
+            ..Tokens::light()
+        }
+    }
+
+    /// Pastel peach.
+    pub fn apricot() -> Self {
+        Tokens {
+            title_bar: rgb(0xFCE9DC),
+            ribbon: rgb(0xFEF4EC),
+            tab_strip: rgb(0xFCE9DC),
+            canvas: rgb(0xF6DECD),
+            panel: rgb(0xFFF9F4),
+            border: rgb(0xF1D6C2),
+            border_strong: rgb(0xE0B596),
+            text: rgb(0x33231A),
+            text_dim: rgb(0x6B4E3E),
+            icon: rgb(0x5A3A28),
+            hover: rgb(0xF9E0CE),
+            pressed: rgb(0xF2CFB6),
+            checked: rgb(0xF8D9C3),
+            accent: rgb(0xB5521E),
+            accent_text: rgb(0x9C4416),
+            input_border: rgb(0x93715E),
+            group_label: rgb(0x6B4E3E),
+            ruler_margin: rgb(0xF1D6C2),
+            ruler_tick: rgb(0x6B4E3E),
+            status_bar: rgb(0xFCE9DC),
+            markup_area: rgb(0xFFF9F4),
+            markup_edge: rgb(0xF1D6C2),
+            ..Tokens::light()
+        }
+    }
+
+    /// Pastel blue.
+    pub fn powder() -> Self {
+        Tokens {
+            title_bar: rgb(0xE1ECF8),
+            ribbon: rgb(0xF1F6FD),
+            tab_strip: rgb(0xE1ECF8),
+            canvas: rgb(0xD6E4F4),
+            panel: rgb(0xF8FBFF),
+            border: rgb(0xCFDDF0),
+            border_strong: rgb(0xA9C0E0),
+            text: rgb(0x17263A),
+            text_dim: rgb(0x46586F),
+            icon: rgb(0x2F4561),
+            hover: rgb(0xD9E6F6),
+            pressed: rgb(0xC6D8F0),
+            checked: rgb(0xCFE0F6),
+            accent: rgb(0x2F62B0),
+            accent_text: rgb(0x24549C),
+            input_border: rgb(0x6B819E),
+            group_label: rgb(0x46586F),
+            ruler_margin: rgb(0xCFDDF0),
+            ruler_tick: rgb(0x46586F),
+            status_bar: rgb(0xE1ECF8),
+            markup_area: rgb(0xF8FBFF),
+            markup_edge: rgb(0xCFDDF0),
+            ..Tokens::light()
+        }
+    }
+
+    /// Pastel violet.
+    pub fn lilac() -> Self {
+        Tokens {
+            title_bar: rgb(0xECE5F7),
+            ribbon: rgb(0xF6F2FC),
+            tab_strip: rgb(0xECE5F7),
+            canvas: rgb(0xE2D9F2),
+            panel: rgb(0xFBF8FF),
+            border: rgb(0xDCD0EF),
+            border_strong: rgb(0xBBA9DE),
+            text: rgb(0x241A35),
+            text_dim: rgb(0x56496D),
+            icon: rgb(0x42335E),
+            hover: rgb(0xE5DCF5),
+            pressed: rgb(0xD6C8EE),
+            checked: rgb(0xE0D3F6),
+            accent: rgb(0x7247B8),
+            accent_text: rgb(0x5F3AA0),
+            input_border: rgb(0x7E6E9C),
+            group_label: rgb(0x56496D),
+            ruler_margin: rgb(0xDCD0EF),
+            ruler_tick: rgb(0x56496D),
+            status_bar: rgb(0xECE5F7),
+            markup_area: rgb(0xFBF8FF),
+            markup_edge: rgb(0xDCD0EF),
+            ..Tokens::light()
+        }
+    }
+
+    /// Pastel green.
+    pub fn sage() -> Self {
+        Tokens {
+            title_bar: rgb(0xE3EFE4),
+            ribbon: rgb(0xF2F8F2),
+            tab_strip: rgb(0xE3EFE4),
+            canvas: rgb(0xD7E8D9),
+            panel: rgb(0xF8FCF8),
+            border: rgb(0xCEE2D1),
+            border_strong: rgb(0xA8C9AD),
+            text: rgb(0x17291A),
+            text_dim: rgb(0x46604B),
+            icon: rgb(0x2C4630),
+            hover: rgb(0xD9EBDC),
+            pressed: rgb(0xC6E0CA),
+            checked: rgb(0xCFE7D3),
+            accent: rgb(0x2F7A45),
+            accent_text: rgb(0x246638),
+            input_border: rgb(0x6A8B70),
+            group_label: rgb(0x46604B),
+            ruler_margin: rgb(0xCEE2D1),
+            ruler_tick: rgb(0x46604B),
+            status_bar: rgb(0xE3EFE4),
+            markup_area: rgb(0xF8FCF8),
+            markup_edge: rgb(0xCEE2D1),
+            ..Tokens::light()
+        }
+    }
+
+    /// Pastel yellow.
+    pub fn vanilla() -> Self {
+        Tokens {
+            title_bar: rgb(0xF8F1D9),
+            ribbon: rgb(0xFCF9EC),
+            tab_strip: rgb(0xF8F1D9),
+            canvas: rgb(0xF1E8C8),
+            panel: rgb(0xFFFDF4),
+            border: rgb(0xEDE2BC),
+            border_strong: rgb(0xD6C38D),
+            text: rgb(0x2E2914),
+            text_dim: rgb(0x655B36),
+            icon: rgb(0x4F4523),
+            hover: rgb(0xF4ECCF),
+            pressed: rgb(0xEDE0B5),
+            checked: rgb(0xF3E7BE),
+            accent: rgb(0x8A6A10),
+            accent_text: rgb(0x75590B),
+            input_border: rgb(0x8F8259),
+            group_label: rgb(0x655B36),
+            ruler_margin: rgb(0xEDE2BC),
+            ruler_tick: rgb(0x655B36),
+            status_bar: rgb(0xF8F1D9),
+            markup_area: rgb(0xFFFDF4),
+            markup_edge: rgb(0xEDE2BC),
+            ..Tokens::light()
         }
     }
 

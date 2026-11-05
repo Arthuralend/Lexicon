@@ -17,22 +17,24 @@
 -->
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
   <Package
-      Name="Lexicon"
-      Manufacturer="Lexicon contributors"
+      Name="Office Pro Max"
+      Manufacturer="Office Pro Max contributors"
       Version="$(var.Version)"
       UpgradeCode="3E52BC43-4AA9-4BB8-BC17-D11E09949056"
       Scope="perMachine"
       Compressed="yes"
       Language="1033">
-    <SummaryInformation Description="Lexicon word processor" Manufacturer="Lexicon contributors" />
+    <SummaryInformation Description="Office Pro Max" Manufacturer="Office Pro Max contributors" />
     <!-- Same-version upgrades let successive pre-releases of one X.Y.Z replace each other
          (MSI versions are numeric, so 1.2.3-rc.1 and 1.2.3-rc.2 are both 1.2.3). -->
     <MajorUpgrade AllowSameVersionUpgrades="yes"
-        DowngradeErrorMessage="A newer version of Lexicon is already installed." />
+        DowngradeErrorMessage="A newer version of Office Pro Max is already installed." />
     <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
 
     <Icon Id="LexiconIcon.ico" SourceFile="$(var.IconPath)" />
-    <Property Id="ARPPRODUCTICON" Value="LexiconIcon.ico" />
+    <Icon Id="SheetsIcon.ico" SourceFile="$(var.SheetsIconPath)" />
+    <Icon Id="SuiteIcon.ico" SourceFile="$(var.SuiteIconPath)" />
+    <Property Id="ARPPRODUCTICON" Value="SuiteIcon.ico" />
     <Property Id="ARPURLINFOABOUT" Value="https://github.com/Arthuralend/Lexicon" />
     <Property Id="ARPURLUPDATEINFO" Value="https://github.com/Arthuralend/Lexicon" />
     <Property Id="ARPHELPLINK" Value="https://github.com/Arthuralend/Lexicon/issues" />
@@ -43,7 +45,7 @@
          LICENSE-APACHE. The finish page offers to launch Lexicon (ticked by default) through
          WixShellExec (WixToolset.Util.wixext); silent installs (/qn) never show it. -->
     <WixVariable Id="WixUILicenseRtf" Value="$(var.LicenseRtf)" />
-    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Lexicon" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Office Pro Max" />
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
     <Property Id="WixShellExecTarget" Value="[#LexiconExe]" />
     <CustomAction Id="LaunchLexicon" BinaryRef="Wix4UtilCA_$(sys.BUILDARCHSHORT)" DllEntry="WixShellExec"
@@ -68,9 +70,13 @@
     <ComponentGroup Id="LexiconFiles" Directory="INSTALLFOLDER">
       <Component Id="LexiconApp" Guid="1529CDF3-420E-476C-BE94-8D39629D0439">
         <File Id="LexiconExe" Source="$(var.BinDir)\Lexicon.exe" KeyPath="yes">
-          <Shortcut Id="StartMenuShortcut" Directory="ProgramMenuFolder" Name="Lexicon"
-              Description="Lexicon word processor" WorkingDirectory="INSTALLFOLDER" Advertise="yes"
+          <Shortcut Id="StartMenuShortcut" Directory="ProgramMenuFolder" Name="Office Pro Max"
+              Description="Office Pro Max: documents" WorkingDirectory="INSTALLFOLDER" Advertise="yes"
               Icon="LexiconIcon.ico" IconIndex="0" />
+          <!-- The same program started in Calculations, with the spreadsheet icon. -->
+          <Shortcut Id="SheetsShortcut" Directory="ProgramMenuFolder" Name="Office Pro Max Sheets"
+              Description="Office Pro Max: spreadsheets" WorkingDirectory="INSTALLFOLDER" Advertise="yes"
+              Arguments="--calc" Icon="SheetsIcon.ico" IconIndex="0" />
         </File>
 
         <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\Lexicon.exe" Value="[#LexiconExe]" Type="string" />
@@ -151,7 +157,7 @@
 
         <!-- Lexicon: Excel workbooks open in Calculations. -->
         <ProgId Id="Lexicon.Workbook" Description="Excel Workbook" Icon="LexiconExe" IconIndex="0" />
-        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.Workbook\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.Workbook\shell\open\command" Value="&quot;[#LexiconExe]&quot; --calc &quot;%1&quot;" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Classes\.xlsx\OpenWithProgids" Name="Lexicon.Workbook" Value="" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".xlsx" Value="" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities\FileAssociations" Name=".xlsx" Value="Lexicon.Workbook" Type="string" />

@@ -41,7 +41,7 @@ fn android_main(app: AndroidApp) {
     let android = app.clone();
     let options = eframe::NativeOptions { android_app: Some(app), ..Default::default() };
     let result = eframe::run_native(
-        "Lexicon",
+        "Office Pro Max",
         options,
         Box::new(move |cc| {
             keyboard::set_context(cc.egui_ctx.clone());
@@ -75,7 +75,7 @@ fn android_main(app: AndroidApp) {
         }),
     );
     if let Err(e) = result {
-        log::error!("Lexicon failed to start: {e}");
+        log::error!("Office Pro Max failed to start: {e}");
     }
 }
 
@@ -179,6 +179,10 @@ impl eframe::App for Shell {
         self.keyboard.fix_hardware_text(&mut raw.events);
         keyboard::add_paste(&self.android, &mut raw.events);
         raw.events.extend(keyboard::take_events());
+        // The Office Pro Max Sheets icon: show Calculations.
+        if keyboard::take_sheets_request(&self.android) {
+            self.app.start_in_calculations();
+        }
         self.app.raw_input_hook(raw);
     }
 

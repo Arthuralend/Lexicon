@@ -246,6 +246,16 @@ pub fn set_clipboard(app: &AndroidApp, text: &str) {
     }
 }
 
+/// Whether the Office Pro Max Sheets launcher started or brought back the app (asked once).
+pub fn take_sheets_request(app: &AndroidApp) -> bool {
+    let mut want = false;
+    let r = with_activity(app, |env, activity| {
+        want = env.call_method(activity, "takeSheetsRequest", "()Z", &[])?.z()?;
+        Ok(())
+    });
+    r.is_ok() && want
+}
+
 /// Home › Dictate: the system's speech recognition in `lang`; the words arrive as committed text.
 pub fn start_dictation(app: &AndroidApp, lang: &str) -> Result<(), String> {
     with_activity(app, |env, activity| {

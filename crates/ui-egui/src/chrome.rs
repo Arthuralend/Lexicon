@@ -364,7 +364,7 @@ pub fn title_bar(app: &mut WordApp, ui: &mut Ui) {
             // Centred title.
             let title = if !app.has_document() {
                 // No document open (#1129): the app's name alone (Лексикон in Russian).
-                tl!("Lexicon").to_string()
+                tl!("Office Pro Max").to_string()
             } else {
                 format!(
                     "{} — {}",
@@ -480,7 +480,7 @@ pub fn status_bar(app: &mut WordApp, ui: &mut Ui) {
                         &[("language", &lang), ("file", &file.to_string_lossy()), ("reason", reason)],
                     ),
                     (None, Some(name)) => crate::i18n::fmt(
-                        tl!("No spelling dictionary for {language} is installed, so it isn't checked. Lexicon looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations."),
+                        tl!("No spelling dictionary for {language} is installed, so it isn't checked. Office Pro Max looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations."),
                         &[("language", &lang), ("name", name)],
                     ),
                     (None, None) => tl!("Language").to_string(),

@@ -161,7 +161,7 @@ impl Exempt {
         // A theme's fonts after its (translated) name: `Studio: Georgia / Georgia`.
         let theme_fonts = plain.strip_prefix(": ").is_some_and(|f| f.split(" / ").count() == 2);
         let icon_lettering = matches!(plain, "Aa" | "ab" | "abc" | "ac" | "cd" | "ab-" | "fx" | "ABC");
-        let initials = plain.chars().count() == 2 && plain.chars().all(|c| c.is_ascii_uppercase());
+        let initials = (2..=4).contains(&plain.chars().count()) && plain.chars().all(|c| c.is_ascii_uppercase());
         icon_lettering // drawn inside icons
             || initials // the account button
             || status
@@ -172,8 +172,10 @@ impl Exempt {
             || plain.starts_with('@') // contributor handles
             || plain.starts_with("Style") || plain.starts_with("Table Style ") // a new style's default name
             || plain.contains('┬') || plain.contains('\u{2061}') // equation input (UnicodeMath), drawn as math
-            || matches!(plain, "Lexicon" | "Lexicon User" | "Discord" | "https://" | "auto" | "I. II. III." | "i. ii. iii.")
+            || matches!(plain, "Office Pro Max" | "Office Pro Max User" | "Discord" | "https://" | "auto" | "I. II. III." | "i. ii. iii.")
             || crate::dictation::LANGUAGES.iter().any(|(_, n)| *n == plain) // Dictate's languages, by their own names
+            || crate::i18n::Lang::all().any(|l| l.name() == plain) // interface languages, by their own names
+            || crate::options::REGIONS.contains(&plain) // region tags (en-US), as the system writes them
             || plain == "CONFIDENTIAL" // the watermark dialog's text: document content, kept as typed
             || plain == "Figure 1" // the caption dialog's sample: the label goes into the document as is
     }

@@ -145,18 +145,18 @@ jobs:
         run: |
           ls -la dl
           mkdir -p rel
-          cp dl/Lexicon-*.apk rel/Lexicon.apk
-          cp dl/Lexicon-*-windows-x64.msi rel/Lexicon-Windows.msi
-          cp dl/Lexicon-*-windows-x64-portable.zip rel/Lexicon-Windows-portable.zip
-          cp dl/Lexicon-*-macos-universal.dmg rel/Lexicon-macOS.dmg
-          notes="Lexicon $NAME.
-          - Android 8.0+ (arm64): Lexicon.apk
-          - Windows 10/11 (x64): Lexicon-Windows.msi (installer) or Lexicon-Windows-portable.zip (no install)
-          - macOS 11+ (Apple silicon and Intel): Lexicon-macOS.dmg
+          cp dl/Lexicon-*.apk rel/Office-Pro-Max.apk
+          cp dl/Lexicon-*-windows-x64.msi rel/Office-Pro-Max-Windows.msi
+          cp dl/Lexicon-*-windows-x64-portable.zip rel/Office-Pro-Max-Windows-portable.zip
+          cp dl/Lexicon-*-macos-universal.dmg rel/Office-Pro-Max-macOS.dmg
+          notes="Office Pro Max $NAME.
+          - Android 8.0+ (arm64): Office-Pro-Max.apk
+          - Windows 10/11 (x64): Office-Pro-Max-Windows.msi (installer) or Office-Pro-Max-Windows-portable.zip (no install)
+          - macOS 11+ (Apple silicon and Intel): Office-Pro-Max-macOS.dmg
           The builds are not signed by Apple or Microsoft: Windows SmartScreen and macOS Gatekeeper warn on first launch (see README)."
           if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
-            gh release create "$GITHUB_REF_NAME" rel/* --title "Lexicon $GITHUB_REF_NAME" --notes "$notes"
+            gh release create "$GITHUB_REF_NAME" rel/* --title "Office Pro Max $GITHUB_REF_NAME" --notes "$notes"
           else
             gh release delete latest --yes --cleanup-tag || true
-            gh release create latest rel/* --target "$GITHUB_SHA" --prerelease --title "Lexicon — последняя сборка ($NAME)" --notes "$notes"
+            gh release create latest rel/* --target "$GITHUB_SHA" --prerelease --title "Office Pro Max — последняя сборка ($NAME)" --notes "$notes"
           fi
