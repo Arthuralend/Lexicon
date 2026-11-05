@@ -145,18 +145,18 @@ jobs:
         run: |
           ls -la dl
           mkdir -p rel
-          cp dl/Lexicon-*.apk rel/Office-Pro-Max.apk
-          cp dl/Lexicon-*-windows-x64.msi rel/Office-Pro-Max-Windows.msi
-          cp dl/Lexicon-*-windows-x64-portable.zip rel/Office-Pro-Max-Windows-portable.zip
-          cp dl/Lexicon-*-macos-universal.dmg rel/Office-Pro-Max-macOS.dmg
-          notes="Office Pro Max $NAME.
-          - Android 8.0+ (arm64): Office-Pro-Max.apk
-          - Windows 10/11 (x64): Office-Pro-Max-Windows.msi (installer) or Office-Pro-Max-Windows-portable.zip (no install)
-          - macOS 11+ (Apple silicon and Intel): Office-Pro-Max-macOS.dmg
+          cp dl/Lexicon-*.apk rel/Lusoft-Documents.apk
+          cp dl/Lexicon-*-windows-x64.msi rel/Lusoft-Documents-Windows.msi
+          cp dl/Lexicon-*-windows-x64-portable.zip rel/Lusoft-Documents-Windows-portable.zip
+          cp dl/Lexicon-*-macos-universal.dmg rel/Lusoft-Documents-macOS.dmg
+          notes="Документы и Таблицы (Lusoft) $NAME.
+          - Android 8.0+ (arm64): Lusoft-Documents.apk
+          - Windows 10/11 (x64): Lusoft-Documents-Windows.msi (installer) or Lusoft-Documents-Windows-portable.zip (no install)
+          - macOS 11+ (Apple silicon and Intel): Lusoft-Documents-macOS.dmg
           The builds are not signed by Apple or Microsoft: Windows SmartScreen and macOS Gatekeeper warn on first launch (see README)."
           if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
-            gh release create "$GITHUB_REF_NAME" rel/* --title "Office Pro Max $GITHUB_REF_NAME" --notes "$notes"
+            gh release create "$GITHUB_REF_NAME" rel/* --title "Документы и Таблицы $GITHUB_REF_NAME" --notes "$notes"
           else
             gh release delete latest --yes --cleanup-tag || true
-            gh release create latest rel/* --target "$GITHUB_SHA" --prerelease --title "Office Pro Max — последняя сборка ($NAME)" --notes "$notes"
+            gh release create latest rel/* --target "$GITHUB_SHA" --prerelease --title "Документы и Таблицы — последняя сборка ($NAME)" --notes "$notes"
           fi

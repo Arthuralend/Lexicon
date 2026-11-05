@@ -21,7 +21,7 @@
 	1.5 Line Spacing	Giãn dòng 1,5
 	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	Trình soạn thảo văn bản miễn phí, mã nguồn mở viết bằng Rust, có kiểm tra chính tả tiếng Nga và tiếng Anh.\nDựa trên WordCraft của nhóm ArtCraft.
 	About	Giới thiệu
-	About Office Pro Max	Giới thiệu về Office Pro Max
+	About Документы	Giới thiệu về Документы
 	Accept	Chấp nhận
 	Accept All Changes	Chấp nhận tất cả thay đổi
 	Accept This Change	Chấp nhận thay đổi này
@@ -482,7 +482,7 @@
 	Link to Previous	Liên kết với phần trước
 	Links	Liên kết
 	Location: {path}	Vị trí: {path}
-	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Документы contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Документы contributors.
 	Macros	Macro
 	Mailings	Gửi thư
 	Manage Sources	Quản lý nguồn
@@ -921,7 +921,7 @@
 	Word Right	Đưa con trỏ sang phải một từ
 	Word document (*.docx)	Tài liệu Word (*.docx)
 	WordArt	WordArt
-	Office Pro Max	Office Pro Max
+	Документы	Документы
 	Words	Từ
 	Words only	Chỉ gạch chân từ
 	Wrap Text	Văn bản quanh đối tượng
@@ -988,7 +988,7 @@
 	Stopped	Đã dừng
 	Speed	Tốc độ
 	Normal speed	Tốc độ bình thường
-	AutoSave documents you have saved in Office Pro Max	Tự động lưu các tài liệu bạn đã lưu trong Office Pro Max
+	AutoSave documents you have saved in Документы	Tự động lưu các tài liệu bạn đã lưu trong Документы
 	AutoSave failed: {error}. Save the document to turn AutoSave back on.	Không thể tự động lưu: {error}. Hãy lưu tài liệu để bật lại tính năng này.
 	Couldn't download {name}: {error}	Không tải được {name}: {error}
 	Do you want to save changes to {name}?	Bạn có muốn lưu các thay đổi vào {name}?
@@ -1293,7 +1293,7 @@
 	The document will be saved with a password. Save it to protect it.	Tài liệu sẽ được lưu kèm mật khẩu. Hãy lưu lại để bảo vệ tài liệu.
 	The password is removed. Save the document to keep the change.	Đã gỡ mật khẩu. Hãy lưu tài liệu để giữ lại thay đổi này.
 	The passwords don't match.	Hai mật khẩu không khớp.
-	Keep the password somewhere safe: without it nobody, Office Pro Max included, can open the document. Leave both boxes empty to remove the password.	Hãy giữ mật khẩu ở nơi an toàn: nếu mất thì không ai, kể cả Office Pro Max, có thể mở được tài liệu. Để trống cả hai ô nếu muốn gỡ mật khẩu.
+	Keep the password somewhere safe: without it nobody, Документы included, can open the document. Leave both boxes empty to remove the password.	Hãy giữ mật khẩu ở nơi an toàn: nếu mất thì không ai, kể cả Документы, có thể mở được tài liệu. Để trống cả hai ô nếu muốn gỡ mật khẩu.
 	Align Top Left	Căn trên trái
 	Align Top Center	Căn trên giữa
 	Align Top Right	Căn trên phải
@@ -2394,7 +2394,7 @@
 	Word document	Tài liệu Word
 	All files	Tất cả tệp
 	Recipient lists	Danh sách người nhận
-	The system file dialog isn't available, so Office Pro Max shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Hộp thoại tệp của hệ thống không khả dụng, nên Office Pro Max hiển thị hộp thoại riêng. Để dùng hộp thoại của hệ thống, hãy cài đặt cổng chọn tệp (như xdg-desktop-portal-gtk) hoặc zenity.
+	The system file dialog isn't available, so Документы shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Hộp thoại tệp của hệ thống không khả dụng, nên Документы hiển thị hộp thoại riêng. Để dùng hộp thoại của hệ thống, hãy cài đặt cổng chọn tệp (như xdg-desktop-portal-gtk) hoặc zenity.
 	Up one level	Lên một cấp
 	Home folder	Thư mục chính
 	{name} wasn't found.	Không tìm thấy {name}.
@@ -2402,8 +2402,8 @@
 	This folder can't be read: {error}	Không thể đọc thư mục này: {error}
 	Showing the first {count} items.	Đang hiển thị {count} mục đầu tiên.
 	File name:	Tên tệp:
-	Browse in Office Pro Max…	Duyệt trong Office Pro Max…
-	Open a file with Office Pro Max's own browser when the system file dialog doesn't appear.	Mở tệp bằng trình duyệt tệp của Office Pro Max khi hộp thoại tệp của hệ thống không xuất hiện.
+	Browse in Документы…	Duyệt trong Документы…
+	Open a file with Документы's own browser when the system file dialog doesn't appear.	Mở tệp bằng trình duyệt tệp của Документы khi hộp thoại tệp của hệ thống không xuất hiện.
 	Resize Table by Dragging	Đổi cỡ bảng bằng cách kéo
 	Visual effects	Hiệu ứng hình ảnh
 	Animation effects:	Hiệu ứng động:
@@ -2429,23 +2429,23 @@
 	TOC {n}	Mục lục {n}
 	Good afternoon	Chào buổi chiều
 	Context	Theo ngữ cảnh
-	Couldn't make Office Pro Max the default: {error}	Không thể đặt Office Pro Max làm ứng dụng mặc định: {error}
+	Couldn't make Документы the default: {error}	Không thể đặt Документы làm ứng dụng mặc định: {error}
 	Do Not Check Spelling or Grammar	Không kiểm tra chính tả hoặc ngữ pháp
 	Hindi	Tiếng Hindi
-	In Default apps, choose Office Pro Max for the document types you want it to open.	Trong Ứng dụng mặc định, chọn Office Pro Max cho các loại tài liệu bạn muốn mở bằng ứng dụng này.
-	Make Office Pro Max the default for Word documents…	Đặt Office Pro Max làm ứng dụng mặc định cho tài liệu Word…
+	In Default apps, choose Документы for the document types you want it to open.	Trong Ứng dụng mặc định, chọn Документы cho các loại tài liệu bạn muốn mở bằng ứng dụng này.
+	Make Документы the default for Word documents…	Đặt Документы làm ứng dụng mặc định cho tài liệu Word…
 	Numerals	Chữ số
 	Numerals:	Chữ số:
-	Opens .docx, .doc, .rtf and .odt files and Word templates with Office Pro Max from now on.	Từ nay, mở tệp .docx, .doc, .rtf, .odt và mẫu Word bằng Office Pro Max.
-	Opens Settings › Default apps, where you choose Office Pro Max for .docx and the other document types.	Mở Cài đặt › Ứng dụng mặc định để chọn Office Pro Max cho .docx và các loại tài liệu khác.
+	Opens .docx, .doc, .rtf and .odt files and Word templates with Документы from now on.	Từ nay, mở tệp .docx, .doc, .rtf, .odt và mẫu Word bằng Документы.
+	Opens Settings › Default apps, where you choose Документы for .docx and the other document types.	Mở Cài đặt › Ứng dụng mặc định để chọn Документы cho .docx và các loại tài liệu khác.
 	Reading	Đọc
 	Reading Column Width	Độ rộng cột khi đọc
 	Reading Line Spacing	Giãn dòng khi đọc
 	Reading Text Size	Cỡ chữ khi đọc
 	Show KeyTips (Alt or F10)	Hiện gợi ý phím (Alt hoặc F10)
 	System	Hệ thống
-	To open Word documents with Office Pro Max by default: select one in Finder, choose File › Get Info, pick Office Pro Max under Open with, then click Change All.	Để mở tài liệu Word bằng Office Pro Max theo mặc định: chọn một tài liệu trong Finder, chọn Tệp › Lấy thông tin, chọn Office Pro Max ở mục Mở bằng, rồi nhấp Thay đổi tất cả.
-	Office Pro Max is now the default app for Word documents.	Office Pro Max hiện là ứng dụng mặc định cho tài liệu Word.
+	To open Word documents with Документы by default: select one in Finder, choose File › Get Info, pick Документы under Open with, then click Change All.	Để mở tài liệu Word bằng Документы theo mặc định: chọn một tài liệu trong Finder, chọn Tệp › Lấy thông tin, chọn Документы ở mục Mở bằng, rồi nhấp Thay đổi tất cả.
+	Документы is now the default app for Word documents.	Документы hiện là ứng dụng mặc định cho tài liệu Word.
 	Correct TWo INitial CApitals	Sửa lỗi viết hoa hai chữ cái đầu
 	Correct accidental usage of cAPS LOCK key	Sửa lỗi vô tình dùng phím Caps Lock
 	Picture	Ảnh
@@ -2457,8 +2457,8 @@
 	Undo History	Lịch sử hoàn tác
 	Undo {n} Actions	Hoàn tác {n} thao tác
 	Start-up	Khởi động
-	Show the Start screen when Office Pro Max starts	Hiện màn hình Bắt đầu khi khởi chạy Office Pro Max
-	On: Office Pro Max opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Bật: Office Pro Max mở ở Tệp › Trang chủ, với tài liệu trống, các mẫu và tài liệu gần đây của bạn. Tắt: Office Pro Max mở một tài liệu trống.
+	Show the Start screen when Документы starts	Hiện màn hình Bắt đầu khi khởi chạy Документы
+	On: Документы opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Bật: Документы mở ở Tệp › Trang chủ, với tài liệu trống, các mẫu và tài liệu gần đây của bạn. Tắt: Документы mở một tài liệu trống.
 	Typing	Nhập liệu
 	Level 4	Cấp 4
 	Level 5	Cấp 5
@@ -2513,7 +2513,7 @@
 	Go to what:	Đi tới:
 	Language Preferences…	Tùy chọn ngôn ngữ…
 	Reading Mode	Chế độ đọc
-	Researcher needs an online service; Office Pro Max keeps your documents offline.	Trình nghiên cứu cần một dịch vụ trực tuyến; Office Pro Max giữ tài liệu của bạn ngoại tuyến.
+	Researcher needs an online service; Документы keeps your documents offline.	Trình nghiên cứu cần một dịch vụ trực tuyến; Документы giữ tài liệu của bạn ngoại tuyến.
 	Set Proofing Language…	Đặt ngôn ngữ soát lỗi…
 	Suggested	Đề xuất
 	Text size	Cỡ chữ
@@ -2651,7 +2651,7 @@
 	Place in This Document	Vị trí trong tài liệu này
 
 # Missing dictionary on the status bar (#1441)
-	No spelling dictionary for {language} is installed, so it isn't checked. Office Pro Max looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	Chưa cài từ điển chính tả cho {language}, nên ngôn ngữ này không được kiểm tra. Office Pro Max tìm từ điển Hunspell {name} trong thư mục WORDCRAFT_DICTIONARIES và ở các vị trí thông thường của hệ thống.
+	No spelling dictionary for {language} is installed, so it isn't checked. Документы looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	Chưa cài từ điển chính tả cho {language}, nên ngôn ngữ này không được kiểm tra. Документы tìm từ điển Hunspell {name} trong thư mục WORDCRAFT_DICTIONARIES và ở các vị trí thông thường của hệ thống.
 	{language} (no dictionary)	{language} (không có từ điển)
 # Table style parts in the Modify Table Style dialog (#714)
 	Odd Banded Rows	Hàng xen kẽ lẻ
@@ -2800,3 +2800,4 @@ template	Letter	Thư
 	Lilac	Tử đinh hương
 	Sage	Xô thơm
 	Vanilla	Vani
+	Developer: Lusoft	Nhà phát triển: Lusoft

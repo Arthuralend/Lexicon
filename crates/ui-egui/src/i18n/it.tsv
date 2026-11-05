@@ -19,7 +19,7 @@
 	1.5 Line Spacing	Interlinea 1,5
 	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	Un elaboratore di testi gratuito e open source scritto in Rust, con controllo ortografico in russo e inglese.\nBasato su WordCraft del team ArtCraft.
 	About	Informazioni
-	About Office Pro Max	Informazioni su Office Pro Max
+	About Документы	Informazioni su Документы
 	Accept	Accetta
 	Accept All Changes	Accetta tutte le modifiche
 	Accept This Change	Accetta questa modifica
@@ -456,7 +456,7 @@
 	Landscape	Orizzontale
 	Language	Lingua
 	{language} (no dictionary)	{language} (nessun dizionario)
-	No spelling dictionary for {language} is installed, so it isn't checked. Office Pro Max looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	Non è installato alcun dizionario ortografico per {language}, quindi non viene controllata. Office Pro Max cerca il dizionario Hunspell {name} nella cartella WORDCRAFT_DICTIONARIES e nelle posizioni di sistema abituali.
+	No spelling dictionary for {language} is installed, so it isn't checked. Документы looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	Non è installato alcun dizionario ortografico per {language}, quindi non viene controllata. Документы cerca il dizionario Hunspell {name} nella cartella WORDCRAFT_DICTIONARIES e nelle posizioni di sistema abituali.
 	Lasso	Lazo
 	Last Column	Ultima colonna
 	Last commit	Ultimo commit
@@ -486,7 +486,7 @@
 	Link to Previous	Collega al precedente
 	Links	Collegamenti
 	Location: {path}	Percorso: {path}
-	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Документы contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Документы contributors.
 	Macros	Macro
 	Mailings	Lettere
 	Manage Sources	Gestisci fonti
@@ -916,7 +916,7 @@
 	Word Right	Parola a destra
 	Word document (*.docx)	Documento Word (*.docx)
 	WordArt	WordArt
-	Office Pro Max	Office Pro Max
+	Документы	Документы
 	Words	Parole
 	Words only	Solo parole
 	Wrap Text	Disponi testo
@@ -983,7 +983,7 @@
 	Stopped	Interrotto
 	Speed	Velocità
 	Normal speed	Velocità normale
-	AutoSave documents you have saved in Office Pro Max	Salva automaticamente i documenti che hai salvato in Office Pro Max
+	AutoSave documents you have saved in Документы	Salva automaticamente i documenti che hai salvato in Документы
 	AutoSave failed: {error}. Save the document to turn AutoSave back on.	Salvataggio automatico non riuscito: {error}. Salva il documento per riattivare il salvataggio automatico.
 	Couldn't download {name}: {error}	Impossibile scaricare {name}: {error}
 	Do you want to save changes to {name}?	Vuoi salvare le modifiche a {name}?
@@ -1288,7 +1288,7 @@
 	The document will be saved with a password. Save it to protect it.	Il documento verrà salvato con una password. Salvalo per proteggerlo.
 	The password is removed. Save the document to keep the change.	La password è stata rimossa. Salva il documento per mantenere la modifica.
 	The passwords don't match.	Le password non corrispondono.
-	Keep the password somewhere safe: without it nobody, Office Pro Max included, can open the document. Leave both boxes empty to remove the password.	Conserva la password in un luogo sicuro: senza di essa nessuno, nemmeno Office Pro Max, può aprire il documento. Lascia vuote entrambe le caselle per rimuovere la password.
+	Keep the password somewhere safe: without it nobody, Документы included, can open the document. Leave both boxes empty to remove the password.	Conserva la password in un luogo sicuro: senza di essa nessuno, nemmeno Документы, può aprire il documento. Lascia vuote entrambe le caselle per rimuovere la password.
 	Align Top Left	Allinea in alto a sinistra
 	Align Top Center	Allinea in alto al centro
 	Align Top Right	Allinea in alto a destra
@@ -2157,7 +2157,7 @@
 	Brackets	Parentesi quadre
 	Brackets with Separators	Parentesi con separatori
 	Breve	Breve
-	Browse in Office Pro Max…	Sfoglia in Office Pro Max…
+	Browse in Документы…	Sfoglia in Документы…
 	CONFIDENTIAL	RISERVATO
 	Cases (Three Conditions)	Casi (tre condizioni)
 	Cases (Two Conditions)	Casi (due condizioni)
@@ -2326,7 +2326,7 @@
 	On	Attivato
 	On: the caret glides to its new place when you type or use the arrow keys, and its blink fades. Off: it jumps and blinks on and off.	Attivato: il cursore scorre nella nuova posizione quando scrivi o usi i tasti freccia, e il lampeggio sfuma. Disattivato: salta e lampeggia acceso e spento.
 	One half	Un mezzo
-	Open a file with Office Pro Max's own browser when the system file dialog doesn't appear.	Apri un file con il browser di Office Pro Max quando la finestra di dialogo dei file del sistema non compare.
+	Open a file with Документы's own browser when the system file dialog doesn't appear.	Apri un file con il browser di Документы quando la finestra di dialogo dei file del sistema non compare.
 	Operator Structures	Strutture di operatori
 	Operators	Operatori
 	Other Large Operators	Altri operatori grandi
@@ -2414,7 +2414,7 @@
 	Tangent formula	Formula della tangente
 	Text over Colon Equal	Testo sopra due punti uguale
 	Text over Equal	Testo sopra uguale
-	The system file dialog isn't available, so Office Pro Max shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	La finestra di dialogo dei file del sistema non è disponibile, quindi Office Pro Max mostra la sua. Per avere quella del sistema, installa un portale di selezione dei file (come xdg-desktop-portal-gtk) o zenity.
+	The system file dialog isn't available, so Документы shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	La finestra di dialogo dei file del sistema non è disponibile, quindi Документы mostra la sua. Per avere quella del sistema, installa un portale di selezione dei file (come xdg-desktop-portal-gtk) o zenity.
 	This folder can't be read: {error}	Impossibile leggere questa cartella: {error}
 	Tilde	Tilde
 	Trigonometric Functions	Funzioni trigonometriche
@@ -2457,15 +2457,15 @@
 preview	Title	Esempio
 	Do Not Check Spelling or Grammar	Non controllare ortografia e grammatica
 	Start-up	Avvio
-	Show the Start screen when Office Pro Max starts	Mostra la schermata iniziale all'avvio di Office Pro Max
-	On: Office Pro Max opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Attivo: Office Pro Max si apre su File › Home, con un documento vuoto, i modelli e i documenti recenti. Disattivo: apre un documento vuoto.
-	Couldn't make Office Pro Max the default: {error}	Impossibile rendere Office Pro Max l'app predefinita: {error}
-	In Default apps, choose Office Pro Max for the document types you want it to open.	In App predefinite, scegli Office Pro Max per i tipi di documento che deve aprire.
-	Make Office Pro Max the default for Word documents…	Rendi Office Pro Max l'app predefinita per i documenti Word…
-	Opens .docx, .doc, .rtf and .odt files and Word templates with Office Pro Max from now on.	D'ora in poi i file .docx, .doc, .rtf e .odt e i modelli di Word si aprono con Office Pro Max.
-	Opens Settings › Default apps, where you choose Office Pro Max for .docx and the other document types.	Apre Impostazioni › App predefinite, dove scegli Office Pro Max per .docx e gli altri tipi di documento.
-	To open Word documents with Office Pro Max by default: select one in Finder, choose File › Get Info, pick Office Pro Max under Open with, then click Change All.	Per aprire i documenti Word con Office Pro Max per impostazione predefinita: selezionane uno nel Finder, scegli Archivio › Ottieni informazioni, scegli Office Pro Max in «Apri con», quindi fai clic su «Modifica tutto».
-	Office Pro Max is now the default app for Word documents.	Office Pro Max è ora l'app predefinita per i documenti Word.
+	Show the Start screen when Документы starts	Mostra la schermata iniziale all'avvio di Документы
+	On: Документы opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Attivo: Документы si apre su File › Home, con un documento vuoto, i modelli e i documenti recenti. Disattivo: apre un documento vuoto.
+	Couldn't make Документы the default: {error}	Impossibile rendere Документы l'app predefinita: {error}
+	In Default apps, choose Документы for the document types you want it to open.	In App predefinite, scegli Документы per i tipi di documento che deve aprire.
+	Make Документы the default for Word documents…	Rendi Документы l'app predefinita per i documenti Word…
+	Opens .docx, .doc, .rtf and .odt files and Word templates with Документы from now on.	D'ora in poi i file .docx, .doc, .rtf e .odt e i modelli di Word si aprono con Документы.
+	Opens Settings › Default apps, where you choose Документы for .docx and the other document types.	Apre Impostazioni › App predefinite, dove scegli Документы per .docx e gli altri tipi di documento.
+	To open Word documents with Документы by default: select one in Finder, choose File › Get Info, pick Документы under Open with, then click Change All.	Per aprire i documenti Word con Документы per impostazione predefinita: selezionane uno nel Finder, scegli Archivio › Ottieni informazioni, scegli Документы in «Apri con», quindi fai clic su «Modifica tutto».
+	Документы is now the default app for Word documents.	Документы è ora l'app predefinita per i documenti Word.
 	Numerals:	Cifre:
 	Numerals	Cifre
 	Hindi	Hindi
@@ -2559,7 +2559,7 @@ preview	Title	Esempio
 	{name}   {height} × {width} mm	{name}   {height} × {width} mm
 	{width} × {height} mm	{width} × {height} mm
 	{kind}, {columns} × {rows}, {size} ({paper})	{kind}, {columns} × {rows}, {size} ({paper})
-	Researcher needs an online service; Office Pro Max keeps your documents offline.	Ricercatore richiede un servizio online; Office Pro Max mantiene i tuoi documenti offline.
+	Researcher needs an online service; Документы keeps your documents offline.	Ricercatore richiede un servizio online; Документы mantiene i tuoi documenti offline.
 	These settings will be used for new documents.	Queste impostazioni verranno usate per i nuovi documenti.
 	can't split at the first row	impossibile dividere la tabella alla prima riga
 	select two or more cells to merge	seleziona due o più celle da unire
@@ -2769,3 +2769,4 @@ preview	Title	Esempio
 	Lilac	Lillà
 	Sage	Salvia
 	Vanilla	Vaniglia
+	Developer: Lusoft	Sviluppatore: Lusoft

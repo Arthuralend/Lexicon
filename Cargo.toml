@@ -2,7 +2,7 @@
 resolver = "3"
 members = ["crates/*", "apps/*", "xtask"]
 # Lexicon's patched winit (vendor/winit: mouse buttons, hover and wheel on Android).
-exclude = ["vendor"]
+exclude = ["vendor", "tables"]
 default-members = ["crates/*", "apps/wordcraft", "apps/wordcraft-cli", "xtask"]
 
 [workspace.package]

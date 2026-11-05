@@ -17,18 +17,20 @@
 -->
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
   <Package
-      Name="Office Pro Max"
-      Manufacturer="Office Pro Max contributors"
+      Name="Документы и Таблицы"
+      Manufacturer="Lusoft"
       Version="$(var.Version)"
       UpgradeCode="3E52BC43-4AA9-4BB8-BC17-D11E09949056"
       Scope="perMachine"
       Compressed="yes"
-      Language="1033">
-    <SummaryInformation Description="Office Pro Max" Manufacturer="Office Pro Max contributors" />
+      Language="1033"
+      Codepage="1251">
+    <!-- 1251: the Cyrillic names (Документы, Таблицы) in the installer's tables. -->
+    <SummaryInformation Description="Документы и Таблицы" Manufacturer="Lusoft" Codepage="1251" />
     <!-- Same-version upgrades let successive pre-releases of one X.Y.Z replace each other
          (MSI versions are numeric, so 1.2.3-rc.1 and 1.2.3-rc.2 are both 1.2.3). -->
     <MajorUpgrade AllowSameVersionUpgrades="yes"
-        DowngradeErrorMessage="A newer version of Office Pro Max is already installed." />
+        DowngradeErrorMessage="A newer version of Документы is already installed." />
     <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
 
     <Icon Id="LexiconIcon.ico" SourceFile="$(var.IconPath)" />
@@ -45,7 +47,7 @@
          LICENSE-APACHE. The finish page offers to launch Lexicon (ticked by default) through
          WixShellExec (WixToolset.Util.wixext); silent installs (/qn) never show it. -->
     <WixVariable Id="WixUILicenseRtf" Value="$(var.LicenseRtf)" />
-    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Office Pro Max" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Документы" />
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
     <Property Id="WixShellExecTarget" Value="[#LexiconExe]" />
     <CustomAction Id="LaunchLexicon" BinaryRef="Wix4UtilCA_$(sys.BUILDARCHSHORT)" DllEntry="WixShellExec"
@@ -70,16 +72,20 @@
     <ComponentGroup Id="LexiconFiles" Directory="INSTALLFOLDER">
       <Component Id="LexiconApp" Guid="1529CDF3-420E-476C-BE94-8D39629D0439">
         <File Id="LexiconExe" Source="$(var.BinDir)\Lexicon.exe" KeyPath="yes">
-          <Shortcut Id="StartMenuShortcut" Directory="ProgramMenuFolder" Name="Office Pro Max"
-              Description="Office Pro Max: documents" WorkingDirectory="INSTALLFOLDER" Advertise="yes"
+          <Shortcut Id="StartMenuShortcut" Directory="ProgramMenuFolder" Name="Документы"
+              Description="Документы" WorkingDirectory="INSTALLFOLDER" Advertise="yes"
               Icon="LexiconIcon.ico" IconIndex="0" />
-          <!-- The same program started in Calculations, with the spreadsheet icon. -->
-          <Shortcut Id="SheetsShortcut" Directory="ProgramMenuFolder" Name="Office Pro Max Sheets"
-              Description="Office Pro Max: spreadsheets" WorkingDirectory="INSTALLFOLDER" Advertise="yes"
-              Arguments="--calc" Icon="SheetsIcon.ico" IconIndex="0" />
         </File>
 
         <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\Lexicon.exe" Value="[#LexiconExe]" Type="string" />
+      </Component>
+      <!-- Таблицы: the spreadsheet app, with its own Start menu shortcut and icon. -->
+      <Component Id="TablesApp" Guid="7C1B3E5A-2F84-4D6B-9A37-5E0C8B21D4F6">
+        <File Id="TablesExe" Source="$(var.BinDir)\Tables.exe" KeyPath="yes">
+          <Shortcut Id="TablesShortcut" Directory="ProgramMenuFolder" Name="Таблицы"
+              Description="Таблицы" WorkingDirectory="INSTALLFOLDER" Advertise="yes"
+              Icon="SheetsIcon.ico" IconIndex="0" />
+        </File>
       </Component>
 
       <!-- File associations (#295). Each document type gets a Lexicon ProgId (name, icon, open
@@ -156,8 +162,8 @@
         <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".txt" Value="" Type="string" />
 
         <!-- Lexicon: Excel workbooks open in Calculations. -->
-        <ProgId Id="Lexicon.Workbook" Description="Excel Workbook" Icon="LexiconExe" IconIndex="0" />
-        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.Workbook\shell\open\command" Value="&quot;[#LexiconExe]&quot; --calc &quot;%1&quot;" Type="string" />
+        <ProgId Id="Lexicon.Workbook" Description="Excel Workbook" Icon="TablesExe" IconIndex="0" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Lexicon.Workbook\shell\open\command" Value="&quot;[#TablesExe]&quot; &quot;%1&quot;" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Classes\.xlsx\OpenWithProgids" Name="Lexicon.Workbook" Value="" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\SupportedTypes" Name=".xlsx" Value="" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities\FileAssociations" Name=".xlsx" Value="Lexicon.Workbook" Type="string" />

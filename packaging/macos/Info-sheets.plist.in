@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!-- Office Pro Max Sheets: the same program, started in Calculations (its executable is named
-     Sheets). Template: packaging/macos/package.sh substitutes @VERSION@ (full, e.g. 0.2.0-rc.1),
+<!-- Таблицы: the spreadsheet app (tables/, built from the open-source GridCraft). Template: packaging/macos/package.sh substitutes @VERSION@ (full, e.g. 0.2.0-rc.1),
      @SHORT_VERSION@ (numeric X.Y.Z) and @BUILD_SHA@. -->
 <plist version="1.0">
 <dict>
   <key>CFBundleDevelopmentRegion</key>
   <string>en</string>
   <key>CFBundleDisplayName</key>
-  <string>Office Pro Max Sheets</string>
+  <string>Таблицы</string>
   <key>CFBundleName</key>
-  <string>Office Pro Max Sheets</string>
+  <string>Таблицы</string>
   <key>CFBundleExecutable</key>
-  <string>Sheets</string>
+  <string>Tables</string>
   <key>CFBundleIdentifier</key>
-  <string>io.github.arthuralend.lexicon.sheets</string>
+  <string>io.github.arthuralend.lexicon.tables</string>
   <key>CFBundleInfoDictionaryVersion</key>
   <string>6.0</string>
   <key>CFBundlePackageType</key>
@@ -28,15 +27,15 @@
   <!-- Home › Dictate: macOS ends an app that uses the microphone or speech recognition without
        these. -->
   <key>NSMicrophoneUsageDescription</key>
-  <string>Office Pro Max listens to the microphone while you dictate text.</string>
+  <string>Таблицы listens to the microphone while you dictate text.</string>
   <key>NSSpeechRecognitionUsageDescription</key>
-  <string>Office Pro Max turns your speech into text while you dictate.</string>
+  <string>Таблицы turns your speech into text while you dictate.</string>
   <key>LexiconVersion</key>
   <string>@VERSION@</string>
   <key>LexiconBuildCommit</key>
   <string>@BUILD_SHA@</string>
   <key>CFBundleIconFile</key>
-  <string>Sheets</string>
+  <string>Tables</string>
   <key>LSApplicationCategoryType</key>
   <string>public.app-category.productivity</string>
   <!-- Must match MACOSX_DEPLOYMENT_TARGET in package.sh. Big Sur is the first release on
@@ -50,7 +49,7 @@
   <key>NSRequiresAquaSystemAppearance</key>
   <false/>
   <key>NSHumanReadableCopyright</key>
-  <string>Office Pro Max. MIT OR Apache-2.0.</string>
+  <string>Lusoft. MIT OR Apache-2.0.</string>
 
   <!-- Documents Lexicon opens (system type declarations). -->
   <key>CFBundleDocumentTypes</key>

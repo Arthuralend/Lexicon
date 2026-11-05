@@ -16,7 +16,7 @@
 	1.5 Line Spacing	1,5 ხაზთაშორისი ინტერვალი
 	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	უფასო, ღია კოდის ტექსტური რედაქტორი, დაწერილი Rust-ზე, რუსული და ინგლისური მართლწერით.\nდაფუძნებულია ArtCraft-ის გუნდის WordCraft-ზე.
 	About	პროგრამის შესახებ
-	About Office Pro Max	Office Pro Max-ის შესახებ
+	About Документы	Документы-ის შესახებ
 	Accept	მიღება
 	Accept All Changes	ყველა ცვლილების მიღება
 	Accept This Change	ამ ცვლილების მიღება
@@ -374,7 +374,7 @@
 	Landscape	ალბომური
 	Language	ენა
 	{language} (no dictionary)	{language} (ლექსიკონი არ არის)
-	No spelling dictionary for {language} is installed, so it isn't checked. Office Pro Max looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	ენისთვის „{language}“ მართლწერის ლექსიკონი დაყენებული არ არის, ამიტომ ტექსტი არ მოწმდება. Office Pro Max ეძებს Hunspell ლექსიკონს {name} საქაღალდეში WORDCRAFT_DICTIONARIES და სისტემის ჩვეულ ადგილებში.
+	No spelling dictionary for {language} is installed, so it isn't checked. Документы looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	ენისთვის „{language}“ მართლწერის ლექსიკონი დაყენებული არ არის, ამიტომ ტექსტი არ მოწმდება. Документы ეძებს Hunspell ლექსიკონს {name} საქაღალდეში WORDCRAFT_DICTIONARIES და სისტემის ჩვეულ ადგილებში.
 	Lasso	ლასო
 	Last Column	ბოლო სვეტი
 	Last commit	ბოლო კომიტი
@@ -403,7 +403,7 @@
 	Link to Previous	წინასთან დაკავშირება
 	Links	ბმულები
 	Location: {path}	მდებარეობა: {path}
-	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Документы contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Документы contributors.
 	Macros	მაკროები
 	Mailings	დაგზავნა
 	Manage Sources	წყაროების მართვა
@@ -820,7 +820,7 @@
 	Word Right	სიტყვით მარჯვნივ
 	Word document (*.docx)	Word დოკუმენტი (*.docx)
 	WordArt	WordArt
-	Office Pro Max	Office Pro Max
+	Документы	Документы
 	Words	სიტყვები
 	Words only	მხოლოდ სიტყვები
 	Wrap Text	ტექსტით გარსშემოვლა
@@ -888,7 +888,7 @@
 	Stopped	შეჩერებულია
 	Speed	სიჩქარე
 	Normal speed	ჩვეულებრივი სიჩქარე
-	AutoSave documents you have saved in Office Pro Max	Office Pro Max-ში უკვე შენახული დოკუმენტების ავტოშენახვა
+	AutoSave documents you have saved in Документы	Документы-ში უკვე შენახული დოკუმენტების ავტოშენახვა
 	AutoSave failed: {error}. Save the document to turn AutoSave back on.	ავტოშენახვის შეცდომა: {error}. შეინახეთ დოკუმენტი, რომ ავტოშენახვა ისევ ჩაირთოს.
 	Couldn't download {name}: {error}	{name}-ის ჩამოტვირთვა ვერ მოხერხდა: {error}
 	Do you want to save changes to {name}?	შევინახო ცვლილებები ფაილში {name}?
@@ -1110,7 +1110,7 @@
 	Glow Colors	ნათების ფერები
 	Hide from style lists	სტილების სიებიდან დამალვა
 	Indents and Spacing	შეწევები და ინტერვალები
-	Keep the password somewhere safe: without it nobody, Office Pro Max included, can open the document. Leave both boxes empty to remove the password.	შეინახეთ პაროლი უსაფრთხო ადგილას: მის გარეშე ვერავინ, მათ შორის Office Pro Max, ვერ გახსნის დოკუმენტს. პაროლის მოსახსნელად ორივე ველი ცარიელი დატოვეთ.
+	Keep the password somewhere safe: without it nobody, Документы included, can open the document. Leave both boxes empty to remove the password.	შეინახეთ პაროლი უსაფრთხო ადგილას: მის გარეშე ვერავინ, მათ შორის Документы, ვერ გახსნის დოკუმენტს. პაროლის მოსახსნელად ორივე ველი ცარიელი დატოვეთ.
 	Line breaking	ხაზის წყვეტა
 	Linked style (paragraph and character)	დაკავშირებული სტილი (აბზაცისა და სიმბოლოების)
 	Manage Styles	სტილების მართვა
@@ -1736,7 +1736,7 @@
 	Beginning of Word	სიტყვის დასაწყისი
 	Blue:	ლურჯი:
 	Border lines	საზღვრის ხაზები
-	Browse in Office Pro Max…	დათვალიერება Office Pro Max-ში…
+	Browse in Документы…	დათვალიერება Документы-ში…
 	Building Block Gallery Content Control	შიგთავსის მართვის ელემენტი: ბლოკების გალერეა
 	Can't be deleted	წაშლა შეუძლებელია
 	Capitalize first letter of sentences	წინადადების პირველი ასო მთავრულით
@@ -1912,7 +1912,7 @@
 	Only comments can be added, except in regions marked editable.	შესაძლებელია მხოლოდ კომენტარების დამატება, გარდა რედაქტირებადად მონიშნული უბნებისა.
 	Only form fields can be filled in.	შესაძლებელია მხოლოდ ფორმის ველების შევსება.
 	Only the allowed styles can be applied.	შესაძლებელია მხოლოდ დაშვებული სტილების გამოყენება.
-	Open a file with Office Pro Max's own browser when the system file dialog doesn't appear.	ფაილის გახსნა Office Pro Max-ის ჩაშენებული ბრაუზერით, როცა სისტემის ფაილის ფანჯარა არ ჩნდება.
+	Open a file with Документы's own browser when the system file dialog doesn't appear.	ფაილის გახსნა Документы-ის ჩაშენებული ბრაუზერით, როცა სისტემის ფაილის ფანჯარა არ ჩნდება.
 	Ordinals (1st) as superscript	რიგობითი რიცხვები (1st) ზედა ინდექსად
 	Organizer	ორგანიზატორი
 	Organizer…	ორგანიზატორი…
@@ -2048,7 +2048,7 @@
 	The document is read only, except for regions marked editable.	დოკუმენტი მხოლოდ წასაკითხადაა, გარდა რედაქტირებადად მონიშნული უბნებისა.
 	The password is optional; without it anyone can stop the protection.	პაროლი არასავალდებულოა; მის გარეშე დაცვის გამორთვა ნებისმიერს შეუძლია.
 	The printer, two-sided printing and pages per sheet are chosen in that dialog.	პრინტერი, ორმხრივი ბეჭდვა და გვერდების რაოდენობა ფურცელზე იმ ფანჯარაში აირჩევა.
-	The system file dialog isn't available, so Office Pro Max shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	სისტემის ფაილის ფანჯარა მიუწვდომელია, ამიტომ Office Pro Max საკუთარს აჩვენებს. სისტემურის მისაღებად დააყენეთ ფაილის არჩევის პორტალი (მაგ. xdg-desktop-portal-gtk) ან zenity.
+	The system file dialog isn't available, so Документы shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	სისტემის ფაილის ფანჯარა მიუწვდომელია, ამიტომ Документы საკუთარს აჩვენებს. სისტემურის მისაღებად დააყენეთ ფაილის არჩევის პორტალი (მაგ. xdg-desktop-portal-gtk) ან zenity.
 	These marks show even when Show/Hide ¶ is off.	ეს ნიშნები ჩანს მაშინაც, როცა „ჩვენება/დამალვა ¶“ გამორთულია.
 	This document	ეს დოკუმენტი
 	This folder can't be read: {error}	საქაღალდის წაკითხვა ვერ მოხერხდა: {error}
@@ -2092,15 +2092,15 @@
 	Undo 1 Action	1 მოქმედების გაუქმება
 	Undo {n} Actions	{n} მოქმედების გაუქმება
 	Start-up	გაშვება
-	Show the Start screen when Office Pro Max starts	საწყისი ეკრანის ჩვენება Office Pro Max-ის გაშვებისას
-	On: Office Pro Max opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	ჩართული: Office Pro Max იხსნება „ფაილი › მთავარი“ გვერდზე ცარიელი დოკუმენტით, შაბლონებით და ბოლო დოკუმენტებით. გამორთული: იხსნება ცარიელი დოკუმენტი.
-	Couldn't make Office Pro Max the default: {error}	Office Pro Max-ის ნაგულისხმევად გახდომა ვერ მოხერხდა: {error}
-	In Default apps, choose Office Pro Max for the document types you want it to open.	„ნაგულისხმევ აპებში“ აირჩიეთ Office Pro Max იმ დოკუმენტის ტიპებისთვის, რომელთა გახსნაც გსურთ.
-	Make Office Pro Max the default for Word documents…	Office Pro Max-ის Word დოკუმენტების ნაგულისხმევ აპად დაყენება…
-	Opens .docx, .doc, .rtf and .odt files and Word templates with Office Pro Max from now on.	ამიერიდან .docx, .doc, .rtf და .odt ფაილები და Word შაბლონები Office Pro Max-ით გაიხსნება.
-	Opens Settings › Default apps, where you choose Office Pro Max for .docx and the other document types.	ხსნის „პარამეტრები › ნაგულისხმევი აპები“, სადაც .docx-ისა და სხვა ტიპებისთვის აირჩევთ Office Pro Max-ს.
-	To open Word documents with Office Pro Max by default: select one in Finder, choose File › Get Info, pick Office Pro Max under Open with, then click Change All.	Word დოკუმენტების ნაგულისხმევად Office Pro Max-ით გასახსნელად: მონიშნეთ დოკუმენტი Finder-ში, აირჩიეთ File › Get Info, „Open with“-ში აირჩიეთ Office Pro Max და დააწკაპუნეთ „Change All“.
-	Office Pro Max is now the default app for Word documents.	Office Pro Max ახლა Word დოკუმენტების ნაგულისხმევი აპია.
+	Show the Start screen when Документы starts	საწყისი ეკრანის ჩვენება Документы-ის გაშვებისას
+	On: Документы opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	ჩართული: Документы იხსნება „ფაილი › მთავარი“ გვერდზე ცარიელი დოკუმენტით, შაბლონებით და ბოლო დოკუმენტებით. გამორთული: იხსნება ცარიელი დოკუმენტი.
+	Couldn't make Документы the default: {error}	Документы-ის ნაგულისხმევად გახდომა ვერ მოხერხდა: {error}
+	In Default apps, choose Документы for the document types you want it to open.	„ნაგულისხმევ აპებში“ აირჩიეთ Документы იმ დოკუმენტის ტიპებისთვის, რომელთა გახსნაც გსურთ.
+	Make Документы the default for Word documents…	Документы-ის Word დოკუმენტების ნაგულისხმევ აპად დაყენება…
+	Opens .docx, .doc, .rtf and .odt files and Word templates with Документы from now on.	ამიერიდან .docx, .doc, .rtf და .odt ფაილები და Word შაბლონები Документы-ით გაიხსნება.
+	Opens Settings › Default apps, where you choose Документы for .docx and the other document types.	ხსნის „პარამეტრები › ნაგულისხმევი აპები“, სადაც .docx-ისა და სხვა ტიპებისთვის აირჩევთ Документы-ს.
+	To open Word documents with Документы by default: select one in Finder, choose File › Get Info, pick Документы under Open with, then click Change All.	Word დოკუმენტების ნაგულისხმევად Документы-ით გასახსნელად: მონიშნეთ დოკუმენტი Finder-ში, აირჩიეთ File › Get Info, „Open with“-ში აირჩიეთ Документы და დააწკაპუნეთ „Change All“.
+	Документы is now the default app for Word documents.	Документы ახლა Word დოკუმენტების ნაგულისხმევი აპია.
 	Numerals:	ციფრები:
 	Numerals	ციფრები
 	Hindi	ჰინდი
@@ -2554,7 +2554,7 @@ preview	Title	ნიმუში
 	{name}   {height} × {width} mm	{name}   {height} × {width} მმ
 	{width} × {height} mm	{width} × {height} მმ
 	{kind}, {columns} × {rows}, {size} ({paper})	{kind}, {columns} × {rows}, {size} ({paper})
-	Researcher needs an online service; Office Pro Max keeps your documents offline.	მკვლევარს ონლაინ სერვისი სჭირდება, Office Pro Max კი თქვენს დოკუმენტებს ოფლაინ ინახავს.
+	Researcher needs an online service; Документы keeps your documents offline.	მკვლევარს ონლაინ სერვისი სჭირდება, Документы კი თქვენს დოკუმენტებს ოფლაინ ინახავს.
 	These settings will be used for new documents.	ეს პარამეტრები ახალი დოკუმენტებისთვის გამოიყენება.
 	can't split at the first row	პირველ მწკრივზე გაყოფა შეუძლებელია
 	select two or more cells to merge	გასაერთიანებლად მონიშნეთ ორი ან მეტი უჯრა
@@ -2731,3 +2731,4 @@ preview	Title	ნიმუში
 	Lilac	იასამანი
 	Sage	სალბი
 	Vanilla	ვანილი
+	Developer: Lusoft	შემქმნელი: Lusoft

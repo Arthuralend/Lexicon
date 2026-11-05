@@ -18,7 +18,7 @@
 	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	Бесплатный текстовый процессор с открытым исходным кодом на Rust, с проверкой орфографии на русском и английском.\nОснован на WordCraft от команды ArtCraft.
 	AaBbCcDd	АаБбВвГг
 	About	О программе
-	About Office Pro Max	О программе Office Pro Max
+	About Документы	О программе «Документы»
 	Accept	Принять
 	Accept All Changes	Принять все изменения
 	Accept This Change	Принять это изменение
@@ -388,7 +388,7 @@
 	Landscape	Альбомная
 	Language	Язык
 	{language} (no dictionary)	{language} (нет словаря)
-	No spelling dictionary for {language} is installed, so it isn't checked. Office Pro Max looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	Орфографический словарь для языка «{language}» не установлен, поэтому текст не проверяется. Office Pro Max ищет словарь Hunspell {name} в папке WORDCRAFT_DICTIONARIES и в обычных системных расположениях.
+	No spelling dictionary for {language} is installed, so it isn't checked. Документы looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	Орфографический словарь для языка «{language}» не установлен, поэтому текст не проверяется. Документы ищет словарь Hunspell {name} в папке WORDCRAFT_DICTIONARIES и в обычных системных расположениях.
 	Lasso	Лассо
 	Last Column	Последний столбец
 	Last commit	Последний коммит
@@ -437,7 +437,7 @@
 	Merge Formatting	Объединить форматирование
 	Merged PRs	Принятые PR
 	Mirrored	Зеркальные
-	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, участники проектов WordCraft и Office Pro Max.
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Документы contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, участники проектов WordCraft и Документы.
 	Moderate	Средние
 	Modify Style	Изменить стиль
 	Modify…	Изменить…
@@ -837,7 +837,7 @@ preview	Title	Пример
 	Word Left	На слово влево
 	Word Right	На слово вправо
 	WordArt	WordArt
-	Office Pro Max	Office Pro Max
+	Документы	Документы
 	Words	Слова
 	Words only	Только слова
 	Wrap Text	Обтекание текстом
@@ -855,7 +855,7 @@ preview	Title	Пример
 	Only web (http, https) and email (mailto) links can be followed	Переходить можно только по веб-ссылкам (http, https) и ссылкам на электронную почту (mailto)
 
 	Apply Styles	Применить стили
-	AutoSave documents you have saved in Office Pro Max	Автосохранение документов, уже сохранённых в Office Pro Max
+	AutoSave documents you have saved in Документы	Автосохранение документов, уже сохранённых в Документы
 	AutoSave failed: {error}. Save the document to turn AutoSave back on.	Ошибка автосохранения: {error}. Сохраните документ, чтобы снова включить автосохранение.
 	Bottom Margin	Нижнее поле
 	Edit Comment	Изменить комментарий
@@ -1543,7 +1543,7 @@ preview	Title	Пример
 	The document will be saved with a password. Save it to protect it.	Документ будет сохранён с паролем. Сохраните его, чтобы защитить.
 	The password is removed. Save the document to keep the change.	Пароль убран. Сохраните документ, чтобы изменение осталось.
 	The passwords don't match.	Пароли не совпадают.
-	Keep the password somewhere safe: without it nobody, Office Pro Max included, can open the document. Leave both boxes empty to remove the password.	Храните пароль в надёжном месте: без него никто, включая Office Pro Max, не сможет открыть документ. Оставьте оба поля пустыми, чтобы убрать пароль.
+	Keep the password somewhere safe: without it nobody, Документы included, can open the document. Leave both boxes empty to remove the password.	Храните пароль в надёжном месте: без него никто, включая Документы, не сможет открыть документ. Оставьте оба поля пустыми, чтобы убрать пароль.
 	{cols}×{rows} Table	Таблица {cols}×{rows}
 	Name	Имя
 	PRs	PR
@@ -2030,13 +2030,13 @@ preview	Title	Пример
 	Hindi	Хинди
 	Context	Контекст
 	System	Системные
-	Couldn't make Office Pro Max the default: {error}	Не удалось сделать Office Pro Max приложением по умолчанию: {error}
-	In Default apps, choose Office Pro Max for the document types you want it to open.	В разделе «Приложения по умолчанию» выберите Office Pro Max для нужных типов документов.
-	Make Office Pro Max the default for Word documents…	Сделать Office Pro Max приложением по умолчанию для документов Word…
-	Opens .docx, .doc, .rtf and .odt files and Word templates with Office Pro Max from now on.	Отныне файлы .docx, .doc, .rtf и .odt и шаблоны Word будут открываться в Office Pro Max.
-	Opens Settings › Default apps, where you choose Office Pro Max for .docx and the other document types.	Открывает «Параметры» › «Приложения по умолчанию», где можно выбрать Office Pro Max для .docx и других типов документов.
-	To open Word documents with Office Pro Max by default: select one in Finder, choose File › Get Info, pick Office Pro Max under Open with, then click Change All.	Чтобы открывать документы Word в Office Pro Max по умолчанию: выберите документ в Finder, выберите «Файл» › «Свойства», укажите Office Pro Max в разделе «Открывать в программе» и нажмите «Изменить все».
-	Office Pro Max is now the default app for Word documents.	Office Pro Max теперь приложение по умолчанию для документов Word.
+	Couldn't make Документы the default: {error}	Не удалось сделать Документы приложением по умолчанию: {error}
+	In Default apps, choose Документы for the document types you want it to open.	В разделе «Приложения по умолчанию» выберите Документы для нужных типов документов.
+	Make Документы the default for Word documents…	Сделать Документы приложением по умолчанию для документов Word…
+	Opens .docx, .doc, .rtf and .odt files and Word templates with Документы from now on.	Отныне файлы .docx, .doc, .rtf и .odt и шаблоны Word будут открываться в Документы.
+	Opens Settings › Default apps, where you choose Документы for .docx and the other document types.	Открывает «Параметры» › «Приложения по умолчанию», где можно выбрать Документы для .docx и других типов документов.
+	To open Word documents with Документы by default: select one in Finder, choose File › Get Info, pick Документы under Open with, then click Change All.	Чтобы открывать документы Word в Документы по умолчанию: выберите документ в Finder, выберите «Файл» › «Свойства», укажите Документы в разделе «Открывать в программе» и нажмите «Изменить все».
+	Документы is now the default app for Word documents.	Документы теперь приложение по умолчанию для документов Word.
 	Templates	Шаблоны
 	Templates and Add-ins	Шаблоны и надстройки
 	Attach Template	Присоединить шаблон
@@ -2192,7 +2192,7 @@ preview	Title	Пример
 	Word document	Документ Word
 	All files	Все файлы
 	Recipient lists	Списки получателей
-	The system file dialog isn't available, so Office Pro Max shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Системное диалоговое окно выбора файлов недоступно, поэтому Office Pro Max показывает собственное. Чтобы пользоваться системным, установите портал выбора файлов (например, xdg-desktop-portal-gtk) или zenity.
+	The system file dialog isn't available, so Документы shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Системное диалоговое окно выбора файлов недоступно, поэтому Документы показывает собственное. Чтобы пользоваться системным, установите портал выбора файлов (например, xdg-desktop-portal-gtk) или zenity.
 	Up one level	На уровень вверх
 	Home folder	Домашняя папка
 	{name} wasn't found.	{name} не найден.
@@ -2200,8 +2200,8 @@ preview	Title	Пример
 	This folder can't be read: {error}	Не удаётся прочитать папку: {error}
 	Showing the first {count} items.	Показаны первые элементы: {count}.
 	File name:	Имя файла:
-	Browse in Office Pro Max…	Обзор в Office Pro Max…
-	Open a file with Office Pro Max's own browser when the system file dialog doesn't appear.	Открыть файл во встроенном обозревателе Office Pro Max, если системное диалоговое окно выбора файлов не появляется.
+	Browse in Документы…	Обзор в Документы…
+	Open a file with Документы's own browser when the system file dialog doesn't appear.	Открыть файл во встроенном обозревателе Документы, если системное диалоговое окно выбора файлов не появляется.
 	Hide White Space	Скрыть пустое место между страницами
 	All pages	Все страницы
 	Current page	Текущая страница
@@ -2535,8 +2535,8 @@ preview	Title	Пример
 	Number only, without the label's words	Только номер, без слов метки
 	Add whether it is above or below	Добавлять, выше он или ниже
 	Start-up	Запуск
-	Show the Start screen when Office Pro Max starts	Показывать начальный экран при запуске Office Pro Max
-	On: Office Pro Max opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Вкл.: Office Pro Max открывается на странице Файл › Главная с пустым документом, шаблонами и недавними документами. Выкл.: открывается пустой документ.
+	Show the Start screen when Документы starts	Показывать начальный экран при запуске Документы
+	On: Документы opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Вкл.: Документы открывается на странице Файл › Главная с пустым документом, шаблонами и недавними документами. Выкл.: открывается пустой документ.
 	Typing	Ввод
 	Level 4	Уровень 4
 	Level 5	Уровень 5
@@ -2574,7 +2574,7 @@ preview	Title	Пример
 	{name}   {height} × {width} mm	{name}   {height} × {width} мм
 	{width} × {height} mm	{width} × {height} мм
 	{kind}, {columns} × {rows}, {size} ({paper})	{kind}, {columns} × {rows}, {size} ({paper})
-	Researcher needs an online service; Office Pro Max keeps your documents offline.	Исследователю нужен онлайн-сервис, а Office Pro Max работает с документами без подключения к интернету.
+	Researcher needs an online service; Документы keeps your documents offline.	Исследователю нужен онлайн-сервис, а Документы работает с документами без подключения к интернету.
 	These settings will be used for new documents.	Эти параметры будут использоваться для новых документов.
 	can't split at the first row	нельзя разделить таблицу по первой строке
 	select two or more cells to merge	выделите две или более ячеек для объединения
@@ -2758,3 +2758,4 @@ preview	Title	Пример
 	Lilac	Сирень
 	Sage	Шалфей
 	Vanilla	Ваниль
+	Developer: Lusoft	Разработчик: Lusoft

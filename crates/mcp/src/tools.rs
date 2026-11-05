@@ -57,7 +57,7 @@ pub fn tool_definitions() -> Value {
         tool(
             "list_commands",
             "List commands",
-            "Every Office Pro Max command: id, label, ribbon location, shortcut and params. Filter with `query`.",
+            "Every Документы command: id, label, ribbon location, shortcut and params. Filter with `query`.",
             obj(json!({"query": s("Case-insensitive filter on id/label/location")}), &[]),
             true
         ),
@@ -128,8 +128,8 @@ pub fn tool_definitions() -> Value {
             obj(json!({"page": n("1-based page"), "scale": n("Pixels per point (default 1)")}), &[]),
             true
         ),
-        tool("parity", "Feature parity", "Office Pro Max's command coverage of the word-processor feature catalog.", obj(json!({}), &[]), true),
-        tool("screenshot", "Screenshot app", "Screenshot of the whole Office Pro Max window (desktop app only).", obj(json!({}), &[]), true),
+        tool("parity", "Feature parity", "Документы's command coverage of the word-processor feature catalog.", obj(json!({}), &[]), true),
+        tool("screenshot", "Screenshot app", "Screenshot of the whole Документы window (desktop app only).", obj(json!({}), &[]), true),
         tool(
             "click",
             "Click",

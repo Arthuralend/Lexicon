@@ -16,7 +16,7 @@
 	1.5 Line Spacing	1,5 sətirarası interval
 	A free, open-source word processor written in Rust, with Russian and English spelling.\nBased on WordCraft by the ArtCraft team.	Rust dilində yazılmış, rus və ingilis dillərində orfoqrafiya yoxlaması olan pulsuz, açıq mənbəli mətn redaktoru.\nArtCraft komandasının WordCraft proqramı əsasında hazırlanıb.
 	About	Proqram haqqında
-	About Office Pro Max	Office Pro Max haqqında
+	About Документы	Документы haqqında
 	Accept	Qəbul et
 	Accept All Changes	Bütün dəyişiklikləri qəbul et
 	Accept This Change	Bu dəyişikliyi qəbul et
@@ -374,7 +374,7 @@
 	Landscape	Albom
 	Language	Dil
 	{language} (no dictionary)	{language} (lüğət yoxdur)
-	No spelling dictionary for {language} is installed, so it isn't checked. Office Pro Max looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	{language} dili üçün orfoqrafiya lüğəti quraşdırılmayıb, buna görə mətn yoxlanmır. Office Pro Max {name} Hunspell lüğətini WORDCRAFT_DICTIONARIES qovluğunda və adi sistem yerlərində axtarır.
+	No spelling dictionary for {language} is installed, so it isn't checked. Документы looks for the Hunspell dictionary {name} in the WORDCRAFT_DICTIONARIES folder and in the usual system locations.	{language} dili üçün orfoqrafiya lüğəti quraşdırılmayıb, buna görə mətn yoxlanmır. Документы {name} Hunspell lüğətini WORDCRAFT_DICTIONARIES qovluğunda və adi sistem yerlərində axtarır.
 	Lasso	Kəmənd
 	Last Column	Son sütun
 	Last commit	Son kommit
@@ -403,7 +403,7 @@
 	Link to Previous	Əvvəlkinə bağla
 	Links	Keçidlər
 	Location: {path}	Yer: {path}
-	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Office Pro Max contributors.
+	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Документы contributors.	MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team, the WordCraft contributors and the Документы contributors.
 	Macros	Makroslar
 	Mailings	Göndərişlər
 	Manage Sources	Mənbələri idarə et
@@ -820,7 +820,7 @@
 	Word Right	Bir söz sağa
 	Word document (*.docx)	Word sənədi (*.docx)
 	WordArt	WordArt
-	Office Pro Max	Office Pro Max
+	Документы	Документы
 	Words	Sözlər
 	Words only	Yalnız sözlər
 	Wrap Text	Mətnlə əhatə
@@ -888,7 +888,7 @@
 	Stopped	Dayandırıldı
 	Speed	Sürət
 	Normal speed	Normal sürət
-	AutoSave documents you have saved in Office Pro Max	Office Pro Max-da yadda saxladığınız sənədlərin avtosaxlanması
+	AutoSave documents you have saved in Документы	Документы-da yadda saxladığınız sənədlərin avtosaxlanması
 	AutoSave failed: {error}. Save the document to turn AutoSave back on.	Avtosaxlama xətası: {error}. Avtosaxlamanı yenidən aktivləşdirmək üçün sənədi yadda saxlayın.
 	Couldn't download {name}: {error}	{name} yüklənmədi: {error}
 	Do you want to save changes to {name}?	{name} faylındakı dəyişiklikləri saxlayırsınız?
@@ -1110,7 +1110,7 @@
 	Glow Colors	Parıltı rəngləri
 	Hide from style lists	Üslub siyahılarında gizlət
 	Indents and Spacing	Abzas boşluqları və intervallar
-	Keep the password somewhere safe: without it nobody, Office Pro Max included, can open the document. Leave both boxes empty to remove the password.	Parolu təhlükəsiz yerdə saxlayın: onsuz heç kim, o cümlədən Office Pro Max, sənədi aça bilməz. Parolu silmək üçün hər iki sahəni boş buraxın.
+	Keep the password somewhere safe: without it nobody, Документы included, can open the document. Leave both boxes empty to remove the password.	Parolu təhlükəsiz yerdə saxlayın: onsuz heç kim, o cümlədən Документы, sənədi aça bilməz. Parolu silmək üçün hər iki sahəni boş buraxın.
 	Line breaking	Sətir keçirmə
 	Linked style (paragraph and character)	Əlaqəli üslub (abzas və simvol)
 	Manage Styles	Üslubları idarə et
@@ -1736,7 +1736,7 @@
 	Beginning of Word	Sözün əvvəli
 	Blue:	Göy:
 	Border lines	Sərhəd xətləri
-	Browse in Office Pro Max…	Office Pro Max-da bax…
+	Browse in Документы…	Документы-da bax…
 	Building Block Gallery Content Control	Məzmun idarəetmə elementi: bloklar qalereyası
 	Can't be deleted	Silinə bilməz
 	Capitalize first letter of sentences	Cümlələrin ilk hərfini böyük et
@@ -1912,7 +1912,7 @@
 	Only comments can be added, except in regions marked editable.	Redaktə edilə bilən kimi qeyd olunmuş sahələr istisna olmaqla, yalnız şərh əlavə etmək olar.
 	Only form fields can be filled in.	Yalnız forma sahələrini doldurmaq olar.
 	Only the allowed styles can be applied.	Yalnız icazə verilmiş üslubları tətbiq etmək olar.
-	Open a file with Office Pro Max's own browser when the system file dialog doesn't appear.	Sistem fayl pəncərəsi görünmədikdə faylı Office Pro Max-un öz brauzeri ilə aç.
+	Open a file with Документы's own browser when the system file dialog doesn't appear.	Sistem fayl pəncərəsi görünmədikdə faylı Документы-un öz brauzeri ilə aç.
 	Ordinals (1st) as superscript	Sıra sayları (1st) yuxarı indeks kimi
 	Organizer	Təşkilatçı
 	Organizer…	Təşkilatçı…
@@ -2048,7 +2048,7 @@
 	The document is read only, except for regions marked editable.	Redaktə edilə bilən kimi qeyd olunmuş sahələr istisna olmaqla, sənəd yalnız oxumaq üçündür.
 	The password is optional; without it anyone can stop the protection.	Parol ixtiyaridir; onsuz qorumanı hər kəs dayandıra bilər.
 	The printer, two-sided printing and pages per sheet are chosen in that dialog.	Printer, ikitərəfli çap və vərəqdəki səhifə sayı həmin pəncərədə seçilir.
-	The system file dialog isn't available, so Office Pro Max shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Sistem fayl pəncərəsi əlçatan deyil, buna görə Office Pro Max özününkünü göstərir. Sistem pəncərəsini almaq üçün fayl seçmə portalı (məsələn, xdg-desktop-portal-gtk) və ya zenity quraşdırın.
+	The system file dialog isn't available, so Документы shows its own. To get the system dialog, install a file chooser portal (such as xdg-desktop-portal-gtk) or zenity.	Sistem fayl pəncərəsi əlçatan deyil, buna görə Документы özününkünü göstərir. Sistem pəncərəsini almaq üçün fayl seçmə portalı (məsələn, xdg-desktop-portal-gtk) və ya zenity quraşdırın.
 	These marks show even when Show/Hide ¶ is off.	Bu işarələr «Göstər/gizlət ¶» söndürüləndə də görünür.
 	This document	Bu sənəd
 	This folder can't be read: {error}	Bu qovluq oxuna bilmir: {error}
@@ -2092,15 +2092,15 @@
 	Undo 1 Action	1 əməliyyatı geri al
 	Undo {n} Actions	{n} əməliyyatı geri al
 	Start-up	Başlanğıc
-	Show the Start screen when Office Pro Max starts	Office Pro Max başlayanda başlanğıc ekranını göstər
-	On: Office Pro Max opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Aktiv: Office Pro Max boş sənəd, şablonlar və son sənədlərinizlə «Fayl › Əsas» səhifəsində açılır. Söndürülüb: boş sənəd açılır.
-	Couldn't make Office Pro Max the default: {error}	Office Pro Max defolt proqram edilə bilmədi: {error}
-	In Default apps, choose Office Pro Max for the document types you want it to open.	«Defolt proqramlar» bölməsində Office Pro Max-un açmasını istədiyiniz sənəd növləri üçün onu seçin.
-	Make Office Pro Max the default for Word documents…	Office Pro Max-u Word sənədləri üçün defolt et…
-	Opens .docx, .doc, .rtf and .odt files and Word templates with Office Pro Max from now on.	Bundan sonra .docx, .doc, .rtf və .odt faylları və Word şablonları Office Pro Max ilə açılacaq.
-	Opens Settings › Default apps, where you choose Office Pro Max for .docx and the other document types.	«Parametrlər › Defolt proqramlar» bölməsini açır; orada .docx və digər sənəd növləri üçün Office Pro Max seçilir.
-	To open Word documents with Office Pro Max by default: select one in Finder, choose File › Get Info, pick Office Pro Max under Open with, then click Change All.	Word sənədlərini defolt olaraq Office Pro Max ilə açmaq üçün: Finder-də sənədi seçin, File › Get Info seçin, «Open with» bölməsində Office Pro Max-u seçin və «Change All» düyməsinə klikləyin.
-	Office Pro Max is now the default app for Word documents.	Office Pro Max indi Word sənədləri üçün defolt proqramdır.
+	Show the Start screen when Документы starts	Документы başlayanda başlanğıc ekranını göstər
+	On: Документы opens on File › Home, with a blank document, the templates and your recent documents. Off: it opens a blank document.	Aktiv: Документы boş sənəd, şablonlar və son sənədlərinizlə «Fayl › Əsas» səhifəsində açılır. Söndürülüb: boş sənəd açılır.
+	Couldn't make Документы the default: {error}	Документы defolt proqram edilə bilmədi: {error}
+	In Default apps, choose Документы for the document types you want it to open.	«Defolt proqramlar» bölməsində Документы-un açmasını istədiyiniz sənəd növləri üçün onu seçin.
+	Make Документы the default for Word documents…	Документы-u Word sənədləri üçün defolt et…
+	Opens .docx, .doc, .rtf and .odt files and Word templates with Документы from now on.	Bundan sonra .docx, .doc, .rtf və .odt faylları və Word şablonları Документы ilə açılacaq.
+	Opens Settings › Default apps, where you choose Документы for .docx and the other document types.	«Parametrlər › Defolt proqramlar» bölməsini açır; orada .docx və digər sənəd növləri üçün Документы seçilir.
+	To open Word documents with Документы by default: select one in Finder, choose File › Get Info, pick Документы under Open with, then click Change All.	Word sənədlərini defolt olaraq Документы ilə açmaq üçün: Finder-də sənədi seçin, File › Get Info seçin, «Open with» bölməsində Документы-u seçin və «Change All» düyməsinə klikləyin.
+	Документы is now the default app for Word documents.	Документы indi Word sənədləri üçün defolt proqramdır.
 	Numerals:	Rəqəmlər:
 	Numerals	Rəqəmlər
 	Hindi	Hind
@@ -2554,7 +2554,7 @@ preview	Title	Nümunə
 	{name}   {height} × {width} mm	{name}   {height} × {width} mm
 	{width} × {height} mm	{width} × {height} mm
 	{kind}, {columns} × {rows}, {size} ({paper})	{kind}, {columns} × {rows}, {size} ({paper})
-	Researcher needs an online service; Office Pro Max keeps your documents offline.	Tədqiqatçıya onlayn xidmət lazımdır; Office Pro Max isə sənədlərinizi oflayn saxlayır.
+	Researcher needs an online service; Документы keeps your documents offline.	Tədqiqatçıya onlayn xidmət lazımdır; Документы isə sənədlərinizi oflayn saxlayır.
 	These settings will be used for new documents.	Bu parametrlər yeni sənədlər üçün istifadə olunacaq.
 	can't split at the first row	birinci sətirdə bölmək olmur
 	select two or more cells to merge	birləşdirmək üçün iki və ya daha çox xana seçin
@@ -2731,3 +2731,4 @@ preview	Title	Nümunə
 	Lilac	Yasəmən
 	Sage	Adaçayı
 	Vanilla	Vanil
+	Developer: Lusoft	Tərtibatçı: Lusoft

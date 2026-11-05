@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Office Pro Max</string>
-    <string name="sheets_name">Office Pro Max Sheets</string>
+    <string name="app_name">Документы</string>
+    <string name="sheets_name">Таблицы</string>
 </resources>

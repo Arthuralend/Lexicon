@@ -403,7 +403,7 @@ fn main() -> eframe::Result {
     if let Some(logger) = logger {
         match log_dir().filter(|_| prefs_enabled()) {
             Some(dir) => match logger.attach_dir(&dir) {
-                Ok(path) => log::info!("Office Pro Max {} ({}), log file {}", env!("CARGO_PKG_VERSION"), build_sha(), path.display()),
+                Ok(path) => log::info!("Документы {} ({}), log file {}", env!("CARGO_PKG_VERSION"), build_sha(), path.display()),
                 // Standard error only by now (`attach_dir` gave up on the file); unlike `eprintln!`, never panics.
                 Err(e) => log::warn!("no log file: {e}"),
             },
@@ -412,7 +412,7 @@ fn main() -> eframe::Result {
     }
     let mut options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default()
-            .with_title("Office Pro Max")
+            .with_title("Документы")
             .with_app_id("ai.storyteller.wordcraft")
             .with_inner_size([1440.0, 920.0])
             .with_min_inner_size([760.0, 480.0])
@@ -455,7 +455,7 @@ fn main() -> eframe::Result {
     #[cfg(target_os = "macos")]
     let apple_events = &apple_events;
     eframe::run_native(
-        "Office Pro Max",
+        "Документы",
         options,
         Box::new(move |cc| {
             // The system region picks the new document's paper, the units and the decimal
@@ -512,9 +512,7 @@ fn main() -> eframe::Result {
                 if app.ui.tab == "Calculations" {
                     app.ui.tab = "Home".into();
                 }
-                if files.is_empty() && other_files.is_empty() && !sample && control_port.is_none() {
-                    app.start_screen();
-                }
+                // Документы opens on a new document, never the Start screen.
             }
             for f in files {
                 if let Err(e) = app.run("file.open", serde_json::json!({"path": f})) {

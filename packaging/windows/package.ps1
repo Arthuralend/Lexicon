@@ -66,6 +66,16 @@ if (-not $SkipBuild) {
   # Fail the build (rather than warn) if the icon/VERSIONINFO can't be embedded.
   $env:WORDCRAFT_REQUIRE_WINRES = '1'
   Invoke-Native "cargo build ($Target)" { cargo build --release --locked -p wordcraft --target $Target }
+  # Таблицы: the spreadsheet app (tables/, its own workspace and target folder).
+  $TablesTarget = Join-Path $TargetDir 'tables'
+  Push-Location (Join-Path $Root 'tables')
+  try {
+    $env:CARGO_TARGET_DIR = $TablesTarget
+    Invoke-Native "cargo build tables ($Target)" { cargo build --release -p gridcraft --target $Target }
+  } finally {
+    Remove-Item Env:CARGO_TARGET_DIR -ErrorAction SilentlyContinue
+    Pop-Location
+  }
 }
 
 $Bin = Join-Path $TargetDir "$Target\release"
@@ -90,8 +100,10 @@ $Stage = Join-Path $TargetDir "windows-package\$Arch"
 Remove-Item -Recurse -Force $Stage -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Force -Path $Stage | Out-Null
 Copy-Item (Join-Path $Bin 'wordcraft.exe') (Join-Path $Stage 'Lexicon.exe')
+Copy-Item (Join-Path $TargetDir "tables\$Target\release\gridcraft.exe") (Join-Path $Stage 'Tables.exe')
 
 & (Join-Path $PSScriptRoot 'sign.ps1') (Join-Path $Stage 'Lexicon.exe')
+& (Join-Path $PSScriptRoot 'sign.ps1') (Join-Path $Stage 'Tables.exe')
 
 # ---- MSI ---------------------------------------------------------------------------------------
 # The installer's welcome page shows the license: build its RTF from LICENSE-MIT and LICENSE-APACHE
@@ -108,8 +120,8 @@ function ConvertTo-RtfText([string] $Text) {
   return $sb.ToString()
 }
 $paragraphs = [System.Collections.Generic.List[string]]::new()
-$paragraphs.Add('\b Office Pro Max\b0')
-$paragraphs.Add((ConvertTo-RtfText 'Office Pro Max, based on WordCraft, is dual-licensed under the MIT License or the Apache License, Version 2.0, at your option. Both license texts follow. Bundled fonts, dictionaries and other third-party material keep their own open licenses, listed in NOTICE and ATTRIBUTION.md at https://github.com/Arthuralend/Lexicon.'))
+$paragraphs.Add('\b Документы и Таблицы (Lusoft)\b0')
+$paragraphs.Add((ConvertTo-RtfText 'Документы and Таблицы by Lusoft, based on the open-source WordCraft and GridCraft, are dual-licensed under the MIT License or the Apache License, Version 2.0, at your option. Both license texts follow. Bundled fonts, dictionaries and other third-party material keep their own open licenses, listed in NOTICE and ATTRIBUTION.md at https://github.com/Arthuralend/Lexicon.'))
 foreach ($file in 'LICENSE-MIT', 'LICENSE-APACHE') {
   $title = $true  # each file opens with its license's name: show it bold
   foreach ($para in ((Get-Content -Raw (Join-Path $Root $file)) -split '\r?\n\s*\r?\n')) {
@@ -141,8 +153,6 @@ $Portable = Join-Path $TargetDir "windows-package\Lexicon-$Version-windows-$Arch
 Remove-Item -Recurse -Force $Portable -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Force -Path $Portable | Out-Null
 Copy-Item (Join-Path $Stage '*.exe') $Portable
-# Office Pro Max Sheets: the same program, started in Calculations.
-Set-Content -Path (Join-Path $Portable 'Office Pro Max Sheets.cmd') -Value "@start `"`" `"%~dp0Lexicon.exe`" --calc %*" -Encoding ASCII
 foreach ($f in 'README.md', 'LICENSE', 'LICENSE-MIT', 'LICENSE-APACHE') {
   $p = Join-Path $Root $f
   if (Test-Path $p) { Copy-Item $p $Portable }

@@ -172,7 +172,7 @@ impl Exempt {
             || plain.starts_with('@') // contributor handles
             || plain.starts_with("Style") || plain.starts_with("Table Style ") // a new style's default name
             || plain.contains('┬') || plain.contains('\u{2061}') // equation input (UnicodeMath), drawn as math
-            || matches!(plain, "Office Pro Max" | "Office Pro Max User" | "Discord" | "https://" | "auto" | "I. II. III." | "i. ii. iii.")
+            || matches!(plain, "Документы" | "Lusoft User" | "Discord" | "https://" | "auto" | "I. II. III." | "i. ii. iii.")
             || crate::dictation::LANGUAGES.iter().any(|(_, n)| *n == plain) // Dictate's languages, by their own names
             || crate::i18n::Lang::all().any(|l| l.name() == plain) // interface languages, by their own names
             || crate::options::REGIONS.contains(&plain) // region tags (en-US), as the system writes them

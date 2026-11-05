@@ -650,7 +650,7 @@ impl Session {
             goal_x: None,
             page_hint: 0,
             registry: Arc::new(crate::cmd::registry()),
-            author: "Office Pro Max User".into(),
+            author: "Lusoft User".into(),
             initials: String::new(),
             painter: None,
             status: String::new(),

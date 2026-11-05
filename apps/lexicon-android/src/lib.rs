@@ -41,7 +41,7 @@ fn android_main(app: AndroidApp) {
     let android = app.clone();
     let options = eframe::NativeOptions { android_app: Some(app), ..Default::default() };
     let result = eframe::run_native(
-        "Office Pro Max",
+        "Документы",
         options,
         Box::new(move |cc| {
             keyboard::set_context(cc.egui_ctx.clone());
@@ -69,13 +69,16 @@ fn android_main(app: AndroidApp) {
                 let doc = app.session.blank_document();
                 app.session.set_document(doc);
             }
-            app.start_screen();
+            // Документы opens on a new document.
+            if app.ui.tab == "Calculations" {
+                app.ui.tab = "Home".into();
+            }
             let last_prefs = stored.map(|b| String::from_utf8_lossy(&b).into_owned());
             Ok(Box::new(Shell { app, keyboard, settings, last_prefs, android, cursor: None }))
         }),
     );
     if let Err(e) = result {
-        log::error!("Office Pro Max failed to start: {e}");
+        log::error!("Документы failed to start: {e}");
     }
 }
 

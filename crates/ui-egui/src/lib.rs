@@ -1775,7 +1775,7 @@ impl WordApp {
             // MCP get an error.
             "ui.makeDefaultApp" => {
                 return Some(Err(
-                    "making Office Pro Max the default app needs a click in File › Options › General; scripts and agents can't change system defaults"
+                    "making Документы the default app needs a click in File › Options › General; scripts and agents can't change system defaults"
                         .into(),
                 ));
             }
@@ -1838,20 +1838,20 @@ impl WordApp {
     /// command, so nothing programmatic (control channel, MCP, macros) can change system defaults.
     pub(crate) fn make_default_app(&mut self) -> Result<Value, String> {
         let Some(hook) = self.services.make_default_app.as_ref() else {
-            return Err("Office Pro Max can't change the default apps here; use your system's settings".into());
+            return Err("Документы can't change the default apps here; use your system's settings".into());
         };
         match hook() {
             Ok(DefaultApp::SettingsOpened) => {
-                self.status(tl!("In Default apps, choose Office Pro Max for the document types you want it to open."));
+                self.status(tl!("In Default apps, choose Документы for the document types you want it to open."));
                 Ok(json!({"settingsOpened": true}))
             }
             Ok(DefaultApp::MadeDefault) => {
-                self.status(tl!("Office Pro Max is now the default app for Word documents."));
+                self.status(tl!("Документы is now the default app for Word documents."));
                 Ok(json!({"default": true}))
             }
             Err(e) => {
                 log::warn!("make default app: {e}");
-                let msg = i18n::fmt(tl!("Couldn't make Office Pro Max the default: {error}"), &[("error", &e)]);
+                let msg = i18n::fmt(tl!("Couldn't make Документы the default: {error}"), &[("error", &e)]);
                 self.status(msg.clone());
                 Err(msg)
             }
@@ -2383,9 +2383,9 @@ impl WordApp {
             ctx.open_url(egui::OpenUrl::new_tab(url));
         }
         let title = if self.has_document() {
-            format!("{}{} - {}", self.title_stem(), if self.session.dirty { " •" } else { "" }, tl!("Office Pro Max"))
+            format!("{}{} - {}", self.title_stem(), if self.session.dirty { " •" } else { "" }, tl!("Документы"))
         } else {
-            tl!("Office Pro Max").to_string()
+            tl!("Документы").to_string()
         };
         if title != self.sent_title {
             ctx.send_viewport_cmd(egui::ViewportCommand::Title(title.clone()));
@@ -3171,7 +3171,7 @@ mod tests {
         let a = h.state_mut();
         assert!(!a.ui.backstage, "Esc leaves the Start screen");
         assert!(!a.has_document(), "for an empty window, not a blank document");
-        assert_eq!(a.sent_title, "Office Pro Max", "the window is titled with the app alone");
+        assert_eq!(a.sent_title, "Документы", "the window is titled with the app alone");
         // The ribbon's commands are off, but Help, the File tab and the settings work.
         for id in ["format.bold", "text.insert", "file.save", "file.saveAs", "file.print", "edit.paste", "insert.table", "ui.print"] {
             assert!(!widgets::enabled(a, id), "{id} is off with no document");
@@ -5503,7 +5503,7 @@ mod tests {
     #[test]
     fn the_default_app_button_shows_only_with_the_hosts_hook() {
         use egui_kittest::kittest::Queryable;
-        const LABEL: &str = "Make Office Pro Max the default for Word documents…";
+        const LABEL: &str = "Make Документы the default for Word documents…";
         for hook in [false, true] {
             let calls = std::rc::Rc::new(std::cell::Cell::new(0));
             let mut a = app();
@@ -5524,7 +5524,7 @@ mod tests {
                 a,
             );
             h.run_steps(4);
-            assert!(h.query_by_label("Show the Start screen when Office Pro Max starts").is_some(), "hook {hook}: the Options page rendered");
+            assert!(h.query_by_label("Show the Start screen when Документы starts").is_some(), "hook {hook}: the Options page rendered");
             assert_eq!(h.query_by_label(LABEL).is_some(), hook, "hook {hook}: the button");
             if hook {
                 h.get_by_label(LABEL).click();

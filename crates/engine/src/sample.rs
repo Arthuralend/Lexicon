@@ -30,7 +30,7 @@ fn italic() -> CharProps {
 pub fn sample_document() -> Document {
     let mut d = Document::new();
     d.core.title = "The Open Studio Handbook".into();
-    d.core.creator = "Office Pro Max".into();
+    d.core.creator = "Документы".into();
     let mut b: Vec<Block> = Vec::new();
     b.push(Block::Para(styled("The Open Studio Handbook", "Title")));
     b.push(Block::Para(styled("How a small community of makers shares space, tools and time", "Subtitle")));
