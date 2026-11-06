@@ -610,7 +610,10 @@ mod tests {
         let (app, root) = recovery_app();
         let mut h = recovery_harness(app);
         settle_recovery(&mut h);
-        assert!(h.state().ui.backstage && h.state().ui.backstage_page == "recover");
+        // Документы starts on a new document; the copies wait in File › Recover.
+        assert!(!h.state().ui.backstage, "no Recover page at start");
+        h.state_mut().run("ui.backstage", json!({"value": true, "page": "recover"})).unwrap();
+        h.run_steps(4);
         h.get_by_label("Continue without restoring").click();
         h.run_steps(4);
         assert!(!h.state().ui.backstage);

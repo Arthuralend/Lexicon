@@ -276,6 +276,15 @@ fn services(file_dialog: file_dialogs::Hook, ctx: &egui::Context) -> Services {
             })
         })),
         dictate_stop: Some(Box::new(lexicon_dictation::stop)),
+        // A second document opens in a new window: another copy of the app, given the file.
+        open_in_new_window: Some(Box::new(|path: Option<&str>| {
+            let exe = std::env::current_exe().map_err(|e| e.to_string())?;
+            let mut cmd = std::process::Command::new(exe);
+            if let Some(p) = path {
+                cmd.arg(p);
+            }
+            cmd.spawn().map(|_| ()).map_err(|e| format!("couldn't open a new window: {e}"))
+        })),
         heard: Some(Box::new(move || std::mem::take(&mut *heard_queue.lock().unwrap_or_else(|p| p.into_inner())))),
         animations_enabled: Some(animations::hook(ctx)),
         clipboard_text: Some(Box::new(clipboard::text)),

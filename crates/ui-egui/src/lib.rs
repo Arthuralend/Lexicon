@@ -179,6 +179,9 @@ pub struct Services {
     pub dictate: Option<Box<dyn Fn(&str) -> Result<dictation::Started, String>>>,
     /// Stop listening (the phrase's final words still arrive through `heard`).
     pub dictate_stop: Option<Box<dyn Fn()>>,
+    /// Desktop: open a document (or, with `None`, a new one) in a window of its own, as Word does
+    /// once a document is open ([`WordApp::run`]).
+    pub open_in_new_window: Option<Box<dyn Fn(Option<&str>) -> Result<(), String>>>,
     /// What the recogniser heard since the last call.
     pub heard: Option<Box<dyn Fn() -> Vec<dictation::Heard>>>,
 }
@@ -800,7 +803,13 @@ impl WordApp {
         self.ui.start_screen
     }
 
-    /// Office Pro Max Sheets: open on the Calculations tab, with the sheet in front.
+    /// Whether this window's document is something to keep: saved somewhere, changed, or typed in.
+    pub fn document_in_use(&self) -> bool {
+        self.has_document()
+            && (self.session.path.is_some() || self.session.dirty || !self.session.doc.plain_text(wordcraft_doc::StoryRef::Body).trim().is_empty())
+    }
+
+    /// Documents launched as the sheets app: open on the Calculations tab, with the sheet in front.
     pub fn start_in_calculations(&mut self) {
         self.ui.tab = "Calculations".into();
         self.ui.backstage = false;
@@ -918,6 +927,23 @@ impl WordApp {
                 self.status(e.clone());
             }
             return r;
+        }
+        // Документы: with a document already open, another one (or File › New) gets a window of
+        // its own, as in Word, instead of replacing it.
+        if matches!(id, "file.open" | "file.new")
+            && self.document_in_use()
+            && params.get("data").is_none()
+            && let Some(open) = self.services.open_in_new_window.as_ref()
+        {
+            let path = if id == "file.open" { params.get("path").and_then(Value::as_str) } else { None };
+            if id == "file.new" || path.is_some() {
+                let r = open(path).map(|()| json!({"newWindow": true}));
+                if let Err(e) = &r {
+                    self.status(e.clone());
+                }
+                self.ui.backstage = false;
+                return r;
+            }
         }
         // Comment text still being typed is written first, so a save or export has it and a
         // close, New or Open counts it as a change (#1348). A draft the document refuses is not
@@ -2143,12 +2169,10 @@ impl WordApp {
         }
         if !self.recovery_seen && self.session.recovery_ready() {
             self.recovery_seen = true;
-            // Lexicon: only when nothing was opened yet. A document opened from Finder or the
-            // command line before the first scan finished was hidden under the Recover page.
-            let untouched = (!self.has_document() || (self.session.path.is_none() && self.session.file_name.is_none())) && !calc::active(self);
-            if !self.session.recovery_documents().is_empty() && !self.session.dirty && untouched {
-                self.ui.backstage = true;
-                self.ui.backstage_page = "recover".into();
+            // Документы always starts on a new document: recovery copies wait in File › Recover,
+            // and the status line says so.
+            if !self.session.recovery_documents().is_empty() {
+                self.status(tl!("Unsaved copies can be restored in File › Recover."));
             }
         }
         if let Some(wait) = self.session.recovery_wait() {
@@ -2998,6 +3022,34 @@ mod tests {
         let mut plain = app();
         plain.run("tools.dictate", json!({})).unwrap();
         assert!(plain.status_msg.as_ref().is_some_and(|(m, _)| !m.is_empty()), "a hint where nothing can listen");
+    }
+
+    /// Документы: a second document opens in a window of its own; into an untouched blank
+    /// document it opens in place.
+    #[test]
+    fn a_second_document_opens_in_a_new_window() {
+        let asked = std::rc::Rc::new(std::cell::RefCell::new(Vec::<Option<String>>::new()));
+        let seen = asked.clone();
+        let services = Services {
+            open_in_new_window: Some(Box::new(move |p: Option<&str>| {
+                seen.borrow_mut().push(p.map(str::to_string));
+                Ok(())
+            })),
+            ..Default::default()
+        };
+        let mut a = WordApp::new(Session::new(wordcraft_doc::Document::new()), services);
+        let dir = std::env::temp_dir().join(format!("docs-window-{}", std::process::id()));
+        let _ = std::fs::create_dir_all(&dir);
+        let path = dir.join("one.txt");
+        std::fs::write(&path, "hello").unwrap();
+        let p = path.to_string_lossy().into_owned();
+        a.run("file.open", json!({"path": p})).unwrap();
+        assert!(asked.borrow().is_empty(), "a blank window takes the first document");
+        a.run("file.open", json!({"path": p})).unwrap();
+        a.run("file.new", json!({})).unwrap();
+        assert_eq!(asked.borrow().as_slice(), [Some(p.clone()), None]);
+        assert!(a.session.doc.plain_text(wordcraft_doc::StoryRef::Body).contains("hello"), "the first stays");
+        let _ = std::fs::remove_dir_all(dir);
     }
 
     /// Lexicon: closing the last document never leaves a window with nothing to click.
