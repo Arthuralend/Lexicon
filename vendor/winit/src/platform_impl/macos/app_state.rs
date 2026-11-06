@@ -21,6 +21,9 @@ use super::{menu, WindowId, DEVICE_ID};
 
 /// Lexicon: set once the app has answered its unsaved-changes prompts and really quits.
 pub(crate) static TERMINATE_ALLOWED: AtomicBool = AtomicBool::new(false);
+
+/// Lexicon: set when the user clicked the running app in the Dock or Launchpad.
+pub(crate) static REOPEN_REQUESTED: AtomicBool = AtomicBool::new(false);
 use crate::event::{DeviceEvent, Event, StartCause, WindowEvent};
 use crate::event_loop::{ActiveEventLoop as RootActiveEventLoop, ControlFlow};
 use crate::window::WindowId as RootWindowId;
@@ -81,6 +84,14 @@ declare_class!(
         // Lexicon: Command-Q (the default menu's Quit), Dock › Quit and logout ask the windows to
         // close first, so the app can ask about unsaved changes; it quits through
         // `platform::macos::allow_terminate` once they are answered.
+        // Lexicon: a click on the running app in the Dock or Launchpad; the app asks
+        // `platform::macos::take_reopen_request` and opens a new document.
+        #[method(applicationShouldHandleReopen:hasVisibleWindows:)]
+        fn app_should_handle_reopen(&self, _sender: Option<&AnyObject>, _visible: bool) -> bool {
+            REOPEN_REQUESTED.store(true, Ordering::Relaxed);
+            true
+        }
+
         #[method(applicationShouldTerminate:)]
         fn app_should_terminate(&self, _sender: Option<&AnyObject>) -> NSApplicationTerminateReply {
             self.should_terminate()

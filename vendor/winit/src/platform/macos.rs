@@ -553,3 +553,9 @@ pub fn start_dictation() -> bool {
 pub fn allow_terminate() {
     crate::platform_impl::allow_terminate();
 }
+
+/// Lexicon: whether the user clicked the running app in the Dock or Launchpad since the last
+/// call (macOS's "reopen"), for the app to open a new document.
+pub fn take_reopen_request() -> bool {
+    crate::platform_impl::take_reopen_request()
+}

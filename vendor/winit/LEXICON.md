@@ -21,3 +21,9 @@ arrive through the view's `NSTextInputClient` as `Ime::Commit`.
 window `CloseRequested` and cancels, so the app's unsaved-changes prompt runs; the app calls
 `platform::macos::allow_terminate()` before its own `terminate:`. Before this, Command-Q skipped
 the prompt and tore the window down inside `-[NSApplication run]`.
+
+## macOS: reopen
+
+`applicationShouldHandleReopen:hasVisibleWindows:` (a click on the running app in the Dock or
+Launchpad) sets a flag the app reads with `platform::macos::take_reopen_request()`; Документы then
+opens a new document.

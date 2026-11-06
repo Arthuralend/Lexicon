@@ -64,3 +64,8 @@ impl fmt::Display for OsError {
 pub(crate) fn allow_terminate() {
     app_state::TERMINATE_ALLOWED.store(true, std::sync::atomic::Ordering::Relaxed);
 }
+
+/// Lexicon: see `platform::macos::take_reopen_request`.
+pub(crate) fn take_reopen_request() -> bool {
+    app_state::REOPEN_REQUESTED.swap(false, std::sync::atomic::Ordering::Relaxed)
+}

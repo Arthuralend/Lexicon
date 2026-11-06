@@ -65,6 +65,16 @@ impl eframe::App for App {
         if let Some(command) = maximize {
             ctx.send_viewport_cmd(command);
         }
+        // A click on the running app in the Dock or Launchpad: a new document, in a window of its
+        // own when this one holds something.
+        #[cfg(target_os = "macos")]
+        if winit::platform::macos::take_reopen_request() {
+            if self.0.document_in_use() {
+                let _ = self.0.run("file.new", serde_json::json!({}));
+            } else {
+                self.0.ui.backstage = false;
+            }
+        }
         // The window's close button: with unsaved changes, ask first (`WordApp::close_requested`).
         let closing = ctx.input(|i| i.viewport().close_requested());
         if closing && !self.0.close_requested() {
