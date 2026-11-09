@@ -8535,3 +8535,34 @@ fn a_table_with_a_picture_pastes_whole_in_another_window() {
     run(&mut c, "edit.pasteText", json!({"text": "plain"}));
     assert!(c.doc.body.iter().all(|bl| bl.as_table().is_none()));
 }
+
+/// Lexicon: a theme's fonts reach text that names the old theme's fonts (as a document from Word
+/// does), as theme-font text in Word follows the theme.
+#[test]
+fn design_theme_fonts_reach_text_in_the_old_theme_fonts() {
+    let mut s = s();
+    run(&mut s, "text.insert", json!({"text": "Привет мир"}));
+    run(&mut s, "select.all", json!({}));
+    run(&mut s, "format.font", json!({"name": "Aptos"}));
+    run(&mut s, "design.theme", json!({"name": "Sketchbook"}));
+    let p = s.doc.para(StoryRef::Body, &wordcraft_doc::Path(vec![0])).unwrap();
+    let eff = s.doc.styles.resolve_char(p.props.style.as_deref(), p.props_at(0));
+    assert_eq!(eff.font, "Gill Sans");
+    // A font of its own (not the theme's) stays.
+    run(&mut s, "format.font", json!({"name": "Courier New"}));
+    run(&mut s, "design.themeFonts", json!({"heading": "Georgia", "body": "Georgia"}));
+    let p = s.doc.para(StoryRef::Body, &wordcraft_doc::Path(vec![0])).unwrap();
+    assert_eq!(s.doc.styles.resolve_char(p.props.style.as_deref(), p.props_at(0)).font, "Courier New");
+}
+
+/// Lexicon: Документы never breaks words across lines or pages by itself: a document whose
+/// settings ask for automatic hyphenation opens with it off (Layout › Hyphenation turns it on).
+#[test]
+fn opened_documents_do_not_hyphenate_by_themselves() {
+    let mut s = s();
+    s.new_first_line_indent = Some(crate::NEW_FIRST_LINE_INDENT);
+    let mut d = wordcraft_doc::Document::new();
+    d.settings.auto_hyphenation = true;
+    s.set_document(d);
+    assert!(!s.doc.settings.auto_hyphenation);
+}

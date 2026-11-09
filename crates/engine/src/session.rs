@@ -1110,7 +1110,12 @@ impl Session {
     }
 
     /// Replace the document (open/new).
-    pub fn set_document(&mut self, doc: Document) {
+    pub fn set_document(&mut self, mut doc: Document) {
+        // Документы (the app sets `new_first_line_indent`): no automatic hyphenation from a
+        // file's settings; Layout › Hyphenation turns it on.
+        if self.new_first_line_indent.is_some() {
+            doc.settings.auto_hyphenation = false;
+        }
         self.autocap = None;
         self.document_id = self.document_id.wrapping_add(1);
         self.bib_style = doc_bib_style(&doc);

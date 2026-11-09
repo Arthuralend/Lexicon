@@ -90,7 +90,56 @@ pub fn specs() -> Vec<CommandSpec> {
     ]
 }
 
+/// Lexicon: text in the document's old theme fonts takes the new ones, as theme-font text does in
+/// Word (a document from Word names its fonts, so a theme change otherwise left it as it was).
+fn remap_fonts(blocks: &mut wordcraft_doc::Blocks, map: &dyn Fn(&str) -> Option<String>, depth: usize) {
+    if depth > 16 {
+        return;
+    }
+    for b in blocks.iter_mut() {
+        match std::sync::Arc::make_mut(b) {
+            wordcraft_doc::Block::Para(p) => {
+                let mut changed = false;
+                for r in &mut p.runs {
+                    if let Some(f) = r.props.font.as_deref().and_then(map) {
+                        r.props.font = Some(f);
+                        changed = true;
+                    }
+                }
+                if let Some(f) = p.mark.font.as_deref().and_then(map) {
+                    p.mark.font = Some(f);
+                    changed = true;
+                }
+                if changed {
+                    p.touch();
+                }
+            }
+            wordcraft_doc::Block::Table(t) => {
+                for row in &mut t.rows {
+                    for cell in &mut row.cells {
+                        remap_fonts(&mut cell.blocks, map, depth + 1);
+                    }
+                }
+            }
+        }
+    }
+}
+
 fn set_fonts(s: &mut Session, heading: &str, body: &str) {
+    let (old_major, old_minor) = (s.doc.settings.major_font.clone(), s.doc.settings.minor_font.clone());
+    let map = |f: &str| -> Option<String> {
+        if f.eq_ignore_ascii_case(&old_minor) || f.eq_ignore_ascii_case(styles::BODY_FONT) {
+            Some(body.to_string())
+        } else if f.eq_ignore_ascii_case(&old_major) || f.eq_ignore_ascii_case(styles::HEADING_FONT) {
+            Some(heading.to_string())
+        } else {
+            None
+        }
+    };
+    remap_fonts(&mut s.doc.body, &map, 0);
+    for part in s.doc.parts.values_mut() {
+        remap_fonts(&mut part.blocks, &map, 0);
+    }
     s.doc.settings.major_font = heading.into();
     s.doc.settings.minor_font = body.into();
     s.doc.styles.default_chr.font = Some(body.into());

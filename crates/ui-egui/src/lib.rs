@@ -182,6 +182,8 @@ pub struct Services {
     /// Desktop: open a document (or, with `None`, a new one) in a window of its own, as Word does
     /// once a document is open ([`WordApp::run`]).
     pub open_in_new_window: Option<Box<dyn Fn(Option<&str>) -> Result<(), String>>>,
+    /// Desktop: if another window has this file open, ask it to come forward and answer true.
+    pub already_open: Option<Box<dyn Fn(&str) -> bool>>,
     /// What the recogniser heard since the last call.
     pub heard: Option<Box<dyn Fn() -> Vec<dictation::Heard>>>,
 }
@@ -927,6 +929,23 @@ impl WordApp {
                 self.status(e.clone());
             }
             return r;
+        }
+        // Документы: a file opens once, as in Word: the window that has it comes forward.
+        if id == "file.open"
+            && let Some(path) = params.get("path").and_then(Value::as_str)
+        {
+            let same = |p: &std::path::Path| {
+                let c = |x: &std::path::Path| std::fs::canonicalize(x).unwrap_or_else(|_| x.to_path_buf());
+                c(p) == c(std::path::Path::new(path))
+            };
+            if self.session.path.as_deref().is_some_and(same) {
+                self.ui.backstage = false;
+                return Ok(json!({"alreadyOpen": true}));
+            }
+            if self.services.already_open.as_ref().is_some_and(|f| f(path)) {
+                self.ui.backstage = false;
+                return Ok(json!({"inAnotherWindow": true}));
+            }
         }
         // Документы: with a document already open, another one (or File › New) gets a window of
         // its own, as in Word, instead of replacing it.
@@ -3045,9 +3064,14 @@ mod tests {
         let p = path.to_string_lossy().into_owned();
         a.run("file.open", json!({"path": p})).unwrap();
         assert!(asked.borrow().is_empty(), "a blank window takes the first document");
-        a.run("file.open", json!({"path": p})).unwrap();
+        // The same file again: it is open here already (as in Word, it isn't opened twice).
+        assert_eq!(a.run("file.open", json!({"path": p})).unwrap()["alreadyOpen"], true);
+        let other = dir.join("two.txt");
+        std::fs::write(&other, "second").unwrap();
+        let o = other.to_string_lossy().into_owned();
+        a.run("file.open", json!({"path": o})).unwrap();
         a.run("file.new", json!({})).unwrap();
-        assert_eq!(asked.borrow().as_slice(), [Some(p.clone()), None]);
+        assert_eq!(asked.borrow().as_slice(), [Some(o.clone()), None]);
         assert!(a.session.doc.plain_text(wordcraft_doc::StoryRef::Body).contains("hello"), "the first stays");
         let _ = std::fs::remove_dir_all(dir);
     }

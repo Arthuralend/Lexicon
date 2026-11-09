@@ -19,6 +19,7 @@ mod file_dialogs;
 #[cfg(any(target_os = "windows", target_os = "macos", test))]
 mod graphics;
 mod logging;
+mod open_windows;
 mod print;
 mod region;
 #[cfg(target_os = "macos")]
@@ -46,6 +47,22 @@ impl eframe::App for App {
         #[cfg(target_os = "macos")]
         apple_events::poll(&self.4, &mut self.0, ctx);
         self.0.logic(ctx);
+        // Документы: say which file this window has, and come forward when another window
+        // was asked to open it (`open_windows`).
+        {
+            use std::sync::Mutex;
+            static LAST: Mutex<Option<std::time::Instant>> = Mutex::new(None);
+            let mut last = LAST.lock().unwrap_or_else(|e| e.into_inner());
+            if last.is_none_or(|t| t.elapsed() >= std::time::Duration::from_secs(2)) {
+                *last = Some(std::time::Instant::now());
+                open_windows::publish(self.0.session.path.as_deref());
+                if open_windows::take_focus_request() {
+                    ctx.send_viewport_cmd(egui::ViewportCommand::Minimized(false));
+                    ctx.send_viewport_cmd(egui::ViewportCommand::Focus);
+                }
+            }
+            ctx.request_repaint_after(std::time::Duration::from_secs(2));
+        }
         self.3.show(frame);
         // A window that doesn't fit on its screen (the default size on a laptop) shrinks to fit
         // there, so all of the scroll bar can be dragged (#1215). Checked on the frame that first
@@ -103,6 +120,7 @@ impl eframe::App for App {
         self.3.show(frame);
     }
     fn on_exit(&mut self) {
+        open_windows::forget();
         print::finish_pending_jobs();
         save_prefs(&self.0);
         if let Some(key_file) = &self.2 {
@@ -135,6 +153,7 @@ fn schedule_macos_terminate(app: &WordApp, key_file: Option<&control_server::Key
     if let Some(key_file) = key_file {
         key_file.remove();
     }
+    open_windows::forget();
     // The prompts are answered: let `terminate:` through (Lexicon's winit asks the windows to
     // close first otherwise).
     winit::platform::macos::allow_terminate();
@@ -286,6 +305,8 @@ fn services(file_dialog: file_dialogs::Hook, ctx: &egui::Context) -> Services {
             })
         })),
         dictate_stop: Some(Box::new(lexicon_dictation::stop)),
+        // A file another window has open: that window comes forward instead.
+        already_open: Some(Box::new(open_windows::ask_owner)),
         // A second document opens in a new window: another copy of the app, given the file.
         open_in_new_window: Some(Box::new(|path: Option<&str>| {
             let exe = std::env::current_exe().map_err(|e| e.to_string())?;
