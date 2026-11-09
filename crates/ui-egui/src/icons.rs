@@ -73,17 +73,18 @@ impl Pen<'_> {
 
 /// Paint icon `name` into `r`. `c` is the line colour; the accent comes from the theme.
 pub fn paint(p: &Painter, r: Rect, name: &str, c: Color32, accent: Color32) {
-    let pen = Pen { p, r, c, a: accent, w: 1.25 };
+    let pen = Pen { p, r, c, a: accent, w: 1.15 };
     if let Some(kind) = name.strip_prefix("shape.")
         && shape(&pen, kind)
     {
         return;
     }
     let a = accent;
-    let red = Color32::from_rgb(0xD1, 0x3B, 0x3B);
-    let yellow = Color32::from_rgb(0xF2, 0xC8, 0x11);
-    let green = Color32::from_rgb(0x2E, 0x8B, 0x57);
-    let orange = Color32::from_rgb(0xE0, 0x7B, 0x1F);
+    // Muted, earthy companions to the accent: a quiet, editorial set rather than primary colours.
+    let red = Color32::from_rgb(0xBF, 0x4A, 0x3C);
+    let yellow = Color32::from_rgb(0xD9, 0xAE, 0x3F);
+    let green = Color32::from_rgb(0x5B, 0x8A, 0x5F);
+    let orange = Color32::from_rgb(0xCC, 0x78, 0x4A);
     match name {
         // Clipboard
         "paste" => {
@@ -148,7 +149,7 @@ pub fn paint(p: &Painter, r: Rect, name: &str, c: Color32, accent: Color32) {
         "case" => pen.text(10.0, 10.5, 12.0, "Aa", c, false),
         "clear" => {
             pen.text(8.0, 9.0, 13.0, "A", c, false);
-            pen.fill(&[(10.0, 15.0), (14.0, 11.0), (18.0, 15.0), (14.0, 19.0)], Color32::from_rgb(0xE8, 0x6F, 0xA0));
+            pen.fill(&[(10.0, 15.0), (14.0, 11.0), (18.0, 15.0), (14.0, 19.0)], Color32::from_rgb(0xC9, 0x7B, 0x8E));
         }
         // Small letters over a large one: text with a reading above it.
         "phonetic" => {
@@ -568,7 +569,7 @@ pub fn paint(p: &Painter, r: Rect, name: &str, c: Color32, accent: Color32) {
         }
         "eraser" => {
             pen.closed(&[(3.0, 13.0), (11.0, 5.0), (17.0, 11.0), (11.0, 17.0), (7.0, 17.0)], c);
-            pen.fill(&[(3.0, 13.0), (7.0, 9.0), (13.0, 15.0), (11.0, 17.0), (7.0, 17.0)], Color32::from_rgb(0xE8, 0x6F, 0xA0));
+            pen.fill(&[(3.0, 13.0), (7.0, 9.0), (13.0, 15.0), (11.0, 17.0), (7.0, 17.0)], Color32::from_rgb(0xC9, 0x7B, 0x8E));
         }
         // Ink thickness: three strokes, thin to thick.
         "thickness" => {

@@ -14,6 +14,11 @@ pub const APP_INK: Color32 = Color32::from_rgb(0x2B, 0x47, 0xB5);
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 #[serde(from = "String", into = "String")]
 pub enum Appearance {
+    /// Lexicon's default: warm ivory with a terracotta accent.
+    #[default]
+    Ivory,
+    /// The same, dark: warm charcoal.
+    Charcoal,
     Light,
     Dark,
     System,
@@ -23,8 +28,7 @@ pub enum Appearance {
     Black,
     /// Light, on white.
     White,
-    /// Dark blue: Lexicon's default.
-    #[default]
+    /// Dark blue.
     Navy,
     /// Light blue.
     Sky,
@@ -60,7 +64,9 @@ pub enum Appearance {
 
 impl Appearance {
     /// In menu order.
-    pub const ALL: [Appearance; 22] = [
+    pub const ALL: [Appearance; 24] = [
+        Appearance::Ivory,
+        Appearance::Charcoal,
         Appearance::Navy,
         Appearance::Midnight,
         Appearance::System,
@@ -88,6 +94,8 @@ impl Appearance {
     /// The value used in `ui.json` and by the `ui.theme` command.
     pub fn code(self) -> &'static str {
         match self {
+            Appearance::Ivory => "ivory",
+            Appearance::Charcoal => "charcoal",
             Appearance::Light => "light",
             Appearance::Dark => "dark",
             Appearance::System => "system",
@@ -96,7 +104,9 @@ impl Appearance {
             Appearance::Midnight => "night",
             Appearance::Black => "black",
             Appearance::White => "white",
-            Appearance::Navy => "navy",
+            // Not "navy": that was saved as the default by earlier builds, and now reads as the
+            // new default, Ivory.
+            Appearance::Navy => "dark-blue",
             Appearance::Sky => "sky",
             Appearance::Burgundy => "burgundy",
             Appearance::Forest => "forest",
@@ -122,6 +132,8 @@ impl Appearance {
     /// The English label (translated with `tl!` where shown).
     pub fn label(self) -> &'static str {
         match self {
+            Appearance::Ivory => "Ivory",
+            Appearance::Charcoal => "Charcoal",
             Appearance::Light => "Light",
             Appearance::Dark => "Dark",
             Appearance::System => "Use system setting",
@@ -151,6 +163,8 @@ impl Appearance {
     pub fn palette(self) -> Option<Tokens> {
         Some(match self {
             Appearance::System => return None,
+            Appearance::Ivory => Tokens::ivory(),
+            Appearance::Charcoal => Tokens::charcoal(),
             Appearance::Light => Tokens::light(),
             Appearance::Dark => Tokens::dark(),
             Appearance::Midnight => Tokens::midnight(),
@@ -576,6 +590,77 @@ impl Tokens {
     /// Every fixed palette (for tests and previews).
     pub fn all_palettes() -> Vec<Tokens> {
         Appearance::ALL.into_iter().filter_map(Appearance::palette).collect()
+    }
+
+    /// Lexicon's default: warm ivory, graphite text and a terracotta accent.
+    pub fn ivory() -> Self {
+        Tokens {
+            title_bar: rgb(0xF0EEE6),
+            ribbon: rgb(0xFAF9F5),
+            tab_strip: rgb(0xF0EEE6),
+            canvas: rgb(0xE8E6DC),
+            panel: rgb(0xFAF9F5),
+            border: rgb(0xE3E0D5),
+            border_strong: rgb(0xCFCBBE),
+            text: rgb(0x141413),
+            text_dim: rgb(0x5E5D59),
+            icon: rgb(0x3D3D3A),
+            hover: rgb(0xEDEAE0),
+            pressed: rgb(0xE3DFD3),
+            checked: rgb(0xF5E4DB),
+            accent: rgb(0xB5532F),
+            accent_text: rgb(0xA0462A),
+            on_accent: rgb(0xFFFFFF),
+            input: rgb(0xFFFFFF),
+            input_border: rgb(0x7F7B71),
+            group_label: rgb(0x6B6A65),
+            ruler: rgb(0xFFFFFF),
+            ruler_margin: rgb(0xE3E0D5),
+            ruler_tick: rgb(0x5E5D59),
+            status_bar: rgb(0xF0EEE6),
+            menu: rgb(0xFFFFFF),
+            balloon: rgb(0xFFFFFF),
+            markup_area: rgb(0xF5F3EC),
+            markup_edge: rgb(0xE3E0D5),
+            selection: Color32::from_rgba_unmultiplied(0xD9, 0x77, 0x57, 0x40),
+            ..Tokens::light()
+        }
+    }
+
+    /// The same palette, dark: warm charcoal.
+    pub fn charcoal() -> Self {
+        Tokens {
+            title_bar: rgb(0x1F1E1D),
+            ribbon: rgb(0x262624),
+            tab_strip: rgb(0x1F1E1D),
+            canvas: rgb(0x191918),
+            panel: rgb(0x262624),
+            border: rgb(0x3A3936),
+            border_strong: rgb(0x55534D),
+            text: rgb(0xF5F4EF),
+            text_dim: rgb(0xB5B2A8),
+            icon: rgb(0xD9D6CC),
+            hover: rgb(0x31302D),
+            pressed: rgb(0x3B3A36),
+            checked: rgb(0x40322B),
+            accent: rgb(0xD97757),
+            accent_text: rgb(0xE8957A),
+            on_accent: rgb(0x1F1E1D),
+            input: rgb(0x1F1E1D),
+            input_border: rgb(0x77746B),
+            group_label: rgb(0xA6A39A),
+            ruler: rgb(0x34332F),
+            ruler_margin: rgb(0x22211F),
+            ruler_tick: rgb(0xC9C6BC),
+            status_bar: rgb(0x1F1E1D),
+            menu: rgb(0x2B2A27),
+            balloon: rgb(0x2B2A27),
+            markup_area: rgb(0x1C1B1A),
+            markup_edge: rgb(0x3A3936),
+            resolved_text: rgb(0x8EE6B5),
+            selection: Color32::from_rgba_unmultiplied(0xD9, 0x77, 0x57, 0x55),
+            ..Tokens::dark()
+        }
     }
 
     /// Dark navy, almost black.
@@ -1485,8 +1570,8 @@ fn visuals(t: &Tokens) -> Visuals {
     v.extreme_bg_color = t.input;
     v.faint_bg_color = t.panel;
     v.window_stroke = Stroke::new(1.0, t.border_strong);
-    v.window_corner_radius = CornerRadius::same(8);
-    v.menu_corner_radius = CornerRadius::same(6);
+    v.window_corner_radius = CornerRadius::same(12);
+    v.menu_corner_radius = CornerRadius::same(10);
     v.selection.bg_fill = t.selection;
     v.selection.stroke = Stroke::new(1.0, t.accent);
     v.hyperlink_color = t.accent_text;
@@ -1496,16 +1581,16 @@ fn visuals(t: &Tokens) -> Visuals {
     v.widgets.inactive.weak_bg_fill = t.input;
     v.widgets.inactive.bg_stroke = Stroke::new(1.0, t.input_border);
     v.widgets.inactive.fg_stroke = Stroke::new(1.0, t.text);
-    v.widgets.inactive.corner_radius = CornerRadius::same(4);
+    v.widgets.inactive.corner_radius = CornerRadius::same(6);
     v.widgets.hovered.bg_fill = t.hover;
     v.widgets.hovered.weak_bg_fill = t.hover;
     v.widgets.hovered.bg_stroke = Stroke::new(1.0, t.border_strong);
     v.widgets.hovered.fg_stroke = Stroke::new(1.0, t.text);
-    v.widgets.hovered.corner_radius = CornerRadius::same(4);
+    v.widgets.hovered.corner_radius = CornerRadius::same(6);
     v.widgets.active.bg_fill = t.pressed;
     v.widgets.active.weak_bg_fill = t.pressed;
     v.widgets.active.fg_stroke = Stroke::new(1.0, t.text);
-    v.widgets.active.corner_radius = CornerRadius::same(4);
+    v.widgets.active.corner_radius = CornerRadius::same(6);
     v.widgets.open.bg_fill = t.pressed;
     v.widgets.open.weak_bg_fill = t.pressed;
     v.popup_shadow = egui::Shadow { offset: [0, 4], blur: 16, spread: 0, color: Color32::from_black_alpha(if t.dark { 120 } else { 40 }) };
@@ -1540,8 +1625,8 @@ mod tests {
     fn every_theme_is_known_to_the_engine() {
         let codes: Vec<&str> = super::Appearance::ALL.iter().map(|a| a.code()).collect();
         assert_eq!(codes, wordcraft_engine::cmd::view::INTERFACE_THEMES);
-        assert_eq!(super::Appearance::default(), super::Appearance::Navy);
-        assert_eq!(super::Appearance::from(String::from("midnight")), super::Appearance::Navy);
+        assert_eq!(super::Appearance::default(), super::Appearance::Ivory);
+        assert_eq!(super::Appearance::from(String::from("navy")), super::Appearance::Ivory, "the old default reads as the new");
         for a in super::Appearance::ALL {
             assert_eq!(super::Appearance::from_code(a.code()), Some(a));
         }

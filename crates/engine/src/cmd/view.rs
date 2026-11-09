@@ -15,9 +15,31 @@ fn toggle(s: &mut Session, v: &Value, f: fn(&mut crate::ViewState) -> &mut bool)
 
 /// The interface themes the front end knows (Lexicon adds its own palettes to light, dark and
 /// system).
-pub const INTERFACE_THEMES: [&str; 22] = [
-    "navy", "night", "system", "light", "dark", "black", "white", "sky", "burgundy", "forest", "lavender", "mint", "dawn", "ocean", "plum", "coffee",
-    "rose", "apricot", "powder", "lilac", "sage", "vanilla",
+pub const INTERFACE_THEMES: [&str; 24] = [
+    "ivory",
+    "charcoal",
+    "dark-blue",
+    "night",
+    "system",
+    "light",
+    "dark",
+    "black",
+    "white",
+    "sky",
+    "burgundy",
+    "forest",
+    "lavender",
+    "mint",
+    "dawn",
+    "ocean",
+    "plum",
+    "coffee",
+    "rose",
+    "apricot",
+    "powder",
+    "lilac",
+    "sage",
+    "vanilla",
 ];
 
 pub fn specs() -> Vec<CommandSpec> {
@@ -95,7 +117,7 @@ pub fn specs() -> Vec<CommandSpec> {
             },
             _ => Err(CmdError::Params(format!("interface theme: {}", INTERFACE_THEMES.join("|")))),
         })
-        .params(r#"{"value"?: "navy" | "night" | "system" | "light" | "dark" | "black" | "white" | "sky" | "burgundy" | "forest" | "lavender" | "mint" | "dawn" | "ocean" | "plum" | "coffee" | "rose" | "apricot" | "powder" | "lilac" | "sage" | "vanilla"; without it, toggles light and dark}"#)
+        .params(r#"{"value"?: "ivory" | "charcoal" | "dark-blue" | "night" | "system" | "light" | "dark" | "black" | "white" | "sky" | "burgundy" | "forest" | "lavender" | "mint" | "dawn" | "ocean" | "plum" | "coffee" | "rose" | "apricot" | "powder" | "lilac" | "sage" | "vanilla"; without it, toggles light and dark}"#)
         .pure(),
         CommandSpec::new("view.stylesPane", "Styles Pane", "Home › Styles", |s, v| toggle(s, v, |x| &mut x.styles_pane)).pure(),
         CommandSpec::new("view.commentsPane", "Comments Pane", "Review › Comments", |s, v| toggle(s, v, |x| &mut x.comments_pane)).pure(),

@@ -34,7 +34,9 @@ pub struct Scheme {
 
 /// Документы' schemes by their settings code (generated from its theme palettes).
 const SCHEMES: &[(&str, Scheme)] = &[
-    ("navy", Scheme { dark: true, title: 0x14213D, ribbon: 0x1B2A4A, tabs: 0x14213D, canvas: 0x0F1A30, panel: 0x192745, border: 0x2A3C62, border_strong: 0x40578A, text: 0xEAF0FA, text_dim: 0xB3C0D8, text_disabled: 0x6A6A6A, hover: 0x243659, pressed: 0x2E4470, checked: 0x293F6C, accent: 0x7AA8FF, accent_text: 0xA5C4FF, on_accent: 0x0B1530, input: 0x13203A, input_border: 0x6A80AE, status: 0x14213D, menu: 0x1D2D50 }),
+    ("ivory", Scheme { dark: false, title: 0xF0EEE6, ribbon: 0xFAF9F5, tabs: 0xF0EEE6, canvas: 0xE8E6DC, panel: 0xFAF9F5, border: 0xE3E0D5, border_strong: 0xCFCBBE, text: 0x141413, text_dim: 0x5E5D59, text_disabled: 0xA8A8A8, hover: 0xEDEAE0, pressed: 0xE3DFD3, checked: 0xF5E4DB, accent: 0xB5532F, accent_text: 0xA0462A, on_accent: 0xFFFFFF, input: 0xFFFFFF, input_border: 0x7F7B71, status: 0xF0EEE6, menu: 0xFFFFFF }),
+    ("charcoal", Scheme { dark: true, title: 0x1F1E1D, ribbon: 0x262624, tabs: 0x1F1E1D, canvas: 0x191918, panel: 0x262624, border: 0x3A3936, border_strong: 0x55534D, text: 0xF5F4EF, text_dim: 0xB5B2A8, text_disabled: 0x6A6A6A, hover: 0x31302D, pressed: 0x3B3A36, checked: 0x40322B, accent: 0xD97757, accent_text: 0xE8957A, on_accent: 0x1F1E1D, input: 0x1F1E1D, input_border: 0x77746B, status: 0x1F1E1D, menu: 0x2B2A27 }),
+    ("dark-blue", Scheme { dark: true, title: 0x14213D, ribbon: 0x1B2A4A, tabs: 0x14213D, canvas: 0x0F1A30, panel: 0x192745, border: 0x2A3C62, border_strong: 0x40578A, text: 0xEAF0FA, text_dim: 0xB3C0D8, text_disabled: 0x6A6A6A, hover: 0x243659, pressed: 0x2E4470, checked: 0x293F6C, accent: 0x7AA8FF, accent_text: 0xA5C4FF, on_accent: 0x0B1530, input: 0x13203A, input_border: 0x6A80AE, status: 0x14213D, menu: 0x1D2D50 }),
     ("night", Scheme { dark: true, title: 0x0B1020, ribbon: 0x111A2E, tabs: 0x0B1020, canvas: 0x070B16, panel: 0x0F1729, border: 0x1E2A44, border_strong: 0x34466C, text: 0xE6EAF2, text_dim: 0xA9B4C8, text_disabled: 0x6A6A6A, hover: 0x1B2640, pressed: 0x24314F, checked: 0x22345E, accent: 0x6F9BFF, accent_text: 0x9DBBFF, on_accent: 0x0B1020, input: 0x0C1424, input_border: 0x5D6F95, status: 0x0B1020, menu: 0x131D33 }),
     ("light", Scheme { dark: false, title: 0xF0F0F0, ribbon: 0xF9F9F9, tabs: 0xF0F0F0, canvas: 0xE6E6E6, panel: 0xFAFAFA, border: 0xE1E1E1, border_strong: 0xC8C8C8, text: 0x242424, text_dim: 0x616161, text_disabled: 0xA8A8A8, hover: 0xE6E6E6, pressed: 0xD6D6D6, checked: 0xDDE3F8, accent: 0x3B5BDB, accent_text: 0x2B47B5, on_accent: 0xFFFFFF, input: 0xFFFFFF, input_border: 0x8A8A8A, status: 0xF0F0F0, menu: 0xFFFFFF }),
     ("dark", Scheme { dark: true, title: 0x1F1F1F, ribbon: 0x292929, tabs: 0x1F1F1F, canvas: 0x141414, panel: 0x262626, border: 0x3A3A3A, border_strong: 0x555555, text: 0xEEEEEE, text_dim: 0xC8C8C8, text_disabled: 0x6A6A6A, hover: 0x3D3D3D, pressed: 0x4A4A4A, checked: 0x2E3A66, accent: 0x7A93F0, accent_text: 0x9CB0F5, on_accent: 0x11162E, input: 0x1E1E1E, input_border: 0x7A7A7A, status: 0x1F1F1F, menu: 0x2B2B2B }),
@@ -58,7 +60,7 @@ const SCHEMES: &[(&str, Scheme)] = &[
 ];
 
 /// Документы' default.
-const DEFAULT: &str = "navy";
+const DEFAULT: &str = "ivory";
 
 static CURRENT: RwLock<Option<Scheme>> = RwLock::new(None);
 
