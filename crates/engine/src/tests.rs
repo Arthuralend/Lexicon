@@ -8508,3 +8508,30 @@ fn new_documents_take_the_apps_first_line_indent() {
         assert!((p.props.indent_first.unwrap_or(0.0) - 28.3465).abs() < 0.01, "{:?}", p.props.indent_first);
     }
 }
+
+/// Lexicon: a table with a picture copied in one window of the app pastes whole in another (each
+/// window is its own process: the copy travels in the HTML on the system clipboard).
+#[test]
+fn a_table_with_a_picture_pastes_whole_in_another_window() {
+    let mut a = s();
+    run(&mut a, "text.insert", json!({"text": "Before"}));
+    run(&mut a, "text.newParagraph", json!({}));
+    run(&mut a, "insert.table", json!({"rows": 2, "cols": 2}));
+    run(&mut a, "text.insert", json!({"text": "cell"}));
+    let png = crate::cmd::insert::base64_encode(&tiny_png());
+    run(&mut a, "insert.picture", json!({"data": png}));
+    run(&mut a, "caret.docEnd", json!({}));
+    run(&mut a, "select.all", json!({}));
+    let copied = run(&mut a, "edit.copy", json!({}));
+    let html = copied["html"].as_str().unwrap().to_string();
+    assert!(html.contains(crate::cmd::paste::CLIP_MARKER));
+    let mut b = s();
+    run(&mut b, "edit.paste", json!({"text": copied["text"], "html": html}));
+    assert!(b.doc.body.iter().any(|bl| bl.as_table().is_some()), "the table");
+    assert!(!b.doc.media.is_empty(), "the picture");
+    assert!(b.doc.plain_text(StoryRef::Body).contains("cell"));
+    // Keep Text Only takes the text alone.
+    let mut c = s();
+    run(&mut c, "edit.pasteText", json!({"text": "plain"}));
+    assert!(c.doc.body.iter().all(|bl| bl.as_table().is_none()));
+}

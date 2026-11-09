@@ -338,8 +338,9 @@ pub fn canvas_events(app: &mut WordApp, ctx: &egui::Context) {
             egui::Event::Paste(t) => {
                 // Mod+Alt+V arrives as a paste too (the shell reads the clipboard): Paste Special.
                 let m = ctx.input(|i| i.modifiers);
+                // Mod+Shift+V: text only, without the copy's formatting (Lexicon).
                 let id = match (m.alt, m.shift) {
-                    (true, true) => "edit.pasteText",
+                    (_, true) => "edit.pasteText",
                     (true, false) => "edit.pasteSpecial",
                     _ => "edit.paste",
                 };
@@ -709,7 +710,7 @@ mod tests {
         let m = |command, shift, alt| egui::Modifiers { command, shift, alt, ..Default::default() };
         assert!(is_paste_release(Key::V, m(true, false, false)), "Mod+V");
         assert!(is_paste_release(Key::Paste, m(false, false, false)), "the Paste key");
-        assert!(!is_paste_release(Key::V, m(true, true, false)), "Mod+Shift+V is Paste Formatting");
+        assert!(!is_paste_release(Key::V, m(true, true, false)), "Mod+Shift+V is Keep Text Only");
         assert!(!is_paste_release(Key::V, m(true, false, true)), "Mod+Alt+V is Paste Special");
         assert!(!is_paste_release(Key::V, m(false, false, false)), "a plain V");
         assert!(is_paste_special_release(Key::V, m(true, false, true)), "Mod+Alt+V opens Paste Special");

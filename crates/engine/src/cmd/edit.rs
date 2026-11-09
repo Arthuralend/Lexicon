@@ -162,7 +162,8 @@ pub fn specs() -> Vec<CommandSpec> {
         })
         .key("Mod+Shift+C")
         .pure(),
-        CommandSpec::new("edit.pasteFormat", "Paste Formatting", "Home › Clipboard", paste_format).key("Mod+Shift+V"),
+        // Lexicon: Mod+Shift+V pastes text only (Keep Text Only), as the owner asked.
+        CommandSpec::new("edit.pasteFormat", "Paste Formatting", "Home › Clipboard", paste_format),
     ]
 }
 
@@ -183,7 +184,8 @@ fn copy(s: &mut Session, _: &Value) -> CmdResult {
 /// and for a copy of one equation alone, its MathML (#1297).
 pub(crate) fn copy_result(s: &mut Session) -> Value {
     s.clipboard_html = match &s.clipboard {
-        Some(f) => wordcraft_formats::html::export_fragment(&f.to_document()),
+        // Lexicon: with the full copy for the app's other windows (`paste::clip_comment`).
+        Some(f) => format!("{}{}", super::paste::clip_comment(&s.doc, f), wordcraft_formats::html::export_fragment(&f.to_document())),
         None => String::new(),
     };
     let mut r = json!({"text": s.clipboard_text});

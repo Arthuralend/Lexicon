@@ -255,6 +255,36 @@ pub fn rich_fragment(s: &mut Session, v: &Value) -> Option<Fragment> {
     Some(adopt(s, doc))
 }
 
+/// Lexicon: the marker of a full copy in a copy's HTML, between windows of the app (each window is
+/// a process of its own, so the internal clipboard doesn't reach the other one). The copy rides
+/// along as a small .docx, base64-encoded in an HTML comment, so tables, pictures, styles and
+/// lists arrive whole; other programs ignore the comment and read the HTML.
+pub const CLIP_MARKER: &str = "<!--lexicon-clip:";
+
+/// The full copy of `f` from `doc` (its pictures, styles and lists) as the HTML comment
+/// [`CLIP_MARKER`] starts; empty when it would be too large for a clipboard.
+pub fn clip_comment(doc: &Document, f: &Fragment) -> String {
+    let mut d = f.to_document();
+    let used = serde_json::to_string(&f.blocks).unwrap_or_default();
+    d.media = doc.media.iter().filter(|(k, _)| used.contains(&format!("\"{k}\""))).map(|(k, v)| (k.clone(), v.clone())).collect();
+    d.styles = doc.styles.clone();
+    d.numbering = doc.numbering.clone();
+    let Ok(bytes) = wordcraft_docx::write(&d) else { return String::new() };
+    let b64 = super::insert::base64_encode(&bytes);
+    if b64.len() > MAX_PASTE_BYTES / 2 {
+        return String::new();
+    }
+    format!("{CLIP_MARKER}{b64}-->")
+}
+
+/// The full copy another window of the app put in `html`, if any ([`clip_comment`]).
+fn clip_document(html: &str) -> Option<Document> {
+    let start = html.find(CLIP_MARKER)? + CLIP_MARKER.len();
+    let end = start + html.get(start..)?.find("-->")?;
+    let bytes = super::insert::base64_decode(html.get(start..end)?)?;
+    wordcraft_docx::read(&bytes).ok().filter(has_content)
+}
+
 /// What a Paste brings in.
 pub enum Pasted {
     /// Lexicon's own copy, or another program's HTML or RTF: it keeps the formatting it carries.
@@ -272,6 +302,10 @@ pub fn paste_content(s: &mut Session, v: &Value) -> Result<Pasted, CmdError> {
         && (text.is_some() || (p::str(v, "html").is_none() && p::str(v, "rtf").is_none()))
     {
         return Ok(Pasted::Fragment(f.clone()));
+    }
+    // Another window's copy, whole (see `clip_comment`).
+    if let Some(doc) = p::str(v, "html").filter(|h| h.len() <= MAX_PASTE_BYTES).and_then(clip_document) {
+        return Ok(Pasted::Fragment(adopt(s, doc)));
     }
     if let Some(f) = rich_fragment(s, v) {
         return Ok(Pasted::Fragment(f));
