@@ -14,10 +14,10 @@ fn main() {
     }
     let mut res = winresource::WindowsResource::new();
     res.set_icon("../../assets/app-icon/wordcraft.ico")
-        .set("ProductName", "Lexicon")
-        .set("FileDescription", "Lexicon word processor")
-        .set("CompanyName", "Lexicon contributors")
-        .set("LegalCopyright", "Copyright (c) the Lexicon authors. MIT OR Apache-2.0.")
+        .set("ProductName", "Документы")
+        .set("FileDescription", "Документы — Lusoft")
+        .set("CompanyName", "Lusoft")
+        .set("LegalCopyright", "Lusoft. Based on WordCraft, MIT OR Apache-2.0.")
         .set("OriginalFilename", "Lexicon.exe")
         .set("InternalName", "Lexicon");
     if let Err(e) = res.compile() {

@@ -97,10 +97,10 @@
            plain text are only "Open with" candidates. Removed again on uninstall. -->
       <Component Id="LexiconFileTypes" Guid="4ABF98C2-4A8C-4447-8428-A9CC49B68C49">
         <RegistryValue Root="HKLM" Key="Software\RegisteredApplications" Name="Lexicon" Value="Software\Lexicon\Capabilities" Type="string" KeyPath="yes" />
-        <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities" Name="ApplicationName" Value="Lexicon" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities" Name="ApplicationName" Value="Документы" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities" Name="ApplicationDescription" Value="Write and design documents; open and save Word files." Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Lexicon\Capabilities" Name="ApplicationIcon" Value="&quot;[#LexiconExe]&quot;,0" Type="string" />
-        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe" Name="FriendlyAppName" Value="Lexicon" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe" Name="FriendlyAppName" Value="Документы" Type="string" />
         <RegistryValue Root="HKLM" Key="Software\Classes\Applications\Lexicon.exe\shell\open\command" Value="&quot;[#LexiconExe]&quot; &quot;%1&quot;" Type="string" />
 
         <ProgId Id="Lexicon.Document" Description="Word Document" Icon="LexiconExe" IconIndex="0" />

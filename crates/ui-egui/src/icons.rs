@@ -29,6 +29,11 @@ impl Pen<'_> {
     }
     fn line_c(&self, pts: &[(f32, f32)], c: Color32) {
         let v: Vec<Pos2> = pts.iter().map(|&(x, y)| self.pt(x, y)).collect();
+        // Round caps and joins: the line work reads softer and more even at every size.
+        let r = self.w * self.s() / 2.0;
+        for q in &v {
+            self.p.circle_filled(*q, r, c);
+        }
         self.p.add(Shape::line(v, self.stroke(c)));
     }
     fn closed(&self, pts: &[(f32, f32)], c: Color32) {
@@ -40,10 +45,34 @@ impl Pen<'_> {
         self.p.add(Shape::convex_polygon(v, c, Stroke::NONE));
     }
     fn rect(&self, x0: f32, y0: f32, x1: f32, y1: f32, c: Color32) {
-        self.p.rect_stroke(Rect::from_min_max(self.pt(x0, y0), self.pt(x1, y1)), 1.0, self.stroke(c), egui::StrokeKind::Middle);
+        self.rrect(x0, y0, x1, y1, 1.0, c);
     }
     fn frect(&self, x0: f32, y0: f32, x1: f32, y1: f32, c: Color32) {
-        self.p.rect_filled(Rect::from_min_max(self.pt(x0, y0), self.pt(x1, y1)), 0.5, c);
+        self.frrect(x0, y0, x1, y1, 0.6, c);
+    }
+    /// A rectangle outline with corners rounded by `r` grid units.
+    fn rrect(&self, x0: f32, y0: f32, x1: f32, y1: f32, r: f32, c: Color32) {
+        let rect = Rect::from_min_max(self.pt(x0, y0), self.pt(x1, y1));
+        self.p.rect_stroke(rect, r * self.s(), self.stroke(c), egui::StrokeKind::Middle);
+    }
+    /// A filled rectangle with corners rounded by `r` grid units.
+    fn frrect(&self, x0: f32, y0: f32, x1: f32, y1: f32, r: f32, c: Color32) {
+        self.p.rect_filled(Rect::from_min_max(self.pt(x0, y0), self.pt(x1, y1)), r * self.s(), c);
+    }
+    /// A soft wash of colour `c` (the fill behind an accent outline).
+    fn tint(c: Color32) -> Color32 {
+        c.linear_multiply(0.16)
+    }
+    /// An arc around (`cx`, `cy`) from angle `a0` to `a1` (radians, clockwise from +x).
+    fn arc(&self, cx: f32, cy: f32, r: f32, a0: f32, a1: f32, c: Color32) {
+        let n = 16;
+        let pts: Vec<(f32, f32)> = (0..=n)
+            .map(|i| {
+                let t = a0 + (a1 - a0) * i as f32 / n as f32;
+                (cx + r * t.cos(), cy + r * t.sin())
+            })
+            .collect();
+        self.line_c(&pts, c);
     }
     fn circle(&self, x: f32, y: f32, r: f32, c: Color32) {
         self.p.circle_stroke(self.pt(x, y), r * self.s(), self.stroke(c));
@@ -88,39 +117,48 @@ pub fn paint(p: &Painter, r: Rect, name: &str, c: Color32, accent: Color32) {
     match name {
         // Clipboard
         "paste" => {
-            pen.rect(4.0, 3.5, 14.0, 17.0, c);
-            pen.frect(7.0, 2.0, 11.0, 5.0, a);
-            pen.frect(9.0, 8.0, 17.5, 18.5, pen.a.linear_multiply(0.18));
-            pen.rect(9.0, 8.0, 17.5, 18.5, a);
-            pen.lines(10.8, 15.8, &[11.0, 13.5, 16.0]);
+            // A clipboard with a sheet laid on it.
+            pen.rrect(3.5, 3.5, 14.5, 17.5, 2.0, c);
+            pen.frrect(6.5, 2.0, 11.5, 5.0, 1.2, a);
+            pen.frrect(9.0, 8.5, 17.5, 18.5, 1.6, Pen::tint(a));
+            pen.rrect(9.0, 8.5, 17.5, 18.5, 1.6, a);
+            pen.line_c(&[(11.5, 12.0), (15.0, 12.0)], a);
+            pen.line_c(&[(11.5, 15.0), (14.0, 15.0)], a);
         }
         "cut" => {
-            pen.circle(6.0, 15.0, 2.5, c);
-            pen.circle(14.0, 15.0, 2.5, c);
-            pen.line(&[(7.5, 13.0), (14.0, 3.0)]);
-            pen.line(&[(12.5, 13.0), (6.0, 3.0)]);
+            pen.circle(6.0, 15.0, 2.6, c);
+            pen.circle(14.0, 15.0, 2.6, a);
+            pen.line(&[(7.6, 13.0), (14.5, 3.0)]);
+            pen.line(&[(12.4, 13.0), (5.5, 3.0)]);
         }
         "copy" => {
-            pen.rect(3.5, 3.0, 12.5, 14.0, c);
-            pen.frect(7.5, 6.5, 16.5, 17.5, Color32::TRANSPARENT);
-            pen.rect(7.5, 6.5, 16.5, 17.5, a);
+            pen.rrect(3.0, 3.0, 12.5, 12.5, 2.0, c);
+            pen.frrect(7.5, 7.5, 17.0, 17.0, 2.0, Pen::tint(a));
+            pen.rrect(7.5, 7.5, 17.0, 17.0, 2.0, a);
         }
         "painter" => {
-            pen.frect(4.0, 3.0, 16.0, 8.0, yellow);
-            pen.rect(4.0, 3.0, 16.0, 8.0, c);
-            pen.line(&[(16.0, 5.5), (17.5, 5.5), (17.5, 10.0), (10.0, 10.0), (10.0, 12.0)]);
-            pen.frect(8.8, 12.0, 11.2, 18.0, c);
+            // A paint roller.
+            pen.frrect(3.5, 3.0, 15.0, 8.0, 1.6, Pen::tint(a));
+            pen.rrect(3.5, 3.0, 15.0, 8.0, 1.6, a);
+            pen.line(&[(15.0, 5.5), (17.0, 5.5), (17.0, 10.5), (10.0, 10.5), (10.0, 12.5)]);
+            pen.frrect(8.6, 12.5, 11.4, 18.5, 1.2, c);
         }
         // Font
         "bold" => pen.text(10.0, 10.5, 15.0, "B", c, true),
-        "italic" => pen.text(10.0, 10.5, 15.0, "I", c, false),
+        "italic" => {
+            pen.line(&[(12.0, 4.0), (8.0, 16.0)]);
+            pen.line(&[(9.0, 4.0), (15.0, 4.0)]);
+            pen.line(&[(5.0, 16.0), (11.0, 16.0)]);
+        }
         "underline" => {
-            pen.text(10.0, 9.0, 14.0, "U", c, false);
-            pen.line(&[(5.0, 17.0), (15.0, 17.0)]);
+            pen.line(&[(6.0, 3.5), (6.0, 9.5)]);
+            pen.line(&[(14.0, 3.5), (14.0, 9.5)]);
+            pen.arc(10.0, 9.5, 4.0, 0.0, std::f32::consts::PI, c);
+            pen.line_c(&[(4.5, 17.0), (15.5, 17.0)], a);
         }
         "strike" => {
             pen.text(10.0, 10.0, 12.0, "ab", c, false);
-            pen.line_c(&[(3.0, 10.5), (17.0, 10.5)], c);
+            pen.line_c(&[(3.0, 10.5), (17.0, 10.5)], a);
         }
         "charborder" => {
             pen.rect(3.0, 3.0, 17.0, 17.0, a);
@@ -140,16 +178,19 @@ pub fn paint(p: &Painter, r: Rect, name: &str, c: Color32, accent: Color32) {
         }
         "grow" => {
             pen.text(8.0, 11.0, 15.0, "A", c, false);
-            pen.fill(&[(14.5, 6.0), (18.5, 6.0), (16.5, 3.0)], a);
+            pen.line_c(&[(14.5, 6.0), (16.5, 4.0), (18.5, 6.0)], a);
         }
         "shrink" => {
             pen.text(8.0, 12.0, 11.0, "A", c, false);
-            pen.fill(&[(14.5, 4.0), (18.5, 4.0), (16.5, 7.0)], a);
+            pen.line_c(&[(14.5, 4.0), (16.5, 6.0), (18.5, 4.0)], a);
         }
         "case" => pen.text(10.0, 10.5, 12.0, "Aa", c, false),
         "clear" => {
-            pen.text(8.0, 9.0, 13.0, "A", c, false);
-            pen.fill(&[(10.0, 15.0), (14.0, 11.0), (18.0, 15.0), (14.0, 19.0)], Color32::from_rgb(0xC9, 0x7B, 0x8E));
+            // An "A" and an eraser.
+            pen.text(7.5, 9.0, 13.0, "A", c, false);
+            pen.fill(&[(10.0, 15.0), (12.0, 13.0), (16.0, 17.0), (14.0, 19.0)], Pen::tint(a));
+            pen.closed(&[(10.0, 15.0), (14.0, 11.0), (18.0, 15.0), (14.0, 19.0)], a);
+            pen.line_c(&[(12.0, 13.0), (16.0, 17.0)], a);
         }
         // Small letters over a large one: text with a reading above it.
         "phonetic" => {
@@ -157,13 +198,14 @@ pub fn paint(p: &Painter, r: Rect, name: &str, c: Color32, accent: Color32) {
             pen.text(10.0, 13.5, 12.5, "A", c, false);
         }
         "highlight" => {
-            pen.fill(&[(5.0, 12.0), (11.0, 4.0), (14.0, 7.0), (8.0, 15.0)], c);
-            pen.line(&[(5.0, 12.0), (3.5, 15.0), (8.0, 15.0)]);
-            pen.frect(2.0, 16.5, 18.0, 19.0, yellow);
+            // A marker drawing a stroke of colour.
+            pen.closed(&[(6.0, 12.5), (12.5, 4.0), (16.0, 7.5), (9.5, 14.5)], c);
+            pen.line(&[(6.0, 12.5), (4.5, 15.0), (7.5, 15.0), (9.5, 14.5)]);
+            pen.frrect(2.5, 16.5, 17.5, 19.0, 1.2, yellow);
         }
         "fontcolor" => {
             pen.text(10.0, 9.0, 14.0, "A", c, false);
-            pen.frect(2.0, 16.5, 18.0, 19.0, red);
+            pen.frrect(2.5, 16.5, 17.5, 19.0, 1.2, red);
         }
         "effects" => {
             pen.text(10.0, 10.0, 15.0, "A", a, true);
@@ -173,31 +215,31 @@ pub fn paint(p: &Painter, r: Rect, name: &str, c: Color32, accent: Color32) {
         // Paragraph
         "bullets" => {
             for (i, y) in [5.0, 10.0, 15.0].iter().enumerate() {
-                pen.fcircle(4.0, *y, 1.4, if i == 0 { a } else { c });
-                pen.line(&[(7.5, *y), (17.0, *y)]);
+                pen.fcircle(4.5, *y, 1.5, if i == 0 { a } else { c });
+                pen.line(&[(8.5, *y), (16.5, *y)]);
             }
         }
         "numbering" => {
             for (i, y) in [5.0, 10.0, 15.0].iter().enumerate() {
-                pen.text(4.0, *y, 6.0, &(i + 1).to_string(), if i == 0 { a } else { c }, true);
-                pen.line(&[(7.5, *y), (17.0, *y)]);
+                pen.text(4.5, *y, 6.0, &(i + 1).to_string(), if i == 0 { a } else { c }, true);
+                pen.line(&[(8.5, *y), (16.5, *y)]);
             }
         }
         "multilevel" => {
             pen.text(3.5, 4.5, 5.5, "1", a, true);
-            pen.line(&[(6.5, 4.5), (17.0, 4.5)]);
+            pen.line(&[(6.5, 4.5), (16.5, 4.5)]);
             pen.text(6.5, 10.0, 5.5, "a", c, true);
-            pen.line(&[(9.5, 10.0), (17.0, 10.0)]);
+            pen.line(&[(9.5, 10.0), (16.5, 10.0)]);
             pen.text(9.5, 15.5, 5.5, "i", c, true);
-            pen.line(&[(12.0, 15.5), (17.0, 15.5)]);
+            pen.line(&[(12.0, 15.5), (16.5, 15.5)]);
         }
         "outdent" | "indent" => {
-            pen.lines(9.0, 17.0, &[7.0, 10.0, 13.0]);
-            pen.lines(3.0, 17.0, &[3.5, 16.5]);
+            pen.lines(9.5, 16.5, &[7.5, 12.5]);
+            pen.lines(3.5, 16.5, &[3.5, 16.5]);
             if name == "indent" {
-                pen.fill(&[(3.0, 7.0), (3.0, 13.0), (6.5, 10.0)], a);
+                pen.line_c(&[(3.5, 7.0), (6.5, 10.0), (3.5, 13.0)], a);
             } else {
-                pen.fill(&[(6.5, 7.0), (6.5, 13.0), (3.0, 10.0)], a);
+                pen.line_c(&[(6.5, 7.0), (3.5, 10.0), (6.5, 13.0)], a);
             }
         }
         "sort" => {
@@ -208,18 +250,18 @@ pub fn paint(p: &Painter, r: Rect, name: &str, c: Color32, accent: Color32) {
         }
         "pilcrow" => pen.text(10.0, 10.5, 15.0, "¶", c, false),
         "alignLeft" => {
-            pen.lines(3.0, 17.0, &[4.0, 10.0, 16.0]);
-            ().then_lines(&pen, 3.0, 12.0, &[7.0, 13.0])
+            pen.lines(3.5, 16.5, &[4.0, 10.0, 16.0]);
+            pen.lines(3.5, 11.5, &[7.0, 13.0]);
         }
         "alignCenter" => {
-            pen.lines(3.0, 17.0, &[4.0, 10.0, 16.0]);
-            ().then_lines(&pen, 6.0, 14.0, &[7.0, 13.0])
+            pen.lines(3.5, 16.5, &[4.0, 10.0, 16.0]);
+            pen.lines(6.5, 13.5, &[7.0, 13.0]);
         }
         "alignRight" => {
-            pen.lines(3.0, 17.0, &[4.0, 10.0, 16.0]);
-            ().then_lines(&pen, 8.0, 17.0, &[7.0, 13.0])
+            pen.lines(3.5, 16.5, &[4.0, 10.0, 16.0]);
+            pen.lines(8.5, 16.5, &[7.0, 13.0]);
         }
-        "justify" => pen.lines(3.0, 17.0, &[4.0, 7.0, 10.0, 13.0, 16.0]),
+        "justify" => pen.lines(3.5, 16.5, &[4.0, 7.0, 10.0, 13.0, 16.0]),
         // Text direction: lines set from the start edge, an arrow in the reading direction.
         "textLtr" => {
             pen.lines(3.0, 14.0, &[4.0, 8.0]);
@@ -240,10 +282,12 @@ pub fn paint(p: &Painter, r: Rect, name: &str, c: Color32, accent: Color32) {
             pen.line_c(&[(2.5, 15.0), (4.5, 17.0), (6.5, 15.0)], a);
         }
         "shading" => {
-            pen.fill(&[(4.0, 9.0), (10.0, 3.0), (16.0, 9.0), (10.0, 15.0)], Color32::TRANSPARENT);
+            // A paint bucket pouring.
+            pen.fill(&[(4.0, 9.0), (10.0, 15.0), (16.0, 9.0)], Pen::tint(a));
             pen.closed(&[(4.0, 9.0), (10.0, 3.0), (16.0, 9.0), (10.0, 15.0)], c);
-            pen.fcircle(16.5, 13.5, 1.6, a);
-            pen.frect(2.0, 16.5, 18.0, 19.0, yellow);
+            pen.line_c(&[(17.0, 11.0), (17.0, 13.0)], a);
+            pen.fcircle(17.0, 13.6, 1.3, a);
+            pen.frrect(2.5, 16.5, 17.5, 19.0, 1.2, yellow);
         }
         "borders" => {
             for y in [3.0, 10.0, 17.0] {
@@ -260,37 +304,42 @@ pub fn paint(p: &Painter, r: Rect, name: &str, c: Color32, accent: Color32) {
         }
         // Editing
         "find" => {
+            pen.frrect(3.0, 3.0, 13.0, 13.0, 5.0, Pen::tint(a));
             pen.circle(8.0, 8.0, 5.0, c);
-            pen.line_c(&[(11.5, 11.5), (17.0, 17.0)], a);
+            pen.line_c(&[(11.8, 11.8), (16.5, 16.5)], a);
         }
         "replace" => {
             pen.text(6.0, 6.0, 8.0, "ab", c, false);
             pen.text(13.0, 15.0, 8.0, "ac", a, false);
-            pen.line(&[(13.0, 3.5), (16.0, 3.5), (16.0, 8.5)]);
+            pen.line(&[(12.5, 4.0), (15.0, 4.0), (16.0, 5.0), (16.0, 8.5)]);
             pen.line(&[(14.5, 7.0), (16.0, 8.5), (17.5, 7.0)]);
         }
         "select" => {
-            // Overlapping convex pieces keep the concave arrow intact without antialiasing seams.
-            pen.fill(&[(5.0, 3.0), (5.0, 16.0), (14.0, 12.0)], c);
-            pen.fill(&[(8.0, 13.0), (10.5, 18.0), (12.5, 17.0), (10.0, 12.0)], c);
+            // A pointer, outlined, with a wash of the accent.
+            pen.fill(&[(5.5, 3.5), (5.5, 15.5), (14.0, 11.5)], Pen::tint(a));
+            pen.closed(&[(5.5, 3.5), (5.5, 15.5), (8.6, 12.6), (10.8, 17.4), (12.8, 16.5), (10.6, 11.9), (14.5, 11.5)], c);
         }
         "dictate" => {
-            pen.rect(7.5, 2.5, 12.5, 12.0, c);
-            pen.line(&[(5.0, 9.5), (5.0, 11.0), (10.0, 15.0), (15.0, 11.0), (15.0, 9.5)]);
-            pen.line(&[(10.0, 15.0), (10.0, 18.0)]);
+            // A microphone.
+            pen.frrect(7.5, 2.5, 12.5, 12.0, 2.5, Pen::tint(a));
+            pen.rrect(7.5, 2.5, 12.5, 12.0, 2.5, a);
+            pen.arc(10.0, 9.5, 5.0, 0.0, std::f32::consts::PI, c);
+            pen.line(&[(10.0, 14.5), (10.0, 17.5)]);
+            pen.line(&[(7.0, 17.5), (13.0, 17.5)]);
         }
         "editor" | "spelling" => {
             pen.text(8.0, 7.0, 9.0, "abc", c, true);
             pen.line_c(&[(5.0, 13.0), (8.5, 16.5), (16.0, 9.0)], green);
         }
         "styles" => {
-            pen.text(10.0, 10.0, 14.0, "A", a, false);
-            pen.line(&[(13.0, 15.0), (17.0, 11.0)]);
+            pen.frrect(2.5, 2.5, 17.5, 17.5, 3.0, Pen::tint(a));
+            pen.text(10.0, 10.0, 13.0, "Aa", a, false);
         }
         "stylesPane" => {
-            pen.rect(3.0, 3.0, 17.0, 17.0, c);
+            pen.rrect(3.0, 3.0, 17.0, 17.0, 2.5, c);
             pen.line(&[(11.0, 3.0), (11.0, 17.0)]);
             pen.text(7.0, 10.0, 8.0, "A", a, false);
+            pen.lines(13.0, 15.0, &[7.0, 10.0, 13.0]);
         }
         // Insert
         "coverPage" => {
@@ -1580,16 +1629,6 @@ fn shape(pen: &Pen, kind: &str) -> bool {
     true
 }
 
-trait ThenLines {
-    fn then_lines(self, pen: &Pen, x0: f32, x1: f32, ys: &[f32]);
-}
-
-impl ThenLines for () {
-    fn then_lines(self, pen: &Pen, x0: f32, x1: f32, ys: &[f32]) {
-        pen.lines(x0, x1, ys);
-    }
-}
-
 /// Draw an Insert › Icons library icon into `r` in `c`, from the same path data the inserted
 /// picture is rendered from (`wordcraft_render::icon_lib`).
 pub fn library(p: &Painter, r: Rect, icon: &wordcraft_render::icon_lib::Icon, c: Color32) {
@@ -1610,5 +1649,139 @@ pub fn library(p: &Painter, r: Rect, icon: &wordcraft_render::icon_lib::Icon, c:
             }
             p.add(Shape::line(pts, stroke));
         }
+    }
+}
+
+/// A gallery of icons as SVG, to look at them without a GPU: `ICON_GALLERY=out.svg cargo test -p
+/// wordcraft-ui-egui --lib icons::gallery -- --ignored` (render it with any SVG viewer).
+#[cfg(test)]
+mod gallery {
+    use egui::epaint::{ColorMode, Shape};
+
+    fn hex(c: egui::Color32) -> String {
+        let [r, g, b, a] = c.to_srgba_unmultiplied();
+        format!("#{r:02x}{g:02x}{b:02x}\" fill-opacity=\"{:.2}", f32::from(a) / 255.0)
+    }
+
+    fn stroke_hex(c: egui::Color32) -> String {
+        let [r, g, b, a] = c.to_srgba_unmultiplied();
+        format!("#{r:02x}{g:02x}{b:02x}\" stroke-opacity=\"{:.2}", f32::from(a) / 255.0)
+    }
+
+    fn svg(shape: &Shape, out: &mut String) {
+        use std::fmt::Write as _;
+        match shape {
+            Shape::Vec(v) => v.iter().for_each(|s| svg(s, out)),
+            Shape::LineSegment { points, stroke } => {
+                let _ = write!(
+                    out,
+                    r#"<line x1="{}" y1="{}" x2="{}" y2="{}" stroke="{}" stroke-width="{}" stroke-linecap="round"/>"#,
+                    points[0].x,
+                    points[0].y,
+                    points[1].x,
+                    points[1].y,
+                    stroke_hex(stroke.color),
+                    stroke.width
+                );
+            }
+            Shape::Path(p) => {
+                let pts: Vec<String> = p.points.iter().map(|q| format!("{},{}", q.x, q.y)).collect();
+                let tag = if p.closed { "polygon" } else { "polyline" };
+                let fill = if p.closed && p.fill.a() > 0 { hex(p.fill) } else { "none".into() };
+                let stroke = match p.stroke.color {
+                    ColorMode::Solid(c) if p.stroke.width > 0.0 => stroke_hex(c),
+                    _ => "none".into(),
+                };
+                let _ = write!(
+                    out,
+                    r#"<{tag} points="{}" fill="{fill}" stroke="{stroke}" stroke-width="{}" stroke-linejoin="round" stroke-linecap="round"/>"#,
+                    pts.join(" "),
+                    p.stroke.width
+                );
+            }
+            Shape::Rect(r) => {
+                let fill = if r.fill.a() > 0 { hex(r.fill) } else { "none".into() };
+                let stroke = if r.stroke.width > 0.0 { stroke_hex(r.stroke.color) } else { "none".into() };
+                let _ = write!(
+                    out,
+                    r#"<rect x="{}" y="{}" width="{}" height="{}" rx="{}" fill="{fill}" stroke="{stroke}" stroke-width="{}"/>"#,
+                    r.rect.min.x,
+                    r.rect.min.y,
+                    r.rect.width(),
+                    r.rect.height(),
+                    f32::from(r.corner_radius.nw),
+                    r.stroke.width
+                );
+            }
+            Shape::Circle(c) => {
+                let fill = if c.fill.a() > 0 { hex(c.fill) } else { "none".into() };
+                let stroke = if c.stroke.width > 0.0 { stroke_hex(c.stroke.color) } else { "none".into() };
+                let _ = write!(
+                    out,
+                    r#"<circle cx="{}" cy="{}" r="{}" fill="{fill}" stroke="{stroke}" stroke-width="{}"/>"#,
+                    c.center.x, c.center.y, c.radius, c.stroke.width
+                );
+            }
+            Shape::Text(t) => {
+                let job = &t.galley.job;
+                let size = job.sections.first().map_or(10.0, |s| s.format.font_id.size);
+                let color = job.sections.first().map_or(egui::Color32::BLACK, |s| s.format.color);
+                let color = if color == egui::Color32::PLACEHOLDER { t.fallback_color } else { color };
+                let r = t.galley.rect.translate(t.pos.to_vec2());
+                let weight =
+                    if job.sections.first().is_some_and(|s| format!("{:?}", s.format.font_id.family).contains("semibold")) { 600 } else { 400 };
+                let text = job.text.replace('&', "&amp;").replace('<', "&lt;");
+                let _ = write!(
+                    out,
+                    r#"<text x="{}" y="{}" font-family="Inter, sans-serif" font-weight="{weight}" font-size="{size}" text-anchor="middle" dominant-baseline="central" fill="{}">{text}</text>"#,
+                    r.center().x,
+                    r.center().y,
+                    hex(color)
+                );
+            }
+            _ => {}
+        }
+    }
+
+    #[test]
+    #[ignore = "writes a picture to look at; set ICON_GALLERY"]
+    fn gallery() {
+        let Some(path) = std::env::var_os("ICON_GALLERY") else { return };
+        let names: Vec<String> = std::env::var("ICON_NAMES").unwrap_or_default().split(',').filter(|s| !s.is_empty()).map(str::to_string).collect();
+        let ctx = egui::Context::default();
+        crate::theme::install_fonts(&ctx);
+        let t = crate::theme::Tokens::ivory();
+        let size: f32 = std::env::var("ICON_SIZE").ok().and_then(|v| v.parse().ok()).unwrap_or(64.0);
+        let (cell, cols) = (size * 1.5, 8usize);
+        ctx.run_ui(egui::RawInput::default(), |_| {}).textures_delta.clear();
+        let mut out = ctx.run_ui(egui::RawInput::default(), |ui| {
+            let p = ui.ctx().layer_painter(egui::LayerId::background());
+            for (i, name) in names.iter().enumerate() {
+                let (x, y) = ((i % cols) as f32 * cell, (i / cols) as f32 * cell);
+                let r = egui::Rect::from_min_size(egui::pos2(x + (cell - size) / 2.0, y + 6.0), egui::vec2(size, size));
+                super::paint(&p, r, name, t.icon, t.accent);
+            }
+        });
+        let rows = names.len().div_ceil(cols);
+        let (w, h) = (cell * cols as f32, cell * rows as f32);
+        let mut body = String::new();
+        for s in &out.shapes {
+            svg(&s.shape, &mut body);
+        }
+        let mut labels = String::new();
+        for (i, name) in names.iter().enumerate() {
+            let (x, y) = ((i % cols) as f32 * cell, (i / cols) as f32 * cell);
+            labels.push_str(&format!(
+                r##"<text x="{}" y="{}" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#888">{name}</text>"##,
+                x + cell / 2.0,
+                y + cell - 10.0
+            ));
+        }
+        let doc = format!(
+            r#"<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}"><rect width="{w}" height="{h}" fill="{}"/>{body}{labels}</svg>"#,
+            hex(t.ribbon).split('"').next().unwrap_or("#fff")
+        );
+        std::fs::write(path, doc).unwrap();
+        out.textures_delta.clear();
     }
 }

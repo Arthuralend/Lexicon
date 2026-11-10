@@ -519,6 +519,24 @@ pub(super) fn col(s: &mut Session, right: bool) -> CmdResult {
     fix_caret(s, &tp, r, if right { c + 1 } else { c })
 }
 
+/// Lexicon: Cut of whole rows (or the whole table), as Word does it: the rows go, not just their
+/// text. `None` when the selection isn't whole rows of a table (Cut deletes the selection then).
+pub(crate) fn cut_rows(s: &mut Session) -> Option<CmdResult> {
+    let (tp, _, _) = cell(s).ok()?;
+    let story = s.sel.focus.story;
+    let cells = selected_cells(s);
+    let t = s.doc.table(story, &tp)?;
+    let rows: std::collections::BTreeSet<usize> = cells.iter().map(|x| x.0).collect();
+    let whole = rows.len() > 1
+        || rows
+            .iter()
+            .all(|r| t.rows.get(*r).is_some_and(|row| cells.iter().filter(|x| x.0 == *r).count() == row.cells.len() && row.cells.len() > 1));
+    if rows.is_empty() || !whole {
+        return None;
+    }
+    Some(del_row(s, &Value::Null))
+}
+
 fn del_row(s: &mut Session, _: &Value) -> CmdResult {
     let (tp, r, _) = cell(s)?;
     let rows: std::collections::BTreeSet<usize> = selected_cells(s).into_iter().map(|x| x.0).collect();

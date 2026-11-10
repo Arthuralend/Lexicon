@@ -8566,3 +8566,52 @@ fn opened_documents_do_not_hyphenate_by_themselves() {
     s.set_document(d);
     assert!(!s.doc.settings.auto_hyphenation);
 }
+
+/// Lexicon: cells of one table copy as a table, as in Word: the whole table, a row, or cells of
+/// one row (a selection across rows takes whole rows); a selection in one cell copies its text.
+#[test]
+fn selected_cells_copy_as_a_table() {
+    let mut s = s();
+    run(&mut s, "insert.table", json!({"rows": 3, "cols": 3}));
+    for r in 0..3u32 {
+        for c in 0..3u32 {
+            let p = wordcraft_doc::Pos { story: StoryRef::Body, path: wordcraft_doc::Path(vec![0, r, c, 0]), off: 0 };
+            s.sel = crate::Selection::caret(p);
+            run(&mut s, "text.insert", json!({"text": format!("r{r}c{c}")}));
+        }
+    }
+    let at = |r: u32, c: u32, off: usize| wordcraft_doc::Pos { story: StoryRef::Body, path: wordcraft_doc::Path(vec![0, r, c, 0]), off };
+    let copied = |s: &mut Session, a, b| {
+        s.sel = crate::Selection { anchor: a, focus: b };
+        run(s, "edit.copy", json!({}));
+        let f = s.clipboard.clone().unwrap();
+        f.blocks.first().and_then(|b| b.as_table()).map(|t| t.rows.iter().map(|r| r.cells.len()).collect::<Vec<_>>())
+    };
+    assert_eq!(copied(&mut s, at(0, 0, 0), at(2, 2, 4)), Some(vec![3, 3, 3]), "the whole table");
+    assert_eq!(copied(&mut s, at(1, 0, 0), at(1, 1, 2)), Some(vec![2]), "two cells of a row");
+    assert_eq!(copied(&mut s, at(0, 1, 0), at(1, 0, 2)), Some(vec![3, 3]), "across rows: whole rows");
+    assert_eq!(copied(&mut s, at(1, 1, 0), at(1, 1, 3)), None, "inside one cell: its text");
+    assert_eq!(s.clipboard_text, "r1c");
+}
+
+/// Lexicon: Cut of a selected table takes the table away, and of whole rows those rows, as in
+/// Word (it used to leave the table with its cells emptied); Paste puts it back.
+#[test]
+fn cut_of_a_table_or_whole_rows_removes_them() {
+    let mut s = s();
+    run(&mut s, "text.insert", json!({"text": "Before"}));
+    run(&mut s, "text.newParagraph", json!({}));
+    run(&mut s, "insert.table", json!({"rows": 3, "cols": 2}));
+    run(&mut s, "text.insert", json!({"text": "x"}));
+    let tables = |s: &Session| s.doc.body.iter().filter(|b| b.as_table().is_some()).count();
+    let rows = |s: &Session| s.doc.body.iter().find_map(|b| b.as_table()).map_or(0, |t| t.rows.len());
+    let at = |r: u32, c: u32| wordcraft_doc::Pos { story: StoryRef::Body, path: wordcraft_doc::Path(vec![1, r, c, 0]), off: 0 };
+    s.sel = crate::Selection { anchor: at(0, 0), focus: at(1, 1) };
+    run(&mut s, "edit.cut", json!({}));
+    assert_eq!((tables(&s), rows(&s)), (1, 1), "two whole rows cut");
+    run(&mut s, "table.selectTable", json!({}));
+    run(&mut s, "edit.cut", json!({}));
+    assert_eq!(tables(&s), 0, "the whole table cut");
+    run(&mut s, "edit.paste", json!({}));
+    assert_eq!(tables(&s), 1, "and pasted back");
+}

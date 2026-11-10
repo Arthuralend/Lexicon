@@ -278,7 +278,7 @@ pub fn clip_comment(doc: &Document, f: &Fragment) -> String {
 }
 
 /// The full copy another window of the app put in `html`, if any ([`clip_comment`]).
-fn clip_document(html: &str) -> Option<Document> {
+pub fn clip_document(html: &str) -> Option<Document> {
     let start = html.find(CLIP_MARKER)? + CLIP_MARKER.len();
     let end = start + html.get(start..)?.find("-->")?;
     let bytes = super::insert::base64_decode(html.get(start..end)?)?;

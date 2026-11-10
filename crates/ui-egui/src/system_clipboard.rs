@@ -73,9 +73,11 @@ pub(crate) fn fill(app: &mut WordApp, id: &str, params: &mut Value) -> Option<Re
 /// replace the HTML, so only one of them runs.
 pub(crate) fn put(app: &WordApp, ctx: &egui::Context, text: &str, html: &str, mathml: &str) {
     if text.is_empty() {
-        // A copied picture or shape has no text, only HTML (#2276): empty the clipboard's text,
-        // else Paste would find the text copied before it and paste that instead of our copy.
-        if !html.is_empty() {
+        // A copied picture or shape has no text, only HTML (#2276). Lexicon: the HTML goes on the
+        // clipboard with an empty text, so the app's other windows can paste the picture (the
+        // HTML carries the whole copy); where it can't be set, empty the clipboard's text, else
+        // Paste would find the text copied before it and paste that instead of our copy.
+        if !html.is_empty() && !app.services.set_clipboard_html.as_ref().is_some_and(|f| f(html, "", mathml)) {
             ctx.copy_text(String::new());
         }
         return;
@@ -286,5 +288,105 @@ mod tests {
         let got_now = got.borrow().clone();
         assert_eq!(got_now.len(), 3);
         assert!(got_now[2].2.starts_with("<math") && got_now[2].2.contains("<msub>") && got_now[2].1 == "y=2x_s", "{got_now:?}");
+    }
+}
+
+#[cfg(test)]
+mod copies_between_windows {
+    use super::*;
+    use crate::Services;
+    use serde_json::json;
+    use std::cell::RefCell;
+    use std::rc::Rc;
+    use wordcraft_engine::Session;
+
+    /// A system clipboard shared by the windows: its text and HTML.
+    type Board = Rc<RefCell<(String, String)>>;
+
+    fn app(board: &Board) -> WordApp {
+        let (b1, b2, b3) = (board.clone(), board.clone(), board.clone());
+        let services = Services {
+            clipboard_text: Some(Box::new(move || Some(b1.borrow().0.clone()))),
+            clipboard_html: Some(Box::new(move || Some(b2.borrow().1.clone()).filter(|h| !h.is_empty()))),
+            set_clipboard_html: Some(Box::new(move |html, text, _| {
+                *b3.borrow_mut() = (text.to_string(), html.to_string());
+                true
+            })),
+            clipboard_picture: Some(Box::new(|| None)),
+            ..Default::default()
+        };
+        WordApp::new(Session::new(wordcraft_doc::Document::new()), services)
+    }
+
+    fn png() -> String {
+        let mut png = Vec::new();
+        image::RgbaImage::from_pixel(2, 2, image::Rgba([200, 30, 30, 255]))
+            .write_to(&mut std::io::Cursor::new(&mut png), image::ImageFormat::Png)
+            .unwrap();
+        wordcraft_engine::cmd::insert::base64_encode(&png)
+    }
+
+    /// A document with a 2×2 table whose first cell holds "cell" and a picture (selected).
+    fn table_with_picture(board: &Board) -> WordApp {
+        let mut a = app(board);
+        a.run("text.insert", json!({"text": "Before"})).unwrap();
+        a.run("text.newParagraph", json!({})).unwrap();
+        a.run("insert.table", json!({"rows": 2, "cols": 2})).unwrap();
+        a.run("text.insert", json!({"text": "cell"})).unwrap();
+        let r = a.run("insert.picture", json!({"data": png()}));
+        a.select_inserted_picture(&r);
+        a
+    }
+
+    /// Ctrl+C then Ctrl+V as the keyboard does them: the copy goes on the shared clipboard, and the
+    /// paste event carries its text (none for a picture alone: the key's release pastes then).
+    fn copy_paste(from: &mut WordApp, to: Option<&mut WordApp>, board: &Board) {
+        let r = from.run("edit.copy", json!({})).unwrap();
+        put_result(from, &egui::Context::default(), &r);
+        let to = to.unwrap_or(from);
+        to.run("caret.docEnd", json!({})).unwrap();
+        let text = board.borrow().0.clone();
+        let params = if text.is_empty() { json!({}) } else { json!({ "text": text }) };
+        to.run("edit.paste", params).unwrap();
+    }
+
+    fn tables(a: &WordApp) -> usize {
+        a.session.doc.body.iter().filter(|b| b.as_table().is_some()).count()
+    }
+
+    fn pictures(a: &WordApp) -> usize {
+        serde_json::to_string(&a.session.doc.body).unwrap().matches("\"media\"").count()
+    }
+
+    /// Lexicon: a selected table (its cells, as the table handle or a drag selects them) copies as
+    /// a table with its picture, in the same window and into another one; it used to arrive as its
+    /// cells' text in paragraphs.
+    #[test]
+    fn a_selected_table_pastes_as_a_table_with_its_picture() {
+        for other in [false, true] {
+            let board: Board = Rc::new(RefCell::new(Default::default()));
+            let mut a = table_with_picture(&board);
+            a.run("table.selectTable", json!({})).unwrap();
+            let mut b = app(&board);
+            copy_paste(&mut a, other.then_some(&mut b), &board);
+            let to = if other { &b } else { &a };
+            assert_eq!(tables(to), if other { 1 } else { 2 }, "other window: {other}");
+            assert_eq!(pictures(to), if other { 1 } else { 2 }, "other window: {other}");
+            assert!(!to.session.doc.media.is_empty());
+        }
+    }
+
+    /// Lexicon: a picture copied alone (here from a table cell) reaches the clipboard as HTML, so
+    /// another window pastes it; it used to empty the clipboard ("the clipboard is empty").
+    #[test]
+    fn a_picture_copied_alone_pastes_in_another_window() {
+        for other in [false, true] {
+            let board: Board = Rc::new(RefCell::new(Default::default()));
+            let mut a = table_with_picture(&board);
+            let mut b = app(&board);
+            copy_paste(&mut a, other.then_some(&mut b), &board);
+            let to = if other { &b } else { &a };
+            assert_eq!(pictures(to), if other { 1 } else { 2 }, "other window: {other}");
+        }
     }
 }

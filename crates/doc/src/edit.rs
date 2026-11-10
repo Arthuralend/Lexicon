@@ -619,6 +619,28 @@ impl Document {
         Fragment { blocks, parts }
     }
 
+    /// The cells of the table at `table` that `keep(row, cell)` selects, as a table of their own
+    /// (with the text boxes they show): what Copy takes when the selection is cells of one table,
+    /// as in Word, rather than their text. Rows left with no cell are dropped; `None` when no
+    /// cell is kept or there is no table there.
+    pub fn table_fragment(&self, story: crate::StoryRef, table: &Path, keep: &dyn Fn(usize, usize) -> bool) -> Option<Fragment> {
+        let mut t = self.table(story, table)?.clone();
+        let rows = std::mem::take(&mut t.rows);
+        for (r, mut row) in rows.into_iter().enumerate() {
+            let cells = std::mem::take(&mut row.cells);
+            row.cells = cells.into_iter().enumerate().filter(|(c, _)| keep(r, *c)).map(|(_, cell)| cell).collect();
+            if !row.cells.is_empty() {
+                t.rows.push(row);
+            }
+        }
+        if t.rows.is_empty() {
+            return None;
+        }
+        let blocks = vec![Block::Table(t)];
+        let parts = self.text_box_parts(&blocks);
+        Some(Fragment { blocks, parts })
+    }
+
     /// The whole body as a fragment (with its text boxes), to insert into another document.
     pub fn body_fragment(&self) -> Fragment {
         let blocks: Vec<Block> = self.body.iter().map(|b| (**b).clone()).collect();

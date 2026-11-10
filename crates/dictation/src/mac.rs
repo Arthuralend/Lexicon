@@ -83,7 +83,7 @@ fn begin(lang: &str, sink: Sink) -> Result<(), String> {
     // raise an Objective-C exception that ends the app.
     // SAFETY: plain getters on a valid format.
     if unsafe { format.sampleRate() } <= 0.0 || unsafe { format.channelCount() } == 0 {
-        return Err("Lexicon can't use the microphone: allow it in System Settings › Privacy & Security › Microphone".into());
+        return Err("Документы can't use the microphone: allow it in System Settings › Privacy & Security › Microphone".into());
     }
     let feed = request.clone();
     let tap = RcBlock::new(move |buffer: NonNull<AVAudioPCMBuffer>, _when: NonNull<AVAudioTime>| {

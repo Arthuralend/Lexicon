@@ -1234,9 +1234,7 @@ fn home(app: &mut WordApp, ui: &mut Ui) {
             }
         });
     });
-    group(ui, "Editor", None, app, |ui, app| {
-        big(ui, app, "editor", "Editor", "review.spelling", json!({}), false);
-    });
+    // Lexicon: no Editor group on Home (Spelling & Grammar stays on the Review tab and F7).
 }
 
 fn insert(app: &mut WordApp, ui: &mut Ui) {

@@ -172,11 +172,45 @@ fn copy(s: &mut Session, _: &Value) -> CmdResult {
     if a == b {
         return Ok(json!({"text": ""}));
     }
-    let f = s.doc.copy_range(&a, &b);
+    let f = table_copy(s, &a, &b).unwrap_or_else(|| s.doc.copy_range(&a, &b));
     s.clipboard_text = f.clipboard_text();
     s.clip_history.push(&f, &s.clipboard_text);
     s.clipboard = Some(f);
     Ok(copy_result(s))
+}
+
+/// Lexicon: a selection of cells of one table (from one cell to another, whole rows, the whole
+/// table) copies those cells as a table, as Word does, rather than their text in paragraphs: the
+/// cell range the selection holds, else the cells between its ends (whole rows once it spans
+/// rows). The innermost table that has the ends in different cells is the one copied.
+fn table_copy(s: &Session, a: &wordcraft_doc::Pos, b: &wordcraft_doc::Pos) -> Option<wordcraft_doc::edit::Fragment> {
+    if let Some(cr) = s.cell_range() {
+        let t = s.doc.table(cr.story, &cr.table)?;
+        let cells = cr.cells(t);
+        return s.doc.table_fragment(cr.story, &cr.table, &|r, c| cells.contains(&(r, c)));
+    }
+    if a.story != b.story {
+        return None;
+    }
+    let (pa, pb) = (&a.path.0, &b.path.0);
+    let mut best = None;
+    let mut len = 1usize;
+    // A table's path is a prefix both ends share; their row and cell follow it.
+    while len.saturating_add(1) < pa.len().min(pb.len()) && pa.get(..len) == pb.get(..len) {
+        let path = wordcraft_doc::Path(pa.get(..len)?.to_vec());
+        if s.doc.table(a.story, &path).is_some() {
+            let ends = (pa.get(len)?, pa.get(len + 1)?, pb.get(len)?, pb.get(len + 1)?);
+            if (ends.0, ends.1) != (ends.2, ends.3) {
+                best = Some((path, ends));
+            }
+        }
+        len = len.saturating_add(1);
+    }
+    let (path, (ra, ca, rb, cb)) = best?;
+    let (ra, ca, rb, cb) = (*ra as usize, *ca as usize, *rb as usize, *cb as usize);
+    let (r0, r1) = (ra.min(rb), ra.max(rb));
+    let (c0, c1) = (ca.min(cb), ca.max(cb));
+    s.doc.table_fragment(a.story, &path, &|r, c| if r0 == r1 { r == r0 && (c0..=c1).contains(&c) } else { (r0..=r1).contains(&r) })
 }
 
 /// What Copy and Cut return: the clipboard's text, and the copy as HTML (equations as MathML,
@@ -204,6 +238,13 @@ pub(crate) fn copy_result(s: &mut Session) -> Value {
 
 fn cut(s: &mut Session, v: &Value) -> CmdResult {
     let r = copy(s, v)?;
+    // Lexicon: whole rows of a table (or the whole table), copied as a table, are cut away.
+    let table_cut = s.clipboard.as_ref().is_some_and(|f| f.blocks.len() == 1 && f.blocks.first().is_some_and(|b| b.as_table().is_some()));
+    if table_cut && let Some(done) = super::table::cut_rows(s) {
+        done?;
+        super::controls::restore_placeholder(s)?;
+        return Ok(r);
+    }
     // A tracked cut of a paragraph or sentence may become a move when pasted.
     if !super::moves::cut_tracked(s)? {
         delete_selection(s)?;
